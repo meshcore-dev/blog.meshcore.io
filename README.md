@@ -1,6 +1,6 @@
-# Liam Cottle's Blog
+# MeshCore Blog
 
-[https://blog.liamcottle.com](https://blog.liamcottle.com)
+[https://blog.meshcore.io](https://blog.meshcore.io)
 
 ## Build Locally
 

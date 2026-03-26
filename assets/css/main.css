@@ -8,7 +8,23 @@
 @layer components {
 
     .bg-theme {
-        @apply bg-white dark:bg-gray-700;
+        @apply bg-white dark:bg-gray-900 print:bg-white;
+    }
+
+    .bg-nav {
+        background: rgba(17, 24, 39);
+        backdrop-filter: blur(12px);
+        @apply border-b border-gray-800;
+    }
+
+    .btn-white {
+        background-color: #ffffff;
+        color: #111827;
+        transition: opacity 0.2s;
+    }
+
+    .btn-white:hover {
+        opacity: 0.9;
     }
 
     h1, h2 {

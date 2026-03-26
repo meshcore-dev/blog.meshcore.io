@@ -1,20 +1,22 @@
-url: "https://blog.liamcottle.com"
+url: "https://blog.meshcore.io"
 baseurl: ""
-title: "Liam Cottle's Blog"
-subtitle: "🇳🇿 New Zealand"
-description: "Rambles from a self taught Software Engineer"
-image: "assets/images/avatar.jpg"
+title: "MeshCore Blog"
+subtitle: "Posts from the MeshCore Developers"
+description: "Posts from the MeshCore Developers"
+image: "assets/images/icon.png"
 permalink: ":year/:month/:day/:title"
 
-author:
-  name: "Liam Cottle"
-  avatar: "assets/images/avatar.jpg"
+logo: "assets/images/icon.png"
 
-intro:
-  title: "Hey there 👋"
-  description: |
-    Welcome to my blog. I write about software, hardware, security vulnerabilities and anything else I find interesting.
-    Hopefully you'll find something that interests you too. Feel free to explore my postings!
+authors:
+  liamcottle:
+    name: "Liam Cottle"
+    title: "MeshCore App Developer"
+    avatar: "assets/images/authors/liamcottle.jpg"
+  scottpowell:
+    name: "Scott Powell"
+    title: "Lead Firmware Developer"
+    avatar: "assets/images/authors/scottpowell.png"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"
@@ -23,10 +25,6 @@ twitter_url: "https://twitter.com/liamcottle"
 contact_url: "https://liamcottle.com/contact"
 linkedin_url: "https://www.linkedin.com/in/liamcottle/"
 paypal_url: "https://paypal.me/liamcarncottle"
-
-# analytics
-google_analytics_measurement_id: "G-S3724X6D5M"
-hitsteps_tracking_id: "d3f1847a76c4933f532da4ae84a36a0be183b"
 
 plugins:
   - jekyll-feed

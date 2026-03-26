@@ -1,7 +1,7 @@
 {
-  "name": "Liam Cottle's Blog",
-  "short_name": "Liam Cottle's Blog",
-  "description": "Rambles from a self taught Software Engineer",
+  "name": "MeshCore Blog",
+  "short_name": "MeshCore Blog",
+  "description": "Posts from the MeshCore Developers",
   "scope": "/",
   "start_url": "/?utm_source=homescreen&utm_medium=shortcut",
   "icons": [
