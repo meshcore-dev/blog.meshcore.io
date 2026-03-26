@@ -3,9 +3,8 @@ layout: post
 date: 2026-03-06 12:00:00 +1200
 title: "Path Diagnostics Improvements"
 description: "With the v1.14.0 firmware releases comes support for what is known as 'multibyte path hashes'"
-image: "assets/images/2026/03/06/032259_1772767377598_meshgraph.png"
+image: "assets/images/2026/03/06/meshgraph.png"
 author: scottpowell
-pinned: true
 ---
 With the v1.14.0 firmware releases comes support for what is known as 'multibyte path hashes'. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.
 

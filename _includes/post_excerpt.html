@@ -1,9 +1,14 @@
-<article class="my-4">
+<article class="border p-2 shadow rounded-xl">
     <h3 class="w-full">
         <a href="{{ post.url }}">
-            <div class="flex flex-col sm:flex-row">
-                <div class="order-2 sm:order-1 sm:mr-1 underline underline-offset-4 font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500 dark:text-white dark:decoration-gray-400 dark:hover:decoration-gray-300">{{ post.title | escape }}</div>
-                <div class="order-1 sm:order-2 sm:ml-auto text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ post.date | date: "%B %d, %Y" }}</div>
+            <div class="flex mb-1">
+                <img class="w-full h-60 rounded-md object-cover" src="{{ post.image | relative_url }}"/>
+            </div>
+            <div class="flex flex-col">
+                <div class="font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500 dark:text-white dark:decoration-gray-400 dark:hover:decoration-gray-300">{{ post.title | escape }}</div>
+                <div class="text-sm text-gray-500 dark:text-gray-300">
+                    <span>{{ post.date | date: "%B %d, %Y" }} • By {{ site.authors[post.author].name }}</span>
+                </div>
             </div>
         </a>
     </h3>
