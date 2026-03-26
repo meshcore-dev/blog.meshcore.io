@@ -33,6 +33,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          cname: blog.liamcottle.com
+          cname: blog.meshcore.io
           publish_dir: ./_site
           publish_branch: 'gh-pages'
