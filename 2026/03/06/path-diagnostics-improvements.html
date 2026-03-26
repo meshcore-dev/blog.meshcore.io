@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1774540199">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1774540199">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Path Diagnostics Improvements - MeshCore Blog</title>
+  <meta name="title" content="Path Diagnostics Improvements - MeshCore Blog">
+  <meta name="description" content="With the v1.14.0 firmware releases comes support for what is known as &#39;multibyte path hashes&#39;">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements">
+  <meta property="og:title" content="Path Diagnostics Improvements - MeshCore Blog">
+  <meta property="og:description" content="With the v1.14.0 firmware releases comes support for what is known as &#39;multibyte path hashes&#39;">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements">
+  <meta property="twitter:title" content="Path Diagnostics Improvements - MeshCore Blog">
+  <meta property="twitter:description" content="With the v1.14.0 firmware releases comes support for what is known as &#39;multibyte path hashes&#39;">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png">
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="w-auto h-6 sm:h-7">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Scott Powell</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Path Diagnostics Improvements</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">March 06, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">5 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p>With the v1.14.0 firmware releases comes support for what is known as ‘multibyte path hashes’. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.</p>
+
+<p><img src="/assets/images/2026/03/06/meshgraph.png" alt="" /></p>
+
+<p><strong>What is it, and how does it work?</strong></p>
+
+<p>Origin/sender nodes can now specify whether a flood packet should use 1, 2 or 3 byte path hashes (ie. the pubkey prefixes). Repeaters that are on v1.14.0 or later will then append their own ID/hash with the given hash size before forwarding. So, this scheme is completely backward compatible. Origin nodes can still send packets in the 1-byte path hash size, and these will propagate as normal.</p>
+
+<p>When a node receives a path, and then uses it in direct mode, the whole path can be in 1, 2 or 3 byte encoding. Each sending node can handle having a mix of contacts/other nodes, with paths to each being in any of the above encodings. So, a gradual move over to these encodings is supported.</p>
+
+<p>However, it will take sometime until enough repeaters have updated to v1.14.0, and if an older repeater receives a packet with path hash size 2 or 3, it will simply discard the packet.</p>
+
+<p><strong>Ripple UI Changes</strong></p>
+
+<p>The main change comes in the <strong>Optimise</strong> screen:</p>
+
+<p><img src="/assets/images/2026/03/06/newoptimise.png" alt="" /></p>
+
+<p>By default, the new <strong>Path hash size</strong> preference is <strong>1</strong>. This is the legacy setting. You can set this to 1, 2 or 3. So, every flood mode packet your device sends (eg. adverts, messages, telemetry requests, etc) will use this mode/size. If the destination node is successfully reached, and path returned, it will use this path encoding, and stored for later direct mode use.</p>
+
+<p>When you go into the <strong>Message Details</strong> screens, from group chats for example, the message path details will show the path hops with the finer grained (ie. <em>wider</em>) path hashes, so the node names that these resolve to will be much more accurate.</p>
+
+<p>Same with the <strong>Node Details</strong> screens (from <strong>Discover</strong>). The advert path details screen will have the more accurate path/hops break down.</p>
+
+<p>Also, the map on the home screen will show path vector lines with more accuracy.</p>
+
+<p>NOTE: These changes will be in the <strong>v9.2 release</strong>, which will be within the next day or so.</p>
+
+<p><strong>Android/iOS App Changes</strong></p>
+
+<p>Liam has <a href="https://meshcore.nz/">released v1.41.0</a> which now supports the multibyte path hashes. For now, the global setting is in the <strong>Experimental Settings</strong>. When more/most repeaters support this, it will be moved to the main Settings screen:</p>
+
+<p><img src="/assets/images/2026/03/06/Screenshot_20260306_173818_MeshCore.png" alt="" /></p>
+
+<p>You can also set the path hash mode/size <em>per contact</em> when manually setting paths:</p>
+
+<p><img src="/assets/images/2026/03/06/Screenshot_20260306_at_3.32.00pm.png" alt="" /></p>
+
+<p>Also, everywhere that a path is displayed, the hash size is taken into account, like in the <strong>RxLog</strong> you can see these:</p>
+
+<p><img src="/assets/images/2026/03/06/Screenshot_20260224_at_2.29.53_AM.png" alt="" /></p>
+
+<p><strong>Repeater/Room/Sensor CLI Changes</strong></p>
+
+<p>Repeaters will mainly just forward in whichever mode the packet arrives in, but there are a few ways repeaters, room servers and sensors can be the <em>origin</em> node, and for these cases there is a new preference which is set via CLI command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set path.hash.mode {0,1,2}
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> the ‘mode’ is the low-level encoding (0..3) where 0 -&gt; 1-byte (legacy), 1 -&gt; 2-byte, 2 -&gt; 3-byte. The <strong>mode 3 is currently reserved</strong> for future use. 4-byte path encoding is not necessarily what this will be used for. 3-byte should be more than enough, and the ‘mode 3’ could be some entirely novel/different scheme. (as yet not formulated)</p>
+
+<p>So, for repeaters, room server and sensors, flood adverts will use this preference.</p>
+
+<p>For room servers, this preference is also used for when the room sends new/unsynced messages.</p>
+
+<p>For sensor nodes, this preference is also used when sending alert messages to registered nodes in the ACL.</p>
+
+<p><strong>EXTRA: Loop Detection</strong></p>
+
+<p>With the v1.14.0 repeater release also comes a new <em>loop detection</em> feature. From the CLI you can now get/set the new <strong>loop.detect</strong> preference. It can be set to one of: <strong>off, minimal, moderate,</strong> or <strong>strict</strong>.</p>
+
+<p>Default is <strong>off</strong>.</p>
+
+<p>When it is enabled, repeaters will now reject flood packets which look like they are in a loop. This has been happening recently in some meshes when there is just a single ‘bad’ repeater firmware out there (prob some forked or custom firmware). If the payload is messed with, then forwarded, the same packet ends up causing a packet storm, repeated up to the max 64 hops.</p>
+
+<p>The loop detection should mitigate this fairly effectively.</p>
+
+<p>The new loop detection logic uses the preference (min, mod, strict) + the path hash size with a lookup table, to see what the <em>maximum</em> number of ID/hash duplicates are allowed before the packet will be rejected: (please forgive the code representation)</p>
+
+<p><img src="/assets/images/2026/03/06/loopdetect.png" alt="" /></p>
+
+<p>So, if preference is loop.detect <strong>minimal</strong>, and a 1-byte path size packet is received, the repeater will see if its own ID/hash is already in the path. If it’s already encoded <strong>4</strong> times, it will reject the packet.  If the packet uses 2-byte path size, and repeater’s own ID/hash is already encoded <strong>2</strong> times, it rejects.</p>
+
+<p>So, this new feature can potentially be used <em>before</em> the multibyte path hash support has gained wide spread support. (ie. with the ‘minimal’ setting, it can reject 1-byte loops)</p>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Scott Powell a coffee</div>
+    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+</div>
+
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Path Diagnostics Improvements https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Path Diagnostics Improvements&u=https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Path Diagnostics Improvements&url=https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="liamcottle/blog.liamcottle.com"
+            data-repo-id="R_kgDOHWZ43w"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOHWZ4384CgJUl"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="0"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-gray-900 py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="logo-img mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+            <a href="https://meshcore.io" target="_blank" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" target="_blank" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>

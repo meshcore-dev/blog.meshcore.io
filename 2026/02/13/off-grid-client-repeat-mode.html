@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1774540199">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1774540199">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Off-grid (client repeat) Mode - MeshCore Blog</title>
+  <meta name="title" content="Off-grid (client repeat) Mode - MeshCore Blog">
+  <meta name="description" content="The next version of the Ripple MeshCore firmware will (finally) support off-grid mode, also known as &#39;client repeat&#39; mode.">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode">
+  <meta property="og:title" content="Off-grid (client repeat) Mode - MeshCore Blog">
+  <meta property="og:description" content="The next version of the Ripple MeshCore firmware will (finally) support off-grid mode, also known as &#39;client repeat&#39; mode.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode">
+  <meta property="twitter:title" content="Off-grid (client repeat) Mode - MeshCore Blog">
+  <meta property="twitter:description" content="The next version of the Ripple MeshCore firmware will (finally) support off-grid mode, also known as &#39;client repeat&#39; mode.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg">
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="w-auto h-6 sm:h-7">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Scott Powell</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Off-grid (client repeat) Mode</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">February 13, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">4 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p><img src="/assets/images/2026/02/13/offgridmode.jpg" alt="" /></p>
+
+<p>The next version of the Ripple MeshCore firmware will (finally) support off-grid mode, also known as ‘client repeat’ mode. A lot of people have been asking for this one, but it’s something that has needed to be done carefully, as it’s one of the big mistakes Meshtastic made, and we don’t want to repeat that.</p>
+
+<p>One of the clear distinctions of MeshCore, and one of the keys to its scalability, is that clients <em>do not forward packets!</em> But, there are a number of very legitimate use-cases where client devices also acting as repeaters could help, and one of these is when away from public meshes, out in remote (or <em>off-grid</em>) areas.</p>
+
+<p>To help keep these use-cases very much separate, we are still in the process of getting consensus on reserving a range of frequencies <em>just</em> for off-grid (ie. non-public mesh) use. This way, people can’t accidentally leave their radio on and go back into a public mesh and mess with routes.</p>
+
+<p><strong>Note:</strong> Liam is also adding this to the mobile app, so you will also be able to use companion radios in this scheme. But, he is likely going to make the UI very different to what I have come up with.</p>
+
+<p><strong>How to Setup</strong></p>
+
+<p>I decided to put the off-grid mode into the new <em>regions</em> feature. There is a concept of a ‘home region’ in the core firmware which currently isn’t used, and I thought this a natural point to hook into. I had also considered some regions could, in the future, have their own custom LoRa radio settings, or even be marked as a special ESP-NOW region (for instance). So, when switching your ‘home region’, it can also switch the radio to different settings.</p>
+
+<p>From the ‘<strong>Manage Regions</strong>’ screen, when you select ‘New…’ you now get prompted with the <em>region type:</em></p>
+
+<p><img src="/assets/images/2026/02/13/newoffgridregion.png" alt="" /></p>
+
+<p>The ‘plain’ regions are the current ones for use with the ‘Set Scope’ feature. The other two types now also let you define custom radio settings, but the ‘Off-grid’ one enables the client repeat mode. Also, the Off-grid type only lets you select from a number of reserved frequencies*, where as the third type lets you specify any frequency (but does <em>not</em> enable client repeat mode).</p>
+
+<ul>
+  <li>These frequencies are still being settled/finalised</li>
+</ul>
+
+<p><strong>Switching Home Region</strong></p>
+
+<p>From the home screen, tapping on the top-left has always been the mechanism to switch network profiles (if you have defined multiple profiles). This has now been extended to also list the defined regions, under the network profile:</p>
+
+<p><img src="/assets/images/2026/02/13/switchtoregion.png" alt="" /></p>
+
+<p>The regions which also have custom radio settings will be marked with <strong>(*)</strong>. Just select the region, and that’s it. Your home region setting is now saved, and the radio is switched to the custom settings.</p>
+
+<p>To go back to the public mesh, just select the network profile (eg. the white ‘MeshCore.915’ above).</p>
+
+<p><strong>T-Pager UI</strong></p>
+
+<p>The UI is slightly different for the T-Pager, with the lack of touch screen. From the Regions list, the current home region is now rendered in orange:</p>
+
+<p><img src="/assets/images/2026/02/13/tpagerregions.png" alt="" /></p>
+
+<p>To switch the home region, scroll to then select the region, which navigates to a new Region Details screen:</p>
+
+<p><img src="/assets/images/2026/02/13/tpagerregiondetails.png" alt="" /></p>
+
+<p>Then select the ‘<strong>Set as Home</strong>’ menu. To switch back to the <em>public</em> mesh, select the wildcard (*) region, and then Set as Home menu.</p>
+
+<p><strong>Wrap Up</strong></p>
+
+<p>Selecting one of the <em>plain</em> regions as home currently has no effect, but in the future there are optimisations that could be made if the device knows your current region, and the region of a recipient. But, this hasn’t been defined yet.</p>
+
+<p>Hopefully off-grid mode will help MeshCore get adoption in areas like Search And Rescue. Would be great to see it in action in the emergency services.</p>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Scott Powell a coffee</div>
+    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+</div>
+
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Off-grid (client repeat) Mode https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Off-grid (client repeat) Mode&u=https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Off-grid (client repeat) Mode&url=https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="liamcottle/blog.liamcottle.com"
+            data-repo-id="R_kgDOHWZ43w"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOHWZ4384CgJUl"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="0"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-gray-900 py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="logo-img mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+            <a href="https://meshcore.io" target="_blank" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" target="_blank" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>
