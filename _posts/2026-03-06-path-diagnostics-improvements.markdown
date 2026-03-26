@@ -47,7 +47,7 @@ You can also set the path hash mode/size _per contact_ when manually setting pat
 
 Also, everywhere that a path is displayed, the hash size is taken into account, like in the **RxLog** you can see these:
 
-![](/assets/images/2026/03/06/0Screenshot_20260224_at_2.29.53_AM.png)
+![](/assets/images/2026/03/06/Screenshot_20260224_at_2.29.53_AM.png)
 
 **Repeater/Room/Sensor CLI Changes**
 

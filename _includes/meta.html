@@ -8,6 +8,10 @@
 
 <div class="print:hidden">
 
+    {% if page.author != nil %}
+    {% include donate_to_author.html %}
+    {% endif %}
+
     <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
 
     {% include share.html %}

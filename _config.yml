@@ -13,10 +13,12 @@ authors:
     name: "Liam Cottle"
     title: "MeshCore App Developer"
     avatar: "assets/images/authors/liamcottle.jpg"
+    donate_url: "https://github.com/sponsors/liamcottle"
   scottpowell:
     name: "Scott Powell"
     title: "Lead Firmware Developer"
     avatar: "assets/images/authors/scottpowell.png"
+    donate_url: "https://buymeacoffee.com/ripplebiz"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"

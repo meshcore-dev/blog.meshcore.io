@@ -1,0 +1,7 @@
+{% if site.authors[page.author].donate_url != nil %}
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy {{ site.authors[page.author].name }} a coffee</div>
+    <a target="_blank" href="{{ site.authors[page.author].donate_url }}" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full">Donate</a>
+</div>
+{% endif %}
