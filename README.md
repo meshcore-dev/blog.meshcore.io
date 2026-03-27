@@ -5,6 +5,7 @@
 ## Build Locally
 
 ```shell
+npm install
 sudo gem install bundler:2.1.4
 bundle install
 bundle exec jekyll serve --livereload
