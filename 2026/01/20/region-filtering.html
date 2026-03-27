@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1774577432">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1774577432">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Region Filtering - MeshCore Blog</title>
+  <meta name="title" content="Region Filtering - MeshCore Blog">
+  <meta name="description" content="So, the pieces are finally falling into place, and region filtering is now here.">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/01/20/region-filtering">
+  <meta property="og:title" content="Region Filtering - MeshCore Blog">
+  <meta property="og:description" content="So, the pieces are finally falling into place, and region filtering is now here.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/01/20/region-filtering">
+  <meta property="twitter:title" content="Region Filtering - MeshCore Blog">
+  <meta property="twitter:description" content="So, the pieces are finally falling into place, and region filtering is now here.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg">
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="w-auto h-6 sm:h-7">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Scott Powell</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Region Filtering</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">January 20, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">7 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p><img src="/assets/images/2026/01/20/image_2.jpg" alt="" /></p>
+
+<p>So, the pieces are finally falling into place, and region filtering is <em>now</em> here. There have been a number of critical code changes that preceded this to get the right support in place, like the provision for the transport codes in the packet headers, and more recently with repeater v1.10.0 release to enable region config and the actual filtering logic.</p>
+
+<p>The final piece of the puzzle is getting client device support done, and a nice UI that is (hopefully) easy to use. The Ripple GUI firmware is now ready to go, and now Liam’s app changes are ready.</p>
+
+<p><strong>EDIT: 25 Jan 2026</strong></p>
+
+<p>After some discussions, and that there is some confusion around #channels and #regions, it’s been decided to drop the requirement to have the ‘#’ prefix. So, region names will just be plain alphanumeric (and ‘-‘), with no # prefix.</p>
+
+<p>For backwards compatibility, the names will <em>internally</em> have a ‘#’ prepended, but for all client GUI’s and command lines, you generally won’t see mention of ‘#’ prefixes. The next firmware release (v1.12.0) and subsequent Ripple firmware and Liam’s app will have modified UI to remove the ‘#’ requirement.</p>
+
+<p><strong>EDIT: 20 Feb 2026</strong></p>
+
+<p>Some confusion has arisen over the wildcard ‘*’ region, and I now regret having named it this way. In hindsight it probably should have been called ‘?’ or the <em>null</em> region. In subsequent doco please try to read it that way. It’s the null region.</p>
+
+<p><strong>Ripple GUI</strong></p>
+
+<p>What you will need to do first is define the region names into a new <strong>Regions</strong> screen (from the network profile menu):</p>
+
+<p><img src="/assets/images/2026/01/20/regionsscreen.jpg" alt="" /></p>
+
+<p>You can do this manually with the <strong>Add New</strong> menu, but a cool new feature of the repeater v1.12.0 firmware (next release) is support for new request types, and one is to auto-discover regions in your area! To use this, you select the <strong>Scan Local</strong> menu:</p>
+
+<p><img src="/assets/images/2026/01/20/regionsscan.jpg" alt="" /></p>
+
+<p>This uses the new Discover request, and any repeaters within reach respond with a list of regions which they are configured to allow. These are then collated, and if any are <em>not</em> in your device’s list, then you are prompted if you wish to add:</p>
+
+<p><img src="/assets/images/2026/01/20/regionaddfound.jpg" alt="" /></p>
+
+<p>Once you have regions defined, when you go into any of the group channel chat screens, you can use the new <strong>Set Scope</strong> menu, to select which region you want to limit <em>messages you send.</em> (you can still <em>receive</em> messages from anywhere in the mesh)</p>
+
+<p><img src="/assets/images/2026/01/20/channelsetscope.jpg" alt="" /></p>
+
+<p>The scope preference is saved per group channel, and you can change it at any time.</p>
+
+<p><strong>Mobile App</strong></p>
+
+<p>Liam has now published <a href="https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android">v1.38.0 of the MeshCore app</a>, which has a new <strong>Set Region Scope</strong> menu in the group channel chat screen:</p>
+
+<p><img src="/assets/images/2026/01/20/Screenshot_20260120_at_1.02.54pm.png" alt="" /></p>
+
+<p>The region selection/management screen should be very straight-forward. Once you have added a region, and selected, the channel chat titlebar changes to show which region your chats will be scoped to:</p>
+
+<p><img src="/assets/images/2026/01/20/Screenshot_20260120_at_1.03.12pm.png" alt="" /></p>
+
+<p><strong>What Happens Next</strong></p>
+
+<p>So, the first step will just be for repeater admins. This will involve having discussions in whatever forums you chat in (or even over the mesh itself!) and to come to some consensus on how to divide up your geography. The region names must be <em>exact</em>–any misspellings will be treated as a completely different region! There are some rules on the names:</p>
+
+<ul>
+  <li>maximum 29 <em>bytes</em> (UTF-8).</li>
+  <li>Only <em>lower case</em> alpha-numeric chars, and - (hyphen)</li>
+  <li>For any given mesh, region names must be <em>unique</em></li>
+</ul>
+
+<p>Each repeater can support multiple regions, so you can have super-regions that are, for example, a whole state, with smaller county sub-regions, for example. The hierarchy of regions can go to any depth you like.</p>
+
+<p><img src="/assets/images/2026/01/20/exampleregions.png" alt="" /></p>
+
+<p>To illustrate, the bigger region in red could be <strong>sample-city</strong>, and the green sub-region could be <strong>sample-west</strong>, the orange sub-region <strong>sample-east</strong>. Repeater admins would then need to add different region names to each repeater’s config. (This can be done remotely)</p>
+
+<p>For boundary areas, like in the middle, it’s reasonable to include <em>both</em> regions. So, repeaters <strong>E</strong> and <strong>F</strong> would configure: <strong>sample-city, sample-east, sample-west.</strong></p>
+
+<p>Repeaters <strong>A, B</strong> and <strong>C</strong> would configure: <strong>sample-city, sample-west</strong></p>
+
+<p>Repeaters <strong>I, G</strong> and <strong>H</strong> would configure: <strong>sample-city, sample-east</strong></p>
+
+<p>And the outlier <strong>D</strong> would just have: <strong>sample-city</strong></p>
+
+<p>Please refer to the <a href="https://docs.meshcore.io/cli_commands/">Repeater CLI Reference</a>, in the region management section. You will need to issue ‘<strong>region put ..</strong>’ commands to define a region, then a ‘<strong>region allowf …</strong>’ command to allow flood packets for that region. And don’t forget ‘<strong>region save</strong>’ once you’re done! You only have to do this once (or whenever regions are changed)</p>
+
+<p>Regular chat/client device users will have to wait until this repeater config has spread, and then can then follow the steps I outlined above, to either auto-detect regions in their area, or manually add them themselves.</p>
+
+<p><strong>FAQ</strong></p>
+
+<p><strong>Q: As a repeater admin, if I configure some regions, will that mean messages will stop?</strong></p>
+
+<p>No. By default, most client apps will send channel messages using the <em>null</em> region (‘*’). This is the legacy setting, and means that message will (currently) go everywhere.</p>
+
+<p><strong>Q: What happens when a sender sets a scope region and there are still many repeaters who have not setup regions in their config?</strong></p>
+
+<p>Since v1.10.0 a basic filtering rule was established, that (in this case) will <em>not</em> forward flood packets which have a scope set and where there is no matching region in the repeater config. Legacy flood packets (as mentioned above) will still be forwarded, though.  If there are still pre v1.10.0 repeaters in an area, though, scoped flood packets will <em>leak</em> into other regions.</p>
+
+<p><strong>Q: Can legacy flood packets (ie. with no scope set) be stopped?</strong></p>
+
+<p>Yes. Legacy flood packets (ie. with no scope transport code attached) match to the <em>null</em> region, and repeater admins can also change the permissions of this region. NOTE: this is NOT advised at this stage, but from the command line you can do “region denyf *” and that will deny forwarding of legacy flood packets. So, in this case, senders would be forced to <em>always</em> set scope of each flood packet. This <em>may</em> become a requirement in the future, though.</p>
+
+<p><strong>Q: How do I list all the regions my repeater has configured?</strong></p>
+
+<p>Currently, this can only be done over a USB connection and console/CLI. There resulting list is potentially too long to transmit over LoRa in the remote CLI. There will hopefully be a way to do this in the near future, though. For now, just the remote <strong>get/put/allowf/denyf/remove</strong> CLI commands will have to do.</p>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Scott Powell a coffee</div>
+    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+</div>
+
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Region Filtering https://blog.meshcore.io/2026/01/20/region-filtering" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Region Filtering&u=https://blog.meshcore.io/2026/01/20/region-filtering" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Region Filtering&url=https://blog.meshcore.io/2026/01/20/region-filtering" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="liamcottle/blog.liamcottle.com"
+            data-repo-id="R_kgDOHWZ43w"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOHWZ4384CgJUl"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="0"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-gray-900 py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore_tm.svg" alt="MeshCore" class="logo-img mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+            <a href="https://meshcore.io" target="_blank" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" target="_blank" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.dev" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.dev" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>

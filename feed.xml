@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-26T15:49:59+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Path Diagnostics Improvements</title><link href="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements" rel="alternate" type="text/html" title="Path Diagnostics Improvements" /><published>2026-03-06T00:00:00+00:00</published><updated>2026-03-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements">&lt;p&gt;With the v1.14.0 firmware releases comes support for what is known as ‘multibyte path hashes’. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-27T02:10:32+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Path Diagnostics Improvements</title><link href="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements" rel="alternate" type="text/html" title="Path Diagnostics Improvements" /><published>2026-03-06T00:00:00+00:00</published><updated>2026-03-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/06/path-diagnostics-improvements">&lt;p&gt;With the v1.14.0 firmware releases comes support for what is known as ‘multibyte path hashes’. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/06/meshgraph.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -121,4 +121,94 @@
 
 &lt;p&gt;Selecting one of the &lt;em&gt;plain&lt;/em&gt; regions as home currently has no effect, but in the future there are optimisations that could be made if the device knows your current region, and the region of a recipient. But, this hasn’t been defined yet.&lt;/p&gt;
 
-&lt;p&gt;Hopefully off-grid mode will help MeshCore get adoption in areas like Search And Rescue. Would be great to see it in action in the emergency services.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Hopefully off-grid mode will help MeshCore get adoption in areas like Search And Rescue. Would be great to see it in action in the emergency services.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Region Filtering</title><link href="https://blog.meshcore.io/2026/01/20/region-filtering" rel="alternate" type="text/html" title="Region Filtering" /><published>2026-01-20T00:00:00+00:00</published><updated>2026-01-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/01/20/region-filtering</id><content type="html" xml:base="https://blog.meshcore.io/2026/01/20/region-filtering">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/image_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, the pieces are finally falling into place, and region filtering is &lt;em&gt;now&lt;/em&gt; here. There have been a number of critical code changes that preceded this to get the right support in place, like the provision for the transport codes in the packet headers, and more recently with repeater v1.10.0 release to enable region config and the actual filtering logic.&lt;/p&gt;
+
+&lt;p&gt;The final piece of the puzzle is getting client device support done, and a nice UI that is (hopefully) easy to use. The Ripple GUI firmware is now ready to go, and now Liam’s app changes are ready.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT: 25 Jan 2026&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After some discussions, and that there is some confusion around #channels and #regions, it’s been decided to drop the requirement to have the ‘#’ prefix. So, region names will just be plain alphanumeric (and ‘-‘), with no # prefix.&lt;/p&gt;
+
+&lt;p&gt;For backwards compatibility, the names will &lt;em&gt;internally&lt;/em&gt; have a ‘#’ prepended, but for all client GUI’s and command lines, you generally won’t see mention of ‘#’ prefixes. The next firmware release (v1.12.0) and subsequent Ripple firmware and Liam’s app will have modified UI to remove the ‘#’ requirement.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT: 20 Feb 2026&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Some confusion has arisen over the wildcard ‘*’ region, and I now regret having named it this way. In hindsight it probably should have been called ‘?’ or the &lt;em&gt;null&lt;/em&gt; region. In subsequent doco please try to read it that way. It’s the null region.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ripple GUI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;What you will need to do first is define the region names into a new &lt;strong&gt;Regions&lt;/strong&gt; screen (from the network profile menu):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/regionsscreen.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can do this manually with the &lt;strong&gt;Add New&lt;/strong&gt; menu, but a cool new feature of the repeater v1.12.0 firmware (next release) is support for new request types, and one is to auto-discover regions in your area! To use this, you select the &lt;strong&gt;Scan Local&lt;/strong&gt; menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/regionsscan.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This uses the new Discover request, and any repeaters within reach respond with a list of regions which they are configured to allow. These are then collated, and if any are &lt;em&gt;not&lt;/em&gt; in your device’s list, then you are prompted if you wish to add:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/regionaddfound.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you have regions defined, when you go into any of the group channel chat screens, you can use the new &lt;strong&gt;Set Scope&lt;/strong&gt; menu, to select which region you want to limit &lt;em&gt;messages you send.&lt;/em&gt; (you can still &lt;em&gt;receive&lt;/em&gt; messages from anywhere in the mesh)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/channelsetscope.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The scope preference is saved per group channel, and you can change it at any time.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mobile App&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Liam has now published &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android&quot;&gt;v1.38.0 of the MeshCore app&lt;/a&gt;, which has a new &lt;strong&gt;Set Region Scope&lt;/strong&gt; menu in the group channel chat screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/Screenshot_20260120_at_1.02.54pm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The region selection/management screen should be very straight-forward. Once you have added a region, and selected, the channel chat titlebar changes to show which region your chats will be scoped to:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/Screenshot_20260120_at_1.03.12pm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What Happens Next&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So, the first step will just be for repeater admins. This will involve having discussions in whatever forums you chat in (or even over the mesh itself!) and to come to some consensus on how to divide up your geography. The region names must be &lt;em&gt;exact&lt;/em&gt;–any misspellings will be treated as a completely different region! There are some rules on the names:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;maximum 29 &lt;em&gt;bytes&lt;/em&gt; (UTF-8).&lt;/li&gt;
+  &lt;li&gt;Only &lt;em&gt;lower case&lt;/em&gt; alpha-numeric chars, and - (hyphen)&lt;/li&gt;
+  &lt;li&gt;For any given mesh, region names must be &lt;em&gt;unique&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each repeater can support multiple regions, so you can have super-regions that are, for example, a whole state, with smaller county sub-regions, for example. The hierarchy of regions can go to any depth you like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/01/20/exampleregions.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To illustrate, the bigger region in red could be &lt;strong&gt;sample-city&lt;/strong&gt;, and the green sub-region could be &lt;strong&gt;sample-west&lt;/strong&gt;, the orange sub-region &lt;strong&gt;sample-east&lt;/strong&gt;. Repeater admins would then need to add different region names to each repeater’s config. (This can be done remotely)&lt;/p&gt;
+
+&lt;p&gt;For boundary areas, like in the middle, it’s reasonable to include &lt;em&gt;both&lt;/em&gt; regions. So, repeaters &lt;strong&gt;E&lt;/strong&gt; and &lt;strong&gt;F&lt;/strong&gt; would configure: &lt;strong&gt;sample-city, sample-east, sample-west.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Repeaters &lt;strong&gt;A, B&lt;/strong&gt; and &lt;strong&gt;C&lt;/strong&gt; would configure: &lt;strong&gt;sample-city, sample-west&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Repeaters &lt;strong&gt;I, G&lt;/strong&gt; and &lt;strong&gt;H&lt;/strong&gt; would configure: &lt;strong&gt;sample-city, sample-east&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And the outlier &lt;strong&gt;D&lt;/strong&gt; would just have: &lt;strong&gt;sample-city&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Please refer to the &lt;a href=&quot;https://docs.meshcore.io/cli_commands/&quot;&gt;Repeater CLI Reference&lt;/a&gt;, in the region management section. You will need to issue ‘&lt;strong&gt;region put ..&lt;/strong&gt;’ commands to define a region, then a ‘&lt;strong&gt;region allowf …&lt;/strong&gt;’ command to allow flood packets for that region. And don’t forget ‘&lt;strong&gt;region save&lt;/strong&gt;’ once you’re done! You only have to do this once (or whenever regions are changed)&lt;/p&gt;
+
+&lt;p&gt;Regular chat/client device users will have to wait until this repeater config has spread, and then can then follow the steps I outlined above, to either auto-detect regions in their area, or manually add them themselves.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FAQ&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: As a repeater admin, if I configure some regions, will that mean messages will stop?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;No. By default, most client apps will send channel messages using the &lt;em&gt;null&lt;/em&gt; region (‘*’). This is the legacy setting, and means that message will (currently) go everywhere.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: What happens when a sender sets a scope region and there are still many repeaters who have not setup regions in their config?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Since v1.10.0 a basic filtering rule was established, that (in this case) will &lt;em&gt;not&lt;/em&gt; forward flood packets which have a scope set and where there is no matching region in the repeater config. Legacy flood packets (as mentioned above) will still be forwarded, though.  If there are still pre v1.10.0 repeaters in an area, though, scoped flood packets will &lt;em&gt;leak&lt;/em&gt; into other regions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: Can legacy flood packets (ie. with no scope set) be stopped?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes. Legacy flood packets (ie. with no scope transport code attached) match to the &lt;em&gt;null&lt;/em&gt; region, and repeater admins can also change the permissions of this region. NOTE: this is NOT advised at this stage, but from the command line you can do “region denyf *” and that will deny forwarding of legacy flood packets. So, in this case, senders would be forced to &lt;em&gt;always&lt;/em&gt; set scope of each flood packet. This &lt;em&gt;may&lt;/em&gt; become a requirement in the future, though.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: How do I list all the regions my repeater has configured?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Currently, this can only be done over a USB connection and console/CLI. There resulting list is potentially too long to transmit over LoRa in the remote CLI. There will hopefully be a way to do this in the near future, though. For now, just the remote &lt;strong&gt;get/put/allowf/denyf/remove&lt;/strong&gt; CLI commands will have to do.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
