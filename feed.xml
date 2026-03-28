@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-28T05:42:26+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.14.1</title><link href="https://blog.meshcore.io/2026/03/20/release-1-14-1" rel="alternate" type="text/html" title="Release v1.14.1" /><published>2026-03-20T00:00:00+00:00</published><updated>2026-03-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/20/release-1-14-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/20/release-1-14-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-28T07:44:56+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchs3plus.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can download + flash in one easy step using this &lt;a href=&quot;https://flasher.meshcore.dev/ripple-lilygo-t-watch-s3-plus/ripple-gui/v9.3&quot;&gt;direct link&lt;/a&gt; to the MeshCore Flasher target.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;UI Navigation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The watch has 3 physical buttons, one on left/top shoulder, one on right-top shoulder, and a power button along the right edge:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchhelp.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;NOTE: the top-right shoulder button is the RESET button, which will reboot the device.&lt;/p&gt;
+
+&lt;p&gt;The UI navigation is cursor based, where you move the dark-gray selection up/down by tapping in the top and bottom areas of the screen, per the picture above. You then tap on the right side to select, and tap on the left side to navigate back to previous screen.&lt;/p&gt;
+
+&lt;p&gt;Some screens require ENTER key to submit/save/send, and this is done with a short press of the power key. A long press (approx 4 seconds) powers off the device.&lt;/p&gt;
+
+&lt;p&gt;Press the top-left shoulder button to turn the screen on/off.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Watch Face/Lock Screen&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The screen automatically turns off after inactivity, but there is a special lock screen which comes on when the device is in standby and when you tilt your wrist to look at the watch face:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchlock.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;General Guide&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The T-Watch S3 has a UI which mostly like the other Ultra devices, like the T-Deck, so refer to the &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/ultra-v7-7-guide-meshcore-users&quot;&gt;general user guide&lt;/a&gt; here for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kid Mode&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/kid-mode-remote-admin&quot;&gt;this article&lt;/a&gt; on how it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchkidmode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Coming Soon&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The next version of the firmware has some nice customisations for the watch-face/lock screen. The basics have been implemented, but I still have to see if there is an easier way to do the file-transfers involed.&lt;/p&gt;
+
+&lt;p&gt;You will soon be able to set a Display preference of Digital or Analog. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image &lt;em&gt;without hands&lt;/em&gt; as the hour/minute hands are rendered on top of this background:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/custom-watchfaces.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.14.1</title><link href="https://blog.meshcore.io/2026/03/20/release-1-14-1" rel="alternate" type="text/html" title="Release v1.14.1" /><published>2026-03-20T00:00:00+00:00</published><updated>2026-03-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/20/release-1-14-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/20/release-1-14-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;&lt;/p&gt;
 
