@@ -82,7 +82,7 @@ In my own state of Victoria, Australia, there has been a huge increase in the me
 
 There is also a very resourceful spirit of repurposing affordable gear in DIY repeater builds. There are a lot of repurposed solar flood lights out there that do remarkably well, and there's a bit of a running gag here in Melbourne that you're not a real MeshCorer unless you have a Bunnings pool pole as a mast. Pool pole sales have skyrocketed this year.
 
-![](/assets/images/2025/12/12/montage2.jpg)
+![](/assets/images/2025/12/12/montage2.png)
 
 So, to all you good, freedom-loving folk out there, I tip my hat to you. Well done!
 
