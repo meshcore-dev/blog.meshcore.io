@@ -18,9 +18,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>The Year In Review - MeshCore Blog</title>
-  <meta name="title" content="The Year In Review - MeshCore Blog">
-  <meta name="description" content="Well, what a year! MeshCore is almost 1 year old now.">
+  <title>MeshCore Philosophy - MeshCore Blog</title>
+  <meta name="title" content="MeshCore Philosophy - MeshCore Blog">
+  <meta name="description" content="Some guiding principles behind the project.">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
@@ -30,17 +30,17 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.meshcore.io/2025/12/12/the-year-in-review">
-  <meta property="og:title" content="The Year In Review - MeshCore Blog">
-  <meta property="og:description" content="Well, what a year! MeshCore is almost 1 year old now.">
-  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg">
+  <meta property="og:url" content="https://blog.meshcore.io/2025/03/01/meshcore-philosophy">
+  <meta property="og:title" content="MeshCore Philosophy - MeshCore Blog">
+  <meta property="og:description" content="Some guiding principles behind the project.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2025/03/01/techphilosophybyGrok.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blog.meshcore.io/2025/12/12/the-year-in-review">
-  <meta property="twitter:title" content="The Year In Review - MeshCore Blog">
-  <meta property="twitter:description" content="Well, what a year! MeshCore is almost 1 year old now.">
-  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2025/03/01/meshcore-philosophy">
+  <meta property="twitter:title" content="MeshCore Philosophy - MeshCore Blog">
+  <meta property="twitter:description" content="Some guiding principles behind the project.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2025/03/01/techphilosophybyGrok.jpg">
 
   <!-- theme -->
   <script>
@@ -117,14 +117,14 @@
         </div>
     </div>
     
-    <h2 class="text-2xl font-bold mb-1">The Year In Review</h2>
+    <h2 class="text-2xl font-bold mb-1">MeshCore Philosophy</h2>
     <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
 
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
             </svg>
-            <div class="ml-1">December 12, 2025</div>
+            <div class="ml-1">March 01, 2025</div>
         </div>
 
         
@@ -140,105 +140,71 @@
     </div>
 
     <div class="post mt-4">
-        <p><img src="/assets/images/2025/12/12/year_in_review.jpg" alt="" /></p>
+        <p><img src="/assets/images/2025/03/01/techphilosophybyGrok.jpg" alt="" />
+<em>Generated with Grok by xAI</em></p>
 
-<p><em>Generated with Grok by xAI</em></p>
+<p>The rapid rise and development of MeshCore is really great to see, and I hope it continues, but there is a risk of things like fragmentation and splintering, among other things, if some of the principles behind the design are lost or ignored. So, a summary on what lead to its design, and where I see it going hopefully will help.</p>
 
-<p>Well, what a year! MeshCore is almost 1 year old now, and I thought it a good time to reflect on this first mega year, and remember the milestones we’ve smashed.</p>
+<p><strong>Background</strong></p>
 
-<p><strong>Just Do It</strong></p>
+<p>Most probably know of the existing mesh system, and the frustrations fairly universally experienced. My main issue was the desire for an open ecosystem, with an open protocol, where <em>individuals</em> could develop their own components (be it software, hardware, add-ons, etc) where interoperability was maximised. This just simply was not possible.</p>
 
-<p>Over the 2024/2025 silly season, I decided to hunker down, take the phone off the hook (so to speak) and force myself to write the first draft version of the MeshCore C++ library. I had scribblings on paper from prior months and had what I thought was a workable idea. I hadn’t worked everything out, but I’ve found that just trying to code an idea sometimes reveals a solution (and/or flaws in an idea). I’m not sure if this phenomenon has a name, but I’ve always found this process to have an element of magic to it. But, as I wrote the initial code, it was surprising how many things just fell into place.</p>
+<p>Reticulum is also in the mix here. It is <em>far</em> more ambitious than MeshCore, and can do a lot more, but it does suffer from a number of issues, like it being almost entirely Python-based, and not designed for microcontrollers. It does include this via things like the RNode firmware, but it’s still very heavy compared to MeshCore.</p>
 
-<p><strong>Bob and Alice</strong></p>
+<p><strong>How does MeshCore try to answer these issues?</strong></p>
 
-<p>The very first MeshCore messages were sent between Bob and Alice, in early January:
-<img src="/assets/images/2025/12/12/bob_and_alice.png" alt="" /></p>
-
-<p>These were two Heltec V3 boards running the ‘Simple Secure Chat’ (terminal) app, with two Serial Monitors running. None of the contact management code had been written, so Bob and Alice were two hard-coded key-pair identities.</p>
-
-<p><strong>That UK Chap, Andy Kirby</strong></p>
-
-<p>I had been talking on and off with Andy over 2024 about various mesh topics, and was hinting at a new system that might materialise, and thankfully Andy really jumped at the prospect of MeshCore, and was the very first real-world tester:
-<img src="/assets/images/2025/12/12/andy_photos.jpg" alt="" /></p>
-
-<p><strong>Teamwork Makes the Dream Work</strong></p>
-
-<p>Andy published a number of early YouTube videos even when the system was getting its legs, and it made a splash. Discussions were all on his Discord server, and he already had quite a large following of mesh nerds discussing things, so there was an almost instant cross over, of peeps willing to give MeshCore a try.</p>
-
-<p>I don’t remember the dates, but pretty soon a core team ended up materialising:</p>
+<p>So, in light of these background limitations, I went about trying to design something new, and these were the emerging principles:</p>
 <ul>
-  <li>Andy Kirby, OG tester, YouTube promoter, community engagement, UK website.</li>
-  <li>Rastislav Vysoky, who wrote the first web client, the meshcore map, the webflasher, and almost single handedly manned tech support</li>
-  <li>Liam Cottle, who was already very involved in the Reticulum project, jumped over and wrote an even better web client, then smashed out a native mobile client in Flutter in seemingly no time.</li>
+  <li>Light weight. Can run on tiny hardware.</li>
+  <li>LoRa-first design, but not limited to LoRa. (any packet radio) ie. frugal packet sizes, very conservative with transmit air time.</li>
+  <li>Portable core C++ library, not restricted to Arduino. Extensible. Many execution environments.</li>
+  <li>Privacy as a core principle. (no mandatory identity exposure, encryption by default)</li>
+  <li>Decentralised. No one central admin body/corporation who sets policy or permissions.</li>
+  <li>Non-monolithic firmware. Firmwares are role-specific, they do a specific thing. No more, no less.</li>
+  <li>An evolving protocol, extensible, but with features like messaging as core, being interoperable with as many firmwares as possible. Adaptable to things like sensor networks, for instance. Or even completely private systems with custom protocols on top of the core protocol.</li>
 </ul>
 
-<p>For about six months this was the core team, until Florent de Lamotte was asked to join after his tireless work with his Python-based mc-cli integrations.</p>
+<p><strong>The Division of Labour, Rights and Responsibilities</strong></p>
 
-<p><strong>Milestones</strong></p>
+<p>Like Reticulum, MeshCore clearly shifts the responsibility of packet routing to repeaters, and repeaters only. Edge nodes, like chat clients or sensor nodes, don’t pollute the airwaves. Repeaters are mounted typically in good, elevated locations, and have a <em>fixed location</em>. Edge nodes can roam (* however, protocol extensions to aid/optimise roaming nodes is still being developed).</p>
 
-<p>There’s a crazy amount of stuff to try to recollect, but I thought just some broad stats could be interesting:</p>
+<p>As repeaters do ‘the work’ of the mesh, it is the right of a repeater admin to refuse or allow traffic. This might be a little controversial, or could be seen as an avenue for discrimination by repeater admins, but the privacy built into the core protocol intentionally makes this difficult. Currently, there are no restrictions imposed in the standard repeater firmware, but there could be many repeater firmwares, some with more admin controls, with things like rate-limiting, custom priority boosts (or penalties) for packet types, or patterns of usage observed.</p>
+
+<p>A more <em>organic</em> strategy to weed-out bad nodes is, I believe, a better approach vs top-down policy dictates. With more options, choice of firmwares, individual areas/meshes will find their own solutions to things like channel saturation, etc. It’s unlikely there is one solution for every mesh, in every jurisdiction. (However, good/sensible defaults go a long way to limiting the chaos)</p>
+
+<p><strong>Paths</strong></p>
+
+<p>The general strategy is: ‘direct paths when possible, flood as fallback’. Every packet goes in either Flood mode or Direct mode. To stay frugal, the path discovery piggy-backs onto normal packets, like messaging. So, when A doesn’t have a path to B, sending a message goes Flood mode, and if B is found, they get the message + path in one. In the context of messaging, the Ack + path is then returned to A.</p>
+
+<p>Paths are asymmetrical. B also has to discover a path to A, and the Ack example also does a two-for one, in returning the Ack + out path, it also results in A receiving: Ack, out path, and return path. The only packet overhead in this exchange is a 3rd, direct-only packet that sends return path back to B. After this sequence, both A and B store direct paths (to the other) in their storage.</p>
+
+<p>One side-effect of this, is that senders can store paths and actually choose which one to use. Liam’s app actually takes this a step further and lets you manually construct paths yourself. If you are admin to a set of repeaters and know a particular route is optimal, this can be beneficial, and result in less flooding.</p>
+
+<p><strong>Flood will become ‘Expensive’</strong></p>
+
+<p>The future scaling of MeshCore is still very much a question mark. I am quietly optimistic that it can grow, but I think it’s safe to say that Flood mode will become what I call ‘expensive’. The most basic form if this will be time. It will just take longer for Flood to reach a destination. (this is actually the current behaviour–repeater firmware gives lower and lower priority to flood packets that are from distant senders). To most users and use cases, this will be enough to look for better options.</p>
+
+<p>Using a reasonably-local Room Server is one such option. These are intended for highly-local groups, as a simple bulletin board system. (No, they’re not meant to scale to the whole mesh!) But, they generally try to insist on Direct-mode traffic, so keep the traffic local.</p>
+
+<p><strong>Reward and Motivation</strong></p>
+
+<p>I also think it’s a fundamental right of a developer to be financially rewarded for their work. Vague promises of ‘rewarding contributors’, from some opaque corporate structure, is bullshit, in my opinion. This is why I strongly recommend the ‘Freemium’ model. It’s direct reward to the person who put in the work. It also means the development is far more sustainable, and that a highly polished experience is the norm–instead of floundering in forum hell for weeks on end.</p>
+
+<p><a href="https://liamcottle.com/">Liam Cottle’s</a> amazing work with the native Android and iOS app is a great example of this. He has put in a lot of work, and it really should be rewarded. Also, if you place it in light of the alternative–forum hell and wrestling with unknown config and tools–isn’t a few dollars worth being free of that!? :-)</p>
+
+<p>It is highly rewarding getting direct praise and financial support from the people using your products. It’s a tough road, though! It’s extremely hard to make a living like this.</p>
+
+<p>There is also potential for partnerships with hardware manufacturers. This gets a lot more murky, though. It is beneficial to potentially work on consumer-like bundles that are highly optimised or polished for a particular piece of hardware, and if these do eventuate, it will be up to the participants to work out an equitable share of the spoils. Anything consumer-focussed is extremely hard, and it takes a lot of QA and polish to get things like this to market. I hope MeshCore-compatible consumer products do eventuate, but it will be a difficult path.</p>
+
+<p><strong>Future Stuff</strong></p>
+
+<p>So, to wrap up, just some notes on future directions:</p>
 <ul>
-  <li>GitHub releases: <strong>23</strong> (v1.0.0 to v1.11.0)</li>
-  <li>Git commits (non-merge): <strong>1453</strong></li>
-  <li>Number of boards supported: <strong>60+</strong></li>
-  <li>Repo contributors: <strong>69</strong>
-    <ul>
-      <li>Top 8: fdlamotte, recrof, oltaco, liamcottle, jquatier, jbrazio, 446564 (ded), cod3doomy</li>
-    </ul>
-  </li>
-  <li>MeshCore map nodes uploaded: <strong>10,625</strong>  (as at 11 Dec)</li>
+  <li>Repeater admin and Room server interaction coming to Liam’s apps.</li>
+  <li>Hopefully more diagnostic tools for network planners, like Trace packets with SNR.</li>
+  <li>Generally broadening device support: efforts to refine the T1000e support, more T1114 roles, etc.</li>
+  <li>Efforts to standardise telemetry of sensor data.</li>
 </ul>
-
-<p>Since the creation of the <a href="https://analyzer.letsme.sh/stats">Lets Mesh Analyzer site</a> and observer nodes, we now have insights into actual usage of MeshCore meshes around the world. Some current stats:</p>
-<ul>
-  <li>Unique packets per day: <strong>~80K</strong></li>
-  <li>Unique active nodes per day: <strong>~4.5K</strong></li>
-  <li>Unique public messages per day: <strong>~4.4K</strong></li>
-  <li>Total bytes of traffic per day: <strong>~52 million</strong></li>
-</ul>
-
-<p><strong>The Pain Points</strong></p>
-
-<p>Over this first year there were a number of painful issues which took a lot of effort to resolve:</p>
-<ul>
-  <li>Deaf-gate:  This is the name we assigned to the mysterious habit of repeaters to just go deaf, seemingly at random times. This one evaded explanation for many months. Eventually it was discovered to be an AGC (automatic gain controller) glitch, which needed a force reset in the LoRa modules. A transmit would temporarily clear this problem, but because MeshCore is frugal on transmits, sometimes a repeater would stay deaf for hours. The “set agc.reset.interval …” was the eventual workaround.</li>
-  <li>Packet corruptions: only in the very early months when I errantly assumed we didn’t need to use hardware CRC’s.</li>
-  <li>iOS and BLE disconnects:  Forever the thorn in Liam’s side throughout this year.</li>
-  <li>Little-(F)FS corruptions:  The plague on all of the nRF52 users. Mysterious low power situations, BLE disconnections, and borked LFS blocks. Thanks to the amazing work from Taco, and the ExtraFS system, this problem has been reduced. (still rears its head, tho :-(  )</li>
-  <li>Room server glitches:  It took waay too long to figure out about three really bad bugs that were in the Room server firmware. Is sad as this really hampered adoption of rooms, and it still stings a bit, as usage is relatively rare.</li>
-  <li>The T1000e:  Was plagued with issues for most of the year, from LR11xx issues, deafness, lockups, LFS corruptions, etc. Thankfully the issues are pretty much ironed out now.</li>
-  <li>CAD and packet collisions:  This one took a number of attempts to get right. I think there were something like 3 major implementations of CAD tried, and (surprise, surprise) the simplest was the best.</li>
-</ul>
-
-<p><strong>Timeline</strong></p>
-
-<p><img src="/assets/images/2025/12/12/timeline.png" alt="" /></p>
-
-<p>A picture paints a thousand code commits. :-) Here are most of the major events of 2025. Tiring just looking at it. phew.  March was a pretty wild month. Liam and I were cranking out features/updates at pretty wild pace. (apologies if something you worked on/contributed isn’t in this chart. Took hours of going over git logs and release notes to come up with the subset above)</p>
-
-<p>I have no idea what 2026 is going to look like! Will be interesting to compare charts at the end of next year.</p>
-
-<p><strong>The MeshCore Spirit</strong></p>
-
-<p>Something that really gets me <em>in the feels</em> is how many individuals have taken up the challenge in their locales to either spread the word, or actually spread the network by building and deploying repeaters. In many key geographies, this has sometimes rested on the shoulders of a small handful of people, who have scaled mountains, trees and towers to get backbones built out.</p>
-
-<p>In my own state of Victoria, Australia, there has been a huge increase in the mesh in just the past two months, and we now have messages reaching many hundreds of kms, across about half the state. This is largely down to a handful of brave souls (eg. @silentlightning) finding key mountain tops, and linking it all out. I must admit, I never anticipated that a mesh could go any further than just metro Melbourne. Was happy to be wrong about that one. :-)</p>
-
-<p>There is also a very resourceful spirit of repurposing affordable gear in DIY repeater builds. There are a lot of repurposed solar flood lights out there that do remarkably well, and there’s a bit of a running gag here in Melbourne that you’re not a real MeshCorer unless you have a Bunnings pool pole as a mast. Pool pole sales have skyrocketed this year.</p>
-
-<p><img src="/assets/images/2025/12/12/montage2.jpg" alt="" /></p>
-
-<p>So, to all you good, freedom-loving folk out there, I tip my hat to you. Well done!</p>
-
-<p><strong>Onwards…</strong></p>
-
-<p>In just a year we did this:
-<img src="/assets/images/2025/12/12/worldmap.png" alt="" /></p>
-
-<p>Let’s keep lighting up the world.</p>
-
-<p><em>—sincerely, Scott Powell</em></p>
 
     </div>
 
@@ -265,7 +231,7 @@
 <div class="flex space-x-1 mb-2 print:hidden">
 
     <!-- share to twitter -->
-    <a target="_blank" href="https://twitter.com/intent/tweet?text=The Year In Review https://blog.meshcore.io/2025/12/12/the-year-in-review" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=MeshCore Philosophy https://blog.meshcore.io/2025/03/01/meshcore-philosophy" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
         </svg>
@@ -273,7 +239,7 @@
     </a>
 
     <!-- share to facebook -->
-    <a target="_blank" href="https://www.facebook.com/sharer.php?title=The Year In Review&u=https://blog.meshcore.io/2025/12/12/the-year-in-review" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=MeshCore Philosophy&u=https://blog.meshcore.io/2025/03/01/meshcore-philosophy" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
@@ -281,7 +247,7 @@
     </a>
 
     <!-- share to reddit -->
-    <a target="_blank" href="https://reddit.com/submit?title=The Year In Review&url=https://blog.meshcore.io/2025/12/12/the-year-in-review" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+    <a target="_blank" href="https://reddit.com/submit?title=MeshCore Philosophy&url=https://blog.meshcore.io/2025/03/01/meshcore-philosophy" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
         </svg>
