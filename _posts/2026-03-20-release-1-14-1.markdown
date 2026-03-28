@@ -1,0 +1,34 @@
+---
+layout: post
+date: 2026-03-20 12:00:00 +1200
+title: "Release v1.14.1"
+description: "What's new in release v1.14.1"
+image: "assets/images/firmware_release.jpg"
+author: scottpowell
+---
+![](/assets/images/firmware_release.jpg)
+
+**Change Log**
+
+* Added GPS support for SenseCAP Solar P1 in [#1589](https://github.com/meshcore-dev/MeshCore/pull/1589)
+* Power off switch long press support for SenseCAP Solar P1 [#1871](https://github.com/meshcore-dev/MeshCore/pull/1871)
+* Added nRF52 power management for RAK3401 in [#1984](https://github.com/meshcore-dev/MeshCore/pull/1984)
+* Added token bucket based duty cycle enforcement in [#1297](https://github.com/meshcore-dev/MeshCore/pull/1297)
+* Added support for new GAT562 30S Mesh Kit device in [#2009](https://github.com/meshcore-dev/MeshCore/pull/2009)
+* Added support for new GAT562 Mesh Tracker Pro device in [#1980](https://github.com/meshcore-dev/MeshCore/pull/1980)
+* Added LNA toggle CLI commands radio.rxgain on and radio.rxgain off in [#1653](https://github.com/meshcore-dev/MeshCore/pull/1653)
+* Added MCU temperature to telemetry responses from room servers in [#2052](https://github.com/meshcore-dev/MeshCore/pull/2052)
+* Migrated Heltec Tracker v2 to KCT8103L in [#1936](https://github.com/meshcore-dev/MeshCore/pull/1936)
+* Nodes with GPS enabled will now auto sync time every 30 minutes in [#1350](https://github.com/meshcore-dev/MeshCore/pull/1350)
+* Fixed bug where some queued packets would not get transmit in [#1877](https://github.com/meshcore-dev/MeshCore/pull/1877)
+* Fixed bug where automatic adverts were not using the configured multibyte path setting in [fcfdc5f](https://github.com/meshcore-dev/MeshCore/commit/fcfdc5fc5b1e0cf81b4ca2dfbc51d714f3eb1ead)
+
+**Documentation Links**
+
+LNA (rx gain) CLI commands:
+```
+get radio.rxgain
+set radio.rxgain {on|off}
+```
+
+
