@@ -4,7 +4,12 @@ date: 2026-03-20 12:00:00 +1200
 title: "Release v1.14.1"
 description: "What's new in release v1.14.1"
 image: "assets/images/firmware_release.jpg"
-author: scottpowell
+author: admin
+categories:
+  - Announcements
+tags:
+  - Firmware
+  - Release
 ---
 ![](/assets/images/firmware_release.jpg)
 

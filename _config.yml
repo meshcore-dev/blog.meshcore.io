@@ -9,6 +9,10 @@ permalink: ":year/:month/:day/:title"
 logo: "assets/images/icon.png"
 
 authors:
+  admin:
+    name: "Admin"
+    title: "Site admin"
+    avatar: "assets/images/authors/admin.png"
   liamcottle:
     name: "Liam Cottle"
     title: "MeshCore App Developer"
@@ -17,7 +21,7 @@ authors:
   scottpowell:
     name: "Scott Powell"
     title: "Lead Firmware Developer"
-    avatar: "assets/images/authors/scottpowell.png"
+    avatar: "assets/images/authors/scottpowell.jpg"
     donate_url: "https://buymeacoffee.com/ripplebiz"
 
 # social links
