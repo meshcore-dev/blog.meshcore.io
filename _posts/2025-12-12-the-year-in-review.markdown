@@ -1,97 +1,96 @@
 ---
 layout: post
-date: 2026-01-20 12:00:00 +1200
-title: "Region Filtering"
-description: "So, the pieces are finally falling into place, and region filtering is now here."
-image: "assets/images/2026/01/20/image_2.jpg"
+date: 2025-12-12 12:00:00 +1200
+title: "The Year In Review"
+description: "Well, what a year! MeshCore is almost 1 year old now."
+image: "assets/images/2025/12/12/year_in_review.jpg"
 author: scottpowell
 ---
-![](/assets/images/2026/01/20/image_2.jpg)
+![](/assets/images/2025/12/12/year_in_review.jpg)
 
-So, the pieces are finally falling into place, and region filtering is _now_ here. There have been a number of critical code changes that preceded this to get the right support in place, like the provision for the transport codes in the packet headers, and more recently with repeater v1.10.0 release to enable region config and the actual filtering logic.
+_Generated with Grok by xAI_
 
-The final piece of the puzzle is getting client device support done, and a nice UI that is (hopefully) easy to use. The Ripple GUI firmware is now ready to go, and now Liam's app changes are ready.
+Well, what a year! MeshCore is almost 1 year old now, and I thought it a good time to reflect on this first mega year, and remember the milestones we've smashed.
 
-**EDIT: 25 Jan 2026**
+**Just Do It**
 
-After some discussions, and that there is some confusion around #channels and #regions, it's been decided to drop the requirement to have the '#' prefix. So, region names will just be plain alphanumeric (and '-'), with no # prefix.
+Over the 2024/2025 silly season, I decided to hunker down, take the phone off the hook (so to speak) and force myself to write the first draft version of the MeshCore C++ library. I had scribblings on paper from prior months and had what I thought was a workable idea. I hadn't worked everything out, but I've found that just trying to code an idea sometimes reveals a solution (and/or flaws in an idea). I'm not sure if this phenomenon has a name, but I've always found this process to have an element of magic to it. But, as I wrote the initial code, it was surprising how many things just fell into place.
 
-For backwards compatibility, the names will _internally_ have a '#' prepended, but for all client GUI's and command lines, you generally won't see mention of '#' prefixes. The next firmware release (v1.12.0) and subsequent Ripple firmware and Liam's app will have modified UI to remove the '#' requirement.
+**Bob and Alice**
 
-**EDIT: 20 Feb 2026**
+The very first MeshCore messages were sent between Bob and Alice, in early January:
+![](/assets/images/2025/12/12/bob_and_alice.png)
 
-Some confusion has arisen over the wildcard '*' region, and I now regret having named it this way. In hindsight it probably should have been called '?' or the _null_ region. In subsequent doco please try to read it that way. It's the null region.
+These were two Heltec V3 boards running the 'Simple Secure Chat' (terminal) app, with two Serial Monitors running. None of the contact management code had been written, so Bob and Alice were two hard-coded key-pair identities.
 
-**Ripple GUI**
+**That UK Chap, Andy Kirby**
 
-What you will need to do first is define the region names into a new **Regions** screen (from the network profile menu):
+I had been talking on and off with Andy over 2024 about various mesh topics, and was hinting at a new system that might materialise, and thankfully Andy really jumped at the prospect of MeshCore, and was the very first real-world tester:
+![](/assets/images/2025/12/12/andy_photos.jpg)
 
-![](/assets/images/2026/01/20/regionsscreen.jpg)
+**Teamwork Makes the Dream Work**
 
-You can do this manually with the **Add New** menu, but a cool new feature of the repeater v1.12.0 firmware (next release) is support for new request types, and one is to auto-discover regions in your area! To use this, you select the **Scan Local** menu:
+Andy published a number of early YouTube videos even when the system was getting its legs, and it made a splash. Discussions were all on his Discord server, and he already had quite a large following of mesh nerds discussing things, so there was an almost instant cross over, of peeps willing to give MeshCore a try.
 
-![](/assets/images/2026/01/20/regionsscan.jpg)
+I don't remember the dates, but pretty soon a core team ended up materialising:
+* Andy Kirby, OG tester, YouTube promoter, community engagement, UK website.
+* Rastislav Vysoky, who wrote the first web client, the meshcore map, the webflasher, and almost single handedly manned tech support
+* Liam Cottle, who was already very involved in the Reticulum project, jumped over and wrote an even better web client, then smashed out a native mobile client in Flutter in seemingly no time.
 
-This uses the new Discover request, and any repeaters within reach respond with a list of regions which they are configured to allow. These are then collated, and if any are _not_ in your device's list, then you are prompted if you wish to add:
+For about six months this was the core team, until Florent de Lamotte was asked to join after his tireless work with his Python-based mc-cli integrations.
 
-![](/assets/images/2026/01/20/regionaddfound.jpg)
+**Milestones**
 
-Once you have regions defined, when you go into any of the group channel chat screens, you can use the new **Set Scope** menu, to select which region you want to limit _messages you send._ (you can still _receive_ messages from anywhere in the mesh)
+There's a crazy amount of stuff to try to recollect, but I thought just some broad stats could be interesting:
+* GitHub releases: **23** (v1.0.0 to v1.11.0)
+* Git commits (non-merge): **1453**
+* Number of boards supported: **60+**
+* Repo contributors: **69**
+  *	Top 8: fdlamotte, recrof, oltaco, liamcottle, jquatier, jbrazio, 446564 (ded), cod3doomy
+* MeshCore map nodes uploaded: **10,625**  (as at 11 Dec)
 
-![](/assets/images/2026/01/20/channelsetscope.jpg)
+Since the creation of the [Lets Mesh Analyzer site](https://analyzer.letsme.sh/stats) and observer nodes, we now have insights into actual usage of MeshCore meshes around the world. Some current stats:
+* Unique packets per day: **~80K**
+* Unique active nodes per day: **~4.5K**
+* Unique public messages per day: **~4.4K**
+* Total bytes of traffic per day: **~52 million**
 
-The scope preference is saved per group channel, and you can change it at any time.
+**The Pain Points**
 
-**Mobile App**
+Over this first year there were a number of painful issues which took a lot of effort to resolve:
+* Deaf-gate:  This is the name we assigned to the mysterious habit of repeaters to just go deaf, seemingly at random times. This one evaded explanation for many months. Eventually it was discovered to be an AGC (automatic gain controller) glitch, which needed a force reset in the LoRa modules. A transmit would temporarily clear this problem, but because MeshCore is frugal on transmits, sometimes a repeater would stay deaf for hours. The "set agc.reset.interval ..." was the eventual workaround.
+* Packet corruptions: only in the very early months when I errantly assumed we didn't need to use hardware CRC's.
+* iOS and BLE disconnects:  Forever the thorn in Liam's side throughout this year.
+* Little-(F)FS corruptions:  The plague on all of the nRF52 users. Mysterious low power situations, BLE disconnections, and borked LFS blocks. Thanks to the amazing work from Taco, and the ExtraFS system, this problem has been reduced. (still rears its head, tho :-(  )
+* Room server glitches:  It took waay too long to figure out about three really bad bugs that were in the Room server firmware. Is sad as this really hampered adoption of rooms, and it still stings a bit, as usage is relatively rare.
+* The T1000e:  Was plagued with issues for most of the year, from LR11xx issues, deafness, lockups, LFS corruptions, etc. Thankfully the issues are pretty much ironed out now.
+* CAD and packet collisions:  This one took a number of attempts to get right. I think there were something like 3 major implementations of CAD tried, and (surprise, surprise) the simplest was the best.
 
-Liam has now published [v1.38.0 of the MeshCore app](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), which has a new **Set Region Scope** menu in the group channel chat screen:
+**Timeline**
 
-![](/assets/images/2026/01/20/Screenshot_20260120_at_1.02.54pm.png)
+![](/assets/images/2025/12/12/timeline.png)
 
-The region selection/management screen should be very straight-forward. Once you have added a region, and selected, the channel chat titlebar changes to show which region your chats will be scoped to:
+A picture paints a thousand code commits. :-) Here are most of the major events of 2025. Tiring just looking at it. phew.  March was a pretty wild month. Liam and I were cranking out features/updates at pretty wild pace. (apologies if something you worked on/contributed isn't in this chart. Took hours of going over git logs and release notes to come up with the subset above)
 
-![](/assets/images/2026/01/20/Screenshot_20260120_at_1.03.12pm.png)
+I have no idea what 2026 is going to look like! Will be interesting to compare charts at the end of next year.
 
-**What Happens Next**
+**The MeshCore Spirit**
 
-So, the first step will just be for repeater admins. This will involve having discussions in whatever forums you chat in (or even over the mesh itself!) and to come to some consensus on how to divide up your geography. The region names must be _exact_--any misspellings will be treated as a completely different region! There are some rules on the names:
+Something that really gets me _in the feels_ is how many individuals have taken up the challenge in their locales to either spread the word, or actually spread the network by building and deploying repeaters. In many key geographies, this has sometimes rested on the shoulders of a small handful of people, who have scaled mountains, trees and towers to get backbones built out.
 
-- maximum 29 _bytes_ (UTF-8).
-- Only _lower case_ alpha-numeric chars, and - (hyphen)
-- For any given mesh, region names must be _unique_
+In my own state of Victoria, Australia, there has been a huge increase in the mesh in just the past two months, and we now have messages reaching many hundreds of kms, across about half the state. This is largely down to a handful of brave souls (eg. @silentlightning) finding key mountain tops, and linking it all out. I must admit, I never anticipated that a mesh could go any further than just metro Melbourne. Was happy to be wrong about that one. :-)
 
-Each repeater can support multiple regions, so you can have super-regions that are, for example, a whole state, with smaller county sub-regions, for example. The hierarchy of regions can go to any depth you like.
+There is also a very resourceful spirit of repurposing affordable gear in DIY repeater builds. There are a lot of repurposed solar flood lights out there that do remarkably well, and there's a bit of a running gag here in Melbourne that you're not a real MeshCorer unless you have a Bunnings pool pole as a mast. Pool pole sales have skyrocketed this year.
 
-![](/assets/images/2026/01/20/exampleregions.png)
+![](/assets/images/2025/12/12/montage2.jpg)
 
-To illustrate, the bigger region in red could be **sample-city**, and the green sub-region could be **sample-west**, the orange sub-region **sample-east**. Repeater admins would then need to add different region names to each repeater's config. (This can be done remotely)
+So, to all you good, freedom-loving folk out there, I tip my hat to you. Well done!
 
-For boundary areas, like in the middle, it's reasonable to include _both_ regions. So, repeaters **E** and **F** would configure: **sample-city, sample-east, sample-west.**
+**Onwards...**
 
-Repeaters **A, B** and **C** would configure: **sample-city, sample-west**
+In just a year we did this:
+![](/assets/images/2025/12/12/worldmap.png)
 
-Repeaters **I, G** and **H** would configure: **sample-city, sample-east**
+Let's keep lighting up the world.
 
-And the outlier **D** would just have: **sample-city**
-
-Please refer to the [Repeater CLI Reference](https://docs.meshcore.io/cli_commands/), in the region management section. You will need to issue '**region put ..**' commands to define a region, then a '**region allowf ...**' command to allow flood packets for that region. And don't forget '**region save**' once you're done! You only have to do this once (or whenever regions are changed)
-
-Regular chat/client device users will have to wait until this repeater config has spread, and then can then follow the steps I outlined above, to either auto-detect regions in their area, or manually add them themselves.
-
-**FAQ**
-
-**Q: As a repeater admin, if I configure some regions, will that mean messages will stop?**
-
-No. By default, most client apps will send channel messages using the _null_ region ('*'). This is the legacy setting, and means that message will (currently) go everywhere.
-
-**Q: What happens when a sender sets a scope region and there are still many repeaters who have not setup regions in their config?**
-
-Since v1.10.0 a basic filtering rule was established, that (in this case) will _not_ forward flood packets which have a scope set and where there is no matching region in the repeater config. Legacy flood packets (as mentioned above) will still be forwarded, though.  If there are still pre v1.10.0 repeaters in an area, though, scoped flood packets will _leak_ into other regions.
-
-**Q: Can legacy flood packets (ie. with no scope set) be stopped?**
-
-Yes. Legacy flood packets (ie. with no scope transport code attached) match to the _null_ region, and repeater admins can also change the permissions of this region. NOTE: this is NOT advised at this stage, but from the command line you can do "region denyf *" and that will deny forwarding of legacy flood packets. So, in this case, senders would be forced to _always_ set scope of each flood packet. This _may_ become a requirement in the future, though.
-
-**Q: How do I list all the regions my repeater has configured?**
-
-Currently, this can only be done over a USB connection and console/CLI. There resulting list is potentially too long to transmit over LoRa in the remote CLI. There will hopefully be a way to do this in the near future, though. For now, just the remote **get/put/allowf/denyf/remove** CLI commands will have to do.
+_---sincerely, Scott Powell_
