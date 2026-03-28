@@ -11,7 +11,7 @@ logo: "assets/images/icon.png"
 authors:
   admin:
     name: "Admin"
-    title: "Site admin"
+    title: "Site Admin"
     avatar: "assets/images/authors/admin.png"
   liamcottle:
     name: "Liam Cottle"
