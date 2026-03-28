@@ -1,35 +1,37 @@
-{% assign sorted_tags = site.tags | sort %}
+<div class="max-w-4xl mx-auto p-6">
+    {% assign sorted_tags = site.tags | sort %}
 
-<h1 class="text-4xl font-semibold mb-4">Tags</h1>
-<div class="flex flex-wrap mb-4 border-b pb-2">
-    {% for tag in sorted_tags %}
-    {% assign tag_name = tag[0] %}
-    <div class="mb-2 mr-1">
-        <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugize }}" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
-            {{ tag_name | capitalize}}
-        </a>
+    <h1 class="text-4xl font-semibold mb-4">Tags</h1>
+    <div class="flex flex-wrap mb-4 border-b pb-2">
+        {% for tag in sorted_tags %}
+        {% assign tag_name = tag[0] %}
+        <div class="mb-2 mr-1">
+            <a href="{{ site.baseurl }}/tags/#{{ tag_name | slugize }}" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                {{ tag_name | capitalize}}
+            </a>
+        </div>
+        {% endfor %}
     </div>
+
+    {% for tag in sorted_tags %}
+
+    {% assign tag_name = tag[0] %}
+    {% assign sorted_posts = tag[1] %}
+
+    <h2 id="{{ tag_name | slugize }}" class="text-xl font-bold mb-3">{{ tag_name | capitalize}}</h2>
+
+    {% for post in sorted_posts %}
+    <article class="my-4">
+        <h3 class="w-full">
+            <a href="{{ post.url }}">
+                <div class="flex flex-col sm:flex-row">
+                    <div class="order-2 sm:order-1 sm:mr-1 underline underline-offset-4 font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500">{{ post.title | escape }}</div>
+                    <div class="order-1 sm:order-2 sm:ml-auto text-gray-500 whitespace-nowrap">{{ post.date | date: "%B %d, %Y" }}</div>
+                </div>
+            </a>
+        </h3>
+    </article>
     {% endfor %}
+
+    {%- endfor -%}
 </div>
-
-{% for tag in sorted_tags %}
-
-{% assign tag_name = tag[0] %}
-{% assign sorted_posts = tag[1] %}
-
-<h2 id="{{ tag_name | slugize }}" class="text-xl font-bold mb-3">{{ tag_name | capitalize}}</h2>
-
-{% for post in sorted_posts %}
-<article class="my-4">
-    <h3 class="w-full">
-        <a href="{{ post.url }}">
-            <div class="flex flex-col sm:flex-row">
-                <div class="order-2 sm:order-1 sm:mr-1 underline underline-offset-4 font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500">{{ post.title | escape }}</div>
-                <div class="order-1 sm:order-2 sm:ml-auto text-gray-500 whitespace-nowrap">{{ post.date | date: "%B %d, %Y" }}</div>
-            </div>
-        </a>
-    </h3>
-</article>
-{% endfor %}
-
-{%- endfor -%}

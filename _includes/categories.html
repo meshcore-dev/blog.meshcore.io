@@ -1,35 +1,37 @@
-{% assign sorted_categories = site.categories | sort %}
+<div class="max-w-4xl mx-auto p-6">
+    {% assign sorted_categories = site.categories | sort %}
 
-<h1 class="text-4xl font-semibold mb-4">Categories</h1>
-<div class="flex flex-wrap mb-4 border-b pb-2">
-    {% for category in sorted_categories %}
-    {% assign category_name = category[0] %}
-    <div class="mb-2 mr-1">
-        <a href="{{ site.baseurl }}/categories/#{{ category_name|slugize }}" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
-            {{ category_name | capitalize}}
-        </a>
+    <h1 class="text-4xl font-semibold mb-4">Categories</h1>
+    <div class="flex flex-wrap mb-4 border-b pb-2">
+        {% for category in sorted_categories %}
+        {% assign category_name = category[0] %}
+        <div class="mb-2 mr-1">
+            <a href="{{ site.baseurl }}/categories/#{{ category_name|slugize }}" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                {{ category_name | capitalize}}
+            </a>
+        </div>
+        {% endfor %}
     </div>
+
+    {% for category in sorted_categories %}
+
+    {% assign category_name = category[0] %}
+    {% assign sorted_posts = category[1] | reverse %}
+
+    <h2 id="{{ category_name | slugize }}" class="text-xl font-bold mb-3">{{ category_name | capitalize }}</h2>
+
+    {% for post in sorted_posts %}
+    <article class="my-4">
+        <h3 class="w-full">
+            <a href="{{ post.url }}">
+                <div class="flex flex-col sm:flex-row">
+                    <div class="order-2 sm:order-1 sm:mr-1 underline underline-offset-4 font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500">{{ post.title | escape }}</div>
+                    <div class="order-1 sm:order-2 sm:ml-auto text-gray-500 whitespace-nowrap">{{ post.date | date: "%B %d, %Y" }}</div>
+                </div>
+            </a>
+        </h3>
+    </article>
     {% endfor %}
+
+    {%- endfor -%}
 </div>
-
-{% for category in sorted_categories %}
-
-{% assign category_name = category[0] %}
-{% assign sorted_posts = category[1] | reverse %}
-
-<h2 id="{{ category_name | slugize }}" class="text-xl font-bold mb-3">{{ category_name | capitalize }}</h2>
-
-{% for post in sorted_posts %}
-<article class="my-4">
-    <h3 class="w-full">
-        <a href="{{ post.url }}">
-            <div class="flex flex-col sm:flex-row">
-                <div class="order-2 sm:order-1 sm:mr-1 underline underline-offset-4 font-medium text-gray-700 decoration-gray-300 hover:decoration-gray-500">{{ post.title | escape }}</div>
-                <div class="order-1 sm:order-2 sm:ml-auto text-gray-500 whitespace-nowrap">{{ post.date | date: "%B %d, %Y" }}</div>
-            </div>
-        </a>
-    </h3>
-</article>
-{% endfor %}
-
-{%- endfor -%}
