@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-28T22:09:03+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-30T04:28:53+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchs3plus.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -32,17 +32,57 @@
 
 &lt;p&gt;&lt;strong&gt;Kid Mode&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/kid-mode-remote-admin&quot;&gt;this article&lt;/a&gt; on how it works.&lt;/p&gt;
+&lt;p&gt;The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See &lt;a href=&quot;https://blog.meshcore.io/2025/10/02/kid-mode&quot;&gt;this article&lt;/a&gt; on how it works.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchkidmode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Coming Soon&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NEW: Custom Watchfaces&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The next version of the firmware has some nice customisations for the watch-face/lock screen. The basics have been implemented, but I still have to see if there is an easier way to do the file-transfers involed.&lt;/p&gt;
+&lt;p&gt;The 9.3 version of the firmware has some nice customisations for the watch-face/lock screen.&lt;/p&gt;
 
-&lt;p&gt;You will soon be able to set a Display preference of Digital or Analog. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image &lt;em&gt;without hands&lt;/em&gt; as the hour/minute hands are rendered on top of this background:&lt;/p&gt;
+&lt;p&gt;You can now set a &lt;strong&gt;Display&lt;/strong&gt; preference of &lt;strong&gt;Digital&lt;/strong&gt; or &lt;strong&gt;Analog&lt;/strong&gt;. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image &lt;em&gt;without hands&lt;/em&gt; as the hour/minute hands are rendered on top of this background:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/custom-watchfaces.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.14.1</title><link href="https://blog.meshcore.io/2026/03/20/release-1-14-1" rel="alternate" type="text/html" title="Release v1.14.1" /><published>2026-03-20T00:00:00+00:00</published><updated>2026-03-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/20/release-1-14-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/20/release-1-14-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/custom-watchfaces.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To customise the digital watchface background, just drop a 240x240 PNG file called &lt;strong&gt;default-face.png&lt;/strong&gt; to root directory.&lt;/p&gt;
+
+&lt;p&gt;To customise the analog watchface background, just drop a 240x240 PNG file called &lt;strong&gt;analog-face.png&lt;/strong&gt; to root directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NEW: Maps&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The v9.3 can now handle &lt;em&gt;some&lt;/em&gt; map tiles, and rendered in the map view:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatch-maps.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The ‘LittleFS’ Firmware&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The v9.3 firmware now has two variants, the legacy one for those who just want to upgrade and &lt;em&gt;not&lt;/em&gt; use the watchfaces or maps, and the “-LFS” variant.&lt;/p&gt;
+
+&lt;p&gt;The -LFS variant uses a different partition scheme, so if you flash this variant over the current one you &lt;em&gt;will lose your settings&lt;/em&gt;. But, once you have this variant it will be safe to upgrade future versions without losing data.&lt;/p&gt;
+
+&lt;p&gt;This new variant, it carves out a LittleFS partition about 14Mb in size. So, you can drop map tiles up to about that size. This is fairly limited, but you should be able to drop some subset of your local geography for a few zoom levels.&lt;/p&gt;
+
+&lt;p&gt;Please see the &lt;a href=&quot;https://docs.meshcore.io/faq/?h=maps#47-q-how-do-i-get-maps-on-t-deck&quot;&gt;FAQ about how to get map tiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Copying Files to LittleFS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a handy online tool called &lt;a href=&quot;https://thelastoutpostworkshop.github.io/ESPConnect/&quot;&gt;ESPConnect&lt;/a&gt; which makes it easy to connect the T-Watch via USB to your computer, then add/modify/delete the files in the LittleFS partition.&lt;/p&gt;
+
+&lt;p&gt;Just click on the &lt;strong&gt;CONNECT&lt;/strong&gt; button at the top, select the port for your USB connection, then click on the &lt;strong&gt;LittleFS Tools&lt;/strong&gt; tab:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-littlefs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll need to be patient while it does a &lt;em&gt;full read&lt;/em&gt; of the partition, but once done, it will ask you to click &lt;strong&gt;BACKUP&lt;/strong&gt; (which is very handy), that saves the entire partition to a .bin file.&lt;/p&gt;
+
+&lt;p&gt;If you look below, you should then see the various files/folders in the file system. Just drag-n-drop files, like ‘analog-face.png’ to add to the watch. You can also do this for the map tiles, just drag/drop the whole ‘tiles’ folder you have prepared on your computer. NOTE: you will see this warning if you’ve blown the size limit:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-full.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see the orange warning &lt;strong&gt;Unsaved changes&lt;/strong&gt; after adding/removing files/folder, and once you have made all the changes need, just click the blue &lt;strong&gt;SAVE TO FLASH&lt;/strong&gt; button:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-save.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the watch. But, once it’s done just disconnect the watch, then press the Reset button on the top-right shoulder of the watch.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.14.1</title><link href="https://blog.meshcore.io/2026/03/20/release-1-14-1" rel="alternate" type="text/html" title="Release v1.14.1" /><published>2026-03-20T00:00:00+00:00</published><updated>2026-03-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/20/release-1-14-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/20/release-1-14-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;&lt;/p&gt;
 

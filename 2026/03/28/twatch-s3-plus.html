@@ -13,8 +13,8 @@
 
   <!-- styles -->
   
-  <link rel="stylesheet" href="/assets/css/main.css?v=1774735743">
-  <link rel="stylesheet" href="/assets/css/syntax.css?v=1774735743">
+  <link rel="stylesheet" href="/assets/css/main.css?v=1774844933">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1774844933">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
@@ -133,7 +133,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div class="ml-1">2 minute read</div>
+            <div class="ml-1">4 minute read</div>
         </div>
         
 
@@ -174,17 +174,57 @@
 
 <p><strong>Kid Mode</strong></p>
 
-<p>The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See <a href="https://buymeacoffee.com/ripplebiz/kid-mode-remote-admin">this article</a> on how it works.</p>
+<p>The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See <a href="https://blog.meshcore.io/2025/10/02/kid-mode">this article</a> on how it works.</p>
 
 <p><img src="/assets/images/2026/03/28/twatchkidmode.png" alt="" /></p>
 
-<p><strong>Coming Soon</strong></p>
+<p><strong>NEW: Custom Watchfaces</strong></p>
 
-<p>The next version of the firmware has some nice customisations for the watch-face/lock screen. The basics have been implemented, but I still have to see if there is an easier way to do the file-transfers involed.</p>
+<p>The 9.3 version of the firmware has some nice customisations for the watch-face/lock screen.</p>
 
-<p>You will soon be able to set a Display preference of Digital or Analog. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image <em>without hands</em> as the hour/minute hands are rendered on top of this background:</p>
+<p>You can now set a <strong>Display</strong> preference of <strong>Digital</strong> or <strong>Analog</strong>. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image <em>without hands</em> as the hour/minute hands are rendered on top of this background:</p>
 
 <p><img src="/assets/images/2026/03/28/custom-watchfaces.jpg" alt="" /></p>
+
+<p>To customise the digital watchface background, just drop a 240x240 PNG file called <strong>default-face.png</strong> to root directory.</p>
+
+<p>To customise the analog watchface background, just drop a 240x240 PNG file called <strong>analog-face.png</strong> to root directory.</p>
+
+<p><strong>NEW: Maps</strong></p>
+
+<p>The v9.3 can now handle <em>some</em> map tiles, and rendered in the map view:</p>
+
+<p><img src="/assets/images/2026/03/28/twatch-maps.png" alt="" /></p>
+
+<p><strong>The ‘LittleFS’ Firmware</strong></p>
+
+<p>The v9.3 firmware now has two variants, the legacy one for those who just want to upgrade and <em>not</em> use the watchfaces or maps, and the “-LFS” variant.</p>
+
+<p>The -LFS variant uses a different partition scheme, so if you flash this variant over the current one you <em>will lose your settings</em>. But, once you have this variant it will be safe to upgrade future versions without losing data.</p>
+
+<p>This new variant, it carves out a LittleFS partition about 14Mb in size. So, you can drop map tiles up to about that size. This is fairly limited, but you should be able to drop some subset of your local geography for a few zoom levels.</p>
+
+<p>Please see the <a href="https://docs.meshcore.io/faq/?h=maps#47-q-how-do-i-get-maps-on-t-deck">FAQ about how to get map tiles</a>.</p>
+
+<p><strong>Copying Files to LittleFS</strong></p>
+
+<p>There is a handy online tool called <a href="https://thelastoutpostworkshop.github.io/ESPConnect/">ESPConnect</a> which makes it easy to connect the T-Watch via USB to your computer, then add/modify/delete the files in the LittleFS partition.</p>
+
+<p>Just click on the <strong>CONNECT</strong> button at the top, select the port for your USB connection, then click on the <strong>LittleFS Tools</strong> tab:</p>
+
+<p><img src="/assets/images/2026/03/28/espconnect-littlefs.png" alt="" /></p>
+
+<p>You’ll need to be patient while it does a <em>full read</em> of the partition, but once done, it will ask you to click <strong>BACKUP</strong> (which is very handy), that saves the entire partition to a .bin file.</p>
+
+<p>If you look below, you should then see the various files/folders in the file system. Just drag-n-drop files, like ‘analog-face.png’ to add to the watch. You can also do this for the map tiles, just drag/drop the whole ‘tiles’ folder you have prepared on your computer. NOTE: you will see this warning if you’ve blown the size limit:</p>
+
+<p><img src="/assets/images/2026/03/28/espconnect-full.png" alt="" /></p>
+
+<p>You should see the orange warning <strong>Unsaved changes</strong> after adding/removing files/folder, and once you have made all the changes need, just click the blue <strong>SAVE TO FLASH</strong> button:</p>
+
+<p><img src="/assets/images/2026/03/28/espconnect-save.png" alt="" /></p>
+
+<p>Again, you’ll need to be patient as it writes the entire partition back to the watch. But, once it’s done just disconnect the watch, then press the Reset button on the top-right shoulder of the watch.</p>
 
 
     </div>
