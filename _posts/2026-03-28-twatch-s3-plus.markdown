@@ -16,7 +16,7 @@ I've now added support for the [T-Watch S3 Plus](https://www.lilygo.cc/products/
 
 **Download**
 
-You can download + flash in one easy step using this [direct link](https://flasher.meshcore.io/ripple-lilygo-t-watch-s3-plus/ripple-gui/v9.3) to the MeshCore Flasher target.
+You can download + flash in one easy step using this [direct link](https://flasher.meshcore.io/ripple-lilygo-t-watch-s3-plus/) to the MeshCore Flasher target.
 
 **UI Navigation**
 
