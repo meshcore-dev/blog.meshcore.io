@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-03-30T11:47:59+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-01T05:16:10+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Download new .bin&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin&quot;&gt;the Heltec V3 Repeater&lt;/a&gt;.
+&lt;strong&gt;NOTE: do &lt;em&gt;not&lt;/em&gt; download the -merged.bin!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Login to repeater/room server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the mobile app, login to your device:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then switch to the Command Line, and enter &lt;strong&gt;start ota&lt;/strong&gt; command:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/repeater-cli.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should then see a reply, like:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Started: http://192.168.4.1/update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the ‘start ota’ command:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Connect with your laptop/phone&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The ESP32 device should have created a WiFi access point called &lt;strong&gt;MeshCore-OTA&lt;/strong&gt;. Just connect to this from your laptop (or phone), and navigate to the URL that was shown in the command line response (above). You should see a page like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/repeater-ota.png&quot; alt=&quot;&quot; /&gt;
+Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this should be the name (and MCU type) of the node you are about to update.&lt;/p&gt;
+
+&lt;p&gt;Click the &lt;strong&gt;Choose file&lt;/strong&gt; button, and select the .bin file you previously downloaded. You should then see a progress bar:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/ota-progress.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Finishing Up&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the &lt;strong&gt;clock&lt;/strong&gt; command. If it is incorrect, just issue the &lt;strong&gt;clock sync&lt;/strong&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Also, you might want to enter the &lt;strong&gt;ver&lt;/strong&gt; command, to check the firmware version is now updated.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trouble Shooting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If the progress bar stalled, or something went wrong, try issuing this command from phone or standalone device:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchs3plus.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
