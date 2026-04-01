@@ -13,8 +13,8 @@
 
   <!-- styles -->
   
-  <link rel="stylesheet" href="/assets/css/main.css?v=1775020570">
-  <link rel="stylesheet" href="/assets/css/syntax.css?v=1775020570">
+  <link rel="stylesheet" href="/assets/css/main.css?v=1775029594">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1775029594">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
@@ -133,7 +133,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div class="ml-1">1 minute read</div>
+            <div class="ml-1">2 minute read</div>
         </div>
         
 
@@ -144,25 +144,29 @@
 
 <p><strong>1. Download new .bin</strong></p>
 
-<p>Go to the <a href="https://github.com/meshcore-dev/MeshCore/releases">Github releases</a> page, then find the related artifact, eg. <a href="https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin">the Heltec V3 Repeater</a>.
+<p>Go to the <a href="https://flasher.meshcore.io/">webflasher</a> and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the <strong>Download</strong> button, then select the second .bin (ie. <em>not</em> the merged.bin!):</p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/flasher-download.jpeg" /></p>
+
+<p>Alternatively, go to the <a href="https://github.com/meshcore-dev/MeshCore/releases">Github releases</a> page, then find the related artifact, eg. <a href="https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin">the Heltec V3 Repeater</a>.
 <strong>NOTE: do <em>not</em> download the -merged.bin!</strong></p>
 
 <p><strong>2. Login to repeater/room server</strong></p>
 
 <p>Using the mobile app, login to your device:</p>
 
-<p><img src="/assets/images/2026/04/01/app-repeater-login.png" alt="" /></p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/app-repeater-login.png" /></p>
 
-<p>Then switch to the Command Line, and enter <strong>start ota</strong> command:</p>
+<p>Then switch to the Command Line, and enter <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
 
-<p><img src="/assets/images/2026/04/01/repeater-cli.png" alt="" /></p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/repeater-cli2.png" /></p>
 
 <p>You should then see a reply, like:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Started: http://192.168.4.1/update
 </code></pre></div></div>
-<p>Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the ‘start ota’ command:</p>
+<p>Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
 
-<p><img src="/assets/images/2026/04/01/xiao-start-ota.jpg" alt="" /></p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/xiao-start-ota.jpg" /></p>
 
 <p><strong>3. Connect with your laptop/phone</strong></p>
 

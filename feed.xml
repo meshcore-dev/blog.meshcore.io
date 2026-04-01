@@ -1,26 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-01T05:16:10+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-01T07:46:34+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1. Download new .bin&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin&quot;&gt;the Heltec V3 Repeater&lt;/a&gt;.
+&lt;p&gt;Go to the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;webflasher&lt;/a&gt; and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the &lt;strong&gt;Download&lt;/strong&gt; button, then select the second .bin (ie. &lt;em&gt;not&lt;/em&gt; the merged.bin!):&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/flasher-download.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin&quot;&gt;the Heltec V3 Repeater&lt;/a&gt;.
 &lt;strong&gt;NOTE: do &lt;em&gt;not&lt;/em&gt; download the -merged.bin!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;2. Login to repeater/room server&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Using the mobile app, login to your device:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Then switch to the Command Line, and enter &lt;strong&gt;start ota&lt;/strong&gt; command:&lt;/p&gt;
+&lt;p&gt;Then switch to the Command Line, and enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/repeater-cli.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/repeater-cli2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You should then see a reply, like:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Started: http://192.168.4.1/update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the ‘start ota’ command:&lt;/p&gt;
+&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;3. Connect with your laptop/phone&lt;/strong&gt;&lt;/p&gt;
 
