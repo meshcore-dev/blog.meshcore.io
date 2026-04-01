@@ -14,26 +14,30 @@ Updating the firmware of your repeaters or room servers is super easy for ESP32-
 
 **1. Download new .bin**
 
-Go to the [Github releases](https://github.com/meshcore-dev/MeshCore/releases) page, then find the related artifact, eg. [the Heltec V3 Repeater](https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin).
+Go to the [webflasher](https://flasher.meshcore.io/) and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the **Download** button, then select the second .bin (ie. _not_ the merged.bin!):
+
+<img alt class="mx-auto" src="/assets/images/2026/04/01/flasher-download.jpeg" />
+
+Alternatively, go to the [Github releases](https://github.com/meshcore-dev/MeshCore/releases) page, then find the related artifact, eg. [the Heltec V3 Repeater](https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin).
 **NOTE: do _not_ download the -merged.bin!**
 
 **2. Login to repeater/room server**
 
 Using the mobile app, login to your device:
 
-![](/assets/images/2026/04/01/app-repeater-login.png)
+<img alt class="mx-auto" src="/assets/images/2026/04/01/app-repeater-login.png" />
 
-Then switch to the Command Line, and enter **start ota** command:
+Then switch to the Command Line, and enter `start ota` command:
 
-![](/assets/images/2026/04/01/repeater-cli.png)
+<img alt class="mx-auto" src="/assets/images/2026/04/01/repeater-cli2.png" />
 
 You should then see a reply, like:
 ```
 Started: http://192.168.4.1/update
 ```
-Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the 'start ota' command:
+Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the `start ota` command:
 
-![](/assets/images/2026/04/01/xiao-start-ota.jpg)
+<img alt class="mx-auto" src="/assets/images/2026/04/01/xiao-start-ota.jpg" />
 
 **3. Connect with your laptop/phone**
 
