@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-01T07:46:34+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-02T02:28:31+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on nRF Devices</title><link href="https://blog.meshcore.io/2026/04/02/nrf-ota-update" rel="alternate" type="text/html" title="OTA Updates on nRF Devices" /><published>2026-04-02T00:00:00+00:00</published><updated>2026-04-02T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/02/nrf-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/02/nrf-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/nRF-DFU.webp&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Download new .zip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Go to the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;webflasher&lt;/a&gt; and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the &lt;strong&gt;Download&lt;/strong&gt; button, then select .zip file:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/nRF-zip-download.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_t114_repeater-v1.14.1-467959c.zip&quot;&gt;the T114 Repeater&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Login to repeater/room server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the mobile app, login to your device:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then switch to the Command Line, and enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/repeater-cli2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should then see a reply, like:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OK - mac: FF:AA:BB ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Connect with your phone&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you don’t have it installed already, you will need to install the Nordic &lt;strong&gt;nRF Device Firmware Update&lt;/strong&gt; app, which you can find on &lt;a href=&quot;https://play.google.com/store/apps/details?id=no.nordicsemi.android.dfu&quot;&gt;Google Play&lt;/a&gt; and the &lt;a href=&quot;https://apps.apple.com/us/app/nrf-device-firmware-update/id1624454660&quot;&gt;App Store&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.1 DFU App Settings&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the app, tap on &lt;strong&gt;Settings&lt;/strong&gt; icon and use these recommended settings changes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Packet receipts notification - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Number of packets - &lt;strong&gt;8&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Request high MTU (Android only) - &lt;strong&gt;OFF&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Disable resume - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Prepare object delay - &lt;strong&gt;0 ms&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Force scanning - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3.2 Start update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the app, select the .zip file you downloaded and select the Device, Then press the &lt;strong&gt;start&lt;/strong&gt; button:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/dfu-app.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And that’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Finishing Up&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the &lt;strong&gt;clock&lt;/strong&gt; command. If it is incorrect, just issue the &lt;strong&gt;clock sync&lt;/strong&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Also, you might want to enter the &lt;strong&gt;ver&lt;/strong&gt; command, to check the firmware version is now updated.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trouble Shooting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If the update stalled or failed, try issuing this command from phone or standalone device:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1. Download new .bin&lt;/strong&gt;&lt;/p&gt;
 
