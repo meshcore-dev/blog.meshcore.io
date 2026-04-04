@@ -81,6 +81,10 @@
         @apply border border-gray-300 p-2;
     }
 
+    .post ol {
+        @apply list-decimal ml-8;
+    }
+
     blockquote {
         @apply border-l-4 pl-3 border-gray-400 dark:border-gray-500;
     }
