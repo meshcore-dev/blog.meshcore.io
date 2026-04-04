@@ -4,12 +4,13 @@ date: 2026-04-04 12:00:00 +1200
 title: "The MeshCore Map"
 description: "A guide on the background and use the MeshCore internet map."
 image: "assets/images/2026/04/04/map-may-2025.png"
-author: rastislavvysoky
+author: recrof
 categories:
   - Map
 tags:
   - Guide
 ---
+
 # Origins
 
 When MeshCore launched at the start of 2025, discoverability was a pretty big issue - that's where the idea for the MeshCore internet map was born. Liam Cottle's [Meshtastic Map](https://meshtastic.liamcottle.net) was the primary inspiration. The first version was released in April 2025 and the first nodes from the UK, Australia and Slovakia started to flow in. The number of nodes grew rapidly - we had the first 1,000 nodes within a month, crossed the 5,000 mark in summer, 10k in December and now we're at 30k nodes worldwide.
@@ -33,17 +34,15 @@ Apart from the obvious map browsing and node search, there is a powerful filter 
 
 ## Node freshness
 
-Each Repeater / Room Server / Sensor node icon is color-coded to show how recently it was last heard by the network:
+Nodes updated by [MeshCore Map Auto Uploader](https://github.com/recrof/map.meshcore.io-uploader) are color coded, so you know which Repeater / Room Server / Sensor was recently heard:
 
 | Color | Status | Meaning |
 |-------|--------|---------|
-| Blue | Recent | Updated within the last 5 days |
+| Green | Recent | Updated within the last 5 days |
 | Yellow | Stale | Updated within the last 10 days |
-| Green | Old | Updated within the last 20 days |
+| Red | Old | Updated within the last 20 days |
 | Black  | Extinct | Not updated in over 20 days - will be deleted soon |
 | No tint | Manual | Added manually, not automatically uploaded |
-
-The freshness data is most useful when combined with the [MeshCore Map Auto Uploader](https://github.com/recrof/map.meshcore.io-uploader), which keeps node status current automatically.
 
 ![Map freshness](/assets/images/2026/04/04/map-freshness.png)
 <small>*Node freshness on the map*</small>
@@ -71,6 +70,36 @@ You can also use the url in your own regional page using `<iframe>`, here is an 
 ```html
 <iframe src="https://map.meshcore.io/?lat=47.8721&amp;lon=12.5903&amp;zoom=8" style="width:100%;aspect-ratio:3/2" frameborder="0" scrolling="no"></iframe>
 ```
+
+# Adding/Removing nodes
+
+## Adding yourself (Companion radio)
+
+1. Open MeshCore app
+2. Tap the **⋮** menu icon in the top right corner
+3. Tap **Internet Map**
+4. Tap **⋮** again and choose **Add me to the Map**
+
+![Adding yourself to the map](/assets/images/2026/04/04/map-add-self.png)
+<small>*Adding yourself to the map*</small>
+
+## Adding a Repeater or Room Server
+
+1. Open the **Contacts** tab in the MeshCore app
+2. Tap **⋮** next to the Repeater or Room Server you want to add
+3. Tap **Share**, then **Upload to Internet Map**
+
+![Adding a repeater to the map](/assets/images/2026/04/04/map-add-repeater.png)
+<small>*Adding a repeater to the map*</small>
+
+## Removing a node
+
+Removing can only be done with same Companion radio (same public key) that was used to upload the node.
+
+1. Open MeshCore app
+2. Tap the **⋮** menu icon in the top right corner
+3. Tap **Internet Map**
+4. Find the node you want to delete, tap it and choose **Delete Marker**
 
 # Beyond the interface
 
