@@ -77,6 +77,10 @@
         @apply rounded-lg mb-4 shadow bg-gray-200 dark:bg-gray-500;
     }
 
+    .post th, .post td {
+        @apply border border-gray-300 p-2;
+    }
+
     blockquote {
         @apply border-l-4 pl-3 border-gray-400 dark:border-gray-500;
     }
