@@ -1,4 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-04T07:48:54+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates on nRF Devices</title><link href="https://blog.meshcore.io/2026/04/02/nrf-ota-update" rel="alternate" type="text/html" title="OTA Updates on nRF Devices" /><published>2026-04-02T00:00:00+00:00</published><updated>2026-04-02T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/02/nrf-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/02/nrf-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-04T08:29:50+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">The MeshCore Map</title><link href="https://blog.meshcore.io/2026/04/04/meshcore-map" rel="alternate" type="text/html" title="The MeshCore Map" /><published>2026-04-04T00:00:00+00:00</published><updated>2026-04-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/04/meshcore-map</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/04/meshcore-map">&lt;h1 id=&quot;origins&quot;&gt;Origins&lt;/h1&gt;
+
+&lt;p&gt;When MeshCore launched at the start of 2025, discoverability was a pretty big issue - that’s where the idea for the MeshCore internet map was born. Liam Cottle’s &lt;a href=&quot;https://meshtastic.liamcottle.net&quot;&gt;Meshtastic Map&lt;/a&gt; was the primary inspiration. The first version was released in April 2025 and the first nodes from the UK, Australia and Slovakia started to flow in. The number of nodes grew rapidly - we had the first 1,000 nodes within a month, crossed the 5,000 mark in summer, 10k in December and now we’re at 30k nodes worldwide.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-may-2025.png&quot; alt=&quot;Map in May 2025&quot; /&gt;
+&lt;small&gt;&lt;em&gt;This is how the map looked in May 2025&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;basic-concepts&quot;&gt;Basic concepts&lt;/h1&gt;
+
+&lt;p&gt;The map was created mainly to reference infrastructure nodes, so you know exactly where other repeaters are and what radio settings they use. This was later extended to node statistics, search, filtering and basic health monitoring of the mesh.&lt;/p&gt;
+
+&lt;h1 id=&quot;notable-features&quot;&gt;Notable Features&lt;/h1&gt;
+
+&lt;p&gt;Apart from the obvious map browsing and node search, there is a powerful filter that can be very useful for finding specific nodes.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Search in current map view only&lt;/strong&gt; - useful when you’re looking for a specific node or public key prefix in your area&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Only show duplicates&lt;/strong&gt; - shows only names that appear more than once on the map, good for map cleanup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-filter.png&quot; alt=&quot;Map Filter opened&quot; /&gt;
+&lt;small&gt;&lt;em&gt;The filter menu opens when you click on the filter icon&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;node-freshness&quot;&gt;Node freshness&lt;/h2&gt;
+
+&lt;p&gt;Nodes updated by &lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; are color coded, so you know which Repeater / Room Server / Sensor was recently heard:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Color&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Meaning&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Green&lt;/td&gt;
+      &lt;td&gt;Recent&lt;/td&gt;
+      &lt;td&gt;Updated within the last 5 days&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Yellow&lt;/td&gt;
+      &lt;td&gt;Stale&lt;/td&gt;
+      &lt;td&gt;Updated within the last 10 days&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Red&lt;/td&gt;
+      &lt;td&gt;Old&lt;/td&gt;
+      &lt;td&gt;Updated within the last 20 days&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Black&lt;/td&gt;
+      &lt;td&gt;Extinct&lt;/td&gt;
+      &lt;td&gt;Not updated in over 20 days - will be deleted soon&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;No tint&lt;/td&gt;
+      &lt;td&gt;Manual&lt;/td&gt;
+      &lt;td&gt;Added manually, not automatically uploaded&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-freshness.png&quot; alt=&quot;Map freshness&quot; /&gt;
+&lt;small&gt;&lt;em&gt;Node freshness on the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;coordinate-context-menu&quot;&gt;Coordinate context menu&lt;/h2&gt;
+
+&lt;p&gt;Clicking on the coordinates in a node popup opens a small context menu with quick links to open the location in OpenStreetMap, Google Maps or Mapy.com, as well as an option to copy the coordinates to clipboard.&lt;/p&gt;
+
+&lt;h2 id=&quot;clustering-zoom-level&quot;&gt;Clustering zoom level&lt;/h2&gt;
+
+&lt;p&gt;By default, nearby markers are grouped into clusters to keep the map readable. The &lt;strong&gt;Clustering zoom level&lt;/strong&gt; slider in the filter menu controls at what zoom level markers stop clustering and are shown individually. If you’re exploring a dense area and want to see all nodes separately without zooming in all the way, sliding it to a lower value will expand clusters earlier.&lt;/p&gt;
+
+&lt;h2 id=&quot;qr-code&quot;&gt;QR code&lt;/h2&gt;
+
+&lt;p&gt;Every node popup shows a QR code that encodes a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;meshcore://contact/add&lt;/code&gt; URL with the node’s name, public key and type. Scanning it with the MeshCore mobile app adds the node directly as a contact - no manual copying of keys needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-open-popup.png&quot; alt=&quot;Map node popup opened&quot; /&gt;
+&lt;small&gt;&lt;em&gt;Node popup with QR code and all the details&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;shareable-urls&quot;&gt;Shareable URLs&lt;/h2&gt;
+
+&lt;p&gt;The map remembers your current position and the node you have open. The URL updates as you move around, and when you open a node popup it switches to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?public_key=...&lt;/code&gt; format. You can share that URL directly - anyone opening it will be taken straight to that node with the popup open.&lt;/p&gt;
+
+&lt;p&gt;You can also use the url in your own regional page using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt;, here is an example:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://map.meshcore.io/?lat=47.8721&amp;amp;amp;lon=12.5903&amp;amp;amp;zoom=8&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width:100%;aspect-ratio:3/2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scrolling=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;addingremoving-nodes&quot;&gt;Adding/Removing nodes&lt;/h1&gt;
+
+&lt;h2 id=&quot;adding-yourself-companion-radio&quot;&gt;Adding yourself (Companion radio)&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open MeshCore app&lt;/li&gt;
+  &lt;li&gt;Tap the &lt;strong&gt;⋮&lt;/strong&gt; menu icon in the top right corner&lt;/li&gt;
+  &lt;li&gt;Tap &lt;strong&gt;Internet Map&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Tap &lt;strong&gt;⋮&lt;/strong&gt; again and choose &lt;strong&gt;Add me to the Map&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-add-self.png&quot; alt=&quot;Adding yourself to the map&quot; /&gt;
+&lt;small&gt;&lt;em&gt;Adding yourself to the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-a-repeater-or-room-server&quot;&gt;Adding a Repeater or Room Server&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open the &lt;strong&gt;Contacts&lt;/strong&gt; tab in the MeshCore app&lt;/li&gt;
+  &lt;li&gt;Tap &lt;strong&gt;⋮&lt;/strong&gt; next to the Repeater or Room Server you want to add&lt;/li&gt;
+  &lt;li&gt;Tap &lt;strong&gt;Share&lt;/strong&gt;, then &lt;strong&gt;Upload to Internet Map&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-add-repeater.png&quot; alt=&quot;Adding a repeater to the map&quot; /&gt;
+&lt;small&gt;&lt;em&gt;Adding a repeater to the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;removing-a-node&quot;&gt;Removing a node&lt;/h2&gt;
+
+&lt;p&gt;Removing can only be done with same Companion radio (same public key) that was used to upload the node.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open MeshCore app&lt;/li&gt;
+  &lt;li&gt;Tap the &lt;strong&gt;⋮&lt;/strong&gt; menu icon in the top right corner&lt;/li&gt;
+  &lt;li&gt;Tap &lt;strong&gt;Internet Map&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Find the node you want to delete, tap it and choose &lt;strong&gt;Delete Marker&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;beyond-the-interface&quot;&gt;Beyond the interface&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; will let you automatically add and update all repeaters, room servers and sensors when they broadcast an advert. That’s the main reason you can see freshness indicated by the colored node icons.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Map" /><category term="Guide" /><summary type="html">Origins</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates on nRF Devices</title><link href="https://blog.meshcore.io/2026/04/02/nrf-ota-update" rel="alternate" type="text/html" title="OTA Updates on nRF Devices" /><published>2026-04-02T00:00:00+00:00</published><updated>2026-04-02T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/02/nrf-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/02/nrf-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/nRF-DFU.webp&quot; /&gt;&lt;/p&gt;
 
@@ -589,68 +717,4 @@ set radio.rxgain {on|off}
 &lt;ul&gt;
   &lt;li&gt;remotely turn GPS on or off (default is ON, but might want to preserve battery remotely)&lt;/li&gt;
   &lt;li&gt;remotely wipe the storage/contents of device&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Feature" /><summary type="html">The latest firmware (v7.11) for T-Deck, T-Deck Pro, T-Watch S3 Plus and T-Pager now have the ability to be remotely administered, with the first feature being Kid Mode</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MeshCore Philosophy</title><link href="https://blog.meshcore.io/2025/03/01/meshcore-philosophy" rel="alternate" type="text/html" title="MeshCore Philosophy" /><published>2025-03-01T00:00:00+00:00</published><updated>2025-03-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2025/03/01/meshcore-philosophy</id><content type="html" xml:base="https://blog.meshcore.io/2025/03/01/meshcore-philosophy">&lt;p&gt;&lt;img src=&quot;/assets/images/2025/03/01/techphilosophybyGrok.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Generated with Grok by xAI&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The rapid rise and development of MeshCore is really great to see, and I hope it continues, but there is a risk of things like fragmentation and splintering, among other things, if some of the principles behind the design are lost or ignored. So, a summary on what lead to its design, and where I see it going hopefully will help.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Most probably know of the existing mesh system, and the frustrations fairly universally experienced. My main issue was the desire for an open ecosystem, with an open protocol, where &lt;em&gt;individuals&lt;/em&gt; could develop their own components (be it software, hardware, add-ons, etc) where interoperability was maximised. This just simply was not possible.&lt;/p&gt;
-
-&lt;p&gt;Reticulum is also in the mix here. It is &lt;em&gt;far&lt;/em&gt; more ambitious than MeshCore, and can do a lot more, but it does suffer from a number of issues, like it being almost entirely Python-based, and not designed for microcontrollers. It does include this via things like the RNode firmware, but it’s still very heavy compared to MeshCore.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How does MeshCore try to answer these issues?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So, in light of these background limitations, I went about trying to design something new, and these were the emerging principles:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Light weight. Can run on tiny hardware.&lt;/li&gt;
-  &lt;li&gt;LoRa-first design, but not limited to LoRa. (any packet radio) ie. frugal packet sizes, very conservative with transmit air time.&lt;/li&gt;
-  &lt;li&gt;Portable core C++ library, not restricted to Arduino. Extensible. Many execution environments.&lt;/li&gt;
-  &lt;li&gt;Privacy as a core principle. (no mandatory identity exposure, encryption by default)&lt;/li&gt;
-  &lt;li&gt;Decentralised. No one central admin body/corporation who sets policy or permissions.&lt;/li&gt;
-  &lt;li&gt;Non-monolithic firmware. Firmwares are role-specific, they do a specific thing. No more, no less.&lt;/li&gt;
-  &lt;li&gt;An evolving protocol, extensible, but with features like messaging as core, being interoperable with as many firmwares as possible. Adaptable to things like sensor networks, for instance. Or even completely private systems with custom protocols on top of the core protocol.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;The Division of Labour, Rights and Responsibilities&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Like Reticulum, MeshCore clearly shifts the responsibility of packet routing to repeaters, and repeaters only. Edge nodes, like chat clients or sensor nodes, don’t pollute the airwaves. Repeaters are mounted typically in good, elevated locations, and have a &lt;em&gt;fixed location&lt;/em&gt;. Edge nodes can roam (* however, protocol extensions to aid/optimise roaming nodes is still being developed).&lt;/p&gt;
-
-&lt;p&gt;As repeaters do ‘the work’ of the mesh, it is the right of a repeater admin to refuse or allow traffic. This might be a little controversial, or could be seen as an avenue for discrimination by repeater admins, but the privacy built into the core protocol intentionally makes this difficult. Currently, there are no restrictions imposed in the standard repeater firmware, but there could be many repeater firmwares, some with more admin controls, with things like rate-limiting, custom priority boosts (or penalties) for packet types, or patterns of usage observed.&lt;/p&gt;
-
-&lt;p&gt;A more &lt;em&gt;organic&lt;/em&gt; strategy to weed-out bad nodes is, I believe, a better approach vs top-down policy dictates. With more options, choice of firmwares, individual areas/meshes will find their own solutions to things like channel saturation, etc. It’s unlikely there is one solution for every mesh, in every jurisdiction. (However, good/sensible defaults go a long way to limiting the chaos)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Paths&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The general strategy is: ‘direct paths when possible, flood as fallback’. Every packet goes in either Flood mode or Direct mode. To stay frugal, the path discovery piggy-backs onto normal packets, like messaging. So, when A doesn’t have a path to B, sending a message goes Flood mode, and if B is found, they get the message + path in one. In the context of messaging, the Ack + path is then returned to A.&lt;/p&gt;
-
-&lt;p&gt;Paths are asymmetrical. B also has to discover a path to A, and the Ack example also does a two-for one, in returning the Ack + out path, it also results in A receiving: Ack, out path, and return path. The only packet overhead in this exchange is a 3rd, direct-only packet that sends return path back to B. After this sequence, both A and B store direct paths (to the other) in their storage.&lt;/p&gt;
-
-&lt;p&gt;One side-effect of this, is that senders can store paths and actually choose which one to use. Liam’s app actually takes this a step further and lets you manually construct paths yourself. If you are admin to a set of repeaters and know a particular route is optimal, this can be beneficial, and result in less flooding.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Flood will become ‘Expensive’&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The future scaling of MeshCore is still very much a question mark. I am quietly optimistic that it can grow, but I think it’s safe to say that Flood mode will become what I call ‘expensive’. The most basic form if this will be time. It will just take longer for Flood to reach a destination. (this is actually the current behaviour–repeater firmware gives lower and lower priority to flood packets that are from distant senders). To most users and use cases, this will be enough to look for better options.&lt;/p&gt;
-
-&lt;p&gt;Using a reasonably-local Room Server is one such option. These are intended for highly-local groups, as a simple bulletin board system. (No, they’re not meant to scale to the whole mesh!) But, they generally try to insist on Direct-mode traffic, so keep the traffic local.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Reward and Motivation&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I also think it’s a fundamental right of a developer to be financially rewarded for their work. Vague promises of ‘rewarding contributors’, from some opaque corporate structure, is bullshit, in my opinion. This is why I strongly recommend the ‘Freemium’ model. It’s direct reward to the person who put in the work. It also means the development is far more sustainable, and that a highly polished experience is the norm–instead of floundering in forum hell for weeks on end.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://liamcottle.com/&quot;&gt;Liam Cottle’s&lt;/a&gt; amazing work with the native Android and iOS app is a great example of this. He has put in a lot of work, and it really should be rewarded. Also, if you place it in light of the alternative–forum hell and wrestling with unknown config and tools–isn’t a few dollars worth being free of that!? :-)&lt;/p&gt;
-
-&lt;p&gt;It is highly rewarding getting direct praise and financial support from the people using your products. It’s a tough road, though! It’s extremely hard to make a living like this.&lt;/p&gt;
-
-&lt;p&gt;There is also potential for partnerships with hardware manufacturers. This gets a lot more murky, though. It is beneficial to potentially work on consumer-like bundles that are highly optimised or polished for a particular piece of hardware, and if these do eventuate, it will be up to the participants to work out an equitable share of the spoils. Anything consumer-focussed is extremely hard, and it takes a lot of QA and polish to get things like this to market. I hope MeshCore-compatible consumer products do eventuate, but it will be a difficult path.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Future Stuff&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So, to wrap up, just some notes on future directions:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Repeater admin and Room server interaction coming to Liam’s apps.&lt;/li&gt;
-  &lt;li&gt;Hopefully more diagnostic tools for network planners, like Trace packets with SNR.&lt;/li&gt;
-  &lt;li&gt;Generally broadening device support: efforts to refine the T1000e support, more T1114 roles, etc.&lt;/li&gt;
-  &lt;li&gt;Efforts to standardise telemetry of sensor data.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>scottpowell</name></author><summary type="html">Generated with Grok by xAI</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/03/01/techphilosophybyGrok.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/03/01/techphilosophybyGrok.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Feature" /><summary type="html">The latest firmware (v7.11) for T-Deck, T-Deck Pro, T-Watch S3 Plus and T-Pager now have the ability to be remotely administered, with the first feature being Kid Mode</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
