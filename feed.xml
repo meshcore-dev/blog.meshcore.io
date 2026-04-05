@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-04T08:44:22+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">The MeshCore Map</title><link href="https://blog.meshcore.io/2026/04/04/meshcore-map" rel="alternate" type="text/html" title="The MeshCore Map" /><published>2026-04-04T00:00:00+00:00</published><updated>2026-04-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/04/meshcore-map</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/04/meshcore-map">&lt;h1 id=&quot;origins&quot;&gt;Origins&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-05T02:49:44+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple v9.4 for HeltecV4</title><link href="https://blog.meshcore.io/2026/04/05/heltecv4-maps" rel="alternate" type="text/html" title="Ripple v9.4 for HeltecV4" /><published>2026-04-05T00:00:00+00:00</published><updated>2026-04-05T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/05/heltecv4-maps</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/05/heltecv4-maps">&lt;p&gt;I’ve now added map tiles support for the &lt;a href=&quot;https://heltec.org/project/wifi-lora-32-v4-expansion-housing/&quot;&gt;Heltec V4 Expansion Kit&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/05/HeltecV4-preview.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;You can download + flash in one easy step using this &lt;a href=&quot;https://flasher.meshcore.io/ripple-heltec-v4-expansion-kit-touch/&quot;&gt;direct link&lt;/a&gt; to the MeshCore Flasher target.&lt;/p&gt;
+
+&lt;p&gt;NOTE: there are two firmware variants now; one for existing uses who don’t want map tiles support, and a new ‘LittleFS’ variant for map tiles support.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING: The LittleFS variant uses a different flash storage partition scheme, and you will lose all your settings if you switch to this one. However, once on this variant it’s safe to do future upgrades and not lose settings.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;general-guide&quot;&gt;General Guide&lt;/h2&gt;
+
+&lt;p&gt;The Heltecv4 has a UI which mostly like the other Ultra devices, like the T-Deck, so refer to the &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/ultra-v7-7-guide-meshcore-users&quot;&gt;general user guide&lt;/a&gt; here for details.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-littlefs-firmware&quot;&gt;The ‘LittleFS’ Firmware&lt;/h2&gt;
+
+&lt;p&gt;This new variant, it carves out a LittleFS partition about 14Mb in size. So, you can drop map tiles up to about that size. This is fairly limited, but you should be able to drop some subset of your local geography for a few zoom levels.&lt;/p&gt;
+
+&lt;p&gt;Please see the &lt;a href=&quot;https://docs.meshcore.io/faq/?h=maps#47-q-how-do-i-get-maps-on-t-deck&quot;&gt;FAQ about how to get map tiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;copying-files-to-littlefs&quot;&gt;Copying Files to LittleFS&lt;/h2&gt;
+
+&lt;p&gt;There is a handy online tool called &lt;a href=&quot;https://thelastoutpostworkshop.github.io/ESPConnect/&quot;&gt;ESPConnect&lt;/a&gt; which makes it easy to connect the HeltecV4 via USB to your computer, then add/modify/delete the files in the LittleFS partition.&lt;/p&gt;
+
+&lt;p&gt;Just click on the &lt;strong&gt;CONNECT&lt;/strong&gt; button at the top, select the port for your USB connection, then click on the &lt;strong&gt;LittleFS Tools&lt;/strong&gt; tab:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-littlefs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll need to be patient while it does a &lt;em&gt;full read&lt;/em&gt; of the partition, but once done, it will ask you to click &lt;strong&gt;BACKUP&lt;/strong&gt; (which is very handy), that saves the entire partition to a .bin file.&lt;/p&gt;
+
+&lt;p&gt;If you look below, you should then see the various files/folders in the file system. For the map tiles, just drag/drop the whole ‘tiles’ folder you have prepared on your computer. NOTE: you will see this warning if you’ve blown the size limit:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-full.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see the orange warning &lt;strong&gt;Unsaved changes&lt;/strong&gt; after adding/removing files/folder, and once you have made all the changes need, just click the blue &lt;strong&gt;SAVE TO FLASH&lt;/strong&gt; button:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-save.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the device. But, once it’s done just disconnect the device, then press the Reset button on the device.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added map tiles support for the Heltec V4 Expansion Kit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The MeshCore Map</title><link href="https://blog.meshcore.io/2026/04/04/meshcore-map" rel="alternate" type="text/html" title="The MeshCore Map" /><published>2026-04-04T00:00:00+00:00</published><updated>2026-04-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/04/meshcore-map</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/04/meshcore-map">&lt;h1 id=&quot;origins&quot;&gt;Origins&lt;/h1&gt;
 
 &lt;p&gt;When MeshCore launched at the start of 2025, discoverability was a pretty big issue - that’s where the idea for the MeshCore internet map was born. Liam Cottle’s &lt;a href=&quot;https://meshtastic.liamcottle.net&quot;&gt;Meshtastic Map&lt;/a&gt; was the primary inspiration. The first version was released in April 2025 and the first nodes from the UK, Australia and Slovakia started to flow in. The number of nodes grew rapidly - we had the first 1,000 nodes within a month, crossed the 5,000 mark in summer, 10k in December and now we’re at 30k nodes worldwide.&lt;/p&gt;
 
@@ -659,62 +699,4 @@ set radio.rxgain {on|off}
 
 &lt;p&gt;Let’s keep lighting up the world.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;—sincerely, Scott Powell&lt;/em&gt;&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kid Mode &amp;amp; Remote Admin</title><link href="https://blog.meshcore.io/2025/10/02/kid-mode" rel="alternate" type="text/html" title="Kid Mode &amp;amp; Remote Admin" /><published>2025-10-02T00:00:00+00:00</published><updated>2025-10-02T00:00:00+00:00</updated><id>https://blog.meshcore.io/2025/10/02/kid-mode</id><content type="html" xml:base="https://blog.meshcore.io/2025/10/02/kid-mode">&lt;p&gt;The latest firmware (v7.11) for T-Deck, T-Deck Pro, T-Watch S3 Plus and T-Pager now have the ability to be remotely administered, with the first feature being &lt;strong&gt;Kid Mode&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/10/02/kidmodehome.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Kid Mode&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;When a device has been put into this mode the home screen changes to the tile system above, and only DM conversations can be had with these contacts. All other features (Settings, Discover, Public chat, etc) are shut out. This makes it super easy for a child to use, but also much safer as you can be sure they are only talking to approved contacts.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Remote Admin&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the home screen menu of your &lt;em&gt;child’s device&lt;/em&gt;, if you go into the &lt;strong&gt;Security&lt;/strong&gt; screen, there is now an extra setting:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/10/02/remoteadminprefix.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here you can set a message prefix which this device will then listen out for (from any of the configured contacts). So, set this to something very secret that you &lt;strong&gt;don’t normally type&lt;/strong&gt;. When you send a message to the administered device and it starts with this prefix, the remaining text is interpreted as an &lt;em&gt;admin command&lt;/em&gt;. So, for example you set the admin prefix to “#mum777” you can now turn Kid Mode on/off like so:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mum777 kid on
-#mum777 kid off
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You will see the administered device home screen will change immediately.&lt;/p&gt;
-
-&lt;p&gt;And, that’s pretty much it! Nice and simples.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NEW (v7.14+) - Tags&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You can now add custom tags to your contacts, and this can be used to more precisely choose which contacts appear in the 4 cells. From the new “Contacts Tags” screen:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/10/02/contacttagsedit.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Set one tag as “Family” (typically), then at the bottom select this tag for the ‘Extra Home filter’. Then press ENTER to save to config. With this now configured, you can go to the node details screen for various contacts, then select the “Tags/Notes…” menu, which shows this screen:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/10/02/contactnotes.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here you can, for instance, set the “Family” tag to ON, and optionally can add some free-form notes. Then press ENTER to save. This contact will then be selected when building the 4 Kid Mode cells. (NOTE: only the first 4 with this tag will be used)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NEW (v7.14+) - Group Channel&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If you configure less than 4 contacts, you can now optionally include a group channel, but it must not be Channel #1, which is assumed to be configured as the “Public” channel. So, if you enable Channel #2, and maybe name it “Family”, then a cell will be used for this group channel.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Checklist&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;When preparing your child’s device for Kid Mode, there are some things you should do first.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;(v7.13 or earlier) – First, only add to contacts up to &lt;strong&gt;four&lt;/strong&gt; contacts (from Discover screen). Only the first four will be displayed in the home screen tiles.&lt;/li&gt;
-  &lt;li&gt;(v7.13 or earlier) – Go into the network profile menu, select Channel #1 (which is usually the &lt;strong&gt;Public&lt;/strong&gt; channel), select the &lt;strong&gt;Disable&lt;/strong&gt; menu, then press ENTER to save. So, you’ll want the public chat to be turned OFF.&lt;/li&gt;
-  &lt;li&gt;Check the &lt;strong&gt;timezone&lt;/strong&gt; has correct setting.&lt;/li&gt;
-  &lt;li&gt;Recommended: turn &lt;strong&gt;Timestamps OFF&lt;/strong&gt; in home screen menu. These would be distracting to a child.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Under network profile, select &lt;strong&gt;Permissions&lt;/strong&gt;, then set Telemetry option to Base+GPS. This is so you can get the GPS location of child’s device via the usual telemetry mechanism.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Under network profile, select &lt;strong&gt;Identity&lt;/strong&gt; then turn &lt;strong&gt;Auto Advert&lt;/strong&gt; to OFF&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Future Stuff&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The remote admin opens up a lot of possibilities. Some more commands will, no doubt, be coming in near future, like:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;remotely turn GPS on or off (default is ON, but might want to preserve battery remotely)&lt;/li&gt;
-  &lt;li&gt;remotely wipe the storage/contents of device&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Feature" /><summary type="html">The latest firmware (v7.11) for T-Deck, T-Deck Pro, T-Watch S3 Plus and T-Pager now have the ability to be remotely administered, with the first feature being Kid Mode</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/10/02/kidmodehome.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;em&gt;—sincerely, Scott Powell&lt;/em&gt;&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
