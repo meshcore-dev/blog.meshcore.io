@@ -28,6 +28,11 @@ authors:
     title: "Web/Firmware Developer"
     avatar: "assets/images/authors/rastislavvysoky.jpeg"
     donate_url: "https://github.com/sponsors/recrof?frequency=one-time&sponsor=recrof"
+  taco:
+    name: "Huw Duddy (Taco)"
+    title: "Firmware Developer"
+    avatar: "assets/images/authors/taco.webp"
+    donate_url: "https://ko-fi.com/oltaco"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"
