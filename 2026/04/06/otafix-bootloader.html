@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1775444661">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1775444661">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Installing the OTAFix Bootloader - MeshCore Blog</title>
+  <meta name="title" content="Installing the OTAFix Bootloader - MeshCore Blog">
+  <meta name="description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/04/06/otafix-bootloader">
+  <meta property="og:title" content="Installing the OTAFix Bootloader - MeshCore Blog">
+  <meta property="og:description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/06/otafix-bootloader">
+  <meta property="twitter:title" content="Installing the OTAFix Bootloader - MeshCore Blog">
+  <meta property="twitter:description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg">
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore.svg" alt="MeshCore" class="w-auto h-5">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/taco.webp"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Huw Duddy (Taco)</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Firmware Developer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Installing the OTAFix Bootloader</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">April 06, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">3 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p><img src="/assets/images/2026/04/06/otafix-banner.jpg" alt="" /></p>
+
+<h2 id="background">Background</h2>
+<p>When I was first getting into MeshCore I realised that nRF52 devices had the ability to do OTA updates via BLE, which is obviously a great feature when you need to update a repeater which is on a roof.</p>
+
+<p>Unfortunately I never had much luck getting this to work. If you were lucky and used the right settings it might work with RAK4631 but particularly with ProMicro devices it never worked at all. This led me to dig around in github where I found some ancient forgotten PRs to fix some of these issues.</p>
+
+<p>Since they weren’t getting any attention on the official Adafruit github I took it upon myself to fork the bootloader and include these fixes myself.</p>
+
+<h2 id="installing-the-otafix-bootloader-for-nrf52-devices">Installing the OTAFIX Bootloader for nRF52 devices</h2>
+
+<p>For the best nRF52 OTA update experience, it’s recommended to upgrade your device to the <strong>OTAFIX bootloader</strong>. This version includes:</p>
+
+<ul>
+  <li>Automatic fallback to OTA DFU mode if an update fails</li>
+  <li>Significantly faster OTA update speeds</li>
+  <li>Additional quality-of-life improvements for certain devices, like to the ability to enter OTA DFU mode by holding a button while resetting.</li>
+</ul>
+
+<hr />
+
+<h2 id="1-enter-uf2-dfu-mode">1. Enter UF2 DFU Mode</h2>
+
+<p>First, put your device into <strong>UF2 DFU mode</strong>.</p>
+
+<p>For most nRF52 devices:</p>
+<ul>
+  <li>Plug the device into your computer</li>
+  <li>Quickly double-press the reset button (twice within 0.5 seconds)</li>
+  <li>A UF2 USB drive should appear, the name of the drive will differ depending on the device.</li>
+</ul>
+
+<p>Some devices use different methods, see the <a href="#device-specific-notes">notes</a> at the end of this guide.</p>
+
+<hr />
+
+<h2 id="2-check-your-current-bootloader-optional-but-recommended">2. Check Your Current Bootloader (Optional but Recommended)</h2>
+
+<p>This step is important for devices like the <strong>Seeed Studio XIAO nRF52840</strong>, which often ship with the <strong>SENSE</strong> bootloader variant.</p>
+
+<p>To check:</p>
+<ol>
+  <li>Enter UF2 DFU mode</li>
+  <li>Open the <code class="language-plaintext highlighter-rouge">INFO_UF2.TXT</code> file on the mounted drive</li>
+</ol>
+
+<p>This file contains details about your current bootloader.</p>
+
+<p><strong>Example:</strong>
+If the file shows: <code class="language-plaintext highlighter-rouge">Board-ID: nRF52840-SeeedXiaoSense-v1</code> then you will need to install the <strong><em>SENSE</em></strong> variant.</p>
+
+<h2 id="3-download-the-otafix-bootloader">3. Download the OTAFIX Bootloader</h2>
+
+<p>You can now download the OTAFIX bootloader directly from the MeshCore flasher site!
+Go to <a href="https://flasher.meshcore.io">https://flasher.meshcore.io</a></p>
+
+<ul>
+  <li>Select your device</li>
+  <li>Choose <strong>Repeater</strong></li>
+  <li>A download link for the OTAFIX bootloader will appear in a highlighted banner, the file will be titled <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code></li>
+</ul>
+
+<p><img src="/assets/images/2026/04/06/flasher_banner_grab.webp" alt="" /></p>
+
+<p>Alternatively the OTAFIX bootloader is also available from the official site.
+Go to:<br />
+<a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases">https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases</a></p>
+
+<p>Download the correct UF2 file for your device from the <strong>Assets</strong> section.</p>
+
+<ul>
+  <li>Files are named like: <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code></li>
+  <li>You may need to click <strong>“Show more”</strong> to see all available files</li>
+</ul>
+
+<p><strong>Example:</strong>
+For the Seeed Xiao Sense variant as discussed above you will want to download <code class="language-plaintext highlighter-rouge">update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2</code></p>
+
+<hr />
+
+<h2 id="4-install-the-bootloader">4. Install the Bootloader</h2>
+
+<ul>
+  <li>Drag and drop the <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code> file onto the UF2 drive</li>
+  <li>The device will automatically:
+    <ul>
+      <li>Update the bootloader</li>
+      <li>Reboot when complete</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="5-verify-the-update">5. Verify the Update</h2>
+
+<ol>
+  <li>Re-enter UF2 DFU mode</li>
+  <li>Open <code class="language-plaintext highlighter-rouge">INFO_UF2.TXT</code> again</li>
+</ol>
+
+<p>The version line should now include <strong>OTAFIX</strong>.</p>
+
+<p><img src="/assets/images/2026/04/06/otafix_installed.webp" alt="" /></p>
+
+<hr />
+
+<h2 id="device-specific-notes">Device-Specific Notes</h2>
+
+<h3 id="t1000-e-dfu-mode">T1000-e DFU Mode</h3>
+<p>To enter DFU mode:</p>
+<ol>
+  <li>Attach the magnetic USB cable</li>
+  <li>Hold the button</li>
+  <li>Quickly disconnect and reconnect the cable twice</li>
+</ol>
+
+<p>Video reference: <a href="https://www.youtube.com/shorts/D6uo93-RcaY">https://www.youtube.com/shorts/D6uo93-RcaY</a></p>
+
+<hr />
+
+<h3 id="thinknode-m3-dfu-mode">ThinkNode M3 DFU Mode</h3>
+<p>To enter DFU mode:</p>
+<ol>
+  <li>Attach the magnetic USB cable</li>
+  <li>Hold the button for ~25–30 seconds</li>
+</ol>
+
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Huw Duddy (Taco) a coffee</div>
+    <a target="_blank" href="https://ko-fi.com/oltaco" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+</div>
+
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Installing the OTAFix Bootloader https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Installing the OTAFix Bootloader&u=https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Installing the OTAFix Bootloader&url=https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+    <div class="flex space-x-1 mb-2">
+        <span>Posted in:</span>
+        
+        <a href="/categories/#Firmware" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Firmware</a>
+        
+        
+    </div>
+    
+
+    
+    <div class="flex flex-wrap">
+        
+        <div class="mb-2 mr-1">
+            <a href="/tags/#Guide" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                </svg>
+                Guide
+            </a>
+        </div>
+        
+    </div>
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="meshcore-dev/blog.meshcore.io"
+            data-repo-id="R_kgDORxkdng"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORxkdns4C5Xt4"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-[#030712] py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore.svg" alt="MeshCore" class="h-5 mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRW3QH54CP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JRW3QH54CP');
+</script>
+
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>

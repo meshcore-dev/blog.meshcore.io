@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-05T02:49:44+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple v9.4 for HeltecV4</title><link href="https://blog.meshcore.io/2026/04/05/heltecv4-maps" rel="alternate" type="text/html" title="Ripple v9.4 for HeltecV4" /><published>2026-04-05T00:00:00+00:00</published><updated>2026-04-05T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/05/heltecv4-maps</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/05/heltecv4-maps">&lt;p&gt;I’ve now added map tiles support for the &lt;a href=&quot;https://heltec.org/project/wifi-lora-32-v4-expansion-housing/&quot;&gt;Heltec V4 Expansion Kit&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-06T03:04:21+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Installing the OTAFix Bootloader</title><link href="https://blog.meshcore.io/2026/04/06/otafix-bootloader" rel="alternate" type="text/html" title="Installing the OTAFix Bootloader" /><published>2026-04-06T00:00:00+00:00</published><updated>2026-04-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/06/otafix-bootloader</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/06/otafix-bootloader">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/otafix-banner.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;When I was first getting into MeshCore I realised that nRF52 devices had the ability to do OTA updates via BLE, which is obviously a great feature when you need to update a repeater which is on a roof.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately I never had much luck getting this to work. If you were lucky and used the right settings it might work with RAK4631 but particularly with ProMicro devices it never worked at all. This led me to dig around in github where I found some ancient forgotten PRs to fix some of these issues.&lt;/p&gt;
+
+&lt;p&gt;Since they weren’t getting any attention on the official Adafruit github I took it upon myself to fork the bootloader and include these fixes myself.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-the-otafix-bootloader-for-nrf52-devices&quot;&gt;Installing the OTAFIX Bootloader for nRF52 devices&lt;/h2&gt;
+
+&lt;p&gt;For the best nRF52 OTA update experience, it’s recommended to upgrade your device to the &lt;strong&gt;OTAFIX bootloader&lt;/strong&gt;. This version includes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Automatic fallback to OTA DFU mode if an update fails&lt;/li&gt;
+  &lt;li&gt;Significantly faster OTA update speeds&lt;/li&gt;
+  &lt;li&gt;Additional quality-of-life improvements for certain devices, like to the ability to enter OTA DFU mode by holding a button while resetting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-enter-uf2-dfu-mode&quot;&gt;1. Enter UF2 DFU Mode&lt;/h2&gt;
+
+&lt;p&gt;First, put your device into &lt;strong&gt;UF2 DFU mode&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;For most nRF52 devices:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Plug the device into your computer&lt;/li&gt;
+  &lt;li&gt;Quickly double-press the reset button (twice within 0.5 seconds)&lt;/li&gt;
+  &lt;li&gt;A UF2 USB drive should appear, the name of the drive will differ depending on the device.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some devices use different methods, see the &lt;a href=&quot;#device-specific-notes&quot;&gt;notes&lt;/a&gt; at the end of this guide.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-check-your-current-bootloader-optional-but-recommended&quot;&gt;2. Check Your Current Bootloader (Optional but Recommended)&lt;/h2&gt;
+
+&lt;p&gt;This step is important for devices like the &lt;strong&gt;Seeed Studio XIAO nRF52840&lt;/strong&gt;, which often ship with the &lt;strong&gt;SENSE&lt;/strong&gt; bootloader variant.&lt;/p&gt;
+
+&lt;p&gt;To check:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Enter UF2 DFU mode&lt;/li&gt;
+  &lt;li&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INFO_UF2.TXT&lt;/code&gt; file on the mounted drive&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This file contains details about your current bootloader.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;
+If the file shows: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Board-ID: nRF52840-SeeedXiaoSense-v1&lt;/code&gt; then you will need to install the &lt;strong&gt;&lt;em&gt;SENSE&lt;/em&gt;&lt;/strong&gt; variant.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-download-the-otafix-bootloader&quot;&gt;3. Download the OTAFIX Bootloader&lt;/h2&gt;
+
+&lt;p&gt;You can now download the OTAFIX bootloader directly from the MeshCore flasher site!
+Go to &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;https://flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Select your device&lt;/li&gt;
+  &lt;li&gt;Choose &lt;strong&gt;Repeater&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;A download link for the OTAFIX bootloader will appear in a highlighted banner, the file will be titled &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/flasher_banner_grab.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively the OTAFIX bootloader is also available from the official site.
+Go to:&lt;br /&gt;
+&lt;a href=&quot;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases&quot;&gt;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the correct UF2 file for your device from the &lt;strong&gt;Assets&lt;/strong&gt; section.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Files are named like: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;You may need to click &lt;strong&gt;“Show more”&lt;/strong&gt; to see all available files&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;
+For the Seeed Xiao Sense variant as discussed above you will want to download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;4-install-the-bootloader&quot;&gt;4. Install the Bootloader&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Drag and drop the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt; file onto the UF2 drive&lt;/li&gt;
+  &lt;li&gt;The device will automatically:
+    &lt;ul&gt;
+      &lt;li&gt;Update the bootloader&lt;/li&gt;
+      &lt;li&gt;Reboot when complete&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;5-verify-the-update&quot;&gt;5. Verify the Update&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Re-enter UF2 DFU mode&lt;/li&gt;
+  &lt;li&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INFO_UF2.TXT&lt;/code&gt; again&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The version line should now include &lt;strong&gt;OTAFIX&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/otafix_installed.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;device-specific-notes&quot;&gt;Device-Specific Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;t1000-e-dfu-mode&quot;&gt;T1000-e DFU Mode&lt;/h3&gt;
+&lt;p&gt;To enter DFU mode:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Attach the magnetic USB cable&lt;/li&gt;
+  &lt;li&gt;Hold the button&lt;/li&gt;
+  &lt;li&gt;Quickly disconnect and reconnect the cable twice&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Video reference: &lt;a href=&quot;https://www.youtube.com/shorts/D6uo93-RcaY&quot;&gt;https://www.youtube.com/shorts/D6uo93-RcaY&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;thinknode-m3-dfu-mode&quot;&gt;ThinkNode M3 DFU Mode&lt;/h3&gt;
+&lt;p&gt;To enter DFU mode:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Attach the magnetic USB cable&lt;/li&gt;
+  &lt;li&gt;Hold the button for ~25–30 seconds&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>taco</name></author><category term="Firmware" /><category term="Guide" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ripple v9.4 for HeltecV4</title><link href="https://blog.meshcore.io/2026/04/05/heltecv4-maps" rel="alternate" type="text/html" title="Ripple v9.4 for HeltecV4" /><published>2026-04-05T00:00:00+00:00</published><updated>2026-04-05T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/05/heltecv4-maps</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/05/heltecv4-maps">&lt;p&gt;I’ve now added map tiles support for the &lt;a href=&quot;https://heltec.org/project/wifi-lora-32-v4-expansion-housing/&quot;&gt;Heltec V4 Expansion Kit&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/05/HeltecV4-preview.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -601,102 +727,4 @@ set radio.rxgain {on|off}
 
 &lt;p&gt;&lt;strong&gt;Q: How do I list all the regions my repeater has configured?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Currently, this can only be done over a USB connection and console/CLI. There resulting list is potentially too long to transmit over LoRa in the remote CLI. There will hopefully be a way to do this in the near future, though. For now, just the remote &lt;strong&gt;get/put/allowf/denyf/remove&lt;/strong&gt; CLI commands will have to do.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Year In Review</title><link href="https://blog.meshcore.io/2025/12/12/the-year-in-review" rel="alternate" type="text/html" title="The Year In Review" /><published>2025-12-12T00:00:00+00:00</published><updated>2025-12-12T00:00:00+00:00</updated><id>https://blog.meshcore.io/2025/12/12/the-year-in-review</id><content type="html" xml:base="https://blog.meshcore.io/2025/12/12/the-year-in-review">&lt;p&gt;&lt;img src=&quot;/assets/images/2025/12/12/year_in_review.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Generated with Grok by xAI&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Well, what a year! MeshCore is almost 1 year old now, and I thought it a good time to reflect on this first mega year, and remember the milestones we’ve smashed.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Just Do It&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Over the 2024/2025 silly season, I decided to hunker down, take the phone off the hook (so to speak) and force myself to write the first draft version of the MeshCore C++ library. I had scribblings on paper from prior months and had what I thought was a workable idea. I hadn’t worked everything out, but I’ve found that just trying to code an idea sometimes reveals a solution (and/or flaws in an idea). I’m not sure if this phenomenon has a name, but I’ve always found this process to have an element of magic to it. But, as I wrote the initial code, it was surprising how many things just fell into place.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Bob and Alice&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The very first MeshCore messages were sent between Bob and Alice, in early January:
-&lt;img src=&quot;/assets/images/2025/12/12/bob_and_alice.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;These were two Heltec V3 boards running the ‘Simple Secure Chat’ (terminal) app, with two Serial Monitors running. None of the contact management code had been written, so Bob and Alice were two hard-coded key-pair identities.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;That UK Chap, Andy Kirby&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I had been talking on and off with Andy over 2024 about various mesh topics, and was hinting at a new system that might materialise, and thankfully Andy really jumped at the prospect of MeshCore, and was the very first real-world tester:
-&lt;img src=&quot;/assets/images/2025/12/12/andy_photos.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Teamwork Makes the Dream Work&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Andy published a number of early YouTube videos even when the system was getting its legs, and it made a splash. Discussions were all on his Discord server, and he already had quite a large following of mesh nerds discussing things, so there was an almost instant cross over, of peeps willing to give MeshCore a try.&lt;/p&gt;
-
-&lt;p&gt;I don’t remember the dates, but pretty soon a core team ended up materialising:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Andy Kirby, OG tester, YouTube promoter, community engagement, UK website.&lt;/li&gt;
-  &lt;li&gt;Rastislav Vysoky, who wrote the first web client, the meshcore map, the webflasher, and almost single handedly manned tech support&lt;/li&gt;
-  &lt;li&gt;Liam Cottle, who was already very involved in the Reticulum project, jumped over and wrote an even better web client, then smashed out a native mobile client in Flutter in seemingly no time.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For about six months this was the core team, until Florent de Lamotte was asked to join after his tireless work with his Python-based mc-cli integrations.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Milestones&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;There’s a crazy amount of stuff to try to recollect, but I thought just some broad stats could be interesting:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;GitHub releases: &lt;strong&gt;23&lt;/strong&gt; (v1.0.0 to v1.11.0)&lt;/li&gt;
-  &lt;li&gt;Git commits (non-merge): &lt;strong&gt;1453&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Number of boards supported: &lt;strong&gt;60+&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Repo contributors: &lt;strong&gt;69&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Top 8: fdlamotte, recrof, oltaco, liamcottle, jquatier, jbrazio, 446564 (ded), cod3doomy&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MeshCore map nodes uploaded: &lt;strong&gt;10,625&lt;/strong&gt;  (as at 11 Dec)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Since the creation of the &lt;a href=&quot;https://analyzer.letsme.sh/stats&quot;&gt;Lets Mesh Analyzer site&lt;/a&gt; and observer nodes, we now have insights into actual usage of MeshCore meshes around the world. Some current stats:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Unique packets per day: &lt;strong&gt;~80K&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Unique active nodes per day: &lt;strong&gt;~4.5K&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Unique public messages per day: &lt;strong&gt;~4.4K&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Total bytes of traffic per day: &lt;strong&gt;~52 million&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;The Pain Points&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Over this first year there were a number of painful issues which took a lot of effort to resolve:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Deaf-gate:  This is the name we assigned to the mysterious habit of repeaters to just go deaf, seemingly at random times. This one evaded explanation for many months. Eventually it was discovered to be an AGC (automatic gain controller) glitch, which needed a force reset in the LoRa modules. A transmit would temporarily clear this problem, but because MeshCore is frugal on transmits, sometimes a repeater would stay deaf for hours. The “set agc.reset.interval …” was the eventual workaround.&lt;/li&gt;
-  &lt;li&gt;Packet corruptions: only in the very early months when I errantly assumed we didn’t need to use hardware CRC’s.&lt;/li&gt;
-  &lt;li&gt;iOS and BLE disconnects:  Forever the thorn in Liam’s side throughout this year.&lt;/li&gt;
-  &lt;li&gt;Little-(F)FS corruptions:  The plague on all of the nRF52 users. Mysterious low power situations, BLE disconnections, and borked LFS blocks. Thanks to the amazing work from Taco, and the ExtraFS system, this problem has been reduced. (still rears its head, tho :-(  )&lt;/li&gt;
-  &lt;li&gt;Room server glitches:  It took waay too long to figure out about three really bad bugs that were in the Room server firmware. Is sad as this really hampered adoption of rooms, and it still stings a bit, as usage is relatively rare.&lt;/li&gt;
-  &lt;li&gt;The T1000e:  Was plagued with issues for most of the year, from LR11xx issues, deafness, lockups, LFS corruptions, etc. Thankfully the issues are pretty much ironed out now.&lt;/li&gt;
-  &lt;li&gt;CAD and packet collisions:  This one took a number of attempts to get right. I think there were something like 3 major implementations of CAD tried, and (surprise, surprise) the simplest was the best.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/12/12/timeline.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A picture paints a thousand code commits. :-) Here are most of the major events of 2025. Tiring just looking at it. phew.  March was a pretty wild month. Liam and I were cranking out features/updates at pretty wild pace. (apologies if something you worked on/contributed isn’t in this chart. Took hours of going over git logs and release notes to come up with the subset above)&lt;/p&gt;
-
-&lt;p&gt;I have no idea what 2026 is going to look like! Will be interesting to compare charts at the end of next year.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The MeshCore Spirit&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Something that really gets me &lt;em&gt;in the feels&lt;/em&gt; is how many individuals have taken up the challenge in their locales to either spread the word, or actually spread the network by building and deploying repeaters. In many key geographies, this has sometimes rested on the shoulders of a small handful of people, who have scaled mountains, trees and towers to get backbones built out.&lt;/p&gt;
-
-&lt;p&gt;In my own state of Victoria, Australia, there has been a huge increase in the mesh in just the past two months, and we now have messages reaching many hundreds of kms, across about half the state. This is largely down to a handful of brave souls (eg. @silentlightning) finding key mountain tops, and linking it all out. I must admit, I never anticipated that a mesh could go any further than just metro Melbourne. Was happy to be wrong about that one. :-)&lt;/p&gt;
-
-&lt;p&gt;There is also a very resourceful spirit of repurposing affordable gear in DIY repeater builds. There are a lot of repurposed solar flood lights out there that do remarkably well, and there’s a bit of a running gag here in Melbourne that you’re not a real MeshCorer unless you have a Bunnings pool pole as a mast. Pool pole sales have skyrocketed this year.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025/12/12/montage2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So, to all you good, freedom-loving folk out there, I tip my hat to you. Well done!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Onwards…&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In just a year we did this:
-&lt;img src=&quot;/assets/images/2025/12/12/worldmap.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s keep lighting up the world.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;—sincerely, Scott Powell&lt;/em&gt;&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2025/12/12/year_in_review.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Currently, this can only be done over a USB connection and console/CLI. There resulting list is potentially too long to transmit over LoRa in the remote CLI. There will hopefully be a way to do this in the near future, though. For now, just the remote &lt;strong&gt;get/put/allowf/denyf/remove&lt;/strong&gt; CLI commands will have to do.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/01/20/image_2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
