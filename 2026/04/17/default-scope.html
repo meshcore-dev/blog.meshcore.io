@@ -18,9 +18,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>Installing the OTAFix Bootloader - MeshCore Blog</title>
-  <meta name="title" content="Installing the OTAFix Bootloader - MeshCore Blog">
-  <meta name="description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
+  <title>Default Scope Region - MeshCore Blog</title>
+  <meta name="title" content="Default Scope Region - MeshCore Blog">
+  <meta name="description" content="Hopefully the last of the missing pieces for region filtering is now here.">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
@@ -30,17 +30,17 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.meshcore.io/2026/04/06/otafix-bootloader">
-  <meta property="og:title" content="Installing the OTAFix Bootloader - MeshCore Blog">
-  <meta property="og:description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
-  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/04/17/default-scope">
+  <meta property="og:title" content="Default Scope Region - MeshCore Blog">
+  <meta property="og:description" content="Hopefully the last of the missing pieces for region filtering is now here.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/17/banner.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/06/otafix-bootloader">
-  <meta property="twitter:title" content="Installing the OTAFix Bootloader - MeshCore Blog">
-  <meta property="twitter:description" content="A guide on how to install the OTAFix bootloader on nRF devices.">
-  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/17/default-scope">
+  <meta property="twitter:title" content="Default Scope Region - MeshCore Blog">
+  <meta property="twitter:description" content="Hopefully the last of the missing pieces for region filtering is now here.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/17/banner.png">
 
   <!-- theme -->
   <script>
@@ -109,22 +109,22 @@
     
     <div class="flex items-center mb-4 font-medium">
         <div class="mr-2">
-            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/taco.webp"/>
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.jpg"/>
         </div>
         <div>
-            <h2 class="text-md font-semibold">Huw Duddy (Taco)</h2>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Firmware Developer</div>
+            <h2 class="text-md font-semibold">Scott Powell</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
         </div>
     </div>
     
-    <h2 class="text-2xl font-bold mb-1">Installing the OTAFix Bootloader</h2>
+    <h2 class="text-2xl font-bold mb-1">Default Scope Region</h2>
     <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
 
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
             </svg>
-            <div class="ml-1">April 06, 2026</div>
+            <div class="ml-1">April 17, 2026</div>
         </div>
 
         
@@ -140,134 +140,67 @@
     </div>
 
     <div class="post mt-4">
-        <p><img src="/assets/images/2026/04/06/otafix-banner.jpg" alt="" /></p>
+        <p><img src="/assets/images/2026/04/17/banner.png" alt="" /></p>
 
-<h2 id="background">Background</h2>
-<p>When I was first getting into MeshCore I realised that nRF52 devices had the ability to do OTA updates via BLE, which is obviously a great feature when you need to update a repeater which is on a roof.</p>
+<p><em>NOTE: Refer to the <a href="/2026/01/20/region-filtering">previous blog post</a> if you are unfamiliar with regions/scopes</em></p>
 
-<p>Unfortunately I never had much luck getting this to work. If you were lucky and used the right settings it might work with RAK4631 but particularly with ProMicro devices it never worked at all. This led me to dig around in github where I found some ancient forgotten PRs to fix some of these issues.</p>
+<p>Since the v1.12.0 firmware release, scoping <em>group channel</em> messages has been possible, but there are still a number of road-blocks to using regions more effectively, especially for meshes like in Germany who are trying to <strong>disable un-scoped</strong> traffic (ie. <code class="language-plaintext highlighter-rouge">region denyf *</code>)</p>
 
-<p>Since they weren’t getting any attention on the official Adafruit github I took it upon myself to fork the bootloader and include these fixes myself.</p>
+<p>In the next release (v1.15.0) there will be a new concept of ‘default scope’, for both companion nodes and repeater/room server. This will make it possible to do scoped DM messages, login requests, stats request, etc. (even in a mesh that has disabled un-scoped flood traffic)</p>
 
-<h2 id="installing-the-otafix-bootloader-for-nrf52-devices">Installing the OTAFIX Bootloader for nRF52 devices</h2>
+<h2 id="mobile-app">Mobile App</h2>
 
-<p>For the best nRF52 OTA update experience, it’s recommended to upgrade your device to the <strong>OTAFIX bootloader</strong>. This version includes:</p>
+<p>The <a href="https://meshcore.io/#download">MeshCore app</a> ver 1.43.0 will have a new setting in the <strong>Experimental Settings</strong> screen. Here you can set the default scope region name.</p>
 
+<p><img alt="" class="mx-auto" src="/assets/images/2026/04/17/app-default-scope.jpg" /></p>
+
+<p>When set, ALL flood packets the companion sends (eg. adverts, DM’s/logins/requests when path is unknown) will be <strong>scoped</strong> to this region.</p>
+
+<p>Group channel scope, if set, will <em>override</em> the default scope. So, you can still have (typically) smaller region/scope for individual channels.</p>
+
+<h2 id="repeater-and-room-server-admin">Repeater and Room Server Admin</h2>
+
+<p>From v1.15.0 there will be a new cli command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">region default {name | &lt;null&gt;}</code></p>
+
+<p>This sets the given region as the default scope, or clears if you specify <code class="language-plaintext highlighter-rouge">&lt;null&gt;</code>. Note that the region is auto-created if currently not in the regions list. Also, an implicit <code class="language-plaintext highlighter-rouge">region save</code> is automatically performed!</p>
+
+<p>Default scope is only applied to packets which <em>originate</em> from the repeater/room server. So, only adverts for repeater. Adverts and room posts for room server.</p>
+
+<p><strong>Logins/Requests/Commands and Responses</strong></p>
+
+<p>From v1.15.0 there is a new rule for <em>responses</em>. These originate from repeater/room server, but have this rule:</p>
 <ul>
-  <li>Automatic fallback to OTA DFU mode if an update fails</li>
-  <li>Significantly faster OTA update speeds</li>
-  <li>Additional quality-of-life improvements for certain devices, like to the ability to enter OTA DFU mode by holding a button while resetting.</li>
+  <li>If request packet scope can be resolved (ie. Region is in its list) then same scope is used for reply</li>
+  <li>Otherwise, reply is sent un-scoped.</li>
 </ul>
 
-<hr />
+<p>This includes the case of un-scoped request will have an un-scoped reply.</p>
 
-<h2 id="1-enter-uf2-dfu-mode">1. Enter UF2 DFU Mode</h2>
+<p>For now, this is the <em>safer</em> option, instead of having the replies default to the default-scope. While in this transition period, there are too many ways a repeater admin could shoot themselves in the foot and lock themselves out of their own repeater!</p>
 
-<p>First, put your device into <strong>UF2 DFU mode</strong>.</p>
+<p><strong>EXTRA: new ‘put’ default</strong></p>
 
-<p>For most nRF52 devices:</p>
-<ul>
-  <li>Plug the device into your computer</li>
-  <li>Quickly double-press the reset button (twice within 0.5 seconds)</li>
-  <li>A UF2 USB drive should appear, the name of the drive will differ depending on the device.</li>
-</ul>
+<p>The <code class="language-plaintext highlighter-rouge">region put ...</code> CLI command now defaults the new region to ‘allow’ for flood. So, you won’t need to also follow with <code class="language-plaintext highlighter-rouge">region allowf ...</code></p>
 
-<p>Some devices use different methods, see the <a href="#device-specific-notes">notes</a> at the end of this guide.</p>
+<h2 id="standalone-devices">Standalone Devices</h2>
 
-<hr />
+<p>For Ripple GUI supported devices, like the T-Deck, the next release (v9.6) will have default-scope support.</p>
 
-<h2 id="2-check-your-current-bootloader-optional-but-recommended">2. Check Your Current Bootloader (Optional but Recommended)</h2>
+<h2 id="faq">FAQ</h2>
 
-<p>This step is important for devices like the <strong>Seeed Studio XIAO nRF52840</strong>, which often ship with the <strong>SENSE</strong> bootloader variant.</p>
+<p><strong>Q: As a repeater admin, what should I set default scope to?</strong></p>
 
-<p>To check:</p>
-<ol>
-  <li>Enter UF2 DFU mode</li>
-  <li>Open the <code class="language-plaintext highlighter-rouge">INFO_UF2.TXT</code> file on the mounted drive</li>
-</ol>
+<p>It should typically be a <em>large</em> region, eg. your city. Or, whatever the region that you wish to confine adverts to (for instance).</p>
 
-<p>This file contains details about your current bootloader.</p>
+<p><strong>Q: As an app/chat user, what should I set default scope to?</strong></p>
 
-<p><strong>Example:</strong>
-If the file shows: <code class="language-plaintext highlighter-rouge">Board-ID: nRF52840-SeeedXiaoSense-v1</code> then you will need to install the <strong><em>SENSE</em></strong> variant.</p>
+<p>This should be a <em>large</em> region which will safely include both yourself and the contact(s) you wish to DM. Both your messages, and the returning ACKs will be scoped to this region.</p>
 
-<h2 id="3-download-the-otafix-bootloader">3. Download the OTAFIX Bootloader</h2>
+<p><strong>Q: I manage regional MeshCore firmware builds, with best defaults for the region. Can I configure a custom default region in my builds?</strong></p>
 
-<p>You can now download the OTAFIX bootloader directly from the MeshCore flasher site!
-Go to <a href="https://flasher.meshcore.io">https://flasher.meshcore.io</a></p>
-
-<ul>
-  <li>Select your device</li>
-  <li>Choose <strong>Repeater</strong></li>
-  <li>A download link for the OTAFIX bootloader will appear in a highlighted banner, the file will be titled <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code></li>
-</ul>
-
-<p><img src="/assets/images/2026/04/06/flasher_banner_grab.webp" alt="" /></p>
-
-<p>Alternatively the OTAFIX bootloader is also available from the official site.
-Go to:<br />
-<a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases">https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases</a></p>
-
-<p>Download the correct UF2 file for your device from the <strong>Assets</strong> section.</p>
-
-<ul>
-  <li>Files are named like: <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code></li>
-  <li>You may need to click <strong>“Show more”</strong> to see all available files</li>
-</ul>
-
-<p><strong>Example:</strong>
-For the Seeed Xiao Sense variant as discussed above you will want to download <code class="language-plaintext highlighter-rouge">update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2</code></p>
-
-<hr />
-
-<h2 id="4-install-the-bootloader">4. Install the Bootloader</h2>
-
-<ul>
-  <li>Drag and drop the <code class="language-plaintext highlighter-rouge">update-xxxx.uf2</code> file onto the UF2 drive</li>
-  <li>The device will automatically:
-    <ul>
-      <li>Update the bootloader</li>
-      <li>Reboot when complete</li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<h2 id="5-verify-the-update">5. Verify the Update</h2>
-
-<ol>
-  <li>Re-enter UF2 DFU mode</li>
-  <li>Open <code class="language-plaintext highlighter-rouge">INFO_UF2.TXT</code> again</li>
-</ol>
-
-<p>The version line should now include <strong>OTAFIX</strong>.</p>
-
-<p><img src="/assets/images/2026/04/06/otafix_installed.webp" alt="" /></p>
-
-<hr />
-
-<h2 id="device-specific-notes">Device-Specific Notes</h2>
-
-<h3 id="t1000-e-dfu-mode">T1000-e DFU Mode</h3>
-<p>To enter DFU mode:</p>
-<ol>
-  <li>Attach the magnetic USB cable</li>
-  <li>Hold the button</li>
-  <li>Quickly disconnect and reconnect the cable twice</li>
-</ol>
-
-<p>Video reference: <a href="https://www.youtube.com/shorts/D6uo93-RcaY">https://www.youtube.com/shorts/D6uo93-RcaY</a></p>
-
-<hr />
-
-<h3 id="thinknode-m3-dfu-mode">ThinkNode M3 DFU Mode</h3>
-<p>To enter DFU mode:</p>
-<ol>
-  <li>Attach the magnetic USB cable</li>
-  <li>Hold the button for ~25–30 seconds</li>
-</ol>
-
+<p>Yes. In the relevant .ini files, just add to build_flags <code class="language-plaintext highlighter-rouge">-D DEFAULT_FLOOD_SCOPE_NAME='" .. "'</code> (with the name in quotes)</p>
 
     </div>
 
@@ -279,8 +212,8 @@ For the Seeed Xiao Sense variant as discussed above you will want to download <c
     
 <div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
     <div class="dark:text-white mb-1">Enjoy this post?</div>
-    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Huw Duddy (Taco) a coffee</div>
-    <a target="_blank" href="https://ko-fi.com/oltaco" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">Buy Scott Powell a coffee</div>
+    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
 </div>
 
 
@@ -294,7 +227,7 @@ For the Seeed Xiao Sense variant as discussed above you will want to download <c
 <div class="flex space-x-1 mb-2 print:hidden">
 
     <!-- share to twitter -->
-    <a target="_blank" href="https://twitter.com/intent/tweet?text=Installing the OTAFix Bootloader https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Default Scope Region https://blog.meshcore.io/2026/04/17/default-scope" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
         </svg>
@@ -302,7 +235,7 @@ For the Seeed Xiao Sense variant as discussed above you will want to download <c
     </a>
 
     <!-- share to facebook -->
-    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Installing the OTAFix Bootloader&u=https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Default Scope Region&u=https://blog.meshcore.io/2026/04/17/default-scope" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
@@ -310,7 +243,7 @@ For the Seeed Xiao Sense variant as discussed above you will want to download <c
     </a>
 
     <!-- share to reddit -->
-    <a target="_blank" href="https://reddit.com/submit?title=Installing the OTAFix Bootloader&url=https://blog.meshcore.io/2026/04/06/otafix-bootloader" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+    <a target="_blank" href="https://reddit.com/submit?title=Default Scope Region&url=https://blog.meshcore.io/2026/04/17/default-scope" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
         </svg>
@@ -321,28 +254,7 @@ For the Seeed Xiao Sense variant as discussed above you will want to download <c
 
 
     
-    <div class="flex space-x-1 mb-2">
-        <span>Posted in:</span>
-        
-        <a href="/categories/#Firmware" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Firmware</a>
-        
-        
-    </div>
-    
 
-    
-    <div class="flex flex-wrap">
-        
-        <div class="mb-2 mr-1">
-            <a href="/tags/#Guide" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-                </svg>
-                Guide
-            </a>
-        </div>
-        
-    </div>
     
 
 </div>
