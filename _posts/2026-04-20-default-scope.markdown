@@ -50,7 +50,15 @@ The `region put ...` CLI command now defaults the new region to 'allow' for floo
 
 ## Standalone Devices
 
-For Ripple GUI supported devices, like the T-Deck, the next release (v9.6) will have default-scope support.
+For Ripple GUI supported devices, like the T-Deck, the next release (v9.6) will have default-scope support. From the **Regions** screen, just select a plain region (or '*') and in the details screen, select the menu:
+
+<img alt class="mx-auto" src="/assets/images/2026/04/17/region-details-default-scope.png" />
+
+(If needed, create a new region from the main region list, for the default scope)
+
+Back in the Regions list screen, you should see a `(S)` displayed next to the current default scope region:
+
+<img alt class="mx-auto" src="/assets/images/2026/04/17/region-list-default.png" />
 
 ## FAQ
 
