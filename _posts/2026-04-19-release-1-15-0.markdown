@@ -1,0 +1,48 @@
+---
+layout: post
+date: 2026-04-19 12:00:00 +1200
+title: "Release v1.15.0"
+description: "What's new in release v1.15.0"
+image: "assets/images/firmware_release.jpg"
+author: admin
+categories:
+  - Announcements
+tags:
+  - Firmware
+  - Release
+---
+![](/assets/images/firmware_release.jpg)
+
+**Download**
+
+Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
+
+**Change Log**
+
+* Default Scope support
+* Support for New GROUP_DATA (binary) packets [#1928](https://github.com/meshcore-dev/MeshCore/pull/1928) [#2130](https://github.com/meshcore-dev/MeshCore/pull/2130)
+* Heltec V4.3 support [#1867](https://github.com/meshcore-dev/MeshCore/pull/1867)
+* Heltec nRF Tracker (T096) support [#2097](https://github.com/meshcore-dev/MeshCore/pull/2097)
+* GAT562 Mesh EVB Pro repeater and room server support [#2042](https://github.com/meshcore-dev/MeshCore/pull/2042)
+* Radio rxgain now ON by default [#2124](https://github.com/meshcore-dev/MeshCore/pull/2124)
+* Radio freq range now supported down to 150Mhz [#2126](https://github.com/meshcore-dev/MeshCore/pull/2126)
+* GPS pref peristence fix [#2018](https://github.com/meshcore-dev/MeshCore/pull/2018)
+* New `get|set dutycycle` CLI command [#1961](https://github.com/meshcore-dev/MeshCore/pull/1961)
+* Muzi Works R1 Neo support [#2007](https://github.com/meshcore-dev/MeshCore/pull/2007)
+* GAT562 Watch support [#2138](https://github.com/meshcore-dev/MeshCore/pull/2138) [#2228](https://github.com/meshcore-dev/MeshCore/pull/2228)
+* BME680 sensor init fix [#2227](https://github.com/meshcore-dev/MeshCore/pull/2227)
+* Heltec Wireless Paper battery read fix [#2164](https://github.com/meshcore-dev/MeshCore/pull/2164)
+* WiFi companion fixes for Heltec V4,TBeam 1W [#1833](https://github.com/meshcore-dev/MeshCore/pull/1833)
+* Waveshare RP2040: RXEN fix [#2298](https://github.com/meshcore-dev/MeshCore/pull/2298) 
+* nRF companion, support for OTA updates [#2323](https://github.com/meshcore-dev/MeshCore/pull/2323)
+* Added companion for Heltec Wireless Paper [#2315](https://github.com/meshcore-dev/MeshCore/pull/2315)
+* Misc [#2134](https://github.com/meshcore-dev/MeshCore/pull/2134) [#2190](https://github.com/meshcore-dev/MeshCore/pull/2190) [#1425](https://github.com/meshcore-dev/MeshCore/pull/1425) [#2075](https://github.com/meshcore-dev/MeshCore/pull/2075) [#2302](https://github.com/meshcore-dev/MeshCore/pull/2302) [#2306](https://github.com/meshcore-dev/MeshCore/pull/2306)
+* Xiao C3 bootloop fix [#2328](https://github.com/meshcore-dev/MeshCore/pull/2328)
+
+
+**Documentation Links**
+
+For info on the new Default Scope feature, please see [this article](/2026/04/17/default-scope). 
+
+For low level format of the GROUP_DATA packets, please see [this docs link](https://docs.meshcore.io/payloads/?h=group+datagram#group-datagram).
+
