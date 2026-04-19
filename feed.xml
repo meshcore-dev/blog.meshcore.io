@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-18T11:27:33+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Default Scope Region</title><link href="https://blog.meshcore.io/2026/04/17/default-scope" rel="alternate" type="text/html" title="Default Scope Region" /><published>2026-04-17T00:00:00+00:00</published><updated>2026-04-17T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/17/default-scope</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/17/default-scope">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/17/banner.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-19T06:49:50+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.15.0</title><link href="https://blog.meshcore.io/2026/04/19/release-1-15-0" rel="alternate" type="text/html" title="Release v1.15.0" /><published>2026-04-19T00:00:00+00:00</published><updated>2026-04-19T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/19/release-1-15-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/19/release-1-15-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Default Scope support&lt;/li&gt;
+  &lt;li&gt;Support for New GROUP_DATA (binary) packets &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1928&quot;&gt;#1928&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2130&quot;&gt;#2130&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec V4.3 support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1867&quot;&gt;#1867&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec nRF Tracker (T096) support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2097&quot;&gt;#2097&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GAT562 Mesh EVB Pro repeater and room server support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2042&quot;&gt;#2042&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Radio rxgain now ON by default &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2124&quot;&gt;#2124&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Radio freq range now supported down to 150Mhz &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2126&quot;&gt;#2126&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GPS pref peristence fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2018&quot;&gt;#2018&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;New &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get|set dutycycle&lt;/code&gt; CLI command &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1961&quot;&gt;#1961&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Muzi Works R1 Neo support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2007&quot;&gt;#2007&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GAT562 Watch support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2138&quot;&gt;#2138&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2228&quot;&gt;#2228&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;BME680 sensor init fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2227&quot;&gt;#2227&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec Wireless Paper battery read fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2164&quot;&gt;#2164&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;WiFi companion fixes for Heltec V4,TBeam 1W &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1833&quot;&gt;#1833&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Waveshare RP2040: RXEN fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2298&quot;&gt;#2298&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;nRF companion, support for OTA updates &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2323&quot;&gt;#2323&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Added companion for Heltec Wireless Paper &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2315&quot;&gt;#2315&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Misc &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2134&quot;&gt;#2134&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2190&quot;&gt;#2190&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1425&quot;&gt;#1425&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2075&quot;&gt;#2075&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2302&quot;&gt;#2302&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2306&quot;&gt;#2306&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Xiao C3 bootloop fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2328&quot;&gt;#2328&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Documentation Links&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For info on the new Default Scope feature, please see &lt;a href=&quot;/2026/04/17/default-scope&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For low level format of the GROUP_DATA packets, please see &lt;a href=&quot;https://docs.meshcore.io/payloads/?h=group+datagram#group-datagram&quot;&gt;this docs link&lt;/a&gt;.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Default Scope Region</title><link href="https://blog.meshcore.io/2026/04/17/default-scope" rel="alternate" type="text/html" title="Default Scope Region" /><published>2026-04-17T00:00:00+00:00</published><updated>2026-04-17T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/17/default-scope</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/17/default-scope">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/17/banner.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;NOTE: Refer to the &lt;a href=&quot;/2026/01/20/region-filtering&quot;&gt;previous blog post&lt;/a&gt; if you are unfamiliar with regions/scopes&lt;/em&gt;&lt;/p&gt;
 
@@ -655,54 +689,4 @@ set radio.rxgain {on|off}
 
 &lt;p&gt;So, if preference is loop.detect &lt;strong&gt;minimal&lt;/strong&gt;, and a 1-byte path size packet is received, the repeater will see if its own ID/hash is already in the path. If it’s already encoded &lt;strong&gt;4&lt;/strong&gt; times, it will reject the packet.  If the packet uses 2-byte path size, and repeater’s own ID/hash is already encoded &lt;strong&gt;2&lt;/strong&gt; times, it rejects.&lt;/p&gt;
 
-&lt;p&gt;So, this new feature can potentially be used &lt;em&gt;before&lt;/em&gt; the multibyte path hash support has gained wide spread support. (ie. with the ‘minimal’ setting, it can reject 1-byte loops)&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">With the v1.14.0 firmware releases comes support for what is known as ‘multibyte path hashes’. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Off-grid (client repeat) Mode</title><link href="https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode" rel="alternate" type="text/html" title="Off-grid (client repeat) Mode" /><published>2026-02-13T00:00:00+00:00</published><updated>2026-02-13T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode</id><content type="html" xml:base="https://blog.meshcore.io/2026/02/13/off-grid-client-repeat-mode">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/02/13/offgridmode.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The next version of the Ripple MeshCore firmware will (finally) support off-grid mode, also known as ‘client repeat’ mode. A lot of people have been asking for this one, but it’s something that has needed to be done carefully, as it’s one of the big mistakes Meshtastic made, and we don’t want to repeat that.&lt;/p&gt;
-
-&lt;p&gt;One of the clear distinctions of MeshCore, and one of the keys to its scalability, is that clients &lt;em&gt;do not forward packets!&lt;/em&gt; But, there are a number of very legitimate use-cases where client devices also acting as repeaters could help, and one of these is when away from public meshes, out in remote (or &lt;em&gt;off-grid&lt;/em&gt;) areas.&lt;/p&gt;
-
-&lt;p&gt;To help keep these use-cases very much separate, we are still in the process of getting consensus on reserving a range of frequencies &lt;em&gt;just&lt;/em&gt; for off-grid (ie. non-public mesh) use. This way, people can’t accidentally leave their radio on and go back into a public mesh and mess with routes.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Liam is also adding this to the mobile app, so you will also be able to use companion radios in this scheme. But, he is likely going to make the UI very different to what I have come up with.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How to Setup&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I decided to put the off-grid mode into the new &lt;em&gt;regions&lt;/em&gt; feature. There is a concept of a ‘home region’ in the core firmware which currently isn’t used, and I thought this a natural point to hook into. I had also considered some regions could, in the future, have their own custom LoRa radio settings, or even be marked as a special ESP-NOW region (for instance). So, when switching your ‘home region’, it can also switch the radio to different settings.&lt;/p&gt;
-
-&lt;p&gt;From the ‘&lt;strong&gt;Manage Regions&lt;/strong&gt;’ screen, when you select ‘New…’ you now get prompted with the &lt;em&gt;region type:&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/02/13/newoffgridregion.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The ‘plain’ regions are the current ones for use with the ‘Set Scope’ feature. The other two types now also let you define custom radio settings, but the ‘Off-grid’ one enables the client repeat mode. Also, the Off-grid type only lets you select from a number of reserved frequencies*, where as the third type lets you specify any frequency (but does &lt;em&gt;not&lt;/em&gt; enable client repeat mode).&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;These frequencies are still being settled/finalised&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Switching Home Region&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;From the home screen, tapping on the top-left has always been the mechanism to switch network profiles (if you have defined multiple profiles). This has now been extended to also list the defined regions, under the network profile:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/02/13/switchtoregion.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The regions which also have custom radio settings will be marked with &lt;strong&gt;(*)&lt;/strong&gt;. Just select the region, and that’s it. Your home region setting is now saved, and the radio is switched to the custom settings.&lt;/p&gt;
-
-&lt;p&gt;To go back to the public mesh, just select the network profile (eg. the white ‘MeshCore.915’ above).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;T-Pager UI&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The UI is slightly different for the T-Pager, with the lack of touch screen. From the Regions list, the current home region is now rendered in orange:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/02/13/tpagerregions.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To switch the home region, scroll to then select the region, which navigates to a new Region Details screen:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/02/13/tpagerregiondetails.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then select the ‘&lt;strong&gt;Set as Home&lt;/strong&gt;’ menu. To switch back to the &lt;em&gt;public&lt;/em&gt; mesh, select the wildcard (*) region, and then Set as Home menu.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Wrap Up&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Selecting one of the &lt;em&gt;plain&lt;/em&gt; regions as home currently has no effect, but in the future there are optimisations that could be made if the device knows your current region, and the region of a recipient. But, this hasn’t been defined yet.&lt;/p&gt;
-
-&lt;p&gt;Hopefully off-grid mode will help MeshCore get adoption in areas like Search And Rescue. Would be great to see it in action in the emergency services.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/02/13/offgridmode.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;So, this new feature can potentially be used &lt;em&gt;before&lt;/em&gt; the multibyte path hash support has gained wide spread support. (ie. with the ‘minimal’ setting, it can reject 1-byte loops)&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">With the v1.14.0 firmware releases comes support for what is known as ‘multibyte path hashes’. The single byte prefixes in the paths, and the inevitable duplications that exist out in the wild, have been a source of annoyance for many months now, so this release will hopefully give some people relief/hope.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/06/meshgraph.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
