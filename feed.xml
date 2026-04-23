@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-23T06:44:38+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Meshcore.io - Why The Split?</title><link href="https://blog.meshcore.io/2026/04/23/the-split" rel="alternate" type="text/html" title="Meshcore.io - Why The Split?" /><published>2026-04-23T00:00:00+00:00</published><updated>2026-04-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/23/the-split</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/23/the-split">&lt;p&gt;Since inception, the MeshCore development team have been working hard to build MeshCore.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-23T16:57:52+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Meshcore.io - Why The Split?</title><link href="https://blog.meshcore.io/2026/04/23/the-split" rel="alternate" type="text/html" title="Meshcore.io - Why The Split?" /><published>2026-04-23T00:00:00+00:00</published><updated>2026-04-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/23/the-split</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/23/the-split">&lt;p&gt;Since inception, the MeshCore development team have been working hard to build MeshCore.&lt;/p&gt;
 
 &lt;p&gt;We’ve released more than 85 versions of the MeshCore Companion, Repeater and Room Server firmwares with support for more than 75 hardware variants.
 All of this has been hand crafted, by humans.&lt;/p&gt;
@@ -37,7 +37,7 @@ that he &lt;em&gt;owns&lt;/em&gt; the brand, and is using the word very heavily 
 to that.&lt;/p&gt;
 
 &lt;p&gt;Since the internal split, we launched the &lt;a href=&quot;https://meshcore.io&quot;&gt;meshcore.io&lt;/a&gt; site, as Andy controls
-the meshcore.co.uk site. We’ve been left with little other recourse. And, since 
+the meshcore.co.uk site and original discord server. We’ve been left with little other recourse. And, since 
 launching the site, Andy copied the look and feel (again, using Claude) even though
 we asked him not to.&lt;/p&gt;
 
