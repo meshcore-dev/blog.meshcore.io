@@ -46,7 +46,7 @@ _source of truth_ in terms of what is MeshCore, and Andy has _never_ contributed
 to that.
 
 Since the internal split, we launched the [meshcore.io](https://meshcore.io) site, as Andy controls
-the meshcore.co.uk site. We've been left with little other recourse. And, since 
+the meshcore.co.uk site and original discord server. We've been left with little other recourse. And, since 
 launching the site, Andy copied the look and feel (again, using Claude) even though
 we asked him not to.
 
