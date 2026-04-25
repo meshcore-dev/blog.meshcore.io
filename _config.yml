@@ -13,6 +13,7 @@ authors:
     name: "Admin"
     title: "Site Admin"
     avatar: "assets/images/authors/admin.png"
+    donate_url: "https://github.com/sponsors/meshcore-dev"
   liamcottle:
     name: "Liam Cottle"
     title: "MeshCore App Developer"
