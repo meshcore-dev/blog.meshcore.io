@@ -18,7 +18,7 @@ The Display menu now shows these preferences:
 
 The **UI Theme** preferences is one of: Light, Dark or Auto. The Auto option automatically switches the UI theme depending on the **Brightness** setting (day or night).
 
-The **Accent color** lets you customise the accent colour used throughout the firmware. There are 10 fun colour swatches to select from:
+PAID FEATURE: The **Accent color** lets you customise the accent colour used throughout the firmware. There are 10 fun colour swatches to select from:
 
 <img alt class="mx-auto" src="/assets/images/2026/04/30/color-select.png" />
 
