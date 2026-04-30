@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-25T11:15:39+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Meshcore.io - Why The Split?</title><link href="https://blog.meshcore.io/2026/04/23/the-split" rel="alternate" type="text/html" title="Meshcore.io - Why The Split?" /><published>2026-04-23T00:00:00+00:00</published><updated>2026-04-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/23/the-split</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/23/the-split">&lt;p&gt;Since inception, the MeshCore development team have been working hard to build MeshCore.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-04-30T07:23:36+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple UI v9.7</title><link href="https://blog.meshcore.io/2026/04/30/ripple-9.7" rel="alternate" type="text/html" title="Ripple UI v9.7" /><published>2026-04-30T00:00:00+00:00</published><updated>2026-04-30T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/30/ripple-9.7</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/30/ripple-9.7">&lt;p&gt;The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/30/t-pager-9.7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;display-preferences&quot;&gt;Display Preferences&lt;/h2&gt;
+
+&lt;p&gt;The Display menu now shows these preferences:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/display-prefs-9.7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;UI Theme&lt;/strong&gt; preferences is one of: Light, Dark or Auto. The Auto option automatically switches the UI theme depending on the &lt;strong&gt;Brightness&lt;/strong&gt; setting (day or night).&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;Accent color&lt;/strong&gt; lets you customise the accent colour used throughout the firmware. There are 10 fun colour swatches to select from:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/color-select.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;map-theme&quot;&gt;Map Theme&lt;/h2&gt;
+
+&lt;p&gt;Note that the &lt;strong&gt;UI Theme&lt;/strong&gt; preference also determines the light/dark theming for the maps:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/map-dark-light.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;The v9.7 is now available for &lt;a href=&quot;https://www.lilygo.cc/products/t-deck-plus-1?variant=51618501951669&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;LilyGo T-Deck&lt;/a&gt;, &lt;a href=&quot;https://www.lilygo.cc/products/t-lora-pager?bg_ref=cq3pUU7cD3&quot;&gt;T-Pager&lt;/a&gt; and the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?variant=52457652224181&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. It will be rolling out soon for the other colour devices, like Heltec V4 Expansion kit, etc.&lt;/p&gt;
+
+&lt;p&gt;These are now available in the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore.io Flasher&lt;/a&gt;, for easy installation.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Meshcore.io - Why The Split?</title><link href="https://blog.meshcore.io/2026/04/23/the-split" rel="alternate" type="text/html" title="Meshcore.io - Why The Split?" /><published>2026-04-23T00:00:00+00:00</published><updated>2026-04-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/23/the-split</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/23/the-split">&lt;p&gt;Since inception, the MeshCore development team have been working hard to build MeshCore.&lt;/p&gt;
 
 &lt;p&gt;We’ve released more than 85 versions of the MeshCore Companion, Repeater and Room Server firmwares with support for more than 75 hardware variants.
 All of this has been hand crafted, by humans.&lt;/p&gt;
@@ -708,28 +734,4 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-save.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the watch. But, once it’s done just disconnect the watch, then press the Reset button on the top-right shoulder of the watch.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.14.1</title><link href="https://blog.meshcore.io/2026/03/20/release-1-14-1" rel="alternate" type="text/html" title="Release v1.14.1" /><published>2026-03-20T00:00:00+00:00</published><updated>2026-03-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/20/release-1-14-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/20/release-1-14-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Added GPS support for SenseCAP Solar P1 in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1589&quot;&gt;#1589&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Power off switch long press support for SenseCAP Solar P1 &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1871&quot;&gt;#1871&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added nRF52 power management for RAK3401 in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1984&quot;&gt;#1984&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added token bucket based duty cycle enforcement in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1297&quot;&gt;#1297&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added support for new GAT562 30S Mesh Kit device in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2009&quot;&gt;#2009&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added support for new GAT562 Mesh Tracker Pro device in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1980&quot;&gt;#1980&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added LNA toggle CLI commands radio.rxgain on and radio.rxgain off in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1653&quot;&gt;#1653&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added MCU temperature to telemetry responses from room servers in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2052&quot;&gt;#2052&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Migrated Heltec Tracker v2 to KCT8103L in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1936&quot;&gt;#1936&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Nodes with GPS enabled will now auto sync time every 30 minutes in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1350&quot;&gt;#1350&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Fixed bug where some queued packets would not get transmit in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1877&quot;&gt;#1877&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Fixed bug where automatic adverts were not using the configured multibyte path setting in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/commit/fcfdc5fc5b1e0cf81b4ca2dfbc51d714f3eb1ead&quot;&gt;fcfdc5f&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Documentation Links&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;LNA (rx gain) CLI commands:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;get radio.rxgain
-set radio.rxgain {on|off}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the watch. But, once it’s done just disconnect the watch, then press the Reset button on the top-right shoulder of the watch.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
