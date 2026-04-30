@@ -1,0 +1,36 @@
+---
+layout: post
+date: 2026-04-30 12:00:00 +1200
+title: "Ripple UI v9.7"
+description: "The latest Ripple UI firmware, now with light/dark theme and custom colour scheme."
+image: "assets/images/2026/04/30/t-pager-9.7.png"
+author: scottpowell
+---
+The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.
+
+![](/assets/images/2026/04/30/t-pager-9.7.png)
+
+## Display Preferences
+
+The Display menu now shows these preferences:
+
+<img alt class="mx-auto" src="/assets/images/2026/04/30/display-prefs-9.7.png" />
+
+The **UI Theme** preferences is one of: Light, Dark or Auto. The Auto option automatically switches the UI theme depending on the **Brightness** setting (day or night).
+
+The **Accent color** lets you customise the accent colour used throughout the firmware. There are 10 fun colour swatches to select from:
+
+<img alt class="mx-auto" src="/assets/images/2026/04/30/color-select.png" />
+
+## Map Theme
+
+Note that the **UI Theme** preference also determines the light/dark theming for the maps:
+
+<img alt class="mx-auto" src="/assets/images/2026/04/30/map-dark-light.png" />
+
+## Download
+
+The v9.7 is now available for [LilyGo T-Deck](https://www.lilygo.cc/products/t-deck-plus-1?variant=51618501951669&bg_ref=cq3pUU7cD3), [T-Pager](https://www.lilygo.cc/products/t-lora-pager?bg_ref=cq3pUU7cD3) and the [T-Watch S3 Plus](https://www.lilygo.cc/products/t-watch-s3-plus?variant=52457652224181&bg_ref=cq3pUU7cD3). It will be rolling out soon for the other colour devices, like Heltec V4 Expansion kit, etc.
+
+These are now available in the [MeshCore.io Flasher](https://flasher.meshcore.io), for easy installation.
+
