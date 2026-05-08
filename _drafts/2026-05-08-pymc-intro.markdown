@@ -11,23 +11,19 @@ author: rightup
 
 What is pymc? At its core, pymc is a Python implementation of a MeshCore-compatible stack. It is designed to run on Linux-based systems and connect embedded LoRa radios to higher-level software services. It started as a way to better understand the MeshCore protocol. But pretty quickly, it became something more useful: a reusable core library for building flexible, Linux-powered mesh infrastructure. The `pymc core` handles the protocol-level work:
 
-```
-- Parsing and generating MeshCore packets
-- Managing identities and addressing
-- Maintaining compatibility as the protocol evolves
-- Handling radio interfaces (SPI, KISS, USB-CH341)
-```
+* Parsing and generating MeshCore packets
+* Managing identities and addressing
+* Maintaining compatibility as the protocol evolves
+* Handling radio interfaces (SPI, KISS, USB-CH341)
 
 with over 15 boards currently supported and many new ones in development, the system has grown from a simple experiment into a practical toolkit for building and running distributed mesh infrastructure.
 
 On top of pymc core sits `pymc repeater`, which handles the operational side:
 
-```
-- Processing packets
-- Applying routing and filtering logic
-- Forwarding traffic
-- Supporting services like roomservers, companions and observer data output
-```
+* Processing packets
+* Applying routing and filtering logic
+* Forwarding traffic
+* Supporting services like roomservers, companions and observer data output
 
 Embedded firmware is efficient and well suited to dedicated devices, but it operates under tight resource constraints. Running pymc on Linux expands the design space: more compute, better tooling, easier debugging, and deeper real-time visibility into mesh behaviour.
 
@@ -61,4 +57,8 @@ The interesting part isn’t just what pymc does today, but what it enables in p
 
 If you’d like to explore it, run it yourself, or follow along as it evolves, everything you need to get started is available.
 
-Source and setup instructions are on https://github.com/pyMC-dev , or join us in the pymc Discord https://discord.gg/hRjW9ha6m
+## Where to start
+
+Source and setup instructions are on [https://github.com/pyMC-dev](https://github.com/pyMC-dev/pyMC_Repeater#pymc_repeater)
+
+Or join us in the pymc Discord [https://discord.gg/hRjW9ha6m](https://discord.gg/hRjW9ha6m)
