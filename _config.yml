@@ -35,6 +35,11 @@ authors:
     title: "Firmware Developer"
     avatar: "assets/images/authors/taco.webp"
     donate_url: "https://ko-fi.com/oltaco"
+  rightup:
+    name: "Rightup"
+    title: "Python Developer"
+    avatar: "assets/images/authors/rightup.png"
+    donate_url: "https://buymeacoffee.com/rightup"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"
