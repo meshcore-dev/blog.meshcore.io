@@ -18,9 +18,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>The MeshCore Map - MeshCore Blog</title>
-  <meta name="title" content="The MeshCore Map - MeshCore Blog">
-  <meta name="description" content="A guide on the background and use the MeshCore internet map.">
+  <title>pyMC Introduction - MeshCore Blog</title>
+  <meta name="title" content="pyMC Introduction - MeshCore Blog">
+  <meta name="description" content="An intro to pyMC, the Python implementation of MeshCore.">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
@@ -30,17 +30,17 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.meshcore.io/2026/04/04/meshcore-map">
-  <meta property="og:title" content="The MeshCore Map - MeshCore Blog">
-  <meta property="og:description" content="A guide on the background and use the MeshCore internet map.">
-  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/05/12/pymc-intro">
+  <meta property="og:title" content="pyMC Introduction - MeshCore Blog">
+  <meta property="og:description" content="An intro to pyMC, the Python implementation of MeshCore.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/04/meshcore-map">
-  <meta property="twitter:title" content="The MeshCore Map - MeshCore Blog">
-  <meta property="twitter:description" content="A guide on the background and use the MeshCore internet map.">
-  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/05/12/pymc-intro">
+  <meta property="twitter:title" content="pyMC Introduction - MeshCore Blog">
+  <meta property="twitter:description" content="An intro to pyMC, the Python implementation of MeshCore.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png">
 
   <!-- social accounts -->
   <link rel="me" href="https://mastodon.social/@meshcore"/>
@@ -112,22 +112,22 @@
     
     <div class="flex items-center mb-4 font-medium">
         <div class="mr-2">
-            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/rastislavvysoky.jpeg"/>
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/rightup.png"/>
         </div>
         <div>
-            <h2 class="text-md font-semibold">Rastislav Vysoky (recrof)</h2>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Web/Firmware Developer</div>
+            <h2 class="text-md font-semibold">Rightup</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Python Developer</div>
         </div>
     </div>
     
-    <h2 class="text-2xl font-bold mb-1">The MeshCore Map</h2>
+    <h2 class="text-2xl font-bold mb-1">pyMC Introduction</h2>
     <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
 
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
             </svg>
-            <div class="ml-1">April 04, 2026</div>
+            <div class="ml-1">May 12, 2026</div>
         </div>
 
         
@@ -136,142 +136,85 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div class="ml-1">5 minute read</div>
+            <div class="ml-1">4 minute read</div>
         </div>
         
 
     </div>
 
     <div class="post mt-4">
-        <h1 id="origins">Origins</h1>
+        <p><img src="/assets/images/2026/05/12/control-room.png" alt="" /></p>
 
-<p>When MeshCore launched at the start of 2025, discoverability was a pretty big issue - that’s where the idea for the MeshCore internet map was born. Liam Cottle’s <a href="https://meshtastic.liamcottle.net">Meshtastic Map</a> was the primary inspiration. The first version was released in April 2025 and the first nodes from the UK, Australia and Slovakia started to flow in. The number of nodes grew rapidly - we had the first 1,000 nodes within a month, crossed the 5,000 mark in summer, 10k in December and now we’re at 30k nodes worldwide.</p>
+<p>What is pyMC? At its core, pyMC is a Python implementation of a MeshCore-compatible stack. It is designed to run on Linux-based systems and connect embedded LoRa radios to higher-level software services. It started as a way to better understand the MeshCore protocol. But pretty quickly, it became something more useful: a reusable core library for building flexible, Linux-powered mesh infrastructure. The <code class="language-plaintext highlighter-rouge">pymc core</code> handles the protocol-level work:</p>
 
-<p><img src="/assets/images/2026/04/04/map-may-2025.png" alt="Map in May 2025" />
-<small><em>This is how the map looked in May 2025</em></small></p>
-
-<h1 id="basic-concepts">Basic concepts</h1>
-
-<p>The map was created mainly to reference infrastructure nodes, so you know exactly where other repeaters are and what radio settings they use. This was later extended to node statistics, search, filtering and basic health monitoring of the mesh.</p>
-
-<h1 id="notable-features">Notable Features</h1>
-
-<p>Apart from the obvious map browsing and node search, there is a powerful filter that can be very useful for finding specific nodes.</p>
 <ul>
-  <li><strong>Search in current map view only</strong> - useful when you’re looking for a specific node or public key prefix in your area</li>
-  <li><strong>Only show duplicates</strong> - shows only names that appear more than once on the map, good for map cleanup</li>
+  <li>Parsing and generating MeshCore packets</li>
+  <li>Managing identities and addressing</li>
+  <li>Maintaining compatibility as the protocol evolves</li>
+  <li>Handling radio interfaces (SPI, KISS, USB-CH341)</li>
 </ul>
 
-<hr />
-<p><img src="/assets/images/2026/04/04/map-filter.png" alt="Map Filter opened" />
-<small><em>The filter menu opens when you click on the filter icon</em></small></p>
+<p>with over 15 boards currently supported and many new ones in development, the system has grown from a simple experiment into a practical toolkit for building and running distributed mesh infrastructure.</p>
 
-<h2 id="node-freshness">Node freshness</h2>
+<p>On top of pyMC core sits <code class="language-plaintext highlighter-rouge">pymc repeater</code>, which handles the operational side:</p>
 
-<p>Nodes updated by <a href="https://github.com/recrof/map.meshcore.io-uploader">MeshCore Map Auto Uploader</a> are color coded, so you know which Repeater / Room Server / Sensor was recently heard:</p>
+<ul>
+  <li>Processing packets</li>
+  <li>Applying routing and filtering logic</li>
+  <li>Forwarding traffic</li>
+  <li>Supporting services like roomservers, companions and observer data output</li>
+</ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Color</th>
-      <th>Status</th>
-      <th>Meaning</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Green</td>
-      <td>Recent</td>
-      <td>Updated within the last 5 days</td>
-    </tr>
-    <tr>
-      <td>Yellow</td>
-      <td>Stale</td>
-      <td>Updated within the last 10 days</td>
-    </tr>
-    <tr>
-      <td>Red</td>
-      <td>Old</td>
-      <td>Updated within the last 20 days</td>
-    </tr>
-    <tr>
-      <td>Black</td>
-      <td>Extinct</td>
-      <td>Not updated in over 20 days - will be deleted soon</td>
-    </tr>
-    <tr>
-      <td>No tint</td>
-      <td>Manual</td>
-      <td>Added manually, not automatically uploaded</td>
-    </tr>
-  </tbody>
-</table>
+<p>Embedded firmware is efficient and well suited to dedicated devices, but it operates under tight resource constraints. Running pyMC on Linux expands the design space: more compute, better tooling, easier debugging, and deeper real-time visibility into mesh behaviour.</p>
 
-<p><img src="/assets/images/2026/04/04/map-freshness.png" alt="Map freshness" />
-<small><em>Node freshness on the map</em></small></p>
+<p>A key design choice is how identities are handled. Instead of assuming one physical node equals one logical presence, pyMC lets multiple identities exist on the same radio.</p>
 
-<h2 id="coordinate-context-menu">Coordinate context menu</h2>
+<p>In practice, a single device can take on multiple roles. It might act as a repeater, represent different logical endpoints, or host additional services–each with its own context.</p>
 
-<p>Clicking on the coordinates in a node popup opens a small context menu with quick links to open the location in OpenStreetMap, Google Maps or Mapy.com, as well as an option to copy the coordinates to clipboard.</p>
+<p>This flexibility allows a <code class="language-plaintext highlighter-rouge">pymc repeater</code> to evolve into a multi-companion base station. At that point, it behaves less like a simple packet repeater and more like a lightweight message hub for the mesh.</p>
 
-<h2 id="clustering-zoom-level">Clustering zoom level</h2>
+<p>Put another way: pyMC gives MeshCore a Linux-native surface area. It can run repeaters, host services, power analytics, or support entirely new mesh applications–without losing compatibility with the underlying radio layer.</p>
 
-<p>By default, nearby markers are grouped into clusters to keep the map readable. The <strong>Clustering zoom level</strong> slider in the filter menu controls at what zoom level markers stop clustering and are shown individually. If you’re exploring a dense area and want to see all nodes separately without zooming in all the way, sliding it to a lower value will expand clusters earlier.</p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/05/12/image.pymc-map.webp" />
+<img alt="" class="mx-auto" src="/assets/images/2026/05/12/image.pymc-stats.webp" />
+<img alt="" class="mx-auto" src="/assets/images/2026/05/12/image.pymc-system-stats.webp" /></p>
 
-<h2 id="qr-code">QR code</h2>
+<h2 id="where-pymc_console-fits">Where pymc_console fits</h2>
 
-<p>Every node popup shows a QR code that encodes a <code class="language-plaintext highlighter-rouge">meshcore://contact/add</code> URL with the node’s name, public key and type. Scanning it with the MeshCore mobile app adds the node directly as a contact - no manual copying of keys needed.</p>
+<p>One example of that larger design space is <code class="language-plaintext highlighter-rouge">pymc_console</code>: a browser-based dashboard built on top of pyMC repeater.</p>
 
-<p><img src="/assets/images/2026/04/04/map-open-popup.png" alt="Map node popup opened" />
-<small><em>Node popup with QR code and all the details</em></small></p>
+<p>Where pyMC handles the protocol and repeater layer, <code class="language-plaintext highlighter-rouge">pymc_console</code> turns that activity into something you can actually see and reason about. Packet flow, radio status, connected identities, observer output, airtime utilization, and network behavior can all be surfaced in a more approachable interface.</p>
 
-<h2 id="shareable-urls">Shareable URLs</h2>
+<p>That matters because a mesh network is difficult to improve if it is invisible. Once packets, routes, signal quality, and utilization patterns become observable, the repeater becomes more than a forwarding node. It becomes a local window into the health and behavior of the mesh.</p>
 
-<p>The map remembers your current position and the node you have open. The URL updates as you move around, and when you open a node popup it switches to <code class="language-plaintext highlighter-rouge">?public_key=...</code> format. You can share that URL directly - anyone opening it will be taken straight to that node with the popup open.</p>
+<p>In that sense, <code class="language-plaintext highlighter-rouge">pymc_console</code> is less a separate idea than a natural extension of the pyMC architecture. The same Linux-native foundation that lets pyMC talk to radios also makes it possible to build analytics, dashboards, companion experiences, and new tools around the mesh.</p>
 
-<p>You can also use the url in your own regional page using <code class="language-plaintext highlighter-rouge">&lt;iframe&gt;</code>, here is an example:</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"https://map.meshcore.io/?lat=47.8721&amp;amp;lon=12.5903&amp;amp;zoom=8"</span> <span class="na">style=</span><span class="s">"width:100%;aspect-ratio:3/2"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">scrolling=</span><span class="s">"no"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-</code></pre></div></div>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/05/12/image-console.webp" />
+<img alt="" class="mx-auto" src="/assets/images/2026/05/12/image-console-map.webp" />
+<img alt="" class="mx-auto" src="/assets/images/2026/05/12/image-console-compan.webp" /></p>
 
-<h1 id="addingremoving-nodes">Adding/Removing nodes</h1>
+<p>The interesting part isn’t just what pyMC does today, but what it enables in practice.</p>
 
-<h2 id="adding-yourself-companion-radio">Adding yourself (Companion radio)</h2>
+<p>If you’d like to explore it, run it yourself, or follow along as it evolves, everything you need to get started is available.</p>
 
-<ol>
-  <li>Open MeshCore app</li>
-  <li>Tap the <strong>⋮</strong> menu icon in the top right corner</li>
-  <li>Tap <strong>Internet Map</strong></li>
-  <li>Tap <strong>⋮</strong> again and choose <strong>Add me to the Map</strong></li>
-</ol>
+<h2 id="where-to-start">Where to start</h2>
 
-<p><img src="/assets/images/2026/04/04/map-add-self.png" alt="Adding yourself to the map" />
-<small><em>Adding yourself to the map</em></small></p>
+<p>Source and setup instructions are on <a href="https://github.com/pyMC-dev/pyMC_Repeater#pymc_repeater">https://github.com/pyMC-dev</a></p>
 
-<h2 id="adding-a-repeater-or-room-server">Adding a Repeater or Room Server</h2>
+<p>Or join us in the pyMC Discord <a href="https://discord.gg/hRjW9ha6m">https://discord.gg/hRjW9ha6m</a></p>
 
-<ol>
-  <li>Open the <strong>Contacts</strong> tab in the MeshCore app</li>
-  <li>Tap <strong>⋮</strong> next to the Repeater or Room Server you want to add</li>
-  <li>Tap <strong>Share</strong>, then <strong>Upload to Internet Map</strong></li>
-</ol>
+<h2 id="recommended-gear">Recommended Gear</h2>
 
-<p><img src="/assets/images/2026/04/04/map-add-repeater.png" alt="Adding a repeater to the map" />
-<small><em>Adding a repeater to the map</em></small></p>
+<p>For a no-fuss pyMC setup, I recommend the following tested and compatible hardware platforms. The MeshToad and MeshTadpole are ideal for lightweight installs, home labs, and desktop usage, while PiMesh provides an excellent Raspberry Pi-based solution for infrastructure and gateway deployments. For repeater-focused installations, the UltraPeater Luckfox Pico Ultra HAT offers a compact and efficient dedicated repeater platform.</p>
 
-<h2 id="removing-a-node">Removing a node</h2>
+<ul>
+  <li>MeshToad V3 — <a href="https://muzi.works/products/nullhop-meshtoad-v3">https://muzi.works/products/nullhop-meshtoad-v3</a></li>
+  <li>MeshTadpole SX1262 USB Stick — <a href="https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html">https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html</a></li>
+  <li>PiMesh — <a href="https://meshsmith.net/">https://meshsmith.net/</a></li>
+  <li>UltraPeater — <a href="https://zindello.com.au/ultrapeater/">https://zindello.com.au/ultrapeater/</a></li>
+</ul>
 
-<p>Removing can only be done with same Companion radio (same public key) that was used to upload the node.</p>
-
-<ol>
-  <li>Open MeshCore app</li>
-  <li>Tap the <strong>⋮</strong> menu icon in the top right corner</li>
-  <li>Tap <strong>Internet Map</strong></li>
-  <li>Find the node you want to delete, tap it and choose <strong>Delete Marker</strong></li>
-</ol>
-
-<h1 id="beyond-the-interface">Beyond the interface</h1>
-
-<p><a href="https://github.com/recrof/map.meshcore.io-uploader">MeshCore Map Auto Uploader</a> will let you automatically add and update all repeaters, room servers and sensors when they broadcast an advert. That’s the main reason you can see freshness indicated by the colored node icons.</p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/05/12/pymc-gear.jpeg" /></p>
 
     </div>
 
@@ -285,10 +228,10 @@
     <div class="dark:text-white mb-1">Enjoy this post?</div>
     <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">
         
-        <div>Buy Rastislav Vysoky (recrof) a coffee</div>
+        <div>Buy Rightup a coffee</div>
         
     </div>
-    <a target="_blank" href="https://github.com/sponsors/recrof?frequency=one-time&sponsor=recrof" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    <a target="_blank" href="https://buymeacoffee.com/rightup" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
 </div>
 
 
@@ -302,7 +245,7 @@
 <div class="flex space-x-1 mb-2 print:hidden">
 
     <!-- share to twitter -->
-    <a target="_blank" href="https://twitter.com/intent/tweet?text=The MeshCore Map https://blog.meshcore.io/2026/04/04/meshcore-map" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=pyMC Introduction https://blog.meshcore.io/2026/05/12/pymc-intro" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
         </svg>
@@ -310,7 +253,7 @@
     </a>
 
     <!-- share to facebook -->
-    <a target="_blank" href="https://www.facebook.com/sharer.php?title=The MeshCore Map&u=https://blog.meshcore.io/2026/04/04/meshcore-map" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=pyMC Introduction&u=https://blog.meshcore.io/2026/05/12/pymc-intro" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
@@ -318,7 +261,7 @@
     </a>
 
     <!-- share to reddit -->
-    <a target="_blank" href="https://reddit.com/submit?title=The MeshCore Map&url=https://blog.meshcore.io/2026/04/04/meshcore-map" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+    <a target="_blank" href="https://reddit.com/submit?title=pyMC Introduction&url=https://blog.meshcore.io/2026/05/12/pymc-intro" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
         </svg>
@@ -329,28 +272,7 @@
 
 
     
-    <div class="flex space-x-1 mb-2">
-        <span>Posted in:</span>
-        
-        <a href="/categories/#Map" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Map</a>
-        
-        
-    </div>
-    
 
-    
-    <div class="flex flex-wrap">
-        
-        <div class="mb-2 mr-1">
-            <a href="/tags/#Guide" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-                </svg>
-                Guide
-            </a>
-        </div>
-        
-    </div>
     
 
 </div>

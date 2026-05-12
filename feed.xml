@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-05-08T12:46:36+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple UI v9.7</title><link href="https://blog.meshcore.io/2026/04/30/ripple-9.7" rel="alternate" type="text/html" title="Ripple UI v9.7" /><published>2026-04-30T00:00:00+00:00</published><updated>2026-04-30T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/30/ripple-9.7</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/30/ripple-9.7">&lt;p&gt;The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-05-12T01:10:46+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">pyMC Introduction</title><link href="https://blog.meshcore.io/2026/05/12/pymc-intro" rel="alternate" type="text/html" title="pyMC Introduction" /><published>2026-05-12T00:00:00+00:00</published><updated>2026-05-12T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/05/12/pymc-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/05/12/pymc-intro">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/05/12/control-room.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What is pyMC? At its core, pyMC is a Python implementation of a MeshCore-compatible stack. It is designed to run on Linux-based systems and connect embedded LoRa radios to higher-level software services. It started as a way to better understand the MeshCore protocol. But pretty quickly, it became something more useful: a reusable core library for building flexible, Linux-powered mesh infrastructure. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc core&lt;/code&gt; handles the protocol-level work:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parsing and generating MeshCore packets&lt;/li&gt;
+  &lt;li&gt;Managing identities and addressing&lt;/li&gt;
+  &lt;li&gt;Maintaining compatibility as the protocol evolves&lt;/li&gt;
+  &lt;li&gt;Handling radio interfaces (SPI, KISS, USB-CH341)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;with over 15 boards currently supported and many new ones in development, the system has grown from a simple experiment into a practical toolkit for building and running distributed mesh infrastructure.&lt;/p&gt;
+
+&lt;p&gt;On top of pyMC core sits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc repeater&lt;/code&gt;, which handles the operational side:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Processing packets&lt;/li&gt;
+  &lt;li&gt;Applying routing and filtering logic&lt;/li&gt;
+  &lt;li&gt;Forwarding traffic&lt;/li&gt;
+  &lt;li&gt;Supporting services like roomservers, companions and observer data output&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Embedded firmware is efficient and well suited to dedicated devices, but it operates under tight resource constraints. Running pyMC on Linux expands the design space: more compute, better tooling, easier debugging, and deeper real-time visibility into mesh behaviour.&lt;/p&gt;
+
+&lt;p&gt;A key design choice is how identities are handled. Instead of assuming one physical node equals one logical presence, pyMC lets multiple identities exist on the same radio.&lt;/p&gt;
+
+&lt;p&gt;In practice, a single device can take on multiple roles. It might act as a repeater, represent different logical endpoints, or host additional services–each with its own context.&lt;/p&gt;
+
+&lt;p&gt;This flexibility allows a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc repeater&lt;/code&gt; to evolve into a multi-companion base station. At that point, it behaves less like a simple packet repeater and more like a lightweight message hub for the mesh.&lt;/p&gt;
+
+&lt;p&gt;Put another way: pyMC gives MeshCore a Linux-native surface area. It can run repeaters, host services, power analytics, or support entirely new mesh applications–without losing compatibility with the underlying radio layer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-map.webp&quot; /&gt;
+&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-stats.webp&quot; /&gt;
+&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-system-stats.webp&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;where-pymc_console-fits&quot;&gt;Where pymc_console fits&lt;/h2&gt;
+
+&lt;p&gt;One example of that larger design space is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt;: a browser-based dashboard built on top of pyMC repeater.&lt;/p&gt;
+
+&lt;p&gt;Where pyMC handles the protocol and repeater layer, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt; turns that activity into something you can actually see and reason about. Packet flow, radio status, connected identities, observer output, airtime utilization, and network behavior can all be surfaced in a more approachable interface.&lt;/p&gt;
+
+&lt;p&gt;That matters because a mesh network is difficult to improve if it is invisible. Once packets, routes, signal quality, and utilization patterns become observable, the repeater becomes more than a forwarding node. It becomes a local window into the health and behavior of the mesh.&lt;/p&gt;
+
+&lt;p&gt;In that sense, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt; is less a separate idea than a natural extension of the pyMC architecture. The same Linux-native foundation that lets pyMC talk to radios also makes it possible to build analytics, dashboards, companion experiences, and new tools around the mesh.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console.webp&quot; /&gt;
+&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console-map.webp&quot; /&gt;
+&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console-compan.webp&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The interesting part isn’t just what pyMC does today, but what it enables in practice.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to explore it, run it yourself, or follow along as it evolves, everything you need to get started is available.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-to-start&quot;&gt;Where to start&lt;/h2&gt;
+
+&lt;p&gt;Source and setup instructions are on &lt;a href=&quot;https://github.com/pyMC-dev/pyMC_Repeater#pymc_repeater&quot;&gt;https://github.com/pyMC-dev&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Or join us in the pyMC Discord &lt;a href=&quot;https://discord.gg/hRjW9ha6m&quot;&gt;https://discord.gg/hRjW9ha6m&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;recommended-gear&quot;&gt;Recommended Gear&lt;/h2&gt;
+
+&lt;p&gt;For a no-fuss pyMC setup, I recommend the following tested and compatible hardware platforms. The MeshToad and MeshTadpole are ideal for lightweight installs, home labs, and desktop usage, while PiMesh provides an excellent Raspberry Pi-based solution for infrastructure and gateway deployments. For repeater-focused installations, the UltraPeater Luckfox Pico Ultra HAT offers a compact and efficient dedicated repeater platform.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MeshToad V3 — &lt;a href=&quot;https://muzi.works/products/nullhop-meshtoad-v3&quot;&gt;https://muzi.works/products/nullhop-meshtoad-v3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;MeshTadpole SX1262 USB Stick — &lt;a href=&quot;https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html&quot;&gt;https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;PiMesh — &lt;a href=&quot;https://meshsmith.net/&quot;&gt;https://meshsmith.net/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;UltraPeater — &lt;a href=&quot;https://zindello.com.au/ultrapeater/&quot;&gt;https://zindello.com.au/ultrapeater/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/pymc-gear.jpeg&quot; /&gt;&lt;/p&gt;</content><author><name>rightup</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ripple UI v9.7</title><link href="https://blog.meshcore.io/2026/04/30/ripple-9.7" rel="alternate" type="text/html" title="Ripple UI v9.7" /><published>2026-04-30T00:00:00+00:00</published><updated>2026-04-30T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/30/ripple-9.7</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/30/ripple-9.7">&lt;p&gt;The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/30/t-pager-9.7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -650,88 +721,4 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
 &lt;p&gt;If the progress bar stalled, or something went wrong, try issuing this command from phone or standalone device:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LilyGo T-Watch S3 Plus</title><link href="https://blog.meshcore.io/2026/03/28/twatch-s3-plus" rel="alternate" type="text/html" title="LilyGo T-Watch S3 Plus" /><published>2026-03-28T00:00:00+00:00</published><updated>2026-03-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/03/28/twatch-s3-plus</id><content type="html" xml:base="https://blog.meshcore.io/2026/03/28/twatch-s3-plus">&lt;p&gt;I’ve now added support for the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchs3plus.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You can download + flash in one easy step using this &lt;a href=&quot;https://flasher.meshcore.io/ripple-lilygo-t-watch-s3-plus/&quot;&gt;direct link&lt;/a&gt; to the MeshCore Flasher target.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;UI Navigation&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The watch has 3 physical buttons, one on left/top shoulder, one on right-top shoulder, and a power button along the right edge:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchhelp.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;NOTE: the top-right shoulder button is the RESET button, which will reboot the device.&lt;/p&gt;
-
-&lt;p&gt;The UI navigation is cursor based, where you move the dark-gray selection up/down by tapping in the top and bottom areas of the screen, per the picture above. You then tap on the right side to select, and tap on the left side to navigate back to previous screen.&lt;/p&gt;
-
-&lt;p&gt;Some screens require ENTER key to submit/save/send, and this is done with a short press of the power key. A long press (approx 4 seconds) powers off the device.&lt;/p&gt;
-
-&lt;p&gt;Press the top-left shoulder button to turn the screen on/off.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Watch Face/Lock Screen&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The screen automatically turns off after inactivity, but there is a special lock screen which comes on when the device is in standby and when you tilt your wrist to look at the watch face:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchlock.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;General Guide&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The T-Watch S3 has a UI which mostly like the other Ultra devices, like the T-Deck, so refer to the &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/ultra-v7-7-guide-meshcore-users&quot;&gt;general user guide&lt;/a&gt; here for details.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Kid Mode&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The T-Watch makes for a great kid-tracker with the Ripple UI’s Kid Mode. The device can be locked down so that only kid-friendly contacts are shown and no contact from strangers is possible. See &lt;a href=&quot;https://blog.meshcore.io/2025/10/02/kid-mode&quot;&gt;this article&lt;/a&gt; on how it works.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatchkidmode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NEW: Custom Watchfaces&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The 9.3 version of the firmware has some nice customisations for the watch-face/lock screen.&lt;/p&gt;
-
-&lt;p&gt;You can now set a &lt;strong&gt;Display&lt;/strong&gt; preference of &lt;strong&gt;Digital&lt;/strong&gt; or &lt;strong&gt;Analog&lt;/strong&gt;. With both, you can upload a custom PNG background image! For the Analog option, you need to find an image &lt;em&gt;without hands&lt;/em&gt; as the hour/minute hands are rendered on top of this background:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/custom-watchfaces.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To customise the digital watchface background, just drop a 240x240 PNG file called &lt;strong&gt;default-face.png&lt;/strong&gt; to root directory.&lt;/p&gt;
-
-&lt;p&gt;To customise the analog watchface background, just drop a 240x240 PNG file called &lt;strong&gt;analog-face.png&lt;/strong&gt; to root directory.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NEW: Maps&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The v9.3 can now handle &lt;em&gt;some&lt;/em&gt; map tiles, and rendered in the map view:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/twatch-maps.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The ‘LittleFS’ Firmware&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The v9.3 firmware now has two variants, the legacy one for those who just want to upgrade and &lt;em&gt;not&lt;/em&gt; use the watchfaces or maps, and the “-LFS” variant.&lt;/p&gt;
-
-&lt;p&gt;The -LFS variant uses a different partition scheme, so if you flash this variant over the current one you &lt;em&gt;will lose your settings&lt;/em&gt;. But, once you have this variant it will be safe to upgrade future versions without losing data.&lt;/p&gt;
-
-&lt;p&gt;This new variant, it carves out a LittleFS partition about 14Mb in size. So, you can drop map tiles up to about that size. This is fairly limited, but you should be able to drop some subset of your local geography for a few zoom levels.&lt;/p&gt;
-
-&lt;p&gt;Please see the &lt;a href=&quot;https://docs.meshcore.io/faq/?h=maps#47-q-how-do-i-get-maps-on-t-deck&quot;&gt;FAQ about how to get map tiles&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Copying Files to LittleFS&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;There is a handy online tool called &lt;a href=&quot;https://thelastoutpostworkshop.github.io/ESPConnect/&quot;&gt;ESPConnect&lt;/a&gt; which makes it easy to connect the T-Watch via USB to your computer, then add/modify/delete the files in the LittleFS partition.&lt;/p&gt;
-
-&lt;p&gt;Just click on the &lt;strong&gt;CONNECT&lt;/strong&gt; button at the top, select the port for your USB connection, then click on the &lt;strong&gt;LittleFS Tools&lt;/strong&gt; tab:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-littlefs.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll need to be patient while it does a &lt;em&gt;full read&lt;/em&gt; of the partition, but once done, it will ask you to click &lt;strong&gt;BACKUP&lt;/strong&gt; (which is very handy), that saves the entire partition to a .bin file.&lt;/p&gt;
-
-&lt;p&gt;If you look below, you should then see the various files/folders in the file system. Just drag-n-drop files, like ‘analog-face.png’ to add to the watch. You can also do this for the map tiles, just drag/drop the whole ‘tiles’ folder you have prepared on your computer. NOTE: you will see this warning if you’ve blown the size limit:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-full.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You should see the orange warning &lt;strong&gt;Unsaved changes&lt;/strong&gt; after adding/removing files/folder, and once you have made all the changes need, just click the blue &lt;strong&gt;SAVE TO FLASH&lt;/strong&gt; button:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-save.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the watch. But, once it’s done just disconnect the watch, then press the Reset button on the top-right shoulder of the watch.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added support for the T-Watch S3 Plus. This is a feature packed programmable watch from LilyGo, with integrated GPS, sx1262 LoRa radio, and 1.5” colour touch screen.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/03/28/twatchs3plus.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
