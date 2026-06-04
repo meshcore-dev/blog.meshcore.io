@@ -37,9 +37,9 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 
 ### New device support
 
-* NEW: T-Echo Card support [#2517](https://github.com/meshcore-dev/MeshCore/pull/2517)
-* NEW: Station G3 support [#2515](https://github.com/meshcore-dev/MeshCore/pull/2515)
+* NEW: LilyGo T-Echo Card support [#2517](https://github.com/meshcore-dev/MeshCore/pull/2517)
 * NEW: LilyGo T-Impulse Plus support [#2522](https://github.com/meshcore-dev/MeshCore/pull/2522)
+* NEW: Station G3 support [#2515](https://github.com/meshcore-dev/MeshCore/pull/2515)
 * NEW: Heltec Mesh Node T1 support [#2520](https://github.com/meshcore-dev/MeshCore/pull/2520)
 * new Xiao S3 variants (repeater, companion, etc) [#2383](https://github.com/meshcore-dev/MeshCore/pull/2383)
 
@@ -75,3 +75,42 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 * Heltec T096, Wireless Tracker: FEM/LNA enable by default [#2340](https://github.com/meshcore-dev/MeshCore/pull/2340)
 * R1 Neo, shutdown fix [#2371](https://github.com/meshcore-dev/MeshCore/pull/2371)
 * Heltec V4, set adc.multiplier support [#2335](https://github.com/meshcore-dev/MeshCore/pull/2335)
+
+## Limiting Unscoped Traffic
+
+The new `flood.max.unscoped` CLI config variable is specifically for limiting unscoped
+flood traffic. Like `flood.max`, it drops unscoped flood packets which have already had a given number of
+hops. By default it is 64, which is essentially _off_.
+
+## New Preamble
+
+When using the lower Spreading Factors, the radio has less time to _lock onto_ an incoming
+packet, so this change gives the faster SF's a longer preamble, and thus decreasing the
+chance of the preamble being missed. For SF <= 8, the preamble is now 32 symbols.
+
+## Improved Region Discovery in Mobile App
+
+The new companion firmware, and latest app, will be able to do ad-hoc requests to
+neat by repeaters _without_ having to add them to contacts first. This will streamline
+both repeater discovery, and region discovery.
+
+## New `region def` Command
+
+Defining regions via the CLI is currently quite verbose, and the latest CLI handling
+introduces a new `region def...` command which has a short-hand notation for defining
+regions, especially ones which have deep nesting.
+
+See the [CLI Command Reference](https://docs.meshcore.io/cli_commands/) for more details.
+
+## Extended ACK Support
+
+The latest firmwares introduce support for 'extended ACKs', which are 6 bytes instead of 4.
+The extra bytes contain an extended attempt number, and additional random byte. This is in
+preparation for a later app feature which will enable much more than 4 attempts for
+direct messages. For now, repeaters will have to be updated first.
+
+## Companion Raw Packets
+
+The latest companion firmwares now enable apps to compose the _full_ packet, ie.
+headers, path and payload. This can correspond with the existing RxLog ability, so app
+can do its own raw send and receive of packets.
