@@ -1,0 +1,69 @@
+---
+layout: post
+date: 2026-06-04 12:00:00 +1200
+title: "Release v1.16.0"
+description: "What's new in release v1.16.0"
+image: "assets/images/firmware_release.jpg"
+author: admin
+categories:
+  - Announcements
+tags:
+  - Firmware
+  - Release
+---
+![](/assets/images/firmware_release.jpg)
+
+**Download**
+
+Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
+
+**Change Log**
+
+* longer preamble now for lower SF. (32 for SF<=8, 16 for SF>8) [#1954]
+* app/companion can now do anon_req/response with non-contact nodes [#2672]
+* companion auto-shutdown, disabled when on external power, new UI warning on display [#2663]
+* All ESP repeaters, power saving improvements  [#1687]
+* companion protocol max frame size increase (now 176) [#2022]
+* RAK Wismesh Tag fixes [#2664]
+* New CLI config var 'flood.max.unscoped' [#2661]
+* Bug fix: repeater neighbor discovery fail when path.hash.mode != 0
+* RAK4631, now using Bosch driver for BME680 sensor [#2634]
+* nRF companions, power saving [#2286]
+* enable radio.rxgain CLI command for LR1110 (T1000e) [#2235]
+* new 'region def ...' CLI command [#2540]
+* default flood advert interval now 47 hours (was 12) [#2608]
+* Client repeat (off-grid) EU freq change (from 869.0 to 869.495) [#2604]
+* NEW: T-Echo Card support [#2517]
+* CLI validation on rxdelay, txdelay and direct.txdelay [#2443]
+* extended ACK support [#2594]
+* Heltec T096, sensor node support [#2576]
+* Heltec E290 USB companion fix [#2562]
+* WiFi companion, reconnect logic redesigned for non-blocking [#2493]
+* RAM usage reduced for older boards [#2497]
+* NEW: Station G3 support [#2515]
+* app/companion can now compose and send raw packets [#2543]
+* NEW: LilyGo T-Impulse Plus support [#2522]
+* NEW: Heltec Mesh Node T1 support [#2520]
+* nRF variants, CustomLFS lib upgrade to v2.2 [#2519]
+* T-Echo Lite, fixes to RXEN, TXEN and TCXO [#2511]
+* KISS modem frame timeout fixes [#2490]
+* companion can now override default scope to explicit unscoped [#2492]
+* sensor manager redesign [#2327]
+* startup tune suppressed if sound pref off [#2460]
+* added KISS Modem variants for most boards [#2620] [#2432]
+* Adafruit nRF BLE fork, to prevent lockup during rapid connect/disconnect [#2430]
+* RAK3401 companion, analog button support [#2436]
+* Heltec boards, LNA disabled by default [#2439]
+* new splash screens [#2424]
+* new Xiao S3 variants (repeater, companion, etc) [#2383]
+* Sensecap Solar Tx LED fix [#2157]
+* new repeater variant: Heltec V4 expansion kit [#2326] 
+* new T-Echo Lite non-shell companion variants [#2503] [#2353]
+* T-Echo Lite, battery measure fix [#2287]
+* RAK4631, sx1262 reset pin fix [#2008]
+* Heltec T096, Wireless Tracker: FEM/LNA enable by default [#2340]
+* R1 Neo, shutdown fix [#2371]
+* Heltec V4, set adc.multiplier support [#2335](https://github.com/meshcore-dev/MeshCore/pull/2335)
+
+
+
