@@ -22,6 +22,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 ### New Features
 
 * New CLI config var 'flood.max.unscoped' [#2661](https://github.com/meshcore-dev/MeshCore/pull/2661)
+* New CLI config var 'flood.max.advert' [#2702](https://github.com/meshcore-dev/MeshCore/pull/2702)
 * longer preamble now for lower SF. (32 for SF<=8, 16 for SF>8) [#1954](https://github.com/meshcore-dev/MeshCore/pull/1954)
 * app/companion can now do anon_req/response with non-contact nodes [#2672](https://github.com/meshcore-dev/MeshCore/pull/2672)
 * companion auto-shutdown, disabled when on external power, new UI warning on display [#2663](https://github.com/meshcore-dev/MeshCore/pull/2663)
@@ -45,6 +46,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 
 ### Bug fixes and Other
 
+* RP2040 target build fixes. [#2684](https://github.com/meshcore-dev/MeshCore/pull/2684)
 * companion protocol max frame size increase (now 176) [#2022](https://github.com/meshcore-dev/MeshCore/pull/2022)
 * RAK Wismesh Tag fixes [#2664](https://github.com/meshcore-dev/MeshCore/pull/2664)
 * Bug fix: repeater neighbor discovery fail when path.hash.mode != 0
@@ -82,6 +84,12 @@ The new `flood.max.unscoped` CLI config variable is specifically for limiting un
 flood traffic. Like `flood.max`, it drops unscoped flood packets which have already had a given number of
 hops. By default it is 64, which is essentially _off_.
 
+## Limiting Advert Traffic
+
+The new `flood.max.advert` CLI config variable is specifically for limiting adverts.
+Like `flood.max`, it drops advert packets which have already had a given number of
+hops. By default it is **8**.
+
 ## New Preamble
 
 When using the lower Spreading Factors, the radio has less time to _lock onto_ an incoming
@@ -91,7 +99,7 @@ chance of the preamble being missed. For SF <= 8, the preamble is now 32 symbols
 ## Improved Region Discovery in Mobile App
 
 The new companion firmware, and latest app, will be able to do ad-hoc requests to
-neat by repeaters _without_ having to add them to contacts first. This will streamline
+near by repeaters _without_ having to add them to contacts first. This will streamline
 both repeater discovery, and region discovery.
 
 ## New `region def` Command
