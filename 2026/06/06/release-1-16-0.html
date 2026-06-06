@@ -18,9 +18,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>OTA Updates on ESP32 Devices - MeshCore Blog</title>
-  <meta name="title" content="OTA Updates on ESP32 Devices - MeshCore Blog">
-  <meta name="description" content="A guide for updating repeater or room server firware for ESP32 based devices.">
+  <title>Release v1.16.0 - MeshCore Blog</title>
+  <meta name="title" content="Release v1.16.0 - MeshCore Blog">
+  <meta name="description" content="What&#39;s new in release v1.16.0">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
@@ -30,17 +30,17 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.meshcore.io/2026/04/01/esp-ota-update">
-  <meta property="og:title" content="OTA Updates on ESP32 Devices - MeshCore Blog">
-  <meta property="og:description" content="A guide for updating repeater or room server firware for ESP32 based devices.">
-  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/06/06/release-1-16-0">
+  <meta property="og:title" content="Release v1.16.0 - MeshCore Blog">
+  <meta property="og:description" content="What&#39;s new in release v1.16.0">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/firmware_release.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/01/esp-ota-update">
-  <meta property="twitter:title" content="OTA Updates on ESP32 Devices - MeshCore Blog">
-  <meta property="twitter:description" content="A guide for updating repeater or room server firware for ESP32 based devices.">
-  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/06/06/release-1-16-0">
+  <meta property="twitter:title" content="Release v1.16.0 - MeshCore Blog">
+  <meta property="twitter:description" content="What&#39;s new in release v1.16.0">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/firmware_release.jpg">
 
   <!-- social accounts -->
   <link rel="me" href="https://mastodon.social/@meshcore"/>
@@ -112,22 +112,22 @@
     
     <div class="flex items-center mb-4 font-medium">
         <div class="mr-2">
-            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.jpg"/>
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/admin.png"/>
         </div>
         <div>
-            <h2 class="text-md font-semibold">Scott Powell</h2>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
+            <h2 class="text-md font-semibold">Admin</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Site Admin</div>
         </div>
     </div>
     
-    <h2 class="text-2xl font-bold mb-1">OTA Updates on ESP32 Devices</h2>
+    <h2 class="text-2xl font-bold mb-1">Release v1.16.0</h2>
     <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
 
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
             </svg>
-            <div class="ml-1">April 01, 2026</div>
+            <div class="ml-1">June 06, 2026</div>
         </div>
 
         
@@ -136,65 +136,132 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div class="ml-1">2 minute read</div>
+            <div class="ml-1">4 minute read</div>
         </div>
         
 
     </div>
 
     <div class="post mt-4">
-        <p>Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.</p>
+        <p><img src="/assets/images/firmware_release.jpg" alt="" /></p>
 
-<p><strong>1. Download new .bin</strong></p>
+<h2 id="download">Download</h2>
 
-<p>Go to the <a href="https://flasher.meshcore.io/">webflasher</a> and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the <strong>Download</strong> button, then select the second .bin (ie. <em>not</em> the merged.bin!):</p>
+<p>Latest firmwares are in the <a href="https://flasher.meshcore.io/">flasher.meshcore.io</a></p>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/flasher-download.jpeg" /></p>
+<h2 id="change-log">Change Log</h2>
 
-<p>Alternatively, go to the <a href="https://github.com/meshcore-dev/MeshCore/releases">Github releases</a> page, then find the related artifact, eg. <a href="https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin">the Heltec V3 Repeater</a>.
-<strong>NOTE: do <em>not</em> download the -merged.bin!</strong></p>
+<h3 id="new-features">New Features</h3>
 
-<p><strong>2. Login to repeater/room server</strong></p>
+<ul>
+  <li>New CLI config var ‘flood.max.unscoped’ <a href="https://github.com/meshcore-dev/MeshCore/pull/2661">#2661</a></li>
+  <li>New CLI config var ‘flood.max.advert’ <a href="https://github.com/meshcore-dev/MeshCore/pull/2702">#2702</a></li>
+  <li>longer preamble now for lower SF. (32 for SF&lt;=8, 16 for SF&gt;8) <a href="https://github.com/meshcore-dev/MeshCore/pull/1954">#1954</a></li>
+  <li>app/companion can now do anon_req/response with non-contact nodes <a href="https://github.com/meshcore-dev/MeshCore/pull/2672">#2672</a></li>
+  <li>companion auto-shutdown, disabled when on external power, new UI warning on display <a href="https://github.com/meshcore-dev/MeshCore/pull/2663">#2663</a></li>
+  <li>new ‘region def …’ CLI command <a href="https://github.com/meshcore-dev/MeshCore/pull/2540">#2540</a></li>
+  <li>extended ACK support <a href="https://github.com/meshcore-dev/MeshCore/pull/2594">#2594</a></li>
+  <li>app/companion can now compose and send raw packets <a href="https://github.com/meshcore-dev/MeshCore/pull/2543">#2543</a></li>
+  <li>companion can now override default scope to explicit unscoped <a href="https://github.com/meshcore-dev/MeshCore/pull/2492">#2492</a></li>
+</ul>
 
-<p>Using the mobile app, login to your device:</p>
+<h3 id="enhancements">Enhancements</h3>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/app-repeater-login.png" /></p>
+<ul>
+  <li>All ESP repeaters, power saving improvements  <a href="https://github.com/meshcore-dev/MeshCore/pull/1687">#1687</a></li>
+  <li>nRF companions, power saving <a href="https://github.com/meshcore-dev/MeshCore/pull/2286">#2286</a></li>
+</ul>
 
-<p>Then switch to the Command Line, and enter <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
+<h3 id="new-device-support">New device support</h3>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/repeater-cli2.png" /></p>
+<ul>
+  <li>NEW: LilyGo T-Echo Card support <a href="https://github.com/meshcore-dev/MeshCore/pull/2517">#2517</a></li>
+  <li>NEW: LilyGo T-Impulse Plus support <a href="https://github.com/meshcore-dev/MeshCore/pull/2522">#2522</a></li>
+  <li>NEW: Station G3 support <a href="https://github.com/meshcore-dev/MeshCore/pull/2515">#2515</a></li>
+  <li>NEW: Heltec Mesh Node T1 support <a href="https://github.com/meshcore-dev/MeshCore/pull/2520">#2520</a></li>
+  <li>new Xiao S3 variants (repeater, companion, etc) <a href="https://github.com/meshcore-dev/MeshCore/pull/2383">#2383</a></li>
+</ul>
 
-<p>You should then see a reply, like:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Started: http://192.168.4.1/update
-</code></pre></div></div>
-<p>Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
+<h3 id="bug-fixes-and-other">Bug fixes and Other</h3>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/xiao-start-ota.jpg" /></p>
+<ul>
+  <li>RP2040 target build fixes. <a href="https://github.com/meshcore-dev/MeshCore/pull/2684">#2684</a></li>
+  <li>companion protocol max frame size increase (now 176) <a href="https://github.com/meshcore-dev/MeshCore/pull/2022">#2022</a></li>
+  <li>RAK Wismesh Tag fixes <a href="https://github.com/meshcore-dev/MeshCore/pull/2664">#2664</a></li>
+  <li>Bug fix: repeater neighbor discovery fail when path.hash.mode != 0</li>
+  <li>RAK4631, now using Bosch driver for BME680 sensor <a href="https://github.com/meshcore-dev/MeshCore/pull/2634">#2634</a></li>
+  <li>enable radio.rxgain CLI command for LR1110 (T1000e) <a href="https://github.com/meshcore-dev/MeshCore/pull/2235">#2235</a></li>
+  <li>default flood advert interval now 47 hours (was 12) <a href="https://github.com/meshcore-dev/MeshCore/pull/2608">#2608</a></li>
+  <li>Client repeat (off-grid) EU freq change (from 869.0 to 869.495) <a href="https://github.com/meshcore-dev/MeshCore/pull/2604">#2604</a></li>
+  <li>CLI validation on rxdelay, txdelay and direct.txdelay <a href="https://github.com/meshcore-dev/MeshCore/pull/2443">#2443</a></li>
+  <li>Heltec T096, sensor node support <a href="https://github.com/meshcore-dev/MeshCore/pull/2576">#2576</a></li>
+  <li>Heltec E290 USB companion fix <a href="https://github.com/meshcore-dev/MeshCore/pull/2562">#2562</a></li>
+  <li>WiFi companion, reconnect logic redesigned for non-blocking <a href="https://github.com/meshcore-dev/MeshCore/pull/2493">#2493</a></li>
+  <li>RAM usage reduced for older boards <a href="https://github.com/meshcore-dev/MeshCore/pull/2497">#2497</a></li>
+  <li>nRF variants, CustomLFS lib upgrade to v2.2 <a href="https://github.com/meshcore-dev/MeshCore/pull/2519">#2519</a></li>
+  <li>T-Echo Lite, fixes to RXEN, TXEN and TCXO <a href="https://github.com/meshcore-dev/MeshCore/pull/2511">#2511</a></li>
+  <li>KISS modem frame timeout fixes <a href="https://github.com/meshcore-dev/MeshCore/pull/2490">#2490</a></li>
+  <li>sensor manager redesign <a href="https://github.com/meshcore-dev/MeshCore/pull/2327">#2327</a></li>
+  <li>startup tune suppressed if sound pref off <a href="https://github.com/meshcore-dev/MeshCore/pull/2460">#2460</a></li>
+  <li>added KISS Modem variants for most boards <a href="https://github.com/meshcore-dev/MeshCore/pull/2620">#2620</a> <a href="https://github.com/meshcore-dev/MeshCore/pull/2432">#2432</a></li>
+  <li>Adafruit nRF BLE fork, to prevent lockup during rapid connect/disconnect <a href="https://github.com/meshcore-dev/MeshCore/pull/2430">#2430</a></li>
+  <li>RAK3401 companion, analog button support <a href="https://github.com/meshcore-dev/MeshCore/pull/2436">#2436</a></li>
+  <li>Heltec boards, LNA disabled by default <a href="https://github.com/meshcore-dev/MeshCore/pull/2439">#2439</a></li>
+  <li>new splash screens <a href="https://github.com/meshcore-dev/MeshCore/pull/2424">#2424</a></li>
+  <li>Sensecap Solar Tx LED fix <a href="https://github.com/meshcore-dev/MeshCore/pull/2157">#2157</a></li>
+  <li>new repeater variant: Heltec V4 expansion kit <a href="https://github.com/meshcore-dev/MeshCore/pull/2326">#2326</a></li>
+  <li>new T-Echo Lite non-shell companion variants <a href="https://github.com/meshcore-dev/MeshCore/pull/2503">#2503</a> <a href="https://github.com/meshcore-dev/MeshCore/pull/2353">#2353</a></li>
+  <li>T-Echo Lite, battery measure fix <a href="https://github.com/meshcore-dev/MeshCore/pull/2287">#2287</a></li>
+  <li>RAK4631, sx1262 reset pin fix <a href="https://github.com/meshcore-dev/MeshCore/pull/2008">#2008</a></li>
+  <li>Heltec T096, Wireless Tracker: FEM/LNA enable by default <a href="https://github.com/meshcore-dev/MeshCore/pull/2340">#2340</a></li>
+  <li>R1 Neo, shutdown fix <a href="https://github.com/meshcore-dev/MeshCore/pull/2371">#2371</a></li>
+  <li>Heltec V4, set adc.multiplier support <a href="https://github.com/meshcore-dev/MeshCore/pull/2335">#2335</a></li>
+</ul>
 
-<p><strong>3. Connect with your laptop/phone</strong></p>
+<h2 id="limiting-unscoped-traffic">Limiting Unscoped Traffic</h2>
 
-<p>The ESP32 device should have created a WiFi access point called <strong>MeshCore-OTA</strong>. Just connect to this from your laptop (or phone), and navigate to the URL that was shown in the command line response (above). You should see a page like this:</p>
+<p>The new <code class="language-plaintext highlighter-rouge">flood.max.unscoped</code> CLI config variable is specifically for limiting unscoped
+flood traffic. Like <code class="language-plaintext highlighter-rouge">flood.max</code>, it drops unscoped flood packets which have already had a given number of
+hops. By default it is 64, which is essentially <em>off</em>.</p>
 
-<p><img src="/assets/images/2026/04/01/repeater-ota.png" alt="" />
-Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this should be the name (and MCU type) of the node you are about to update.</p>
+<h2 id="limiting-advert-traffic">Limiting Advert Traffic</h2>
 
-<p>Click the <strong>Choose file</strong> button, and select the .bin file you previously downloaded. You should then see a progress bar:</p>
+<p>The new <code class="language-plaintext highlighter-rouge">flood.max.advert</code> CLI config variable is specifically for limiting adverts.
+Like <code class="language-plaintext highlighter-rouge">flood.max</code>, it drops advert packets which have already had a given number of
+hops. By default it is <strong>8</strong>.</p>
 
-<p><img src="/assets/images/2026/04/01/ota-progress.png" alt="" /></p>
+<h2 id="new-preamble">New Preamble</h2>
 
-<p><strong>4. Finishing Up</strong></p>
+<p>When using the lower Spreading Factors, the radio has less time to <em>lock onto</em> an incoming
+packet, so this change gives the faster SF’s a longer preamble, and thus decreasing the
+chance of the preamble being missed. For SF &lt;= 8, the preamble is now 32 symbols.</p>
 
-<p>Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the <strong>clock</strong> command. If it is incorrect, just issue the <strong>clock sync</strong> command.</p>
+<h2 id="improved-region-discovery-in-mobile-app">Improved Region Discovery in Mobile App</h2>
 
-<p>Also, you might want to enter the <strong>ver</strong> command, to check the firmware version is now updated.</p>
+<p>The new companion firmware, and latest app, will be able to do ad-hoc requests to
+near by repeaters <em>without</em> having to add them to contacts first. This will streamline
+both repeater discovery, and region discovery.</p>
 
-<p><strong>Trouble Shooting</strong></p>
+<h2 id="new-region-def-command">New <code class="language-plaintext highlighter-rouge">region def</code> Command</h2>
 
-<p>If the progress bar stalled, or something went wrong, try issuing this command from phone or standalone device:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
-</code></pre></div></div>
-<p>And then try the process again.</p>
+<p>Defining regions via the CLI is currently quite verbose, and the latest CLI handling
+introduces a new <code class="language-plaintext highlighter-rouge">region def...</code> command which has a short-hand notation for defining
+regions, especially ones which have deep nesting.</p>
 
+<p>See the <a href="https://docs.meshcore.io/cli_commands/">CLI Command Reference</a> for more details.</p>
+
+<h2 id="extended-ack-support">Extended ACK Support</h2>
+
+<p>The latest firmwares introduce support for ‘extended ACKs’, which are 6 bytes instead of 4.
+The extra bytes contain an extended attempt number, and additional random byte. This is in
+preparation for a later app feature which will enable much more than 4 attempts for
+direct messages. For now, repeaters will have to be updated first.</p>
+
+<h2 id="companion-raw-packets">Companion Raw Packets</h2>
+
+<p>The latest companion firmwares now enable apps to compose the <em>full</em> packet, ie.
+headers, path and payload. This can correspond with the existing RxLog ability, so app
+can do its own raw send and receive of packets.</p>
 
     </div>
 
@@ -208,10 +275,10 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
     <div class="dark:text-white mb-1">Enjoy this post?</div>
     <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">
         
-        <div>Buy Scott Powell a coffee</div>
+        <div>Donate to the MeshCore Team</div>
         
     </div>
-    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    <a target="_blank" href="https://github.com/sponsors/meshcore-dev" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
 </div>
 
 
@@ -225,7 +292,7 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
 <div class="flex space-x-1 mb-2 print:hidden">
 
     <!-- share to twitter -->
-    <a target="_blank" href="https://twitter.com/intent/tweet?text=OTA Updates on ESP32 Devices https://blog.meshcore.io/2026/04/01/esp-ota-update" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Release v1.16.0 https://blog.meshcore.io/2026/06/06/release-1-16-0" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
         </svg>
@@ -233,7 +300,7 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
     </a>
 
     <!-- share to facebook -->
-    <a target="_blank" href="https://www.facebook.com/sharer.php?title=OTA Updates on ESP32 Devices&u=https://blog.meshcore.io/2026/04/01/esp-ota-update" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Release v1.16.0&u=https://blog.meshcore.io/2026/06/06/release-1-16-0" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
@@ -241,7 +308,7 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
     </a>
 
     <!-- share to reddit -->
-    <a target="_blank" href="https://reddit.com/submit?title=OTA Updates on ESP32 Devices&url=https://blog.meshcore.io/2026/04/01/esp-ota-update" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+    <a target="_blank" href="https://reddit.com/submit?title=Release v1.16.0&url=https://blog.meshcore.io/2026/06/06/release-1-16-0" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
         </svg>
@@ -255,7 +322,7 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
     <div class="flex space-x-1 mb-2">
         <span>Posted in:</span>
         
-        <a href="/categories/#Firmware" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Firmware</a>
+        <a href="/categories/#Announcements" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Announcements</a>
         
         
     </div>
@@ -265,11 +332,20 @@ Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this sho
     <div class="flex flex-wrap">
         
         <div class="mb-2 mr-1">
-            <a href="/tags/#Guide" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+            <a href="/tags/#Firmware" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                 </svg>
-                Guide
+                Firmware
+            </a>
+        </div>
+        
+        <div class="mb-2 mr-1">
+            <a href="/tags/#Release" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                </svg>
+                Release
             </a>
         </div>
         

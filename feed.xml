@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-06-06T11:19:21+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">pyMC Introduction</title><link href="https://blog.meshcore.io/2026/05/12/pymc-intro" rel="alternate" type="text/html" title="pyMC Introduction" /><published>2026-05-12T00:00:00+00:00</published><updated>2026-05-12T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/05/12/pymc-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/05/12/pymc-intro">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/05/12/control-room.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-06-06T15:53:22+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.16.0</title><link href="https://blog.meshcore.io/2026/06/06/release-1-16-0" rel="alternate" type="text/html" title="Release v1.16.0" /><published>2026-06-06T00:00:00+00:00</published><updated>2026-06-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/06/release-1-16-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/06/release-1-16-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;change-log&quot;&gt;Change Log&lt;/h2&gt;
+
+&lt;h3 id=&quot;new-features&quot;&gt;New Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New CLI config var ‘flood.max.unscoped’ &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2661&quot;&gt;#2661&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;New CLI config var ‘flood.max.advert’ &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2702&quot;&gt;#2702&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;longer preamble now for lower SF. (32 for SF&amp;lt;=8, 16 for SF&amp;gt;8) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1954&quot;&gt;#1954&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;app/companion can now do anon_req/response with non-contact nodes &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2672&quot;&gt;#2672&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;companion auto-shutdown, disabled when on external power, new UI warning on display &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2663&quot;&gt;#2663&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;new ‘region def …’ CLI command &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2540&quot;&gt;#2540&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;extended ACK support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2594&quot;&gt;#2594&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;app/companion can now compose and send raw packets &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2543&quot;&gt;#2543&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;companion can now override default scope to explicit unscoped &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2492&quot;&gt;#2492&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enhancements&quot;&gt;Enhancements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All ESP repeaters, power saving improvements  &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1687&quot;&gt;#1687&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;nRF companions, power saving &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2286&quot;&gt;#2286&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;new-device-support&quot;&gt;New device support&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NEW: LilyGo T-Echo Card support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2517&quot;&gt;#2517&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;NEW: LilyGo T-Impulse Plus support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2522&quot;&gt;#2522&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;NEW: Station G3 support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2515&quot;&gt;#2515&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;NEW: Heltec Mesh Node T1 support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2520&quot;&gt;#2520&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;new Xiao S3 variants (repeater, companion, etc) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2383&quot;&gt;#2383&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bug-fixes-and-other&quot;&gt;Bug fixes and Other&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RP2040 target build fixes. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2684&quot;&gt;#2684&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;companion protocol max frame size increase (now 176) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2022&quot;&gt;#2022&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;RAK Wismesh Tag fixes &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2664&quot;&gt;#2664&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Bug fix: repeater neighbor discovery fail when path.hash.mode != 0&lt;/li&gt;
+  &lt;li&gt;RAK4631, now using Bosch driver for BME680 sensor &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2634&quot;&gt;#2634&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;enable radio.rxgain CLI command for LR1110 (T1000e) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2235&quot;&gt;#2235&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;default flood advert interval now 47 hours (was 12) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2608&quot;&gt;#2608&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Client repeat (off-grid) EU freq change (from 869.0 to 869.495) &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2604&quot;&gt;#2604&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;CLI validation on rxdelay, txdelay and direct.txdelay &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2443&quot;&gt;#2443&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec T096, sensor node support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2576&quot;&gt;#2576&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec E290 USB companion fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2562&quot;&gt;#2562&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;WiFi companion, reconnect logic redesigned for non-blocking &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2493&quot;&gt;#2493&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;RAM usage reduced for older boards &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2497&quot;&gt;#2497&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;nRF variants, CustomLFS lib upgrade to v2.2 &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2519&quot;&gt;#2519&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;T-Echo Lite, fixes to RXEN, TXEN and TCXO &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2511&quot;&gt;#2511&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;KISS modem frame timeout fixes &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2490&quot;&gt;#2490&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;sensor manager redesign &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2327&quot;&gt;#2327&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;startup tune suppressed if sound pref off &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2460&quot;&gt;#2460&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;added KISS Modem variants for most boards &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2620&quot;&gt;#2620&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2432&quot;&gt;#2432&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Adafruit nRF BLE fork, to prevent lockup during rapid connect/disconnect &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2430&quot;&gt;#2430&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;RAK3401 companion, analog button support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2436&quot;&gt;#2436&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec boards, LNA disabled by default &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2439&quot;&gt;#2439&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;new splash screens &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2424&quot;&gt;#2424&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Sensecap Solar Tx LED fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2157&quot;&gt;#2157&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;new repeater variant: Heltec V4 expansion kit &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2326&quot;&gt;#2326&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;new T-Echo Lite non-shell companion variants &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2503&quot;&gt;#2503&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2353&quot;&gt;#2353&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;T-Echo Lite, battery measure fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2287&quot;&gt;#2287&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;RAK4631, sx1262 reset pin fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2008&quot;&gt;#2008&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec T096, Wireless Tracker: FEM/LNA enable by default &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2340&quot;&gt;#2340&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;R1 Neo, shutdown fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2371&quot;&gt;#2371&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heltec V4, set adc.multiplier support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2335&quot;&gt;#2335&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;limiting-unscoped-traffic&quot;&gt;Limiting Unscoped Traffic&lt;/h2&gt;
+
+&lt;p&gt;The new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flood.max.unscoped&lt;/code&gt; CLI config variable is specifically for limiting unscoped
+flood traffic. Like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flood.max&lt;/code&gt;, it drops unscoped flood packets which have already had a given number of
+hops. By default it is 64, which is essentially &lt;em&gt;off&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;limiting-advert-traffic&quot;&gt;Limiting Advert Traffic&lt;/h2&gt;
+
+&lt;p&gt;The new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flood.max.advert&lt;/code&gt; CLI config variable is specifically for limiting adverts.
+Like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flood.max&lt;/code&gt;, it drops advert packets which have already had a given number of
+hops. By default it is &lt;strong&gt;8&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-preamble&quot;&gt;New Preamble&lt;/h2&gt;
+
+&lt;p&gt;When using the lower Spreading Factors, the radio has less time to &lt;em&gt;lock onto&lt;/em&gt; an incoming
+packet, so this change gives the faster SF’s a longer preamble, and thus decreasing the
+chance of the preamble being missed. For SF &amp;lt;= 8, the preamble is now 32 symbols.&lt;/p&gt;
+
+&lt;h2 id=&quot;improved-region-discovery-in-mobile-app&quot;&gt;Improved Region Discovery in Mobile App&lt;/h2&gt;
+
+&lt;p&gt;The new companion firmware, and latest app, will be able to do ad-hoc requests to
+near by repeaters &lt;em&gt;without&lt;/em&gt; having to add them to contacts first. This will streamline
+both repeater discovery, and region discovery.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-region-def-command&quot;&gt;New &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region def&lt;/code&gt; Command&lt;/h2&gt;
+
+&lt;p&gt;Defining regions via the CLI is currently quite verbose, and the latest CLI handling
+introduces a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region def...&lt;/code&gt; command which has a short-hand notation for defining
+regions, especially ones which have deep nesting.&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://docs.meshcore.io/cli_commands/&quot;&gt;CLI Command Reference&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;h2 id=&quot;extended-ack-support&quot;&gt;Extended ACK Support&lt;/h2&gt;
+
+&lt;p&gt;The latest firmwares introduce support for ‘extended ACKs’, which are 6 bytes instead of 4.
+The extra bytes contain an extended attempt number, and additional random byte. This is in
+preparation for a later app feature which will enable much more than 4 attempts for
+direct messages. For now, repeaters will have to be updated first.&lt;/p&gt;
+
+&lt;h2 id=&quot;companion-raw-packets&quot;&gt;Companion Raw Packets&lt;/h2&gt;
+
+&lt;p&gt;The latest companion firmwares now enable apps to compose the &lt;em&gt;full&lt;/em&gt; packet, ie.
+headers, path and payload. This can correspond with the existing RxLog ability, so app
+can do its own raw send and receive of packets.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">pyMC Introduction</title><link href="https://blog.meshcore.io/2026/05/12/pymc-intro" rel="alternate" type="text/html" title="pyMC Introduction" /><published>2026-05-12T00:00:00+00:00</published><updated>2026-05-12T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/05/12/pymc-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/05/12/pymc-intro">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/05/12/control-room.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;What is pyMC? At its core, pyMC is a Python implementation of a MeshCore-compatible stack. It is designed to run on Linux-based systems and connect embedded LoRa radios to higher-level software services. It started as a way to better understand the MeshCore protocol. But pretty quickly, it became something more useful: a reusable core library for building flexible, Linux-powered mesh infrastructure. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc core&lt;/code&gt; handles the protocol-level work:&lt;/p&gt;
 
@@ -671,54 +789,4 @@ For the Seeed Xiao Sense variant as discussed above you will want to download &l
 &lt;p&gt;If the update stalled or failed, try issuing this command from phone or standalone device:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates on ESP32 Devices</title><link href="https://blog.meshcore.io/2026/04/01/esp-ota-update" rel="alternate" type="text/html" title="OTA Updates on ESP32 Devices" /><published>2026-04-01T00:00:00+00:00</published><updated>2026-04-01T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/01/esp-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/01/esp-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. Download new .bin&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Go to the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;webflasher&lt;/a&gt; and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the &lt;strong&gt;Download&lt;/strong&gt; button, then select the second .bin (ie. &lt;em&gt;not&lt;/em&gt; the merged.bin!):&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/flasher-download.jpeg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Alternatively, go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_v3_repeater-v1.14.1-467959c.bin&quot;&gt;the Heltec V3 Repeater&lt;/a&gt;.
-&lt;strong&gt;NOTE: do &lt;em&gt;not&lt;/em&gt; download the -merged.bin!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Login to repeater/room server&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Using the mobile app, login to your device:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then switch to the Command Line, and enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/repeater-cli2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You should then see a reply, like:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Started: http://192.168.4.1/update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. Connect with your laptop/phone&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The ESP32 device should have created a WiFi access point called &lt;strong&gt;MeshCore-OTA&lt;/strong&gt;. Just connect to this from your laptop (or phone), and navigate to the URL that was shown in the command line response (above). You should see a page like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/repeater-ota.png&quot; alt=&quot;&quot; /&gt;
-Just take note of the ID displayed, eg the “MC Prime (Xiao C3)”, as this should be the name (and MCU type) of the node you are about to update.&lt;/p&gt;
-
-&lt;p&gt;Click the &lt;strong&gt;Choose file&lt;/strong&gt; button, and select the .bin file you previously downloaded. You should then see a progress bar:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/01/ota-progress.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. Finishing Up&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the &lt;strong&gt;clock&lt;/strong&gt; command. If it is incorrect, just issue the &lt;strong&gt;clock sync&lt;/strong&gt; command.&lt;/p&gt;
-
-&lt;p&gt;Also, you might want to enter the &lt;strong&gt;ver&lt;/strong&gt; command, to check the firmware version is now updated.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Trouble Shooting&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If the progress bar stalled, or something went wrong, try issuing this command from phone or standalone device:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for ESP32-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/01/repeater-ota.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
