@@ -18,9 +18,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>OTA Updates on nRF Devices - MeshCore Blog</title>
-  <meta name="title" content="OTA Updates on nRF Devices - MeshCore Blog">
-  <meta name="description" content="A guide for updating repeater or room server firware for nRF based devices.">
+  <title>OTA Updates by Drone - MeshCore Blog</title>
+  <meta name="title" content="OTA Updates by Drone - MeshCore Blog">
+  <meta name="description" content="A guide on a new firmware for OTA updating hard-to-reach nodes via a drone.">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
@@ -30,17 +30,17 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog.meshcore.io/2026/04/02/nrf-ota-update">
-  <meta property="og:title" content="OTA Updates on nRF Devices - MeshCore Blog">
-  <meta property="og:description" content="A guide for updating repeater or room server firware for nRF based devices.">
-  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/06/22/drone-ota">
+  <meta property="og:title" content="OTA Updates by Drone - MeshCore Blog">
+  <meta property="og:description" content="A guide on a new firmware for OTA updating hard-to-reach nodes via a drone.">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blog.meshcore.io/2026/04/02/nrf-ota-update">
-  <meta property="twitter:title" content="OTA Updates on nRF Devices - MeshCore Blog">
-  <meta property="twitter:description" content="A guide for updating repeater or room server firware for nRF based devices.">
-  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/06/22/drone-ota">
+  <meta property="twitter:title" content="OTA Updates by Drone - MeshCore Blog">
+  <meta property="twitter:description" content="A guide on a new firmware for OTA updating hard-to-reach nodes via a drone.">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg">
 
   <!-- social accounts -->
   <link rel="me" href="https://mastodon.social/@meshcore"/>
@@ -112,22 +112,22 @@
     
     <div class="flex items-center mb-4 font-medium">
         <div class="mr-2">
-            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/scottpowell.jpg"/>
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/rastislavvysoky.jpeg"/>
         </div>
         <div>
-            <h2 class="text-md font-semibold">Scott Powell</h2>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Lead Firmware Developer</div>
+            <h2 class="text-md font-semibold">Rastislav Vysoky (recrof)</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Web/Firmware Developer</div>
         </div>
     </div>
     
-    <h2 class="text-2xl font-bold mb-1">OTA Updates on nRF Devices</h2>
+    <h2 class="text-2xl font-bold mb-1">OTA Updates by Drone</h2>
     <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
 
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
             </svg>
-            <div class="ml-1">April 02, 2026</div>
+            <div class="ml-1">June 22, 2026</div>
         </div>
 
         
@@ -136,78 +136,68 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div class="ml-1">2 minute read</div>
+            <div class="ml-1">4 minute read</div>
         </div>
         
 
     </div>
 
     <div class="post mt-4">
-        <p>Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.</p>
+        <p><em>OTA Updating hard to reach nRF52 based repeaters with a drone</em></p>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/02/nRF-DFU.webp" /></p>
+<p>As we added more and more repeaters to our local mesh in Slovakia, we found out it’s not always possible to physically reach some repeater sites often enough. We incrementally got better in addressing this issue by experimenting with different approaches.
+I built a <a href="https://github.com/recrof/nrf_dfu_py">custom nrf dfu app that works on desktop OSes</a>, so you can use <a href="https://github.com/recrof/nrf_dfu_py/tree/main/adapter-antenna-buying-tips">external bluetooth adapters with rp-sma ports and directional antennas</a>.</p>
 
-<p><strong>1. Download new .zip</strong></p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/06/22/nrf_dfu_py.jpg" />
+<sup class="mx-auto">Updating local repeater with uConsole, high-power BLE adapter and directional antenna</sup></p>
 
-<p>Go to the <a href="https://flasher.meshcore.io/">webflasher</a> and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the <strong>Download</strong> button, then select .zip file:</p>
+<p>My buddy lucidnx started to experiment with <code class="language-plaintext highlighter-rouge">nrf_dfu_py</code> and created a <a href="https://github.com/lucidnx/meshcore-drone-updater">whole framework for drone updating</a>. This solution works well, but the rpi zero approach is not trivial to setup, requires additional DIY and it’s hard to use and debug. That’s why I decided to build more user-friendly version, so the drone doesn’t need to carry whole linux board on its back.</p>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/02/nRF-zip-download.png" /></p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/06/22/rpi_drone.jpg" />
+<sup class="mx-auto">Older version of Drone updater - with Raspberry Pi Zero 2W and hefty battery pack. 70g total payload</sup></p>
 
-<p>Alternatively, go to the <a href="https://github.com/meshcore-dev/MeshCore/releases">Github releases</a> page, then find the related artifact, eg. <a href="https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_t114_repeater-v1.14.1-467959c.zip">the T114 Repeater</a>.</p>
+<h2 id="the-star-of-the-show">The Star of the Show</h2>
 
-<p><strong>2. Login to repeater/room server</strong></p>
+<p>Xiao nRF52840 packs a perfect combination of things you want for very small low-power repeater updater: nRF MCU is power efficient, it has 2MB of onboard flash and it has full blown USB controller. Inspired with Arduino bootloader that has UF2 mode, I decided to use the external 2MB flash as Mass Storage with real FAT12 filesystem, so you can even use a phone to copy over the firmware file, configure the updater and review the update log - very handy in the field.</p>
 
-<p>Using the mobile app, login to your device:</p>
+<p><img alt="" class="mx-auto" src="/assets/images/2026/06/22/xiao_drone.jpg" />
+<sup class="mx-auto">DJI Neo2 with Xiao nRF52840 updater and 250mAh Li-Ion battery. 7.5g total payload</sup></p>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/app-repeater-login.png" /></p>
+<h2 id="how-to-setup-and-use-the-updater">How to setup and use the updater</h2>
 
-<p>Then switch to the Command Line, and enter <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
+<p>Be sure the repeater you want to update uses <a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/">oltaco’s OTAFIX bootloader</a> with version at least 2.1 or higher</p>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/repeater-cli2.png" /></p>
+<p>Get the firmware on <a href="https://github.com/recrof/xiao_nrf52_updater/releases">Project releases page</a>. There are 2 boards supported: Xiao nRF52840 and RAK3401/RAK4631 with RAK15001 external flash module. We’ll focus on Xiao, as that’s easier to pick up for most of the readers.</p>
 
-<p>You should then see a reply, like:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OK - mac: FF:AA:BB ...
-</code></pre></div></div>
-<p>Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the <code class="language-plaintext highlighter-rouge">start ota</code> command:</p>
+<ol>
+  <li>Download <code class="language-plaintext highlighter-rouge">updater-xiao_nrf52840-vX.X.uf2</code></li>
+  <li>Connect Xiao to your computer over USB</li>
+  <li>Double click the small reset button near the USB port - you might need to use your fingernail to do it</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">updater-xiao_nrf52840-vX.X.uf2</code> to newly opened usb drive</li>
+  <li>Xiao will restart(you might get error about unsuccessful transfer, disregard)</li>
+  <li>You will be presented with new empty USB drive labeled <strong>“XIAO DFU”</strong></li>
+  <li>Copy <a href="https://raw.githubusercontent.com/recrof/xiao_nrf52_updater/refs/heads/main/config.txt">config.txt</a> over to the USB disk</li>
+  <li>Open the <code class="language-plaintext highlighter-rouge">config.txt</code> with text editor</li>
+  <li>Set the <code class="language-plaintext highlighter-rouge">ble_name</code> to OTA name your repeater uses, here are few examples:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">4631 | 3401</code> for RAK based boars - covers both RAK4631 and RAK3401 1W</li>
+      <li><code class="language-plaintext highlighter-rouge">SENSECAP | SCAP</code> for Seeed SenseCap Solar P1</li>
+      <li><code class="language-plaintext highlighter-rouge">XIAO</code> for XIAO NRF52 based repeater(yeah, you can update Xiao with your Xiao!)</li>
+      <li><code class="language-plaintext highlighter-rouge">T114</code> for Heltec T114</li>
+      <li><code class="language-plaintext highlighter-rouge">ProMicro | PROM</code> for FakeTec / Promicro based boards</li>
+    </ul>
+  </li>
+  <li>(optional) Set any config parameters you like, but the defaults are well balanced already</li>
+  <li><a href="https://flasher.meshcore.io/">Download</a> and copy firmware <strong>zip</strong> that you want to flash to your repeater</li>
+  <li>Decide how you want to power your Xiao board.. I would recommend to solder battery leads to <a href="https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nRF52840_back_pinout.png">battery pads</a>, but you can wing it with USB power if want.</li>
+  <li>Attach the Xiao to your drone, send <code class="language-plaintext highlighter-rouge">start ota</code> to your repeater and make sure Xiao is blinking blue - that means it’s ready to flash your repeater</li>
+  <li>Fly near the target as close as you can - transfer will start as soon as Updater detects ble_name with min_rssi or better.</li>
+  <li>Keep Pinging your repeater via LoRa - it will tell you if the process started and later after few minutes, starts to be reachable again.</li>
+  <li>Get your drone back and look at the Xiao LED color - if it’s GREEN, the update was successful, if it’s RED, it failed. if it still blinks blue, that means the update did not even start - ble_name was not set right, the rssi was too weak or <code class="language-plaintext highlighter-rouge">start ota</code> failed</li>
+  <li>(optional) you can look into the <code class="language-plaintext highlighter-rouge">log.txt</code> in Xiao’s USB drive - it should hold update process with timestamps relative to boot. You can look at how <a href="/assets/images/2026/06/22/success.log">successful update log</a> looks like</li>
+</ol>
 
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/01/xiao-start-ota.jpg" /></p>
-
-<p><strong>3. Connect with your phone</strong></p>
-
-<p>If you don’t have it installed already, you will need to install the Nordic <strong>nRF Device Firmware Update</strong> app, which you can find on <a href="https://play.google.com/store/apps/details?id=no.nordicsemi.android.dfu">Google Play</a> and the <a href="https://apps.apple.com/us/app/nrf-device-firmware-update/id1624454660">App Store</a>.</p>
-
-<p><strong>3.1 DFU App Settings</strong></p>
-
-<p>In the app, tap on <strong>Settings</strong> icon and use these recommended settings changes:</p>
-<ul>
-  <li>Packet receipts notification - <strong>ON</strong></li>
-  <li>Number of packets - <strong>8</strong></li>
-  <li>Request high MTU (Android only) - <strong>OFF</strong></li>
-  <li>Disable resume - <strong>ON</strong></li>
-  <li>Prepare object delay - <strong>0 ms</strong></li>
-  <li>Force scanning - <strong>ON</strong></li>
-</ul>
-
-<p><strong>3.2 Start update</strong></p>
-
-<p>In the app, select the .zip file you downloaded and select the Device, Then press the <strong>start</strong> button:</p>
-
-<p><img alt="" class="mx-auto" src="/assets/images/2026/04/02/dfu-app.png" /></p>
-
-<p>And that’s it!</p>
-
-<p><strong>4. Finishing Up</strong></p>
-
-<p>Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the <strong>clock</strong> command. If it is incorrect, just issue the <strong>clock sync</strong> command.</p>
-
-<p>Also, you might want to enter the <strong>ver</strong> command, to check the firmware version is now updated.</p>
-
-<p><strong>Trouble Shooting</strong></p>
-
-<p>If the update stalled or failed, try issuing this command from phone or standalone device:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
-</code></pre></div></div>
-<p>And then try the process again.</p>
+<p>Let us know if this guide helped you flash your distant repeaters! Don’t hesitate to ask any questions either in the comments or on our <a href="https://discord.com/channels/1495203904898728149/1509594396482601121">Discord</a>.</p>
 
 
     </div>
@@ -222,10 +212,10 @@
     <div class="dark:text-white mb-1">Enjoy this post?</div>
     <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">
         
-        <div>Buy Scott Powell a coffee</div>
+        <div>Buy Rastislav Vysoky (recrof) a coffee</div>
         
     </div>
-    <a target="_blank" href="https://buymeacoffee.com/ripplebiz" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    <a target="_blank" href="https://github.com/sponsors/recrof?frequency=one-time&sponsor=recrof" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
 </div>
 
 
@@ -239,7 +229,7 @@
 <div class="flex space-x-1 mb-2 print:hidden">
 
     <!-- share to twitter -->
-    <a target="_blank" href="https://twitter.com/intent/tweet?text=OTA Updates on nRF Devices https://blog.meshcore.io/2026/04/02/nrf-ota-update" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=OTA Updates by Drone https://blog.meshcore.io/2026/06/22/drone-ota" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
         </svg>
@@ -247,7 +237,7 @@
     </a>
 
     <!-- share to facebook -->
-    <a target="_blank" href="https://www.facebook.com/sharer.php?title=OTA Updates on nRF Devices&u=https://blog.meshcore.io/2026/04/02/nrf-ota-update" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=OTA Updates by Drone&u=https://blog.meshcore.io/2026/06/22/drone-ota" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
@@ -255,7 +245,7 @@
     </a>
 
     <!-- share to reddit -->
-    <a target="_blank" href="https://reddit.com/submit?title=OTA Updates on nRF Devices&url=https://blog.meshcore.io/2026/04/02/nrf-ota-update" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+    <a target="_blank" href="https://reddit.com/submit?title=OTA Updates by Drone&url=https://blog.meshcore.io/2026/06/22/drone-ota" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
         <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
         </svg>
@@ -279,11 +269,11 @@
     <div class="flex flex-wrap">
         
         <div class="mb-2 mr-1">
-            <a href="/tags/#Guide" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+            <a href="/tags/#Guide, Drone" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                 </svg>
-                Guide
+                Guide, Drone
             </a>
         </div>
         

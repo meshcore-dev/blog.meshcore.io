@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-06-22T02:56:00+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.16.0</title><link href="https://blog.meshcore.io/2026/06/06/release-1-16-0" rel="alternate" type="text/html" title="Release v1.16.0" /><published>2026-06-06T00:00:00+00:00</published><updated>2026-06-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/06/release-1-16-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/06/release-1-16-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-06-22T05:26:42+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates by Drone</title><link href="https://blog.meshcore.io/2026/06/22/drone-ota" rel="alternate" type="text/html" title="OTA Updates by Drone" /><published>2026-06-22T00:00:00+00:00</published><updated>2026-06-22T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/22/drone-ota</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/22/drone-ota">&lt;p&gt;&lt;em&gt;OTA Updating hard to reach nRF52 based repeaters with a drone&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As we added more and more repeaters to our local mesh in Slovakia, we found out it’s not always possible to physically reach some repeater sites often enough. We incrementally got better in addressing this issue by experimenting with different approaches.
+I built a &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py&quot;&gt;custom nrf dfu app that works on desktop OSes&lt;/a&gt;, so you can use &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py/tree/main/adapter-antenna-buying-tips&quot;&gt;external bluetooth adapters with rp-sma ports and directional antennas&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/nrf_dfu_py.jpg&quot; /&gt;
+&lt;sup class=&quot;mx-auto&quot;&gt;Updating local repeater with uConsole, high-power BLE adapter and directional antenna&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;My buddy lucidnx started to experiment with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf_dfu_py&lt;/code&gt; and created a &lt;a href=&quot;https://github.com/lucidnx/meshcore-drone-updater&quot;&gt;whole framework for drone updating&lt;/a&gt;. This solution works well, but the rpi zero approach is not trivial to setup, requires additional DIY and it’s hard to use and debug. That’s why I decided to build more user-friendly version, so the drone doesn’t need to carry whole linux board on its back.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/rpi_drone.jpg&quot; /&gt;
+&lt;sup class=&quot;mx-auto&quot;&gt;Older version of Drone updater - with Raspberry Pi Zero 2W and hefty battery pack. 70g total payload&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-star-of-the-show&quot;&gt;The Star of the Show&lt;/h2&gt;
+
+&lt;p&gt;Xiao nRF52840 packs a perfect combination of things you want for very small low-power repeater updater: nRF MCU is power efficient, it has 2MB of onboard flash and it has full blown USB controller. Inspired with Arduino bootloader that has UF2 mode, I decided to use the external 2MB flash as Mass Storage with real FAT12 filesystem, so you can even use a phone to copy over the firmware file, configure the updater and review the update log - very handy in the field.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/xiao_drone.jpg&quot; /&gt;
+&lt;sup class=&quot;mx-auto&quot;&gt;DJI Neo2 with Xiao nRF52840 updater and 250mAh Li-Ion battery. 7.5g total payload&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-setup-and-use-the-updater&quot;&gt;How to setup and use the updater&lt;/h2&gt;
+
+&lt;p&gt;Be sure the repeater you want to update uses &lt;a href=&quot;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/&quot;&gt;oltaco’s OTAFIX bootloader&lt;/a&gt; with version at least 2.1 or higher&lt;/p&gt;
+
+&lt;p&gt;Get the firmware on &lt;a href=&quot;https://github.com/recrof/xiao_nrf52_updater/releases&quot;&gt;Project releases page&lt;/a&gt;. There are 2 boards supported: Xiao nRF52840 and RAK3401/RAK4631 with RAK15001 external flash module. We’ll focus on Xiao, as that’s easier to pick up for most of the readers.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updater-xiao_nrf52840-vX.X.uf2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Connect Xiao to your computer over USB&lt;/li&gt;
+  &lt;li&gt;Double click the small reset button near the USB port - you might need to use your fingernail to do it&lt;/li&gt;
+  &lt;li&gt;Copy the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updater-xiao_nrf52840-vX.X.uf2&lt;/code&gt; to newly opened usb drive&lt;/li&gt;
+  &lt;li&gt;Xiao will restart(you might get error about unsuccessful transfer, disregard)&lt;/li&gt;
+  &lt;li&gt;You will be presented with new empty USB drive labeled &lt;strong&gt;“XIAO DFU”&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Copy &lt;a href=&quot;https://raw.githubusercontent.com/recrof/xiao_nrf52_updater/refs/heads/main/config.txt&quot;&gt;config.txt&lt;/a&gt; over to the USB disk&lt;/li&gt;
+  &lt;li&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.txt&lt;/code&gt; with text editor&lt;/li&gt;
+  &lt;li&gt;Set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_name&lt;/code&gt; to OTA name your repeater uses, here are few examples:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4631 | 3401&lt;/code&gt; for RAK based boars - covers both RAK4631 and RAK3401 1W&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SENSECAP | SCAP&lt;/code&gt; for Seeed SenseCap Solar P1&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XIAO&lt;/code&gt; for XIAO NRF52 based repeater(yeah, you can update Xiao with your Xiao!)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T114&lt;/code&gt; for Heltec T114&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProMicro | PROM&lt;/code&gt; for FakeTec / Promicro based boards&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(optional) Set any config parameters you like, but the defaults are well balanced already&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;Download&lt;/a&gt; and copy firmware &lt;strong&gt;zip&lt;/strong&gt; that you want to flash to your repeater&lt;/li&gt;
+  &lt;li&gt;Decide how you want to power your Xiao board.. I would recommend to solder battery leads to &lt;a href=&quot;https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nRF52840_back_pinout.png&quot;&gt;battery pads&lt;/a&gt;, but you can wing it with USB power if want.&lt;/li&gt;
+  &lt;li&gt;Attach the Xiao to your drone, send &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; to your repeater and make sure Xiao is blinking blue - that means it’s ready to flash your repeater&lt;/li&gt;
+  &lt;li&gt;Fly near the target as close as you can - transfer will start as soon as Updater detects ble_name with min_rssi or better.&lt;/li&gt;
+  &lt;li&gt;Keep Pinging your repeater via LoRa - it will tell you if the process started and later after few minutes, starts to be reachable again.&lt;/li&gt;
+  &lt;li&gt;Get your drone back and look at the Xiao LED color - if it’s GREEN, the update was successful, if it’s RED, it failed. if it still blinks blue, that means the update did not even start - ble_name was not set right, the rssi was too weak or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; failed&lt;/li&gt;
+  &lt;li&gt;(optional) you can look into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log.txt&lt;/code&gt; in Xiao’s USB drive - it should hold update process with timestamps relative to boot. You can look at how &lt;a href=&quot;/assets/images/2026/06/22/success.log&quot;&gt;successful update log&lt;/a&gt; looks like&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let us know if this guide helped you flash your distant repeaters! Don’t hesitate to ask any questions either in the comments or on our &lt;a href=&quot;https://discord.com/channels/1495203904898728149/1509594396482601121&quot;&gt;Discord&lt;/a&gt;.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Firmware" /><category term="Guide, Drone" /><summary type="html">OTA Updating hard to reach nRF52 based repeaters with a drone</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.16.0</title><link href="https://blog.meshcore.io/2026/06/06/release-1-16-0" rel="alternate" type="text/html" title="Release v1.16.0" /><published>2026-06-06T00:00:00+00:00</published><updated>2026-06-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/06/release-1-16-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/06/release-1-16-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
 
@@ -725,68 +779,4 @@ For the Seeed Xiao Sense variant as discussed above you will want to download &l
 
 &lt;h1 id=&quot;beyond-the-interface&quot;&gt;Beyond the interface&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; will let you automatically add and update all repeaters, room servers and sensors when they broadcast an advert. That’s the main reason you can see freshness indicated by the colored node icons.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Map" /><category term="Guide" /><summary type="html">Origins</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates on nRF Devices</title><link href="https://blog.meshcore.io/2026/04/02/nrf-ota-update" rel="alternate" type="text/html" title="OTA Updates on nRF Devices" /><published>2026-04-02T00:00:00+00:00</published><updated>2026-04-02T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/02/nrf-ota-update</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/02/nrf-ota-update">&lt;p&gt;Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/nRF-DFU.webp&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1. Download new .zip&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Go to the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;webflasher&lt;/a&gt; and find your device, then select the Repeater or Room Server role, then latest version. In the bottom-right, click the &lt;strong&gt;Download&lt;/strong&gt; button, then select .zip file:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/nRF-zip-download.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Alternatively, go to the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases&quot;&gt;Github releases&lt;/a&gt; page, then find the related artifact, eg. &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/releases/download/repeater-v1.14.1/Heltec_t114_repeater-v1.14.1-467959c.zip&quot;&gt;the T114 Repeater&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Login to repeater/room server&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Using the mobile app, login to your device:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/app-repeater-login.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then switch to the Command Line, and enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/repeater-cli2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You should then see a reply, like:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OK - mac: FF:AA:BB ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Alternatively, you can use a standalone device like the T-Deck with the Ripple firmware to enter the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/01/xiao-start-ota.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. Connect with your phone&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If you don’t have it installed already, you will need to install the Nordic &lt;strong&gt;nRF Device Firmware Update&lt;/strong&gt; app, which you can find on &lt;a href=&quot;https://play.google.com/store/apps/details?id=no.nordicsemi.android.dfu&quot;&gt;Google Play&lt;/a&gt; and the &lt;a href=&quot;https://apps.apple.com/us/app/nrf-device-firmware-update/id1624454660&quot;&gt;App Store&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3.1 DFU App Settings&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the app, tap on &lt;strong&gt;Settings&lt;/strong&gt; icon and use these recommended settings changes:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Packet receipts notification - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Number of packets - &lt;strong&gt;8&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Request high MTU (Android only) - &lt;strong&gt;OFF&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Disable resume - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Prepare object delay - &lt;strong&gt;0 ms&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Force scanning - &lt;strong&gt;ON&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;3.2 Start update&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the app, select the .zip file you downloaded and select the Device, Then press the &lt;strong&gt;start&lt;/strong&gt; button:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/02/dfu-app.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And that’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;4. Finishing Up&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Once completed, logout then log back in (either with the app or a standalone device), check that the clock is correct with the &lt;strong&gt;clock&lt;/strong&gt; command. If it is incorrect, just issue the &lt;strong&gt;clock sync&lt;/strong&gt; command.&lt;/p&gt;
-
-&lt;p&gt;Also, you might want to enter the &lt;strong&gt;ver&lt;/strong&gt; command, to check the firmware version is now updated.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Trouble Shooting&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If the update stalled or failed, try issuing this command from phone or standalone device:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;And then try the process again.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Firmware" /><category term="Guide" /><summary type="html">Updating the firmware of your repeaters or room servers is super easy for nRF-based nodes.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/02/nRF-DFU.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; will let you automatically add and update all repeaters, room servers and sensors when they broadcast an advert. That’s the main reason you can see freshness indicated by the colored node icons.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Map" /><category term="Guide" /><summary type="html">Origins</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
