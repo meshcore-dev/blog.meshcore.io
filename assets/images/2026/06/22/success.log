@@ -1,0 +1,72 @@
+[00:00:00] boot: storage=ok vbus=0 cfg=CONFIG.TXT
+[00:00:00] cfg:  ble_name='4631 | DFU' prn=10 high_mtu=1 retries=10 min_rssi=-70 retry_cooldown=5 wedge_cooldown=60 tx_power=8 scan_timeout=0 scan_debug=0
+[00:00:00] boot: no VBUS + zip present, arming DFU
+[00:00:00] dfu: trigger boot-no-vbus
+[00:00:00] dfu: bundle RAK_4631_repeater-v1.16.0-07a3ca9.zip  type=0x04 bin=511472 B dat=14 B
+[00:00:00] scan: looking for DFU target (no timeout)...
+[00:00:00] boot: storage=ok vbus=1 cfg=CONFIG.TXT
+[00:00:00] boot: storage=ok vbus=0 cfg=CONFIG.TXT
+[00:00:00] cfg:  ble_name='4631 | DFU' prn=10 high_mtu=1 retries=10 min_rssi=-70 retry_cooldown=5 wedge_cooldown=60 tx_power=8 scan_timeout=0 scan_debug=0
+[00:00:00] boot: no VBUS + zip present, arming DFU
+[00:00:00] dfu: trigger boot-no-vbus
+[00:00:00] dfu: bundle RAK_4631_repeater-v1.16.0-07a3ca9.zip  type=0x04 bin=511472 B dat=14 B
+[00:00:00] scan: looking for DFU target (no timeout)...
+[00:00:43] scan: found C2:9C:C4:20:15:6B  rssi=-68  'RAK4631_OTA'
+[00:00:43] dfu: connecting to C2:9C:C4:20:15:6B
+[00:00:43] dfu: connected (conn=0)
+[00:00:44] dfu: MTU negotiated = 92 (payload=89)
+[00:00:44] dfu: chars present  ctrl=1  packet=1  version=1
+[00:00:44] dfu: peer DFU version = 0.1  (raw 0x0001)
+[00:00:44] dfu: peer in app mode, sending buttonless trigger
+[00:00:46] dfu: disconnected reason=0x08
+[00:00:46] dfu: buttonless triggered, waiting 2 s for peer reboot...
+[00:00:48] scan: looking for DFU target (no timeout), MAC+1 fallback armed...
+[00:00:49] scan: found C2:9C:C4:20:15:6C  rssi=-64  '4631_DFU'
+[00:00:49] dfu: connecting to C2:9C:C4:20:15:6C
+[00:00:49] dfu: connected (conn=0)
+[00:00:49] dfu: disconnected reason=0x3e
+[00:00:49] dfu: link dropped immediately after connect (weak signal?)
+[00:00:49] dfu: attempt 1/10 failed with result=2
+[00:00:50] dfu: retry cooldown 5 s before next attempt
+[00:00:55] scan: looking for DFU target (no timeout)...
+[00:00:55] scan: found C2:9C:C4:20:15:6C  rssi=-67  '4631_DFU'
+[00:00:55] dfu: connecting to C2:9C:C4:20:15:6C
+[00:00:55] dfu: connected (conn=0)
+[00:00:56] dfu: MTU negotiated = 247 (payload=244)
+[00:00:56] dfu: chars present  ctrl=1  packet=1  version=1
+[00:00:56] dfu: peer DFU version = 0.8  (raw 0x0008)
+[00:00:56] dfu: notifications enabled
+[00:00:56] dfu: sent START_DFU type=0x04
+[00:00:56] dfu: sent sizes  sd=0 bl=0 app=511472
+[00:00:57] dfu: START_DFU response status=0x01
+[00:00:57] dfu: sent init packet (14 B)
+[00:00:57] dfu: INIT_DFU_PARAMS response status=0x01
+[00:00:57] dfu: PRN set to 10
+[00:00:57] dfu: streaming 511472 B...
+[00:00:59] dfu: progress 5%  (25620 / 511472 B)
+[00:01:02] dfu: progress 10%  (51240 / 511472 B)
+[00:01:04] dfu: progress 15%  (76860 / 511472 B)
+[00:01:07] dfu: progress 20%  (102480 / 511472 B)
+[00:01:10] dfu: progress 25%  (128100 / 511472 B)
+[00:01:12] dfu: progress 30%  (153476 / 511472 B)
+[00:01:15] dfu: progress 35%  (179096 / 511472 B)
+[00:01:18] dfu: progress 40%  (204716 / 511472 B)
+[00:01:20] dfu: progress 45%  (230336 / 511472 B)
+[00:01:22] dfu: progress 50%  (255956 / 511472 B)
+[00:01:25] dfu: progress 55%  (281332 / 511472 B)
+[00:01:28] dfu: progress 60%  (306952 / 511472 B)
+[00:01:30] dfu: progress 65%  (332572 / 511472 B)
+[00:01:33] dfu: progress 70%  (358192 / 511472 B)
+[00:01:36] dfu: progress 75%  (383812 / 511472 B)
+[00:01:39] dfu: progress 80%  (409188 / 511472 B)
+[00:01:41] dfu: progress 85%  (434808 / 511472 B)
+[00:01:44] dfu: progress 90%  (460428 / 511472 B)
+[00:01:46] dfu: progress 95%  (486048 / 511472 B)
+[00:01:49] dfu: progress 100%  (511472 / 511472 B)
+[00:01:49] dfu: stream done in 51542 ms (9923 B/s)
+[00:01:49] dfu: RECEIVE_FW final status=0x01
+[00:01:49] dfu: VALIDATE status=0x01
+[00:01:49] dfu: ACTIVATE sent, waiting for peer to reset...
+[00:01:49] dfu: disconnected reason=0x13
+[00:01:50] dfu: DONE
+[00:01:50] dfu: SUCCESS, deleting RAK_4631_repeater-v1.16.0-07a3ca9.zip
