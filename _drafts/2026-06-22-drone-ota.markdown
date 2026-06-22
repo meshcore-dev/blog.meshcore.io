@@ -1,0 +1,64 @@
+---
+layout: post
+date: 2026-06-22 12:00:00 +1200
+title: "OTA Updates by Drone"
+description: "A guide on a new firmware for OTA updating hard-to-reach nodes via a drone."
+image: "assets/images/2026/06/22/xiao_drone.jpg"
+author: recrof
+categories:
+  - Firmware
+tags:
+  - Guide, Drone
+---
+
+_OTA Updating hard to reach nRF52 based repeaters with a drone_
+
+As we added more and more repeaters to our local mesh in Slovakia, we found out it's not always possible to physically reach some repeater sites often enough. We incrementally got better in addressing this issue by experimenting with different approaches.
+I built a [custom nrf dfu app that works on desktop OSes](https://github.com/recrof/nrf_dfu_py), so you can use [external bluetooth adapters with rp-sma ports and directional antennas](https://github.com/recrof/nrf_dfu_py/tree/main/adapter-antenna-buying-tips).
+
+<img alt class="mx-auto" src="/assets/images/2026/06/22/nrf_dfu_py.jpg" />
+<sup class="mx-auto">Updating local repeater with uConsole, high-power BLE adapter and directional antenna</sup>
+
+My buddy lucidnx started to experiment with `nrf_dfu_py` and created a [whole framework for drone updating](https://github.com/lucidnx/meshcore-drone-updater). This solution works well, but the rpi zero approach is not trivial to setup, requires additional DIY and it's hard to use and debug. That's why I decided to build more user-friendly version, so the drone doesn't need to carry whole linux board on its back.
+
+<img alt class="mx-auto" src="/assets/images/2026/06/22/rpi_drone.jpg" />
+<sup class="mx-auto">Older version of Drone updater - with Raspberry Pi Zero 2W and hefty battery pack. 70g total payload</sup>
+
+## The Star of the Show
+
+Xiao nRF52840 packs a perfect combination of things you want for very small low-power repeater updater: nRF MCU is power efficient, it has 2MB of onboard flash and it has full blown USB controller. Inspired with Arduino bootloader that has UF2 mode, I decided to use the external 2MB flash as Mass Storage with real FAT12 filesystem, so you can even use a phone to copy over the firmware file, configure the updater and review the update log - very handy in the field.
+
+<img alt class="mx-auto" src="/assets/images/2026/06/22/xiao_drone.jpg"  />
+<sup class="mx-auto">DJI Neo2 with Xiao nRF52840 updater and 250mAh Li-Ion battery. 7.5g total payload</sup>
+
+## How to setup and use the updater
+
+Be sure the repeater you want to update uses [oltaco's OTAFIX bootloader](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/) with version at least 2.1 or higher
+
+Get the firmware on [Project releases page](https://github.com/recrof/xiao_nrf52_updater/releases). There are 2 boards supported: Xiao nRF52840 and RAK3401/RAK4631 with RAK15001 external flash module. We'll focus on Xiao, as that's easier to pick up for most of the readers.
+
+1. Download `updater-xiao_nrf52840-vX.X.uf2`
+2. Connect Xiao to your computer over USB
+3. Double click the small reset button near the USB port - you might need to use your fingernail to do it
+4. Copy the `updater-xiao_nrf52840-vX.X.uf2` to newly opened usb drive
+5. Xiao will restart(you might get error about unsuccessful transfer, disregard)
+6. You will be presented with new empty USB drive labeled **"XIAO DFU"**
+7. Copy [config.txt](https://raw.githubusercontent.com/recrof/xiao_nrf52_updater/refs/heads/main/config.txt) over to the USB disk
+8. Open the `config.txt` with text editor
+9. Set the `ble_name` to OTA name your repeater uses, here are few examples:
+    - `4631 | 3401` for RAK based boars - covers both RAK4631 and RAK3401 1W
+    - `SENSECAP | SCAP` for Seeed SenseCap Solar P1
+    - `XIAO` for XIAO NRF52 based repeater(yeah, you can update Xiao with your Xiao!)
+    - `T114` for Heltec T114
+    - `ProMicro | PROM` for FakeTec / Promicro based boards
+10. (optional) Set any config parameters you like, but the defaults are well balanced already
+11. [Download](https://flasher.meshcore.io/) and copy firmware **zip** that you want to flash to your repeater
+12. Decide how you want to power your Xiao board.. I would recommend to solder battery leads to [battery pads](https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nRF52840_back_pinout.png), but you can wing it with USB power if want.
+13. Attach the Xiao to your drone, send `start ota` to your repeater and make sure Xiao is blinking blue - that means it's ready to flash your repeater
+14. Fly near the target as close as you can - transfer will start as soon as Updater detects ble_name with min_rssi or better.
+15. Keep Pinging your repeater via LoRa - it will tell you if the process started and later after few minutes, starts to be reachable again.
+16. Get your drone back and look at the Xiao LED color - if it's GREEN, the update was successful, if it's RED, it failed. if it still blinks blue, that means the update did not even start - ble_name was not set right, the rssi was too weak or `start ota` failed
+17. (optional) you can look into the `log.txt` in Xiao's USB drive - it should hold update process with timestamps relative to boot. You can look at how [successful update log](/assets/images/2026/06/22/success.log) looks like
+
+Let us know if this guide helped you flash your distant repeaters! Don't hesitate to ask any questions either in the comments or on our [Discord](https://discord.com/channels/1495203904898728149/1509594396482601121).
+
