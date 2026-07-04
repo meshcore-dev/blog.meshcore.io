@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-07-02T09:26:51+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">OTA Updates by Drone</title><link href="https://blog.meshcore.io/2026/06/22/drone-ota" rel="alternate" type="text/html" title="OTA Updates by Drone" /><published>2026-06-22T00:00:00+00:00</published><updated>2026-06-22T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/22/drone-ota</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/22/drone-ota">&lt;p&gt;&lt;em&gt;OTA Updating hard to reach nRF52 based repeaters with a drone&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-07-04T06:08:25+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Help Us Save MeshCore</title><link href="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore" rel="alternate" type="text/html" title="Help Us Save MeshCore" /><published>2026-07-04T00:00:00+00:00</published><updated>2026-07-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/07/04/help-us-save-meshcore</id><content type="html" xml:base="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore">&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/07/04/meshcore-banner-short.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;forward-by-scott-powell&quot;&gt;Forward, by Scott Powell&lt;/h2&gt;
+
+&lt;p&gt;Many of you got into MeshCore because it answered an as-yet unknown call. 
+The project had its beginnings &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/the-future-3211940&quot;&gt;here&lt;/a&gt; in late 2024, when I was
+frustrated that there was no sufficiently open and permissive mesh protocol which could
+form the centre of a vibrant ecosystem. From the start, I made my intentions clear, that I wanted
+an open protocol, an open source core engine, but also permissive of 3rd party products that could build on top of it.
+I then spent the next two months designing and writing what became the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore&quot;&gt;C++ MeshCore engine&lt;/a&gt;, and the 3 main firmware roles.&lt;/p&gt;
+
+&lt;p&gt;What I also made clear were the &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/meshcore-philosophy&quot;&gt;principles&lt;/a&gt; that project was founded on.
+What has been great to see is how MeshCore has attracted the &lt;em&gt;right&lt;/em&gt; people, as many have
+noted and found the general &lt;em&gt;spirit&lt;/em&gt; of conversations to be very positive and cooperative.&lt;/p&gt;
+
+&lt;p&gt;I believe its success has rested on two main pillars:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;technical pragmatism (eg. keep it simple)&lt;/li&gt;
+  &lt;li&gt;a positive and appropriate ethic for the times we’re in (eg. heavy gov/corp tracking and censorship)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As many of you know, a &lt;a href=&quot;/2026/04/23/the-split&quot;&gt;team split&lt;/a&gt; occurred earlier this year due to a steady erosion of trust, which culminated
+in a trademark filing that completely went behind the core team’s back. We are now on a &lt;em&gt;war footing&lt;/em&gt; as
+&lt;strong&gt;every&lt;/strong&gt; attempt from us to come to an understanding has been met with contempt by the former member.&lt;/p&gt;
+
+&lt;p&gt;All of this could have been avoided with one simple email from him: to state his intentions upon winning
+the legal mark. That’s it. I’ve made my intentions for MeshCore widely known, but the former
+member prefers to hide his intentions (and his methods). Part of the huge backlash against him and his derived
+products is precisely because of his lack of openness. He has plenty of time
+to rebrand even the latest MeshCore releases, modify them, promote them as his own, but he doesn’t
+even have time to send us, the core team, a single email?&lt;/p&gt;
+
+&lt;p&gt;And the irony is he primarily wants to steer people &lt;em&gt;from&lt;/em&gt; the MeshCore brand &lt;em&gt;to&lt;/em&gt; his own brand! MeshCore
+is simply a stepping stone, yet he still has shown no intention of dropping the trademark filing. It begs the question, why?&lt;/p&gt;
+
+&lt;p&gt;As a result, we have burned countless days and dollars mounting a legal challenge. This has
+been very draining, and has been &lt;em&gt;hurting&lt;/em&gt; the project. PR’s pile up, and features we’d hoped to have done 
+by now still haven’t been touched. So, we &lt;em&gt;need&lt;/em&gt; to get this behind us and get the project back on track.&lt;/p&gt;
+
+&lt;p&gt;But, for the next phase, we need your help.&lt;/p&gt;
+
+&lt;p&gt;We are approaching the &lt;em&gt;pointy&lt;/em&gt; end of the legals, with a deadline looming, and
+crossing the next threshold is going to cost a lot, so we’re asking for help.
+The details will be explained further in this post, by Liam and the rest of the team.&lt;/p&gt;
+
+&lt;p&gt;I just want to get back to where we keep pushing where MeshCore is going, innovating and seeing
+just what is &lt;em&gt;possible&lt;/em&gt; with a community-run mesh. We have SO much still to do! And hopefully we’ll
+be back on track again soon.&lt;/p&gt;
+
+&lt;p&gt;warm regards,&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Scott&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;timeline-summary&quot;&gt;Timeline Summary&lt;/h2&gt;
+
+&lt;p&gt;We’ve included some key information from the timeline of events relating to this dispute below.
+For the purposes of the timeline, we refer to the former team member as &lt;em&gt;AK&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;16/Nov/2024&lt;/strong&gt; Scott shares &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/the-future-3211940&quot;&gt;blog post&lt;/a&gt; announcing his plans to work on MeshCore.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;20/Jan/2025&lt;/strong&gt; Scott publishes his open source MeshCore project on GitHub.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(things are going well for more than 1 year, with a thriving community)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(trust with AK was starting to erode)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(some internal disagreements came up)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;29/Mar/2026&lt;/strong&gt; AK secretly files for UK trademark.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;03/Apr/2026&lt;/strong&gt; We confronted AK on the filings. Conversation broke down with no resolution.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;10/Apr/2026&lt;/strong&gt; Liam and Scott start New Zealand company “MeshCore Technologies Limited”.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;11/Apr/2026&lt;/strong&gt; We file for MeshCore logo trademark in New Zealand.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;20/Apr/2026&lt;/strong&gt; AK secretly files for EU trademark.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;23/Apr/2026&lt;/strong&gt; We announce &lt;a href=&quot;/2026/04/23/the-split&quot;&gt;team split&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;25/Apr/2026&lt;/strong&gt; We start engagements with legal counsel.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;06/May/2026&lt;/strong&gt; We file for logo trademark in Australia.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;06/May/2026&lt;/strong&gt; We file for word trademark in Australia, New Zealand, United States and China.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;07/May/2026&lt;/strong&gt; We ask AK (again) to withdraw the UK/EU trademarks.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;07/May/2026&lt;/strong&gt; AK responds saying he won’t withdraw the UK/EU trademark applications.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;08/May/2026&lt;/strong&gt; AK says we will need to form some sort of commercial agreement with him.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;09/May/2026&lt;/strong&gt; We ask AK for a proposal around trademark rights. He says he’ll have a think about it and get back to us.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;19/May/2026&lt;/strong&gt; We follow up via email and discord asking again, about a proposal around the trademarks.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;04/Jun/2026&lt;/strong&gt; We file for subsequent international designations for word trademark in Canada, Switzerland, European Union and United Kingdom.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;12/Jun/2026&lt;/strong&gt; Our lawyers send notice of threatened opposition and extend UK trademark opposition period from 17/June/2026 to 17/July/2026.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;18/Jun/2026&lt;/strong&gt; Our lawyers send demand letter to AK. (alleges copyright infringement, stolen assets, and tool cloning, which can be seen in file names and api responses of .uk site)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;24/Jun/2026&lt;/strong&gt; AK responds to our demand letter. (denies any wrong doing or bad faith, refusing &lt;em&gt;all&lt;/em&gt; desist orders)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;25/Jun/2026&lt;/strong&gt; We reach out to AK one more time via email and discord, giving him another opportunity to provide us with a proposal around the trademarks, however received no reply.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-not-just-rename&quot;&gt;Why Not Just Rename?&lt;/h2&gt;
+
+&lt;p&gt;We know some of you might be thinking, &lt;em&gt;“Why not just rename the project and move on?”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The short answer is, we shouldn’t have to. We came up with the name, hand crafted the firmware and are still the original core maintainers of the project.&lt;/p&gt;
+
+&lt;p&gt;It also sets a dangerous precedent, that if an open source project simply folds and rebrands every time a bad faith actor tries to claim a trademark, it signals that open source developers can always be bullied out of their own hard work.&lt;/p&gt;
+
+&lt;p&gt;So instead, we are choosing to stand our ground and fight for the name we earned, and for the future of the project and our community.&lt;/p&gt;
+
+&lt;p&gt;If AK becomes successful in registering the trademark, all it will do is fracture an already well established, global ecosystem.
+It doesn’t make sense why he’s still pursuing this, especially after the massive backlash from the community.&lt;/p&gt;
+
+&lt;h2 id=&quot;keeping-the-core-human--open-source&quot;&gt;Keeping the Core &lt;em&gt;Human&lt;/em&gt; &amp;amp; Open Source&lt;/h2&gt;
+
+&lt;p&gt;This fight also highlights exactly where things are headed if AK gets control of the name.&lt;/p&gt;
+
+&lt;p&gt;While some of the apps/clients in our ecosystem may be closed source, our core firmware and libraries have &lt;em&gt;always&lt;/em&gt; been strictly open source, and written by humans.&lt;/p&gt;
+
+&lt;p&gt;AK’s version proves his trajectory, taking open source community code, feeding it to an AI, locking it down, and making it closed source, for profit.&lt;/p&gt;
+
+&lt;p&gt;Supporting us in this fight is a vote to keep the core firmware free, open, and community driven.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-next-step&quot;&gt;The Next Step&lt;/h2&gt;
+
+&lt;p&gt;So, now we’re facing the expensive part of all this…&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, AK is forcing this with his refusal to provide any workable resolution to this conflict.&lt;/p&gt;
+
+&lt;p&gt;As we are getting closer to the deadline, we now need to push ahead with legal opposition of the trademarks.
+At this stage, we’ve only extended the deadline for submitting our opposition arguments.
+Should AK try to defend the opposition, we plan to proceed with prosecution through the courts.&lt;/p&gt;
+
+&lt;p&gt;We have been given some estimated costs by our lawyers, totalling around $18,000 USD.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;~$3,000 USD - Legal fees to oppose the UK trademark application.&lt;/li&gt;
+  &lt;li&gt;~$9,000 USD - Legal fees to proceed to prosecution if the UK trademark opposition is defended.&lt;/li&gt;
+  &lt;li&gt;~$6,000 USD - Legal fees to file an invalidation action for the EU trademark.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In addition to this, we have already personally covered more than $15,000 towards counter-trademark filings (in other jurisdictions), legal fees and extension of opposition deadlines.&lt;/p&gt;
+
+&lt;p&gt;Nearly all five of the core team members do MeshCore work part time.
+And up until recently, the project has had no central revenue earning capability (unlike similar projects like Meshtastic).&lt;/p&gt;
+
+&lt;p&gt;Because of this, the project is very underfunded. However, none of us have really minded. We do the work because we want to see it succeed.&lt;/p&gt;
+
+&lt;p&gt;Very recently, we started a &lt;a href=&quot;https://github.com/sponsors/meshcore-dev/&quot;&gt;GitHub Sponsors page&lt;/a&gt;, and it’s been great to see so many of you donate to us.&lt;/p&gt;
+
+&lt;p&gt;As this hasn’t been running for very long, unfortunately we haven’t accrued anywhere near enough to cover the legal costs.
+So we’ve now started a &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;crowd funding campaign&lt;/a&gt;, in an attempt to raise the required funds to continue the legal challenge.&lt;/p&gt;
+
+&lt;p&gt;We are now asking the MeshCore community for any support you may be able to provide us in our fight to protect the MeshCore project’s name and future.
+Any contribution you are able to provide will be greatly appreciated.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-happens-if-we-win&quot;&gt;What Happens If We Win&lt;/h2&gt;
+
+&lt;p&gt;If we win the legal opposition, we will need to start a process to get consensus on what the trademark (and logo) ‘fair use’ policy should be.
+We would be looking for suggestions from the community, and would reach out for comments when we get to that stage.&lt;/p&gt;
+
+&lt;p&gt;We’ve always had a pretty &lt;em&gt;liberal&lt;/em&gt; attitude to the use of the name and logo, but we will have to have some formal rules
+around it, and a means to prohibit any ‘bad faith’ or abusive uses.&lt;/p&gt;
+
+&lt;p&gt;Other than that, the project would continue as normal. Instead of dealing with this legal dispute, we’d have more time to put toward working through our growing pile of feature requests!&lt;/p&gt;
+
+&lt;h2 id=&quot;what-happens-if-challenge-is-not-viable&quot;&gt;What Happens If Challenge Is Not Viable&lt;/h2&gt;
+
+&lt;p&gt;In the event that the trademark opposition is unsuccessful and a prosecution through the courts is not viable, say due to insufficient
+funding, we would pool any raised funds into the GitHub Sponsors fund, with plans for it to benefit the MeshCore community directly.&lt;/p&gt;
+
+&lt;p&gt;We’ve wanted to establish things like bug bounties, and some way of rewarding the top contributors after each release.
+These funds could end up at least helping the future of the project in more practical ways, by helping the
+efforts be more sustainable.&lt;/p&gt;
+
+&lt;p&gt;So far, from our generous sponsors, we have accrued around ~$1,800.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-final-request-to-andy&quot;&gt;Our Final Request to Andy&lt;/h2&gt;
+
+&lt;p&gt;Andy, if you’re reading this, we urge you to withdraw your trademark applications.
+Please consider the long term health and future of the MeshCore project, and bring this dispute to a close.&lt;/p&gt;
+
+&lt;p&gt;All it takes is a quick email to the trademark offices requesting the withdrawal of your filings.
+If you do that, we will drop our legal challenges, and we can all move on, allowing us more time and energy for the project.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, we have compiled all necessary evidence, and are fully prepared to push forward with defending our open source project.&lt;/p&gt;
+
+&lt;h2 id=&quot;help-support-the-meshcore-team&quot;&gt;Help Support the MeshCore Team&lt;/h2&gt;
+
+&lt;p&gt;If you’d like to help support the MeshCore project, please consider donating through our links below.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Crowd Funding Campaign: &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;https://givealittle.co.nz/cause/help-us-save-meshcore&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GitHub Sponsors: &lt;a href=&quot;https://github.com/sponsors/meshcore-dev/&quot;&gt;https://github.com/sponsors/meshcore-dev/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even if you’re unable to contribute financially, sharing this post will help us tremendously.&lt;/p&gt;
+
+&lt;p&gt;We appreciate all the support we can get.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates by Drone</title><link href="https://blog.meshcore.io/2026/06/22/drone-ota" rel="alternate" type="text/html" title="OTA Updates by Drone" /><published>2026-06-22T00:00:00+00:00</published><updated>2026-06-22T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/22/drone-ota</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/22/drone-ota">&lt;p&gt;&lt;em&gt;OTA Updating hard to reach nRF52 based repeaters with a drone&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;As we added more and more repeaters to our local mesh in Slovakia, we found out it’s not always possible to physically reach some repeater sites often enough. We incrementally got better in addressing this issue by experimenting with different approaches.
 I built a &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py&quot;&gt;custom nrf dfu app that works on desktop OSes&lt;/a&gt;, so you can use &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py/tree/main/adapter-antenna-buying-tips&quot;&gt;external bluetooth adapters with rp-sma ports and directional antennas&lt;/a&gt;.&lt;/p&gt;
@@ -651,132 +838,4 @@ For the Seeed Xiao Sense variant as discussed above you will want to download &l
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/03/28/espconnect-save.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the device. But, once it’s done just disconnect the device, then press the Reset button on the device.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added map tiles support for the Heltec V4 Expansion Kit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The MeshCore Map</title><link href="https://blog.meshcore.io/2026/04/04/meshcore-map" rel="alternate" type="text/html" title="The MeshCore Map" /><published>2026-04-04T00:00:00+00:00</published><updated>2026-04-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/04/meshcore-map</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/04/meshcore-map">&lt;h1 id=&quot;origins&quot;&gt;Origins&lt;/h1&gt;
-
-&lt;p&gt;When MeshCore launched at the start of 2025, discoverability was a pretty big issue - that’s where the idea for the MeshCore internet map was born. Liam Cottle’s &lt;a href=&quot;https://meshtastic.liamcottle.net&quot;&gt;Meshtastic Map&lt;/a&gt; was the primary inspiration. The first version was released in April 2025 and the first nodes from the UK, Australia and Slovakia started to flow in. The number of nodes grew rapidly - we had the first 1,000 nodes within a month, crossed the 5,000 mark in summer, 10k in December and now we’re at 30k nodes worldwide.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-may-2025.png&quot; alt=&quot;Map in May 2025&quot; /&gt;
-&lt;small&gt;&lt;em&gt;This is how the map looked in May 2025&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;basic-concepts&quot;&gt;Basic concepts&lt;/h1&gt;
-
-&lt;p&gt;The map was created mainly to reference infrastructure nodes, so you know exactly where other repeaters are and what radio settings they use. This was later extended to node statistics, search, filtering and basic health monitoring of the mesh.&lt;/p&gt;
-
-&lt;h1 id=&quot;notable-features&quot;&gt;Notable Features&lt;/h1&gt;
-
-&lt;p&gt;Apart from the obvious map browsing and node search, there is a powerful filter that can be very useful for finding specific nodes.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Search in current map view only&lt;/strong&gt; - useful when you’re looking for a specific node or public key prefix in your area&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Only show duplicates&lt;/strong&gt; - shows only names that appear more than once on the map, good for map cleanup&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-filter.png&quot; alt=&quot;Map Filter opened&quot; /&gt;
-&lt;small&gt;&lt;em&gt;The filter menu opens when you click on the filter icon&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;node-freshness&quot;&gt;Node freshness&lt;/h2&gt;
-
-&lt;p&gt;Nodes updated by &lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; are color coded, so you know which Repeater / Room Server / Sensor was recently heard:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Color&lt;/th&gt;
-      &lt;th&gt;Status&lt;/th&gt;
-      &lt;th&gt;Meaning&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Green&lt;/td&gt;
-      &lt;td&gt;Recent&lt;/td&gt;
-      &lt;td&gt;Updated within the last 5 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Yellow&lt;/td&gt;
-      &lt;td&gt;Stale&lt;/td&gt;
-      &lt;td&gt;Updated within the last 10 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Red&lt;/td&gt;
-      &lt;td&gt;Old&lt;/td&gt;
-      &lt;td&gt;Updated within the last 20 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Black&lt;/td&gt;
-      &lt;td&gt;Extinct&lt;/td&gt;
-      &lt;td&gt;Not updated in over 20 days - will be deleted soon&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;No tint&lt;/td&gt;
-      &lt;td&gt;Manual&lt;/td&gt;
-      &lt;td&gt;Added manually, not automatically uploaded&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-freshness.png&quot; alt=&quot;Map freshness&quot; /&gt;
-&lt;small&gt;&lt;em&gt;Node freshness on the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;coordinate-context-menu&quot;&gt;Coordinate context menu&lt;/h2&gt;
-
-&lt;p&gt;Clicking on the coordinates in a node popup opens a small context menu with quick links to open the location in OpenStreetMap, Google Maps or Mapy.com, as well as an option to copy the coordinates to clipboard.&lt;/p&gt;
-
-&lt;h2 id=&quot;clustering-zoom-level&quot;&gt;Clustering zoom level&lt;/h2&gt;
-
-&lt;p&gt;By default, nearby markers are grouped into clusters to keep the map readable. The &lt;strong&gt;Clustering zoom level&lt;/strong&gt; slider in the filter menu controls at what zoom level markers stop clustering and are shown individually. If you’re exploring a dense area and want to see all nodes separately without zooming in all the way, sliding it to a lower value will expand clusters earlier.&lt;/p&gt;
-
-&lt;h2 id=&quot;qr-code&quot;&gt;QR code&lt;/h2&gt;
-
-&lt;p&gt;Every node popup shows a QR code that encodes a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;meshcore://contact/add&lt;/code&gt; URL with the node’s name, public key and type. Scanning it with the MeshCore mobile app adds the node directly as a contact - no manual copying of keys needed.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-open-popup.png&quot; alt=&quot;Map node popup opened&quot; /&gt;
-&lt;small&gt;&lt;em&gt;Node popup with QR code and all the details&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;shareable-urls&quot;&gt;Shareable URLs&lt;/h2&gt;
-
-&lt;p&gt;The map remembers your current position and the node you have open. The URL updates as you move around, and when you open a node popup it switches to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?public_key=...&lt;/code&gt; format. You can share that URL directly - anyone opening it will be taken straight to that node with the popup open.&lt;/p&gt;
-
-&lt;p&gt;You can also use the url in your own regional page using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt;, here is an example:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://map.meshcore.io/?lat=47.8721&amp;amp;amp;lon=12.5903&amp;amp;amp;zoom=8&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width:100%;aspect-ratio:3/2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scrolling=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;addingremoving-nodes&quot;&gt;Adding/Removing nodes&lt;/h1&gt;
-
-&lt;h2 id=&quot;adding-yourself-companion-radio&quot;&gt;Adding yourself (Companion radio)&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Open MeshCore app&lt;/li&gt;
-  &lt;li&gt;Tap the &lt;strong&gt;⋮&lt;/strong&gt; menu icon in the top right corner&lt;/li&gt;
-  &lt;li&gt;Tap &lt;strong&gt;Internet Map&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Tap &lt;strong&gt;⋮&lt;/strong&gt; again and choose &lt;strong&gt;Add me to the Map&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-add-self.png&quot; alt=&quot;Adding yourself to the map&quot; /&gt;
-&lt;small&gt;&lt;em&gt;Adding yourself to the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;adding-a-repeater-or-room-server&quot;&gt;Adding a Repeater or Room Server&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Open the &lt;strong&gt;Contacts&lt;/strong&gt; tab in the MeshCore app&lt;/li&gt;
-  &lt;li&gt;Tap &lt;strong&gt;⋮&lt;/strong&gt; next to the Repeater or Room Server you want to add&lt;/li&gt;
-  &lt;li&gt;Tap &lt;strong&gt;Share&lt;/strong&gt;, then &lt;strong&gt;Upload to Internet Map&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/04/map-add-repeater.png&quot; alt=&quot;Adding a repeater to the map&quot; /&gt;
-&lt;small&gt;&lt;em&gt;Adding a repeater to the map&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;removing-a-node&quot;&gt;Removing a node&lt;/h2&gt;
-
-&lt;p&gt;Removing can only be done with same Companion radio (same public key) that was used to upload the node.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Open MeshCore app&lt;/li&gt;
-  &lt;li&gt;Tap the &lt;strong&gt;⋮&lt;/strong&gt; menu icon in the top right corner&lt;/li&gt;
-  &lt;li&gt;Tap &lt;strong&gt;Internet Map&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Find the node you want to delete, tap it and choose &lt;strong&gt;Delete Marker&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;beyond-the-interface&quot;&gt;Beyond the interface&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/recrof/map.meshcore.io-uploader&quot;&gt;MeshCore Map Auto Uploader&lt;/a&gt; will let you automatically add and update all repeaters, room servers and sensors when they broadcast an advert. That’s the main reason you can see freshness indicated by the colored node icons.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Map" /><category term="Guide" /><summary type="html">Origins</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/04/map-may-2025.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Again, you’ll need to be patient as it writes the entire partition back to the device. But, once it’s done just disconnect the device, then press the Reset button on the device.&lt;/p&gt;</content><author><name>scottpowell</name></author><category term="Ripple" /><category term="Release" /><summary type="html">I’ve now added map tiles support for the Heltec V4 Expansion Kit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/05/HeltecV4-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

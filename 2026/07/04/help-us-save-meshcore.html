@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1783145305">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1783145305">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Help Us Save MeshCore - MeshCore Blog</title>
+  <meta name="title" content="Help Us Save MeshCore - MeshCore Blog">
+  <meta name="description" content="We need your help to protect the open source MeshCore project!">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore">
+  <meta property="og:title" content="Help Us Save MeshCore - MeshCore Blog">
+  <meta property="og:description" content="We need your help to protect the open source MeshCore project!">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/icon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore">
+  <meta property="twitter:title" content="Help Us Save MeshCore - MeshCore Blog">
+  <meta property="twitter:description" content="We need your help to protect the open source MeshCore project!">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/icon.png">
+
+  <!-- social accounts -->
+  <link rel="me" href="https://mastodon.social/@meshcore"/>
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore.svg" alt="MeshCore" class="w-auto h-5">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+            <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/admin.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Admin</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Site Admin</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Help Us Save MeshCore</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">July 04, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">12 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p><img alt="" class="mx-auto" src="/assets/images/2026/07/04/meshcore-banner-short.png" /></p>
+
+<h2 id="forward-by-scott-powell">Forward, by Scott Powell</h2>
+
+<p>Many of you got into MeshCore because it answered an as-yet unknown call. 
+The project had its beginnings <a href="https://buymeacoffee.com/ripplebiz/the-future-3211940">here</a> in late 2024, when I was
+frustrated that there was no sufficiently open and permissive mesh protocol which could
+form the centre of a vibrant ecosystem. From the start, I made my intentions clear, that I wanted
+an open protocol, an open source core engine, but also permissive of 3rd party products that could build on top of it.
+I then spent the next two months designing and writing what became the <a href="https://github.com/meshcore-dev/MeshCore">C++ MeshCore engine</a>, and the 3 main firmware roles.</p>
+
+<p>What I also made clear were the <a href="https://buymeacoffee.com/ripplebiz/meshcore-philosophy">principles</a> that project was founded on.
+What has been great to see is how MeshCore has attracted the <em>right</em> people, as many have
+noted and found the general <em>spirit</em> of conversations to be very positive and cooperative.</p>
+
+<p>I believe its success has rested on two main pillars:</p>
+<ul>
+  <li>technical pragmatism (eg. keep it simple)</li>
+  <li>a positive and appropriate ethic for the times we’re in (eg. heavy gov/corp tracking and censorship)</li>
+</ul>
+
+<p>As many of you know, a <a href="/2026/04/23/the-split">team split</a> occurred earlier this year due to a steady erosion of trust, which culminated
+in a trademark filing that completely went behind the core team’s back. We are now on a <em>war footing</em> as
+<strong>every</strong> attempt from us to come to an understanding has been met with contempt by the former member.</p>
+
+<p>All of this could have been avoided with one simple email from him: to state his intentions upon winning
+the legal mark. That’s it. I’ve made my intentions for MeshCore widely known, but the former
+member prefers to hide his intentions (and his methods). Part of the huge backlash against him and his derived
+products is precisely because of his lack of openness. He has plenty of time
+to rebrand even the latest MeshCore releases, modify them, promote them as his own, but he doesn’t
+even have time to send us, the core team, a single email?</p>
+
+<p>And the irony is he primarily wants to steer people <em>from</em> the MeshCore brand <em>to</em> his own brand! MeshCore
+is simply a stepping stone, yet he still has shown no intention of dropping the trademark filing. It begs the question, why?</p>
+
+<p>As a result, we have burned countless days and dollars mounting a legal challenge. This has
+been very draining, and has been <em>hurting</em> the project. PR’s pile up, and features we’d hoped to have done 
+by now still haven’t been touched. So, we <em>need</em> to get this behind us and get the project back on track.</p>
+
+<p>But, for the next phase, we need your help.</p>
+
+<p>We are approaching the <em>pointy</em> end of the legals, with a deadline looming, and
+crossing the next threshold is going to cost a lot, so we’re asking for help.
+The details will be explained further in this post, by Liam and the rest of the team.</p>
+
+<p>I just want to get back to where we keep pushing where MeshCore is going, innovating and seeing
+just what is <em>possible</em> with a community-run mesh. We have SO much still to do! And hopefully we’ll
+be back on track again soon.</p>
+
+<p>warm regards,</p>
+
+<p><em>Scott</em></p>
+
+<hr />
+
+<h2 id="timeline-summary">Timeline Summary</h2>
+
+<p>We’ve included some key information from the timeline of events relating to this dispute below.
+For the purposes of the timeline, we refer to the former team member as <em>AK</em>.</p>
+
+<ul>
+  <li><strong>16/Nov/2024</strong> Scott shares <a href="https://buymeacoffee.com/ripplebiz/the-future-3211940">blog post</a> announcing his plans to work on MeshCore.</li>
+  <li><strong>20/Jan/2025</strong> Scott publishes his open source MeshCore project on GitHub.</li>
+  <li><em>(things are going well for more than 1 year, with a thriving community)</em></li>
+  <li><em>(trust with AK was starting to erode)</em></li>
+  <li><em>(some internal disagreements came up)</em></li>
+  <li><strong>29/Mar/2026</strong> AK secretly files for UK trademark.</li>
+  <li><strong>03/Apr/2026</strong> We confronted AK on the filings. Conversation broke down with no resolution.</li>
+  <li><strong>10/Apr/2026</strong> Liam and Scott start New Zealand company “MeshCore Technologies Limited”.</li>
+  <li><strong>11/Apr/2026</strong> We file for MeshCore logo trademark in New Zealand.</li>
+  <li><strong>20/Apr/2026</strong> AK secretly files for EU trademark.</li>
+  <li><strong>23/Apr/2026</strong> We announce <a href="/2026/04/23/the-split">team split</a>.</li>
+  <li><strong>25/Apr/2026</strong> We start engagements with legal counsel.</li>
+  <li><strong>06/May/2026</strong> We file for logo trademark in Australia.</li>
+  <li><strong>06/May/2026</strong> We file for word trademark in Australia, New Zealand, United States and China.</li>
+  <li><strong>07/May/2026</strong> We ask AK (again) to withdraw the UK/EU trademarks.</li>
+  <li><strong>07/May/2026</strong> AK responds saying he won’t withdraw the UK/EU trademark applications.</li>
+  <li><strong>08/May/2026</strong> AK says we will need to form some sort of commercial agreement with him.</li>
+  <li><strong>09/May/2026</strong> We ask AK for a proposal around trademark rights. He says he’ll have a think about it and get back to us.</li>
+  <li><strong>19/May/2026</strong> We follow up via email and discord asking again, about a proposal around the trademarks.</li>
+  <li><strong>04/Jun/2026</strong> We file for subsequent international designations for word trademark in Canada, Switzerland, European Union and United Kingdom.</li>
+  <li><strong>12/Jun/2026</strong> Our lawyers send notice of threatened opposition and extend UK trademark opposition period from 17/June/2026 to 17/July/2026.</li>
+  <li><strong>18/Jun/2026</strong> Our lawyers send demand letter to AK. (alleges copyright infringement, stolen assets, and tool cloning, which can be seen in file names and api responses of .uk site)</li>
+  <li><strong>24/Jun/2026</strong> AK responds to our demand letter. (denies any wrong doing or bad faith, refusing <em>all</em> desist orders)</li>
+  <li><strong>25/Jun/2026</strong> We reach out to AK one more time via email and discord, giving him another opportunity to provide us with a proposal around the trademarks, however received no reply.</li>
+</ul>
+
+<h2 id="why-not-just-rename">Why Not Just Rename?</h2>
+
+<p>We know some of you might be thinking, <em>“Why not just rename the project and move on?”</em></p>
+
+<p>The short answer is, we shouldn’t have to. We came up with the name, hand crafted the firmware and are still the original core maintainers of the project.</p>
+
+<p>It also sets a dangerous precedent, that if an open source project simply folds and rebrands every time a bad faith actor tries to claim a trademark, it signals that open source developers can always be bullied out of their own hard work.</p>
+
+<p>So instead, we are choosing to stand our ground and fight for the name we earned, and for the future of the project and our community.</p>
+
+<p>If AK becomes successful in registering the trademark, all it will do is fracture an already well established, global ecosystem.
+It doesn’t make sense why he’s still pursuing this, especially after the massive backlash from the community.</p>
+
+<h2 id="keeping-the-core-human--open-source">Keeping the Core <em>Human</em> &amp; Open Source</h2>
+
+<p>This fight also highlights exactly where things are headed if AK gets control of the name.</p>
+
+<p>While some of the apps/clients in our ecosystem may be closed source, our core firmware and libraries have <em>always</em> been strictly open source, and written by humans.</p>
+
+<p>AK’s version proves his trajectory, taking open source community code, feeding it to an AI, locking it down, and making it closed source, for profit.</p>
+
+<p>Supporting us in this fight is a vote to keep the core firmware free, open, and community driven.</p>
+
+<h2 id="the-next-step">The Next Step</h2>
+
+<p>So, now we’re facing the expensive part of all this…</p>
+
+<p>Unfortunately, AK is forcing this with his refusal to provide any workable resolution to this conflict.</p>
+
+<p>As we are getting closer to the deadline, we now need to push ahead with legal opposition of the trademarks.
+At this stage, we’ve only extended the deadline for submitting our opposition arguments.
+Should AK try to defend the opposition, we plan to proceed with prosecution through the courts.</p>
+
+<p>We have been given some estimated costs by our lawyers, totalling around $18,000 USD.</p>
+
+<ul>
+  <li>~$3,000 USD - Legal fees to oppose the UK trademark application.</li>
+  <li>~$9,000 USD - Legal fees to proceed to prosecution if the UK trademark opposition is defended.</li>
+  <li>~$6,000 USD - Legal fees to file an invalidation action for the EU trademark.</li>
+</ul>
+
+<p>In addition to this, we have already personally covered more than $15,000 towards counter-trademark filings (in other jurisdictions), legal fees and extension of opposition deadlines.</p>
+
+<p>Nearly all five of the core team members do MeshCore work part time.
+And up until recently, the project has had no central revenue earning capability (unlike similar projects like Meshtastic).</p>
+
+<p>Because of this, the project is very underfunded. However, none of us have really minded. We do the work because we want to see it succeed.</p>
+
+<p>Very recently, we started a <a href="https://github.com/sponsors/meshcore-dev/">GitHub Sponsors page</a>, and it’s been great to see so many of you donate to us.</p>
+
+<p>As this hasn’t been running for very long, unfortunately we haven’t accrued anywhere near enough to cover the legal costs.
+So we’ve now started a <a href="https://givealittle.co.nz/cause/help-us-save-meshcore">crowd funding campaign</a>, in an attempt to raise the required funds to continue the legal challenge.</p>
+
+<p>We are now asking the MeshCore community for any support you may be able to provide us in our fight to protect the MeshCore project’s name and future.
+Any contribution you are able to provide will be greatly appreciated.</p>
+
+<h2 id="what-happens-if-we-win">What Happens If We Win</h2>
+
+<p>If we win the legal opposition, we will need to start a process to get consensus on what the trademark (and logo) ‘fair use’ policy should be.
+We would be looking for suggestions from the community, and would reach out for comments when we get to that stage.</p>
+
+<p>We’ve always had a pretty <em>liberal</em> attitude to the use of the name and logo, but we will have to have some formal rules
+around it, and a means to prohibit any ‘bad faith’ or abusive uses.</p>
+
+<p>Other than that, the project would continue as normal. Instead of dealing with this legal dispute, we’d have more time to put toward working through our growing pile of feature requests!</p>
+
+<h2 id="what-happens-if-challenge-is-not-viable">What Happens If Challenge Is Not Viable</h2>
+
+<p>In the event that the trademark opposition is unsuccessful and a prosecution through the courts is not viable, say due to insufficient
+funding, we would pool any raised funds into the GitHub Sponsors fund, with plans for it to benefit the MeshCore community directly.</p>
+
+<p>We’ve wanted to establish things like bug bounties, and some way of rewarding the top contributors after each release.
+These funds could end up at least helping the future of the project in more practical ways, by helping the
+efforts be more sustainable.</p>
+
+<p>So far, from our generous sponsors, we have accrued around ~$1,800.</p>
+
+<h2 id="our-final-request-to-andy">Our Final Request to Andy</h2>
+
+<p>Andy, if you’re reading this, we urge you to withdraw your trademark applications.
+Please consider the long term health and future of the MeshCore project, and bring this dispute to a close.</p>
+
+<p>All it takes is a quick email to the trademark offices requesting the withdrawal of your filings.
+If you do that, we will drop our legal challenges, and we can all move on, allowing us more time and energy for the project.</p>
+
+<p>Otherwise, we have compiled all necessary evidence, and are fully prepared to push forward with defending our open source project.</p>
+
+<h2 id="help-support-the-meshcore-team">Help Support the MeshCore Team</h2>
+
+<p>If you’d like to help support the MeshCore project, please consider donating through our links below.</p>
+
+<ul>
+  <li>Crowd Funding Campaign: <a href="https://givealittle.co.nz/cause/help-us-save-meshcore">https://givealittle.co.nz/cause/help-us-save-meshcore</a></li>
+  <li>GitHub Sponsors: <a href="https://github.com/sponsors/meshcore-dev/">https://github.com/sponsors/meshcore-dev/</a></li>
+</ul>
+
+<p>Even if you’re unable to contribute financially, sharing this post will help us tremendously.</p>
+
+<p>We appreciate all the support we can get.</p>
+
+<p><em>The MeshCore Team</em></p>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+<div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
+    <div class="dark:text-white mb-1">
+        
+        <span>All support is appreciated!</span>
+        
+    </div>
+    <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">
+        
+        <div>Donate to the MeshCore Team</div>
+        
+    </div>
+    
+    <a target="_blank" href="https://givealittle.co.nz/cause/help-us-save-meshcore" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    
+</div>
+
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Help Us Save MeshCore https://blog.meshcore.io/2026/07/04/help-us-save-meshcore" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Help Us Save MeshCore&u=https://blog.meshcore.io/2026/07/04/help-us-save-meshcore" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Help Us Save MeshCore&url=https://blog.meshcore.io/2026/07/04/help-us-save-meshcore" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="meshcore-dev/blog.meshcore.io"
+            data-repo-id="R_kgDORxkdng"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORxkdns4C5Xt4"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-[#030712] py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore.svg" alt="MeshCore" class="h-5 mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+                <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+                <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+                <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+                <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+                <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+                <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+            </div>
+            <div class="mt-4 mx-auto flex gap-4 text-gray-500 text-2xl">
+                <a href="https://facebook.com/groups/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="https://reddit.com/r/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-reddit text-2xl"></i>
+                </a>
+                <a href="https://meshcore.gg" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-discord text-2xl"></i>
+                </a>
+                <a href="https://mastodon.social/@meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-mastodon text-2xl"></i>
+                </a>
+                <a href="https://x.com/mesh_core" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-x-twitter text-2xl"></i>
+                </a>
+            </div>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRW3QH54CP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JRW3QH54CP');
+</script>
+
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>
