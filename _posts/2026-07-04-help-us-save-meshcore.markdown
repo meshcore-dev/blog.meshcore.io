@@ -11,7 +11,7 @@ donate_url: "https://givealittle.co.nz/cause/help-us-save-meshcore"
 
 <img alt class="mx-auto" src="/assets/images/2026/07/04/meshcore-banner-short.png" />
 
-## Forward, by Scott Powell
+## Foreword, by Scott Powell
 
 Many of you got into MeshCore because it answered an as-yet unknown call. 
 The project had its beginnings [here](https://buymeacoffee.com/ripplebiz/the-future-3211940) in late 2024, when I was
