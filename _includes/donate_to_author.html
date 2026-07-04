@@ -1,6 +1,12 @@
 {% if site.authors[page.author].donate_url != nil %}
 <div class="print:hidden flex flex-col items-center justify-center border dark:border-gray-600 rounded-2xl p-6">
-    <div class="dark:text-white mb-1">Enjoy this post?</div>
+    <div class="dark:text-white mb-1">
+        {% if page.donate_title != nil %}
+        <span>{{ page.donate_title }}</span>
+        {% else %}
+        <span>Enjoy this post?</span>
+        {% endif %}
+    </div>
     <div class="text-black dark:text-gray-400 text-xl font-semibold mb-2">
         {% if site.authors[page.author].donate_description != nil %}
         <div>{{ site.authors[page.author].donate_description }}</div>
@@ -8,6 +14,10 @@
         <div>Buy {{ site.authors[page.author].name }} a coffee</div>
         {% endif %}
     </div>
+    {% if page.donate_url != nil %}
+    <a target="_blank" href="{{ page.donate_url }}" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    {% else %}
     <a target="_blank" href="{{ site.authors[page.author].donate_url }}" class="bg-blue-500 hover:bg-blue-600 text-white text-md px-6 py-1 rounded-full shadow">Donate</a>
+    {% endif %}
 </div>
 {% endif %}
