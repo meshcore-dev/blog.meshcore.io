@@ -1,0 +1,53 @@
+---
+layout: post
+date: 2026-07-28 12:00:00 +1200
+title: "Thank You"
+description: "The legal fundraiser is now closed, and the support has been overwhelming!"
+image: "assets/images/2026/07/28/thankyou-icon.png"
+author: admin
+donate_title: "All support is appreciated!"
+donate_url: "https://github.com/sponsors/meshcore-dev"
+---
+
+
+The [GiveALittle fundraiser](https://givealittle.co.nz/cause/help-us-save-meshcore) is now closed, and the results, even after the first 12 hours, were
+overwhelming!
+
+<img alt class="mx-auto" src="/assets/images/2026/07/28/goal-reached.png" />
+
+We were all blown away by the response, and it has been great to know that the community has our back.
+There we some remarkable donations by individuals, in the thousands of dollars, but even more modest ones
+that were clearly by _battlers_ not exactly well off. We also had some of the manufacturers get in touch
+and insisted on being anonymous donors. All of it much appreciated.
+
+Your comments and wishes were very encouraging. Here's a sample:
+
+<img alt class="mx-auto" src="/assets/images/2026/07/28/c1.png" />
+<img alt class="mx-auto" src="/assets/images/2026/07/28/c2.png" />
+<img alt class="mx-auto" src="/assets/images/2026/07/28/c3.png" />
+<img alt class="mx-auto" src="/assets/images/2026/07/28/c4.png" />
+<img alt class="mx-auto" src="/assets/images/2026/07/28/c5.png" />
+
+
+There have also been many new [Github sponsor](https://github.com/sponsors/meshcore-dev/) supporters, and this is equally appreciated. 
+
+## Current Status
+
+So, the UK lawyer has now officially submitted the opposition, and the trademark
+is now in _opposed_ status. We don't have any definite dates yet, but essentially
+it's a waiting game now.
+
+Hopefully there is more than enough evidence presented to determine a ruling, but
+the law is difficult to understand, and nothing is really guaranteed.
+
+## Onwards
+
+The uncertainty is still difficult to deal with at times, but overall we're positive
+about the future, and there are many options still available. There are solid improvements
+coming in the v1.17.0 release, and many more long-term improvements we are busy with. So, the tech
+goes on regardless.
+
+Once again, thank you all for your generosity and your ongoing commitment to
+the project.
+
+_The MeshCore Team_
