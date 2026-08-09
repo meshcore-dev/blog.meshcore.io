@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-07-28T12:37:00+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Thank You</title><link href="https://blog.meshcore.io/2026/07/28/thankyou" rel="alternate" type="text/html" title="Thank You" /><published>2026-07-28T00:00:00+00:00</published><updated>2026-07-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/07/28/thankyou</id><content type="html" xml:base="https://blog.meshcore.io/2026/07/28/thankyou">&lt;p&gt;The &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;GiveALittle fundraiser&lt;/a&gt; is now closed, and the results, even after the first 12 hours, were
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-09T06:13:01+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.17.0</title><link href="https://blog.meshcore.io/2026/08/09/release-1-17-0" rel="alternate" type="text/html" title="Release v1.17.0" /><published>2026-08-09T00:00:00+00:00</published><updated>2026-08-09T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/09/release-1-17-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/09/release-1-17-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;change-log&quot;&gt;Change Log&lt;/h2&gt;
+
+&lt;h3 id=&quot;new-features&quot;&gt;New Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2987&quot;&gt;#2987&lt;/a&gt; companion, MCU temperature added to sensor telemetry&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3115&quot;&gt;#3115&lt;/a&gt; LR2021 radio support added. (Also Meshnology W12 added)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2688&quot;&gt;#2688&lt;/a&gt; new room server ‘room.post’ CLI command (for server orig posts)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2883&quot;&gt;#2883&lt;/a&gt; repeater power off on long button press&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1727&quot;&gt;#1727&lt;/a&gt; new ‘set cad on/off’ CLI command&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2765&quot;&gt;#2765&lt;/a&gt; ESP targets now support the ‘get pwrmgt.bootreason’ CLI command&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2140&quot;&gt;#2140&lt;/a&gt; new ‘get/set radio.fem.rxgain’ CLI command (some Heltec boards)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enhancements&quot;&gt;Enhancements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3036&quot;&gt;#3036&lt;/a&gt; fix for missing preamble detect IRQ bit&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2977&quot;&gt;#2977&lt;/a&gt; preamble and header IRQ rx timeout logic&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2824&quot;&gt;#2824&lt;/a&gt; nrf52 targets now use CC310 hardware crypto functions&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2982&quot;&gt;#2982&lt;/a&gt; config now stored in JSON format (all firmwares)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3034&quot;&gt;#3034&lt;/a&gt; new color scheme on companion UI&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3023&quot;&gt;#3023&lt;/a&gt; room server now supports rx boosted gain&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2951&quot;&gt;#2951&lt;/a&gt; Fast ST7735 disply driver (Heltec T096, Wireless Tracker, etc)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2895&quot;&gt;#2895&lt;/a&gt; hibernate/poweroff power draw savings&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;new-device-support&quot;&gt;New device support&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3139&quot;&gt;#3139&lt;/a&gt; Sensecap X1, QSPI Flash support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3122&quot;&gt;#3122&lt;/a&gt; Sensecap X1, LED and haptic feedback&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3112&quot;&gt;#3112&lt;/a&gt; added Sensecap MeshTracker X1 support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3049&quot;&gt;#3049&lt;/a&gt; Thinknode M7 support, plus architecture for universal companion&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2966&quot;&gt;#2966&lt;/a&gt; added Heltec RC32 board support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2560&quot;&gt;#2560&lt;/a&gt; added Heltec V4 R8 board support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1983&quot;&gt;#1983&lt;/a&gt; support for RAK ethernet modules&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2942&quot;&gt;#2942&lt;/a&gt; added Elecrow Thinknode M9 support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2839&quot;&gt;#2839&lt;/a&gt; added Elecrow Thinknode M7 support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1194&quot;&gt;#1194&lt;/a&gt; added Nibble Zero Connect support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2752&quot;&gt;#2752&lt;/a&gt; added Heltec tower V2 support&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bug-fixes-and-other&quot;&gt;Bug fixes and Other&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3121&quot;&gt;#3121&lt;/a&gt; companion, hardware CAD disabled&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3107&quot;&gt;#3107&lt;/a&gt; ANON_REQ reply path_len check&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2863&quot;&gt;#2863&lt;/a&gt; Thinknode M6 GPS re-init fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3048&quot;&gt;#3048&lt;/a&gt; ‘start ota’ failure now reported on nRF devices&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2819&quot;&gt;#2819&lt;/a&gt; kiss modem fixes for stalls under USB backpressure&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3005&quot;&gt;#3005&lt;/a&gt; ESP32, BLE bonded reconnects fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3007&quot;&gt;#3007&lt;/a&gt; ESP32, BLE receive queue synchronization&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3006&quot;&gt;#3006&lt;/a&gt; Heltec V4 hardware USB serial&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2815&quot;&gt;#2815&lt;/a&gt; T-Beam Supreme OLED fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2887&quot;&gt;#2887&lt;/a&gt; Thinknode M3, GPS LED fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2990&quot;&gt;#2990&lt;/a&gt; Xiao nrf52 repeater build fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2899&quot;&gt;#2899&lt;/a&gt; T-Echo Lite DC-DC regulator fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2905&quot;&gt;#2905&lt;/a&gt; Heltec T114 DC-DC regulator fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2937&quot;&gt;#2937&lt;/a&gt; fix for GPS time sync stall on long uptime nodes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2936&quot;&gt;#2936&lt;/a&gt; external watchdog timer for Heltec Tower V2&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2867&quot;&gt;#2867&lt;/a&gt; sx1262 LDO support fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2844&quot;&gt;#2844&lt;/a&gt; fixed rx boosted gain on LR1110&lt;/li&gt;
+  &lt;li&gt;GPS time sync fix for Heltec T114&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2763&quot;&gt;#2763&lt;/a&gt; companion fix when anon contacts full&lt;/li&gt;
+  &lt;li&gt;bad path_len now rejected, in PAYLOAD_TYPE_PATH and ANON_REQ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;packet-collision-improvements&quot;&gt;Packet Collision Improvements&lt;/h2&gt;
+
+&lt;p&gt;The ‘listen-before-talk’ code has had some pretty big changes, thanks to Taco.
+He has spent weeks doing diagnostics, and even simulations, testing an improved
+scheme which involves handling cases where the LoRa radio’s IRQ flags get
+‘stuck’, and also the big one being proper preamble detection. This one
+could be the most significant performance improvement for all meshes.&lt;/p&gt;
+
+&lt;p&gt;Also, he found that the new scheme performs on par with hardware CAD, but without the
+4 second lock-up glitches that CAD still suffers from. So, we are still leaving
+hardware CAD off by default.&lt;/p&gt;
+
+&lt;h2 id=&quot;companion-ui&quot;&gt;Companion UI&lt;/h2&gt;
+
+&lt;p&gt;Various color displays will now sport a new look, and be much more responsive.&lt;/p&gt;
+
+&lt;h2 id=&quot;json-config&quot;&gt;JSON Config&lt;/h2&gt;
+
+&lt;p&gt;The node config should be automatically migrated to a new JSON format
+upon upgrading to v1.17.0.  The old binary-blob config is left intact, however,
+in case some people need to revert to old firmware.&lt;/p&gt;
+
+&lt;h2 id=&quot;steps-toward-universal-companion&quot;&gt;Steps Toward Universal Companion&lt;/h2&gt;
+
+&lt;p&gt;With &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3049&quot;&gt;#3049&lt;/a&gt; Liam has paved
+the way for companions to support multiple serial interfaces, eg. BLE + USB. Up to 4
+can now be supported. There are no official multi-interface companion builds &lt;em&gt;yet&lt;/em&gt;, 
+but all the ‘plumbing’ for this is now there.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Thank You</title><link href="https://blog.meshcore.io/2026/07/28/thankyou" rel="alternate" type="text/html" title="Thank You" /><published>2026-07-28T00:00:00+00:00</published><updated>2026-07-28T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/07/28/thankyou</id><content type="html" xml:base="https://blog.meshcore.io/2026/07/28/thankyou">&lt;p&gt;The &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;GiveALittle fundraiser&lt;/a&gt; is now closed, and the results, even after the first 12 hours, were
 overwhelming!&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/07/28/goal-reached.png&quot; /&gt;&lt;/p&gt;
@@ -711,130 +812,4 @@ bug fixes, managing PR’s and developer discussions, etc.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Q: I manage regional MeshCore firmware builds, with best defaults for the region. Can I configure a custom default region in my builds?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Yes. In the relevant .ini files, just add to build_flags &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-D DEFAULT_FLOOD_SCOPE_NAME='&quot; .. &quot;'&lt;/code&gt; (with the name in quotes)&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Installing the OTAFix Bootloader</title><link href="https://blog.meshcore.io/2026/04/06/otafix-bootloader" rel="alternate" type="text/html" title="Installing the OTAFix Bootloader" /><published>2026-04-06T00:00:00+00:00</published><updated>2026-04-06T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/06/otafix-bootloader</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/06/otafix-bootloader">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/otafix-banner.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
-&lt;p&gt;When I was first getting into MeshCore I realised that nRF52 devices had the ability to do OTA updates via BLE, which is obviously a great feature when you need to update a repeater which is on a roof.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately I never had much luck getting this to work. If you were lucky and used the right settings it might work with RAK4631 but particularly with ProMicro devices it never worked at all. This led me to dig around in github where I found some ancient forgotten PRs to fix some of these issues.&lt;/p&gt;
-
-&lt;p&gt;Since they weren’t getting any attention on the official Adafruit github I took it upon myself to fork the bootloader and include these fixes myself.&lt;/p&gt;
-
-&lt;h2 id=&quot;installing-the-otafix-bootloader-for-nrf52-devices&quot;&gt;Installing the OTAFIX Bootloader for nRF52 devices&lt;/h2&gt;
-
-&lt;p&gt;For the best nRF52 OTA update experience, it’s recommended to upgrade your device to the &lt;strong&gt;OTAFIX bootloader&lt;/strong&gt;. This version includes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Automatic fallback to OTA DFU mode if an update fails&lt;/li&gt;
-  &lt;li&gt;Significantly faster OTA update speeds&lt;/li&gt;
-  &lt;li&gt;Additional quality-of-life improvements for certain devices, like to the ability to enter OTA DFU mode by holding a button while resetting.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;1-enter-uf2-dfu-mode&quot;&gt;1. Enter UF2 DFU Mode&lt;/h2&gt;
-
-&lt;p&gt;First, put your device into &lt;strong&gt;UF2 DFU mode&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;For most nRF52 devices:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Plug the device into your computer&lt;/li&gt;
-  &lt;li&gt;Quickly double-press the reset button (twice within 0.5 seconds)&lt;/li&gt;
-  &lt;li&gt;A UF2 USB drive should appear, the name of the drive will differ depending on the device.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Some devices use different methods, see the &lt;a href=&quot;#device-specific-notes&quot;&gt;notes&lt;/a&gt; at the end of this guide.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;2-check-your-current-bootloader-optional-but-recommended&quot;&gt;2. Check Your Current Bootloader (Optional but Recommended)&lt;/h2&gt;
-
-&lt;p&gt;This step is important for devices like the &lt;strong&gt;Seeed Studio XIAO nRF52840&lt;/strong&gt;, which often ship with the &lt;strong&gt;SENSE&lt;/strong&gt; bootloader variant.&lt;/p&gt;
-
-&lt;p&gt;To check:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Enter UF2 DFU mode&lt;/li&gt;
-  &lt;li&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INFO_UF2.TXT&lt;/code&gt; file on the mounted drive&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This file contains details about your current bootloader.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;
-If the file shows: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Board-ID: nRF52840-SeeedXiaoSense-v1&lt;/code&gt; then you will need to install the &lt;strong&gt;&lt;em&gt;SENSE&lt;/em&gt;&lt;/strong&gt; variant.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-download-the-otafix-bootloader&quot;&gt;3. Download the OTAFIX Bootloader&lt;/h2&gt;
-
-&lt;p&gt;You can now download the OTAFIX bootloader directly from the MeshCore flasher site!
-Go to &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;https://flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Select your device&lt;/li&gt;
-  &lt;li&gt;Choose &lt;strong&gt;Repeater&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;A download link for the OTAFIX bootloader will appear in a highlighted banner, the file will be titled &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/flasher_banner_grab.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Alternatively the OTAFIX bootloader is also available from the official site.
-Go to:&lt;br /&gt;
-&lt;a href=&quot;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases&quot;&gt;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Download the correct UF2 file for your device from the &lt;strong&gt;Assets&lt;/strong&gt; section.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Files are named like: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;You may need to click &lt;strong&gt;“Show more”&lt;/strong&gt; to see all available files&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;
-For the Seeed Xiao Sense variant as discussed above you will want to download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2&lt;/code&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;4-install-the-bootloader&quot;&gt;4. Install the Bootloader&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Drag and drop the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-xxxx.uf2&lt;/code&gt; file onto the UF2 drive&lt;/li&gt;
-  &lt;li&gt;The device will automatically:
-    &lt;ul&gt;
-      &lt;li&gt;Update the bootloader&lt;/li&gt;
-      &lt;li&gt;Reboot when complete&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;5-verify-the-update&quot;&gt;5. Verify the Update&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Re-enter UF2 DFU mode&lt;/li&gt;
-  &lt;li&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INFO_UF2.TXT&lt;/code&gt; again&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The version line should now include &lt;strong&gt;OTAFIX&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/06/otafix_installed.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;device-specific-notes&quot;&gt;Device-Specific Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;t1000-e-dfu-mode&quot;&gt;T1000-e DFU Mode&lt;/h3&gt;
-&lt;p&gt;To enter DFU mode:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Attach the magnetic USB cable&lt;/li&gt;
-  &lt;li&gt;Hold the button&lt;/li&gt;
-  &lt;li&gt;Quickly disconnect and reconnect the cable twice&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Video reference: &lt;a href=&quot;https://www.youtube.com/shorts/D6uo93-RcaY&quot;&gt;https://www.youtube.com/shorts/D6uo93-RcaY&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;thinknode-m3-dfu-mode&quot;&gt;ThinkNode M3 DFU Mode&lt;/h3&gt;
-&lt;p&gt;To enter DFU mode:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Attach the magnetic USB cable&lt;/li&gt;
-  &lt;li&gt;Hold the button for ~25–30 seconds&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>taco</name></author><category term="Firmware" /><category term="Guide" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/06/otafix-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Yes. In the relevant .ini files, just add to build_flags &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-D DEFAULT_FLOOD_SCOPE_NAME='&quot; .. &quot;'&lt;/code&gt; (with the name in quotes)&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
