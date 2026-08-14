@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-09T06:13:01+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.17.0</title><link href="https://blog.meshcore.io/2026/08/09/release-1-17-0" rel="alternate" type="text/html" title="Release v1.17.0" /><published>2026-08-09T00:00:00+00:00</published><updated>2026-08-09T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/09/release-1-17-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/09/release-1-17-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-14T12:53:05+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.17.1</title><link href="https://blog.meshcore.io/2026/08/14/release-1-17-1" rel="alternate" type="text/html" title="Release v1.17.1" /><published>2026-08-14T00:00:00+00:00</published><updated>2026-08-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/14/release-1-17-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/14/release-1-17-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;change-log&quot;&gt;Change Log&lt;/h2&gt;
+
+&lt;h3 id=&quot;new-features&quot;&gt;New Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3137&quot;&gt;#3137&lt;/a&gt; new ‘get/set radio.fem.rxgain/txgain’ CLI commands (txgain is Station G3 only), fixed pref mapping for radio.fem.rxgain&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3148&quot;&gt;#3148&lt;/a&gt; added missing kiss radio roles, kiss radio build added to build.sh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enhancements&quot;&gt;Enhancements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3106&quot;&gt;#3106&lt;/a&gt; login response no longer sent as flood on direct login, fix for unscoped flood login&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3146&quot;&gt;#3146&lt;/a&gt; LR2021: PREAMBLE_DETECTED bit and IRQ rx timeout logic&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3154&quot;&gt;#3154&lt;/a&gt; NRF52 CC310: nRFCrypto.begin()/end() now called only once&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3166&quot;&gt;#3166&lt;/a&gt; RadioLibWrapper noise floor debug print moved behind new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MESH_DEBUG_NOISE_FLOOR&lt;/code&gt; flag&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3206&quot;&gt;#3206&lt;/a&gt; nRF RadioNoiseListener RNG now combines entropy from radio and CC310&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bug-fixes-and-other&quot;&gt;Bug fixes and Other&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3140&quot;&gt;#3140&lt;/a&gt; T-Echo Lite pins aligned to updated Lilygo schematic, TCXO voltage set to 3.0V&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3142&quot;&gt;#3142&lt;/a&gt; build fix for R1 Neo and Minewsemi repeater&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3158&quot;&gt;#3158&lt;/a&gt; Rx boosted gain no longer reset to compiled value after AGC reset&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3164&quot;&gt;#3164&lt;/a&gt; T-Beam Supreme S3 display fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3170&quot;&gt;#3170&lt;/a&gt; ProMicro pinmap tidy up, LoRa pins moved to variant.h&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3185&quot;&gt;#3185&lt;/a&gt; T-Echo Card TCXO voltage set to 3.0V as per &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3140&quot;&gt;#3140&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3188&quot;&gt;#3188&lt;/a&gt; Heltec T096 Tx failure fixed (out of bounds PIN_SPI1_MISO)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3189&quot;&gt;#3189&lt;/a&gt; Heltec T1 / MeshPocket / T-Echo Lite: unused pin fix (&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/issues/3151#issuecomment-5268905160&quot;&gt;root cause&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3203&quot;&gt;#3203&lt;/a&gt; Companion: fem_radio_rx/txgain pref disabled until settable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fixes-and-enhancements-for-devices-with-fem&quot;&gt;Fixes and enhancements for devices with FEM&lt;/h2&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; setting was not being persisted properly in v1.17.1, this is now fixed. Repeater admins will want to check that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.rxgain&lt;/code&gt; are configured to their liking after updating.
+Companion firmware currently has no way to configure these settings, so they they will use the default values only for now.&lt;/p&gt;
+
+&lt;h2 id=&quot;heltec-t096-transmit-issue-fix&quot;&gt;Heltec T096 Transmit issue fix&lt;/h2&gt;
+&lt;p&gt;The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN_SPI1_MISO&lt;/code&gt; being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html">Download Latest firmwares are in the flasher.meshcore.io Change Log New Features #3137 new ‘get/set radio.fem.rxgain/txgain’ CLI commands (txgain is Station G3 only), fixed pref mapping for radio.fem.rxgain #3148 added missing kiss radio roles, kiss radio build added to build.sh Enhancements #3106 login response no longer sent as flood on direct login, fix for unscoped flood login #3146 LR2021: PREAMBLE_DETECTED bit and IRQ rx timeout logic #3154 NRF52 CC310: nRFCrypto.begin()/end() now called only once #3166 RadioLibWrapper noise floor debug print moved behind new MESH_DEBUG_NOISE_FLOOR flag #3206 nRF RadioNoiseListener RNG now combines entropy from radio and CC310 Bug fixes and Other #3140 T-Echo Lite pins aligned to updated Lilygo schematic, TCXO voltage set to 3.0V #3142 build fix for R1 Neo and Minewsemi repeater #3158 Rx boosted gain no longer reset to compiled value after AGC reset #3164 T-Beam Supreme S3 display fix #3170 ProMicro pinmap tidy up, LoRa pins moved to variant.h #3185 T-Echo Card TCXO voltage set to 3.0V as per #3140 #3188 Heltec T096 Tx failure fixed (out of bounds PIN_SPI1_MISO) #3189 Heltec T1 / MeshPocket / T-Echo Lite: unused pin fix (root cause) #3203 Companion: fem_radio_rx/txgain pref disabled until settable. Fixes and enhancements for devices with FEM The radio.fem.rxgain setting was not being persisted properly in v1.17.1, this is now fixed. Repeater admins will want to check that radio.fem.rxgain and radio.rxgain are configured to their liking after updating. Companion firmware currently has no way to configure these settings, so they they will use the default values only for now. Heltec T096 Transmit issue fix The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to PIN_SPI1_MISO being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.17.0</title><link href="https://blog.meshcore.io/2026/08/09/release-1-17-0" rel="alternate" type="text/html" title="Release v1.17.0" /><published>2026-08-09T00:00:00+00:00</published><updated>2026-08-09T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/09/release-1-17-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/09/release-1-17-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
 
@@ -744,72 +788,4 @@ bug fixes, managing PR’s and developer discussions, etc.&lt;/p&gt;
 
 &lt;p&gt;For info on the new Default Scope feature, please see &lt;a href=&quot;/2026/04/17/default-scope&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;For low level format of the GROUP_DATA packets, please see &lt;a href=&quot;https://docs.meshcore.io/payloads/?h=group+datagram#group-datagram&quot;&gt;this docs link&lt;/a&gt;.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Default Scope Region</title><link href="https://blog.meshcore.io/2026/04/17/default-scope" rel="alternate" type="text/html" title="Default Scope Region" /><published>2026-04-17T00:00:00+00:00</published><updated>2026-04-17T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/17/default-scope</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/17/default-scope">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/17/banner.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;NOTE: Refer to the &lt;a href=&quot;/2026/01/20/region-filtering&quot;&gt;previous blog post&lt;/a&gt; if you are unfamiliar with regions/scopes&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the v1.12.0 firmware release, scoping &lt;em&gt;group channel&lt;/em&gt; messages has been possible, but there are still a number of road-blocks to using regions more effectively, especially for meshes like in Germany who are trying to &lt;strong&gt;disable un-scoped&lt;/strong&gt; traffic (ie. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region denyf *&lt;/code&gt;)&lt;/p&gt;
-
-&lt;p&gt;In the next release (v1.15.0) there will be a new concept of ‘default scope’, for both companion nodes and repeater/room server. This will make it possible to do scoped DM messages, login requests, stats request, etc. (even in a mesh that has disabled un-scoped flood traffic)&lt;/p&gt;
-
-&lt;h2 id=&quot;mobile-app&quot;&gt;Mobile App&lt;/h2&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://meshcore.io/#download&quot;&gt;MeshCore app&lt;/a&gt; ver 1.43.0 will have a new setting in the &lt;strong&gt;Experimental Settings&lt;/strong&gt; screen. Here you can set the default scope region name.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/17/app-default-scope.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When set, ALL flood packets the companion sends (eg. adverts, DM’s/logins/requests when path is unknown) will be &lt;strong&gt;scoped&lt;/strong&gt; to this region.&lt;/p&gt;
-
-&lt;p&gt;Group channel scope, if set, will &lt;em&gt;override&lt;/em&gt; the default scope. So, you can still have (typically) smaller region/scope for individual channels.&lt;/p&gt;
-
-&lt;h2 id=&quot;repeater-and-room-server-admin&quot;&gt;Repeater and Room Server Admin&lt;/h2&gt;
-
-&lt;p&gt;From v1.15.0 there will be a new cli command:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region default {name | &amp;lt;null&amp;gt;}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This sets the given region as the default scope, or clears if you specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;null&amp;gt;&lt;/code&gt;. Note that the region is auto-created if currently not in the regions list. Also, an implicit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region save&lt;/code&gt; is automatically performed!&lt;/p&gt;
-
-&lt;p&gt;Default scope is only applied to packets which &lt;em&gt;originate&lt;/em&gt; from the repeater/room server. So, only adverts for repeater. Adverts and room posts for room server.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Logins/Requests/Commands and Responses&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;From v1.15.0 there is a new rule for &lt;em&gt;responses&lt;/em&gt;. These originate from repeater/room server, but have this rule:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;If request packet scope can be resolved (ie. Region is in its list) then same scope is used for reply&lt;/li&gt;
-  &lt;li&gt;Otherwise, reply is sent un-scoped.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This includes the case of un-scoped request will have an un-scoped reply.&lt;/p&gt;
-
-&lt;p&gt;For now, this is the &lt;em&gt;safer&lt;/em&gt; option, instead of having the replies default to the default-scope. While in this transition period, there are too many ways a repeater admin could shoot themselves in the foot and lock themselves out of their own repeater!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;EXTRA: new ‘put’ default&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region put ...&lt;/code&gt; CLI command now defaults the new region to ‘allow’ for flood. So, you won’t need to also follow with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;region allowf ...&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;standalone-devices&quot;&gt;Standalone Devices&lt;/h2&gt;
-
-&lt;p&gt;For Ripple GUI supported devices, like the T-Deck, the next release (v9.6) will have default-scope support. From the &lt;strong&gt;Regions&lt;/strong&gt; screen, just select a plain region (or ‘*’) and in the details screen, select the menu:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/17/region-details-default-scope.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;(If needed, create a new region from the main region list, for the default scope)&lt;/p&gt;
-
-&lt;p&gt;Back in the Regions list screen, you should see a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(S)&lt;/code&gt; displayed next to the current default scope region:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/17/region-list-default.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;faq&quot;&gt;FAQ&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Q: As a repeater admin, what should I set default scope to?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;It should typically be a &lt;em&gt;large&lt;/em&gt; region, eg. your city. Or, whatever the region that you wish to confine adverts to (for instance).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q: As an app/chat user, what should I set default scope to?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This should be a &lt;em&gt;large&lt;/em&gt; region which will safely include both yourself and the contact(s) you wish to DM. Both your messages, and the returning ACKs will be scoped to this region.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q: I manage regional MeshCore firmware builds, with best defaults for the region. Can I configure a custom default region in my builds?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yes. In the relevant .ini files, just add to build_flags &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-D DEFAULT_FLOOD_SCOPE_NAME='&quot; .. &quot;'&lt;/code&gt; (with the name in quotes)&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/17/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;For low level format of the GROUP_DATA packets, please see &lt;a href=&quot;https://docs.meshcore.io/payloads/?h=group+datagram#group-datagram&quot;&gt;this docs link&lt;/a&gt;.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
