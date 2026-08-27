@@ -45,7 +45,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 * [#3203](https://github.com/meshcore-dev/MeshCore/pull/3203) Companion: fem_radio_rx/txgain pref disabled until settable.
 
 ## Fixes and enhancements for devices with FEM
-The ``radio.fem.rxgain`` setting was not being persisted properly in v1.17.1, this is now fixed. Repeater admins will want to check that ``radio.fem.rxgain`` and ``radio.rxgain`` are configured to their liking after updating.
+The ``radio.fem.rxgain`` setting was not being persisted properly in v1.17.0, this is now fixed. Repeater admins will want to check that ``radio.fem.rxgain`` and ``radio.rxgain`` are configured to their liking after updating.
 Companion firmware currently has no way to configure these settings, so they they will use the default values only for now.
 
 ## Heltec T096 Transmit issue fix

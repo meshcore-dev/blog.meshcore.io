@@ -40,6 +40,10 @@ authors:
     title: "Python Developer"
     avatar: "assets/images/authors/rightup.png"
     donate_url: "https://buymeacoffee.com/rightup"
+  viezevingertjes:
+    name: "Michael Overhorst (ViezeVingertjes)"
+    title: "Developer"
+    avatar: "assets/images/default-avatar.png"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"
