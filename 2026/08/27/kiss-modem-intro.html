@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1787811150">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1787811150">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>The KISS Modem - MeshCore Blog</title>
+  <meta name="title" content="The KISS Modem - MeshCore Blog">
+  <meta name="description" content="An introduction to the MeshCore KISS modem firmware">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/08/27/kiss-modem-intro">
+  <meta property="og:title" content="The KISS Modem - MeshCore Blog">
+  <meta property="og:description" content="An introduction to the MeshCore KISS modem firmware">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/08/27/kiss-modem-hero.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/08/27/kiss-modem-intro">
+  <meta property="twitter:title" content="The KISS Modem - MeshCore Blog">
+  <meta property="twitter:description" content="An introduction to the MeshCore KISS modem firmware">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/08/27/kiss-modem-hero.png">
+
+  <!-- social accounts -->
+  <link rel="me" href="https://mastodon.social/@meshcore"/>
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore.svg" alt="MeshCore" class="w-auto h-5">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+            <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/default-avatar.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Michael Overhorst (ViezeVingertjes)</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Developer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">The KISS Modem</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">August 27, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">6 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p>What the KISS Modem firmware role is, what it isn’t, and who it’s for.</p>
+
+<p><img src="/assets/images/2026/08/27/kiss-modem-hero.png" alt="" /></p>
+
+<p>Since v1.16.0 the flasher has had a KISS Modem role for most boards (the role picker calls it “KISS Radio Modem”), and going by the questions on Discord the name confuses people. So, a quick rundown.</p>
+
+<p>It’s the same MeshCore firmware and the same radio underneath. What changes is how you talk to the board: instead of the app, you open a serial port and speak KISS, an old and very simple protocol that amateur radio packet modems (TNCs) have used for decades. The radio stays on the board. Everything that decides what to send, and what to do with whatever comes back, runs on the computer at the other end of the cable. What you end up with is closer to a LoRa dongle for MeshCore than a node in its own right.</p>
+
+<p><img src="/assets/images/2026/08/27/kiss-modem-brains.png" alt="" /></p>
+
+<h2 id="who-its-for">Who it’s for</h2>
+
+<p>Most people don’t need it. If you want to message from your phone, companion firmware plus the app is where to start.</p>
+
+<p>The KISS Modem is for people building gateways or services on a proper computer. OpenHop (formerly pyMC) is the obvious example and can use a KISS Modem as its radio.</p>
+
+<p>It doesn’t have to be a proper computer though. I have a Commodore 64 chatting on the mesh through one, over the user port at 600 baud, which is about all the stock KERNAL serial routines can keep up with. The C64 builds the packets and draws the screen, the modem does the LoRa and the AES.</p>
+
+<p><img src="/assets/images/2026/08/27/mc64-waiting-for-modem.png" alt="" /></p>
+
+<p>It’s also handy if you want to poke at MeshCore packets from a laptop in whatever language you like, without flashing custom firmware for every idea. (The companion firmware can hand you raw packets too, and since 1.16 send them, but here you get the whole radio with nothing in the way.)</p>
+
+<h2 id="what-is-kiss">What is KISS?</h2>
+
+<p>Keep It Simple, Stupid. It’s the framing amateur packet radio has used between a computer and a TNC since the 80s. MeshCore didn’t invent it, it borrowed it because it’s simple and there are libraries for it in every language.</p>
+
+<p>The way I think of it: KISS is the envelope, the MeshCore packet is the letter inside.</p>
+
+<p><img src="/assets/images/2026/08/27/kiss-envelope.png" alt="" /></p>
+
+<p>A C0 byte on each end, a type byte, and the packet in between. That’s why the protocol doc says any KISS client (Direwolf, APRSdroid and so on) can drive the modem: they’ll happily push raw frames out through the radio. It doesn’t get them onto the mesh though. They can open the envelope, but what’s inside means nothing to them, and the mesh won’t make anything of what they send either.</p>
+
+<p>On top of plain KISS the firmware adds the MeshCore extras (radio settings, signal reports, battery, crypto) through a standard KISS command that plain clients ignore.</p>
+
+<h2 id="what-the-board-does">What the board does</h2>
+
+<p>Quite a lot, it just doesn’t do any of the mesh logic. It sends and receives raw MeshCore packets over LoRa. Received packets come up the serial link exactly as they came off the air, each with a signal report (RSSI and SNR) attached, and your software decides what to do with them.</p>
+
+<p>The host sets the radio up: frequency, bandwidth, spreading factor, coding rate and transmit power. You can also ask the board for its battery voltage, the noise floor, packet counters and whatever sensors it has, and it can estimate how long a packet would take on air at the current settings. The protocol doc has the full list.</p>
+
+<p>None of the radio settings survive a reboot. Apart from the board’s key pair nothing is saved, so your software sets the radio up each time it connects.</p>
+
+<p>It listens before it transmits so it won’t talk over other traffic, and it takes one packet at a time: it tells you when a packet has gone out and refuses a second one until then.</p>
+
+<p>The board has its own key pair, generated on first boot and stored in flash. The private key can’t be read out, so if you want the board’s identity on the mesh you ask the board to sign and do key exchanges for you. It can also encrypt, decrypt and verify with keys you hand it. Or you skip all of that. The board sends whatever bytes you give it and doesn’t check them, so a host that keeps its own key pair builds valid packets without ever touching the board’s crypto. OpenHop does it that way. The C64 goes the other way entirely, it hasn’t got the horsepower for AES so it hands every message to the modem to encrypt or decrypt.</p>
+
+<p>What it leaves out: routing, repeating, chat, room server. All of that lives on the host side.</p>
+
+<h2 id="flashing-it">Flashing it</h2>
+
+<p>Flashing is the same as any other role.</p>
+
+<ol>
+  <li>Head to <a href="https://flasher.meshcore.io">flasher.meshcore.io</a></li>
+  <li>Pick your board</li>
+  <li>Choose the KISS Radio Modem role</li>
+  <li>Flash it</li>
+  <li>Open the board’s serial port at 115200 baud, 8N1, from software that speaks MeshCore</li>
+</ol>
+
+<p><img src="/assets/images/2026/08/27/flasher-kiss-role.png" alt="" /></p>
+
+<p>Step 5 is where the real work lives. On nearly every board that serial port is the USB one. There is a compile-time option (<code class="language-plaintext highlighter-rouge">KISS_UART_RX</code> and <code class="language-plaintext highlighter-rouge">KISS_UART_TX</code>) to move that onto bare UART pins if you want to wire the board straight to a Pi header, but you’ll need to build the firmware yourself for that.</p>
+
+<p>If you’d rather not write the serial side yourself, OpenHop already has it. If you do want to roll your own, the <a href="https://docs.meshcore.io/kiss_modem_protocol">KISS Modem protocol</a> doc covers the serial side and the <a href="https://docs.meshcore.io/packet_format">packet format</a> page covers what goes inside the frames.</p>
+
+<h2 id="where-to-start">Where to start</h2>
+
+<ul>
+  <li>Flasher: <a href="https://flasher.meshcore.io">https://flasher.meshcore.io</a></li>
+  <li>Protocol doc: <a href="https://docs.meshcore.io/kiss_modem_protocol">https://docs.meshcore.io/kiss_modem_protocol</a></li>
+  <li>Packet format: <a href="https://docs.meshcore.io/packet_format">https://docs.meshcore.io/packet_format</a></li>
+  <li>OpenHop: <a href="https://github.com/openhop-dev/openhop_repeater">https://github.com/openhop-dev/openhop_repeater</a></li>
+</ul>
+
+<p>If you get something running on it, post it on the <a href="https://meshcore.gg">Discord</a>, I’d like to see what people wire it into.</p>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=The KISS Modem https://blog.meshcore.io/2026/08/27/kiss-modem-intro" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=The KISS Modem&u=https://blog.meshcore.io/2026/08/27/kiss-modem-intro" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=The KISS Modem&url=https://blog.meshcore.io/2026/08/27/kiss-modem-intro" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+    <div class="flex space-x-1 mb-2">
+        <span>Posted in:</span>
+        
+        <a href="/categories/#Firmware" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Firmware</a>
+        
+        
+    </div>
+    
+
+    
+    <div class="flex flex-wrap">
+        
+        <div class="mb-2 mr-1">
+            <a href="/tags/#KISS" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                </svg>
+                KISS
+            </a>
+        </div>
+        
+    </div>
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="meshcore-dev/blog.meshcore.io"
+            data-repo-id="R_kgDORxkdng"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORxkdns4C5Xt4"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-[#030712] py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore.svg" alt="MeshCore" class="h-5 mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+                <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+                <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+                <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+                <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+                <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+                <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+            </div>
+            <div class="mt-4 mx-auto flex gap-4 text-gray-500 text-2xl">
+                <a href="https://facebook.com/groups/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="https://reddit.com/r/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-reddit text-2xl"></i>
+                </a>
+                <a href="https://meshcore.gg" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-discord text-2xl"></i>
+                </a>
+                <a href="https://mastodon.social/@meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-mastodon text-2xl"></i>
+                </a>
+                <a href="https://x.com/mesh_core" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-x-twitter text-2xl"></i>
+                </a>
+            </div>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRW3QH54CP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JRW3QH54CP');
+</script>
+
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>

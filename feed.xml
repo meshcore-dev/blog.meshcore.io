@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-14T12:53:05+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.17.1</title><link href="https://blog.meshcore.io/2026/08/14/release-1-17-1" rel="alternate" type="text/html" title="Release v1.17.1" /><published>2026-08-14T00:00:00+00:00</published><updated>2026-08-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/14/release-1-17-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/14/release-1-17-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-27T06:12:30+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">The KISS Modem</title><link href="https://blog.meshcore.io/2026/08/27/kiss-modem-intro" rel="alternate" type="text/html" title="The KISS Modem" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/27/kiss-modem-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/27/kiss-modem-intro">&lt;p&gt;What the KISS Modem firmware role is, what it isn’t, and who it’s for.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/kiss-modem-hero.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since v1.16.0 the flasher has had a KISS Modem role for most boards (the role picker calls it “KISS Radio Modem”), and going by the questions on Discord the name confuses people. So, a quick rundown.&lt;/p&gt;
+
+&lt;p&gt;It’s the same MeshCore firmware and the same radio underneath. What changes is how you talk to the board: instead of the app, you open a serial port and speak KISS, an old and very simple protocol that amateur radio packet modems (TNCs) have used for decades. The radio stays on the board. Everything that decides what to send, and what to do with whatever comes back, runs on the computer at the other end of the cable. What you end up with is closer to a LoRa dongle for MeshCore than a node in its own right.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/kiss-modem-brains.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;who-its-for&quot;&gt;Who it’s for&lt;/h2&gt;
+
+&lt;p&gt;Most people don’t need it. If you want to message from your phone, companion firmware plus the app is where to start.&lt;/p&gt;
+
+&lt;p&gt;The KISS Modem is for people building gateways or services on a proper computer. OpenHop (formerly pyMC) is the obvious example and can use a KISS Modem as its radio.&lt;/p&gt;
+
+&lt;p&gt;It doesn’t have to be a proper computer though. I have a Commodore 64 chatting on the mesh through one, over the user port at 600 baud, which is about all the stock KERNAL serial routines can keep up with. The C64 builds the packets and draws the screen, the modem does the LoRa and the AES.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/mc64-waiting-for-modem.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s also handy if you want to poke at MeshCore packets from a laptop in whatever language you like, without flashing custom firmware for every idea. (The companion firmware can hand you raw packets too, and since 1.16 send them, but here you get the whole radio with nothing in the way.)&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-kiss&quot;&gt;What is KISS?&lt;/h2&gt;
+
+&lt;p&gt;Keep It Simple, Stupid. It’s the framing amateur packet radio has used between a computer and a TNC since the 80s. MeshCore didn’t invent it, it borrowed it because it’s simple and there are libraries for it in every language.&lt;/p&gt;
+
+&lt;p&gt;The way I think of it: KISS is the envelope, the MeshCore packet is the letter inside.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/kiss-envelope.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A C0 byte on each end, a type byte, and the packet in between. That’s why the protocol doc says any KISS client (Direwolf, APRSdroid and so on) can drive the modem: they’ll happily push raw frames out through the radio. It doesn’t get them onto the mesh though. They can open the envelope, but what’s inside means nothing to them, and the mesh won’t make anything of what they send either.&lt;/p&gt;
+
+&lt;p&gt;On top of plain KISS the firmware adds the MeshCore extras (radio settings, signal reports, battery, crypto) through a standard KISS command that plain clients ignore.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-the-board-does&quot;&gt;What the board does&lt;/h2&gt;
+
+&lt;p&gt;Quite a lot, it just doesn’t do any of the mesh logic. It sends and receives raw MeshCore packets over LoRa. Received packets come up the serial link exactly as they came off the air, each with a signal report (RSSI and SNR) attached, and your software decides what to do with them.&lt;/p&gt;
+
+&lt;p&gt;The host sets the radio up: frequency, bandwidth, spreading factor, coding rate and transmit power. You can also ask the board for its battery voltage, the noise floor, packet counters and whatever sensors it has, and it can estimate how long a packet would take on air at the current settings. The protocol doc has the full list.&lt;/p&gt;
+
+&lt;p&gt;None of the radio settings survive a reboot. Apart from the board’s key pair nothing is saved, so your software sets the radio up each time it connects.&lt;/p&gt;
+
+&lt;p&gt;It listens before it transmits so it won’t talk over other traffic, and it takes one packet at a time: it tells you when a packet has gone out and refuses a second one until then.&lt;/p&gt;
+
+&lt;p&gt;The board has its own key pair, generated on first boot and stored in flash. The private key can’t be read out, so if you want the board’s identity on the mesh you ask the board to sign and do key exchanges for you. It can also encrypt, decrypt and verify with keys you hand it. Or you skip all of that. The board sends whatever bytes you give it and doesn’t check them, so a host that keeps its own key pair builds valid packets without ever touching the board’s crypto. OpenHop does it that way. The C64 goes the other way entirely, it hasn’t got the horsepower for AES so it hands every message to the modem to encrypt or decrypt.&lt;/p&gt;
+
+&lt;p&gt;What it leaves out: routing, repeating, chat, room server. All of that lives on the host side.&lt;/p&gt;
+
+&lt;h2 id=&quot;flashing-it&quot;&gt;Flashing it&lt;/h2&gt;
+
+&lt;p&gt;Flashing is the same as any other role.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Head to &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Pick your board&lt;/li&gt;
+  &lt;li&gt;Choose the KISS Radio Modem role&lt;/li&gt;
+  &lt;li&gt;Flash it&lt;/li&gt;
+  &lt;li&gt;Open the board’s serial port at 115200 baud, 8N1, from software that speaks MeshCore&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/flasher-kiss-role.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Step 5 is where the real work lives. On nearly every board that serial port is the USB one. There is a compile-time option (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KISS_UART_RX&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KISS_UART_TX&lt;/code&gt;) to move that onto bare UART pins if you want to wire the board straight to a Pi header, but you’ll need to build the firmware yourself for that.&lt;/p&gt;
+
+&lt;p&gt;If you’d rather not write the serial side yourself, OpenHop already has it. If you do want to roll your own, the &lt;a href=&quot;https://docs.meshcore.io/kiss_modem_protocol&quot;&gt;KISS Modem protocol&lt;/a&gt; doc covers the serial side and the &lt;a href=&quot;https://docs.meshcore.io/packet_format&quot;&gt;packet format&lt;/a&gt; page covers what goes inside the frames.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-to-start&quot;&gt;Where to start&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flasher: &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;https://flasher.meshcore.io&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Protocol doc: &lt;a href=&quot;https://docs.meshcore.io/kiss_modem_protocol&quot;&gt;https://docs.meshcore.io/kiss_modem_protocol&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Packet format: &lt;a href=&quot;https://docs.meshcore.io/packet_format&quot;&gt;https://docs.meshcore.io/packet_format&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;OpenHop: &lt;a href=&quot;https://github.com/openhop-dev/openhop_repeater&quot;&gt;https://github.com/openhop-dev/openhop_repeater&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you get something running on it, post it on the &lt;a href=&quot;https://meshcore.gg&quot;&gt;Discord&lt;/a&gt;, I’d like to see what people wire it into.&lt;/p&gt;</content><author><name>viezevingertjes</name></author><category term="Firmware" /><category term="KISS" /><summary type="html">What the KISS Modem firmware role is, what it isn’t, and who it’s for.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/08/27/kiss-modem-hero.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/08/27/kiss-modem-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.17.1</title><link href="https://blog.meshcore.io/2026/08/14/release-1-17-1" rel="alternate" type="text/html" title="Release v1.17.1" /><published>2026-08-14T00:00:00+00:00</published><updated>2026-08-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/14/release-1-17-1</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/14/release-1-17-1">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
 
@@ -38,11 +113,11 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;fixes-and-enhancements-for-devices-with-fem&quot;&gt;Fixes and enhancements for devices with FEM&lt;/h2&gt;
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; setting was not being persisted properly in v1.17.1, this is now fixed. Repeater admins will want to check that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.rxgain&lt;/code&gt; are configured to their liking after updating.
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; setting was not being persisted properly in v1.17.0, this is now fixed. Repeater admins will want to check that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.fem.rxgain&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;radio.rxgain&lt;/code&gt; are configured to their liking after updating.
 Companion firmware currently has no way to configure these settings, so they they will use the default values only for now.&lt;/p&gt;
 
 &lt;h2 id=&quot;heltec-t096-transmit-issue-fix&quot;&gt;Heltec T096 Transmit issue fix&lt;/h2&gt;
-&lt;p&gt;The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN_SPI1_MISO&lt;/code&gt; being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html">Download Latest firmwares are in the flasher.meshcore.io Change Log New Features #3137 new ‘get/set radio.fem.rxgain/txgain’ CLI commands (txgain is Station G3 only), fixed pref mapping for radio.fem.rxgain #3148 added missing kiss radio roles, kiss radio build added to build.sh Enhancements #3106 login response no longer sent as flood on direct login, fix for unscoped flood login #3146 LR2021: PREAMBLE_DETECTED bit and IRQ rx timeout logic #3154 NRF52 CC310: nRFCrypto.begin()/end() now called only once #3166 RadioLibWrapper noise floor debug print moved behind new MESH_DEBUG_NOISE_FLOOR flag #3206 nRF RadioNoiseListener RNG now combines entropy from radio and CC310 Bug fixes and Other #3140 T-Echo Lite pins aligned to updated Lilygo schematic, TCXO voltage set to 3.0V #3142 build fix for R1 Neo and Minewsemi repeater #3158 Rx boosted gain no longer reset to compiled value after AGC reset #3164 T-Beam Supreme S3 display fix #3170 ProMicro pinmap tidy up, LoRa pins moved to variant.h #3185 T-Echo Card TCXO voltage set to 3.0V as per #3140 #3188 Heltec T096 Tx failure fixed (out of bounds PIN_SPI1_MISO) #3189 Heltec T1 / MeshPocket / T-Echo Lite: unused pin fix (root cause) #3203 Companion: fem_radio_rx/txgain pref disabled until settable. Fixes and enhancements for devices with FEM The radio.fem.rxgain setting was not being persisted properly in v1.17.1, this is now fixed. Repeater admins will want to check that radio.fem.rxgain and radio.rxgain are configured to their liking after updating. Companion firmware currently has no way to configure these settings, so they they will use the default values only for now. Heltec T096 Transmit issue fix The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to PIN_SPI1_MISO being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.17.0</title><link href="https://blog.meshcore.io/2026/08/09/release-1-17-0" rel="alternate" type="text/html" title="Release v1.17.0" /><published>2026-08-09T00:00:00+00:00</published><updated>2026-08-09T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/09/release-1-17-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/09/release-1-17-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN_SPI1_MISO&lt;/code&gt; being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html">Download Latest firmwares are in the flasher.meshcore.io Change Log New Features #3137 new ‘get/set radio.fem.rxgain/txgain’ CLI commands (txgain is Station G3 only), fixed pref mapping for radio.fem.rxgain #3148 added missing kiss radio roles, kiss radio build added to build.sh Enhancements #3106 login response no longer sent as flood on direct login, fix for unscoped flood login #3146 LR2021: PREAMBLE_DETECTED bit and IRQ rx timeout logic #3154 NRF52 CC310: nRFCrypto.begin()/end() now called only once #3166 RadioLibWrapper noise floor debug print moved behind new MESH_DEBUG_NOISE_FLOOR flag #3206 nRF RadioNoiseListener RNG now combines entropy from radio and CC310 Bug fixes and Other #3140 T-Echo Lite pins aligned to updated Lilygo schematic, TCXO voltage set to 3.0V #3142 build fix for R1 Neo and Minewsemi repeater #3158 Rx boosted gain no longer reset to compiled value after AGC reset #3164 T-Beam Supreme S3 display fix #3170 ProMicro pinmap tidy up, LoRa pins moved to variant.h #3185 T-Echo Card TCXO voltage set to 3.0V as per #3140 #3188 Heltec T096 Tx failure fixed (out of bounds PIN_SPI1_MISO) #3189 Heltec T1 / MeshPocket / T-Echo Lite: unused pin fix (root cause) #3203 Companion: fem_radio_rx/txgain pref disabled until settable. Fixes and enhancements for devices with FEM The radio.fem.rxgain setting was not being persisted properly in v1.17.0, this is now fixed. Repeater admins will want to check that radio.fem.rxgain and radio.rxgain are configured to their liking after updating. Companion firmware currently has no way to configure these settings, so they they will use the default values only for now. Heltec T096 Transmit issue fix The Heltec T096 transmit issue was found to be an out of bounds read of the pin map due to PIN_SPI1_MISO being set to -1. It was causing the FEM’s Tx enable pin to stop working. This has been fixed and other NRF52 boards have had their unused pins corrected.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.17.0</title><link href="https://blog.meshcore.io/2026/08/09/release-1-17-0" rel="alternate" type="text/html" title="Release v1.17.0" /><published>2026-08-09T00:00:00+00:00</published><updated>2026-08-09T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/09/release-1-17-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/09/release-1-17-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
 
@@ -754,38 +829,4 @@ bug fixes, managing PR’s and developer discussions, etc.&lt;/p&gt;
 
 &lt;p&gt;Thanks for being a part of this journey!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html">Since inception, the MeshCore development team have been working hard to build MeshCore.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.15.0</title><link href="https://blog.meshcore.io/2026/04/19/release-1-15-0" rel="alternate" type="text/html" title="Release v1.15.0" /><published>2026-04-19T00:00:00+00:00</published><updated>2026-04-19T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/19/release-1-15-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/19/release-1-15-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Change Log&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Default Scope support&lt;/li&gt;
-  &lt;li&gt;Support for New GROUP_DATA (binary) packets &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1928&quot;&gt;#1928&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2130&quot;&gt;#2130&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Heltec V4.3 support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1867&quot;&gt;#1867&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Heltec nRF Tracker (T096) support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2097&quot;&gt;#2097&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;GAT562 Mesh EVB Pro repeater and room server support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2042&quot;&gt;#2042&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Radio rxgain now ON by default &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2124&quot;&gt;#2124&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Radio freq range now supported down to 150Mhz &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2126&quot;&gt;#2126&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;GPS pref peristence fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2018&quot;&gt;#2018&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;New &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get|set dutycycle&lt;/code&gt; CLI command &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1961&quot;&gt;#1961&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Muzi Works R1 Neo support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2007&quot;&gt;#2007&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;GAT562 Watch support &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2138&quot;&gt;#2138&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2228&quot;&gt;#2228&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;BME680 sensor init fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2227&quot;&gt;#2227&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Heltec Wireless Paper battery read fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2164&quot;&gt;#2164&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;WiFi companion fixes for Heltec V4,TBeam 1W &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1833&quot;&gt;#1833&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Waveshare RP2040: RXEN fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2298&quot;&gt;#2298&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;nRF companion, support for OTA updates &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2323&quot;&gt;#2323&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Added companion for Heltec Wireless Paper &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2315&quot;&gt;#2315&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Misc &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2134&quot;&gt;#2134&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2190&quot;&gt;#2190&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1425&quot;&gt;#1425&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2075&quot;&gt;#2075&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2302&quot;&gt;#2302&lt;/a&gt; &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2306&quot;&gt;#2306&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Xiao C3 bootloop fix &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2328&quot;&gt;#2328&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Documentation Links&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;For info on the new Default Scope feature, please see &lt;a href=&quot;/2026/04/17/default-scope&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For low level format of the GROUP_DATA packets, please see &lt;a href=&quot;https://docs.meshcore.io/payloads/?h=group+datagram#group-datagram&quot;&gt;this docs link&lt;/a&gt;.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html">Since inception, the MeshCore development team have been working hard to build MeshCore.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
