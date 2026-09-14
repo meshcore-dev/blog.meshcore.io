@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-08-27T06:12:30+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">The KISS Modem</title><link href="https://blog.meshcore.io/2026/08/27/kiss-modem-intro" rel="alternate" type="text/html" title="The KISS Modem" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/27/kiss-modem-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/27/kiss-modem-intro">&lt;p&gt;What the KISS Modem firmware role is, what it isn’t, and who it’s for.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-09-14T02:33:34+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Sensor Node Intro</title><link href="https://blog.meshcore.io/2026/09/14/sensor-intro" rel="alternate" type="text/html" title="Sensor Node Intro" /><published>2026-09-14T00:00:00+00:00</published><updated>2026-09-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/09/14/sensor-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/09/14/sensor-intro">&lt;p&gt;The MeshCore sensor node type is much harder to get going with as we don’t
+pre-build variants with each release, like we do with repeater, companion and room server,
+so it requires some developer knowledge.&lt;/p&gt;
+
+&lt;p&gt;The reason behind this is because there simply are too many customisations
+that typically would be required to accommodate, and there would have to be
+thousands of variants. So, sensor nodes need to be designed for whatever purpose
+they’re intended for (eg. monitoring water level in a water tank)&lt;/p&gt;
+
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;You will need to install &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;VSCode&lt;/a&gt; and once that is installed, within VSCode install the
+&lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO&lt;/a&gt; extension.&lt;/p&gt;
+
+&lt;p&gt;Then use Git to clone the MeshCore firmware repo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/meshcore-dev/MeshCore.git&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;starting-with-the-example&quot;&gt;Starting with the example&lt;/h2&gt;
+
+&lt;p&gt;The sensor firmware is essentially a starter or ‘template’ firmware, which has
+most of the components you’re going to need. In the project tree, it is in:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/examples/simple_sensor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Typical customisations should only need to touch the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.cpp&lt;/code&gt; module. This
+has a section which defines a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MyMesh&lt;/code&gt; class, and this inherits from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SensorMesh&lt;/code&gt; 
+which provides all the &lt;em&gt;plumbing&lt;/em&gt; and hooks which you can utilise.&lt;/p&gt;
+
+&lt;h2 id=&quot;choose-a-board-variant&quot;&gt;Choose a board variant&lt;/h2&gt;
+
+&lt;p&gt;A lot of the boards supported should already have a PlatformIO target &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; defined
+for the simple_sensor example firmware, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[env:Heltec_v3_sensor]&lt;/code&gt;. But, you
+may need to add your own &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; definition in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file in one of
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/variant&lt;/code&gt; folders.&lt;/p&gt;
+
+&lt;p&gt;This sets up the build rules/dependencies, etc for that board+firmware role. You may
+need to modify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target.h/cpp&lt;/code&gt; files of the variant. These target modules 
+assemble various global objects, like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EnvironmentSensorManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This one is a kind of &lt;em&gt;Swiss Army knife&lt;/em&gt; helper class which the other firmwares also
+use (eg. repeater) for doing the low-level work of managing physical sensors, like
+BME180’s, etc. So, most of that is done for you, but you typically have to ENABLE which modules
+your node is expecting to use. These can be enabled in your /variant &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;build_flags =
+  -D ENV_INCLUDE_GPS=1
+  -D ENV_INCLUDE_AHTX0=1
+  -D ENV_INCLUDE_BME280=1
+  -D ENV_INCLUDE_BMP280=1
+  -D ENV_INCLUDE_SHTC3=1
+  -D ENV_INCLUDE_SHT4X=1
+  -D ENV_INCLUDE_LPS22HB=1
+  -D ENV_INCLUDE_INA3221=1
+  -D ENV_INCLUDE_INA219=1
+  -D ENV_INCLUDE_INA226=1
+  -D ENV_INCLUDE_INA260=1
+  -D ENV_INCLUDE_MLX90614=1
+  -D ENV_INCLUDE_VL53L0X=1
+  -D ENV_INCLUDE_BME680=1
+  -D ENV_INCLUDE_BMP085=1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;basic-concepts&quot;&gt;Basic concepts&lt;/h2&gt;
+
+&lt;p&gt;The sensor node can utilise these features:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Alerts (with High or Low priority)&lt;/li&gt;
+  &lt;li&gt;Telemetry queries (ie. other nodes can &lt;em&gt;pull&lt;/em&gt; telemetry from this node)&lt;/li&gt;
+  &lt;li&gt;Time series data&lt;/li&gt;
+  &lt;li&gt;Custom CLI command logic (eg. ‘turn switch A on’)&lt;/li&gt;
+  &lt;li&gt;Telemetry &lt;em&gt;push&lt;/em&gt; subscriptions (NEW: will be supported soon)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;alerts&quot;&gt;Alerts&lt;/h2&gt;
+
+&lt;p&gt;In the example this is demonstrated with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Trigger&lt;/code&gt; class and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alertIf()&lt;/code&gt; calls:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;Trigger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;critical_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onSensorDataRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getVoltage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;alertIf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.4&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;critical_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH_PRI_ALERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Battery is critical!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;alertIf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.6&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW_PRI_ALERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Battery is low&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;High priority alerts will re-try sending to nodes in the ACL which have
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PERM_RECV_ALERTS_HI&lt;/code&gt; bit set. The sensor nodes will wait for an ACK, like 
+any other text message.&lt;/p&gt;
+
+&lt;p&gt;Low priority alerts only fire off the message &lt;em&gt;once&lt;/em&gt; and don’t wait for an ACK. These are
+sent to nodes in ACL with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PERM_RECV_ALERTS_LO&lt;/code&gt; bit set.&lt;/p&gt;
+
+&lt;h2 id=&quot;telemetry&quot;&gt;Telemetry&lt;/h2&gt;
+
+&lt;p&gt;This is basically &lt;em&gt;automatic&lt;/em&gt; as it’s a core mechanism in MeshCore. The target/variant
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sensor&lt;/code&gt; object will handle LPP encoding all the collected telemetry
+readings.&lt;/p&gt;
+
+&lt;p&gt;Normally, other nodes to need to request telemetry from your sensor node, and a 
+telemetry response is then sent, but very soon you will also be able to &lt;em&gt;subscribe&lt;/em&gt;
+to Telemetry &lt;em&gt;push&lt;/em&gt;, where the sensor node sends telemetry packets to subscriber(s)
+but only when certain values &lt;em&gt;change&lt;/em&gt; by some minimum amount. eg. a subscriber can
+send SUBSCRIBE request, and specify that temperature must change by 2 Celcius.&lt;/p&gt;
+
+&lt;p&gt;Telemetry push will have some guard rails to hopefully minimise abuse:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;subscription has a timeout (returned in the subscribe response), so subscribers will need to re-subscribe.&lt;/li&gt;
+  &lt;li&gt;must use a region scope (as fallback, if direct path is not established)&lt;/li&gt;
+  &lt;li&gt;subscriber must specify which LPP channels/types and &lt;em&gt;min deltas&lt;/em&gt; that these must change by to trigger push&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;time-series-data&quot;&gt;Time series data&lt;/h2&gt;
+
+&lt;p&gt;The sensor can collect periodic readings, and stores these (in volatile memory, in a circular buffer)
+using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TimeSeriesData&lt;/code&gt; helper class. Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;TimeSeriesData&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;MyMesh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MainBoard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Radio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MillisecondClock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RNG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RTCClock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rtc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MeshTables&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SensorMesh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rtc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; 
+       &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 24 hours worth of battery data, every 5 minutes&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onSensorDataRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getVoltage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recordData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRTCClock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// record battery&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;querySeriesData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_secs_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end_secs_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MinMaxAvg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;calcMinMaxAvg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRTCClock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_secs_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end_secs_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LPP_VOLTAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Remote nodes can then send ‘min/max/average’ queries to the sensor node, specifying
+a time range. To achieve this, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;querySeriesData()&lt;/code&gt; method must be overridden
+as above. The return value is the number of data series supported by this node.&lt;/p&gt;
+
+&lt;h2 id=&quot;custom-cli-commands&quot;&gt;Custom CLI Commands&lt;/h2&gt;
+
+&lt;p&gt;Remote nodes can also enable actuators of different types, like turning an
+LED on/off, moving a servo, etc. by adding custom CLI command logic. This is
+done in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;handleCustomCommand()&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;handleCustomCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender_timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strcmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;magic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// example 'custom' command handling&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;strcpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;**Magic now done**&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// handled&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// not handled&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This should be fairly straight-forward to adapt to whatever your sensor node
+wants to do. Just return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; to indicate the command was intercepted and
+handled, and place the CLI response  in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reply&lt;/code&gt; buffer (which is sent to command sender node).&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The MeshCore sensor node type is much harder to get going with as we don’t pre-build variants with each release, like we do with repeater, companion and room server, so it requires some developer knowledge.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/09/14/sensor_mesh.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/09/14/sensor_mesh.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The KISS Modem</title><link href="https://blog.meshcore.io/2026/08/27/kiss-modem-intro" rel="alternate" type="text/html" title="The KISS Modem" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/08/27/kiss-modem-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/08/27/kiss-modem-intro">&lt;p&gt;What the KISS Modem firmware role is, what it isn’t, and who it’s for.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026/08/27/kiss-modem-hero.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -713,120 +876,4 @@ can do its own raw send and receive of packets.&lt;/p&gt;</content><author><name
 
 &lt;p&gt;The v9.7 is now available for &lt;a href=&quot;https://www.lilygo.cc/products/t-deck-plus-1?variant=51618501951669&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;LilyGo T-Deck&lt;/a&gt;, &lt;a href=&quot;https://www.lilygo.cc/products/t-lora-pager?bg_ref=cq3pUU7cD3&quot;&gt;T-Pager&lt;/a&gt; and the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?variant=52457652224181&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. It will be rolling out soon for the other colour devices, like Heltec V4 Expansion kit, etc.&lt;/p&gt;
 
-&lt;p&gt;These are now available in the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore.io Flasher&lt;/a&gt;, for easy installation.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Meshcore.io - Why The Split?</title><link href="https://blog.meshcore.io/2026/04/23/the-split" rel="alternate" type="text/html" title="Meshcore.io - Why The Split?" /><published>2026-04-23T00:00:00+00:00</published><updated>2026-04-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/23/the-split</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/23/the-split">&lt;p&gt;Since inception, the MeshCore development team have been working hard to build MeshCore.&lt;/p&gt;
-
-&lt;p&gt;We’ve released more than 85 versions of the MeshCore Companion, Repeater and Room Server firmwares with support for more than 75 hardware variants.
-All of this has been hand crafted, by humans.&lt;/p&gt;
-
-&lt;p&gt;We have always been wary of AI generated code, but felt everyone is free to do what
-they want and experiment, etc. But, one of our own, Andy Kirby, decided to branch out
-and extensively use Claude Code, and has decided to aggressively take over
-all of the components of the MeshCore ecosystem: standalone devices, mobile app, 
-web flasher and web config tools.&lt;/p&gt;
-
-&lt;p&gt;And, he’s kept that &lt;em&gt;small&lt;/em&gt; detail a secret - that it’s all majority &lt;em&gt;vibe coded&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;We ran a poll recently, and asked in the MeshCore Discord about AI and trust, and these are the results:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/23/trust-ai-gen-firmware.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/23/have-right-to-know.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The team didn’t feel it was our place to protest, until we recently discovered that Andy
-applied for the MeshCore Trademark (on the 29th March, according to filings) and didn’t tell
-any of us. We have tried discussing this, and what his intentions are, but those broke down
-and we now have no communication with Andy.&lt;/p&gt;
-
-&lt;p&gt;It’s been a stressful few months trying to sort this out, and is now a sad day
-to bring this out to the public. It’s been a slap in the face to the team that
-have worked so hard on this project, to have an insider team up with a robot
-and a lawyer.&lt;/p&gt;
-
-&lt;h2 id=&quot;official-meshcore&quot;&gt;“Official” MeshCore&lt;/h2&gt;
-
-&lt;p&gt;The use of the ‘official’ status is what is currently being contested. Andy is adamant 
-that he &lt;em&gt;owns&lt;/em&gt; the brand, and is using the word very heavily with his MeshOS line.&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, in reality, the only ‘official’ MeshCore is the github repo. It’s the
-&lt;em&gt;source of truth&lt;/em&gt; in terms of what is MeshCore, and Andy has &lt;em&gt;never&lt;/em&gt; contributed
-to that.&lt;/p&gt;
-
-&lt;p&gt;Since the internal split, we launched the &lt;a href=&quot;https://meshcore.io&quot;&gt;meshcore.io&lt;/a&gt; site, as Andy controls
-the meshcore.co.uk site and original discord server. We’ve been left with little other recourse. And, since 
-launching the site, Andy copied the look and feel (again, using Claude) even though
-we asked him not to.&lt;/p&gt;
-
-&lt;h2 id=&quot;project-growth&quot;&gt;Project Growth&lt;/h2&gt;
-
-&lt;p&gt;The MeshCore project has been on an incredible journey.&lt;/p&gt;
-
-&lt;p&gt;Having only started in January 2025, we have grown extremely fast!&lt;/p&gt;
-
-&lt;p&gt;As of this post, the official &lt;a href=&quot;https://map.meshcore.io&quot;&gt;MeshCore Map&lt;/a&gt; shows 38,000+ nodes around the world, and the official &lt;a href=&quot;https://meshcore.io&quot;&gt;MeshCore App&lt;/a&gt; has more than 100,000+ active users across Android and iOS.&lt;/p&gt;
-
-&lt;p&gt;It’s pretty epic how we’ve all built such an incredible community in such as a short time!&lt;/p&gt;
-
-&lt;p&gt;As the project grows, so does our need for a dedicated space that provides you with official information from the &lt;em&gt;core team&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;In recent times, we’ve seen an explosion of growth in MeshCore web sites dedicated to specific countries and mesh communities.&lt;/p&gt;
-
-&lt;p&gt;To name a few, we’ve seen:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MeshCore Portugal over at &lt;a href=&quot;https://meshcore.pt&quot;&gt;https://meshcore.pt&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;MeshCore Switzerland over at &lt;a href=&quot;https://meshcore.ch&quot;&gt;https://meshcore.ch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;and the first successes with MeshCore UK over at &lt;a href=&quot;https://meshcore.co.uk&quot;&gt;https://meshcore.co.uk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Andy Kirby did do an amazing job helping to promote the MeshCore project on his personal YouTube, but only promotes his own products now.&lt;/p&gt;
-
-&lt;h2 id=&quot;where-to-from-here&quot;&gt;Where To From Here?&lt;/h2&gt;
-
-&lt;p&gt;So, the core team are pushing ahead with the &lt;a href=&quot;https://meshcore.io&quot;&gt;meshcore.io&lt;/a&gt; website, the ongoing work of firmware feature development,
-bug fixes, managing PR’s and developer discussions, etc.&lt;/p&gt;
-
-&lt;p&gt;We now release change logs, blog posts and technical documentation for all of our new firmware and app releases here.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://meshcore.io&quot;&gt;https://meshcore.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.meshcore.io&quot;&gt;https://blog.meshcore.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.meshcore.io&quot;&gt;https://docs.meshcore.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You’ll also find some familiar faces on our blog posts, such as:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Scott&lt;/strong&gt; our project founder, lead firmware engineer and developer of the Ripple firmware!&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Recrof&lt;/strong&gt; our official MeshCore Map developer and Firmware Flasher guru. He has shared some insights into the early development of the MeshCore Map.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Liam Cottle&lt;/strong&gt; the official MeshCore App developer who will be posting useful guides for getting started with the MeshCore App.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;FDLamotte&lt;/strong&gt; who has done epic work on the Python tooling for MeshCore, as well as the STM32 firmware variants.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Oltaco&lt;/strong&gt; (Che Aporeps) who has done amazing work on the new OTA Fix bootloader that makes firmware updates much more reliable.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-core-team&quot;&gt;The Core Team&lt;/h2&gt;
-
-&lt;p&gt;The MeshCore team, now consisting of &lt;strong&gt;Scott&lt;/strong&gt;, &lt;strong&gt;Liam&lt;/strong&gt;, &lt;strong&gt;Recrof&lt;/strong&gt;, &lt;strong&gt;FDLamotte&lt;/strong&gt; and now &lt;strong&gt;Oltaco&lt;/strong&gt; remain committed to designing and developing high quality, &lt;em&gt;human-written&lt;/em&gt; software.&lt;/p&gt;
-
-&lt;h2 id=&quot;our-new-home&quot;&gt;Our New Home&lt;/h2&gt;
-
-&lt;p&gt;Please update your bookmarks!&lt;/p&gt;
-
-&lt;p&gt;This is where we will be hosting all official releases, technical documentation, and community discussions moving forward.&lt;/p&gt;
-
-&lt;p&gt;With the new website, we are also starting fresh with a new Discord server!&lt;/p&gt;
-
-&lt;p&gt;This is where you can interact directly with the MeshCore developers, get help with your projects, and contribute to the future of MeshCore.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Official Website: &lt;a href=&quot;https://meshcore.io&quot;&gt;https://meshcore.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Latest Updates: &lt;a href=&quot;https://blog.meshcore.io&quot;&gt;https://blog.meshcore.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Technical Docs: &lt;a href=&quot;https://docs.meshcore.io&quot;&gt;https://docs.meshcore.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Official GitHub: &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore&quot;&gt;https://github.com/meshcore-dev/MeshCore&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Reddit: &lt;a href=&quot;https://reddit.com/r/meshcore&quot;&gt;https://reddit.com/r/meshcore&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Facebook: &lt;a href=&quot;https://facebook.com/groups/meshcore&quot;&gt;https://facebook.com/groups/meshcore&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Discord: &lt;a href=&quot;https://meshcore.gg&quot;&gt;https://meshcore.gg&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thanks for being a part of this journey!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html">Since inception, the MeshCore development team have been working hard to build MeshCore.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;These are now available in the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore.io Flasher&lt;/a&gt;, for easy installation.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
