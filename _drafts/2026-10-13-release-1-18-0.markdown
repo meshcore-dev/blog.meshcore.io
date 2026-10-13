@@ -86,4 +86,37 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 
 ## Companion CLI
 
-to-do
+With v1.18.0 of the MeshCore companion firmware, we have introduced a new Companion CLI.
+
+This is similar to the existing Remote Management CLI that you may be used to using with repeaters.
+
+Prior to v1.18.0 firmware, any custom commands that users wanted to add to companion firmware, would have to be allocated a new companion protocol command ID, and avoid conflict with other custom firmwares.
+
+This was becoming cumbersome as new hardware variants released by manufacturers were starting to need custom commands to turn specific hardware features on and off.
+
+Unfortunately this also meant companion applications would need updating to support the new custom functionality.
+
+To make things easier, the new Companion CLI allows for a simple, text based, extensible command line experience for your companion nodes.
+
+The companion applications no longer need to be updated when a new CLI command is added to the firmware.
+
+As of MeshCore App v1.50.0, you'll see a new Command Line option in the settings screen.
+
+<img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/settings_command_line_button.jpg" />
+
+From here, you can send CLI commands to your local companion device. Any custom commands you may decide to register in the new `handleCommand` function of the `MainBoard` class in custom firmware will also be available.
+
+<img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/companion_cli.jpg" />
+
+Along with this, we have also introduced Remote Management of Companion nodes. A new Remote CLI permission has been added to the contacts database, and when this is switched on, it will allow that contact to send CLI commands to your companion node.
+
+This is a very sensitive permission to grant, as it allows for managing radio settings, updating node names and also rebooting the device via the mesh.
+
+<img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/remote_cli_permissions.jpg" />
+
+A new Command Line button has also been added to the Contact Details screen in the Extra Tools section. This allows you to send CLI commands to other companions nodes via the mesh.
+You will only receive a response from the remote companion node if they have given your node permission to send Remote CLI commands.
+
+<img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/contact_command_line_button.jpg" />
+
+We hope the new Companion CLI feature improves your experience in developing awesome things on top of MeshCore!
