@@ -1,0 +1,89 @@
+---
+layout: post
+date: 2026-10-13 12:00:00 +1200
+title: "Release v1.18.0"
+description: "What's new in release v1.18.0"
+image: "assets/images/firmware_release.jpg"
+author: admin
+categories:
+  - Announcements
+tags:
+  - Firmware
+  - Release
+---
+![](/assets/images/firmware_release.jpg)
+
+## Download
+
+Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
+
+## Change Log
+
+### New Features
+
+* [#3298](https://github.com/meshcore-dev/MeshCore/pull/3298) Companion CLI (incl. new TXT_TYPE_CLI_COMMAND (3))
+* [#3279](https://github.com/meshcore-dev/MeshCore/pull/3279) Companion: Node Discover UI
+* [#3329](https://github.com/meshcore-dev/MeshCore/pull/3329) Companion CLI: new 'get/set tz.offset' command
+* [#3359](https://github.com/meshcore-dev/MeshCore/pull/3359) WiFi companion CLI work. (new wifi.enabled/wifi.status CLI commands, etc)
+* [#3442](https://github.com/meshcore-dev/MeshCore/pull/3442) Companion CLI: reboot, poweroff and shutdown commands added
+* [#3458](https://github.com/meshcore-dev/MeshCore/pull/3458) Companion CLI: 'get wifi.pwd' added
+* [#3402](https://github.com/meshcore-dev/MeshCore/pull/3402) Sensor node, telemetry push (subscribe/unsubscribe)
+* [#3497](https://github.com/meshcore-dev/MeshCore/pull/3497) Companion: support for telemetry push
+
+### Enhancements
+
+* [#3268](https://github.com/meshcore-dev/MeshCore/pull/3268) Add support for RAK12500 and RAK12501 GPS on RAK3401 
+* [#3249](https://github.com/meshcore-dev/MeshCore/pull/3249) Companion channel sync now faster
+* [#3250](https://github.com/meshcore-dev/MeshCore/pull/3250) T114: Companion UI charging indicator
+* [#3239](https://github.com/meshcore-dev/MeshCore/pull/3239) Repeater, loop-detect minimal now default
+* [#3371](https://github.com/meshcore-dev/MeshCore/pull/3371) T-Beam-1W thermal fan control
+* [#3459](https://github.com/meshcore-dev/MeshCore/pull/3459) Thinkode m7: BLE variant now has WiFi support
+* [#3200](https://github.com/meshcore-dev/MeshCore/pull/3200) New 'gps diag' command
+* [#3201](https://github.com/meshcore-dev/MeshCore/pull/3201) L76K GPS enhancements
+* [#3202](https://github.com/meshcore-dev/MeshCore/pull/3202) Thinknode M6: xpose external-power and charger state (via 'power' command)
+* [#3525](https://github.com/meshcore-dev/MeshCore/pull/3525) Meshtracker X1 & t100: GPS wake/sleep now faster
+* [#3538](https://github.com/meshcore-dev/MeshCore/pull/3538) 'hidden repeater', now not discoverable if adverts turned off
+
+### New device support
+
+* [#3180](https://github.com/meshcore-dev/MeshCore/pull/3180) Thinknode M8 support
+* [#3248](https://github.com/meshcore-dev/MeshCore/pull/3248) WIO Tracker L1 1W support
+* [#3108](https://github.com/meshcore-dev/MeshCore/pull/3108) Add Muzi Base board support (Duo + Uno + SuperIO)
+* [#3463](https://github.com/meshcore-dev/MeshCore/pull/3463) Thinknode M4
+
+### Bug fixes and Other
+
+* [#3275](https://github.com/meshcore-dev/MeshCore/pull/3275) Fix PA on RAK3401 when GPS missing
+* [#3290](https://github.com/meshcore-dev/MeshCore/pull/3290) WIO tracker L1: Hibernate menu removed
+* [#3234](https://github.com/meshcore-dev/MeshCore/pull/3234) Bosch sensor alt I2C address support (BME680, BME280)
+* [#3236](https://github.com/meshcore-dev/MeshCore/pull/3236) Xiao C3 BLE companion fix
+* [#3235](https://github.com/meshcore-dev/MeshCore/pull/3235) Companion CMD_SEND_RAW_DATA multi-byte path fix
+* [#3218](https://github.com/meshcore-dev/MeshCore/pull/3218) LR2021 driver setTxPower fix
+* [#3319](https://github.com/meshcore-dev/MeshCore/pull/3319) Fix Meshnology W12 TX power
+* [#3379](https://github.com/meshcore-dev/MeshCore/pull/3379) LR2021 startReceive() fix
+* [#3386](https://github.com/meshcore-dev/MeshCore/pull/3386) group channel data bounds check fix
+* [#3395](https://github.com/meshcore-dev/MeshCore/pull/3395) Command buffer bounds checking fixes
+* [#3389](https://github.com/meshcore-dev/MeshCore/pull/3389) 'set af' range check validation
+* [#3002](https://github.com/meshcore-dev/MeshCore/pull/3002) nRF52 power management config fixes
+* [#3393](https://github.com/meshcore-dev/MeshCore/pull/3393) extra null and range checks in packet pool manager
+* [#3430](https://github.com/meshcore-dev/MeshCore/pull/3430) Thinknode M7 companion ethernet variant
+* [#3449](https://github.com/meshcore-dev/MeshCore/pull/3449) Keep LED off before poweroff
+* [#3431](https://github.com/meshcore-dev/MeshCore/pull/3431) Companion AbstractUITask overhaul
+* [#3436](https://github.com/meshcore-dev/MeshCore/pull/3436) WIO E5 fixes
+* [#3468](https://github.com/meshcore-dev/MeshCore/pull/3468) Thinknode m4: don't touch crystal and OTA name
+* [#3469](https://github.com/meshcore-dev/MeshCore/pull/3469) 'set agc.reset.interval' validation fixes
+* [#3464](https://github.com/meshcore-dev/MeshCore/pull/3464) LR1121 DC-DC & Misc Updates
+* [#3490](https://github.com/meshcore-dev/MeshCore/pull/3490) Heltec CT62 fixes
+* [#1809](https://github.com/meshcore-dev/MeshCore/pull/1809) MACThenDecrypt, reject if not block aligned
+* [#1896](https://github.com/meshcore-dev/MeshCore/pull/1896) preserve system time across reboots
+* [#2472](https://github.com/meshcore-dev/MeshCore/pull/2472) T-Echo Lite: KISS USB variant 
+* [#3155](https://github.com/meshcore-dev/MeshCore/pull/3155) Promicro, added INA226 support
+* [#3301](https://github.com/meshcore-dev/MeshCore/pull/3301) Fix clock on Heltec T1
+* [#2065](https://github.com/meshcore-dev/MeshCore/pull/2065) T1000-E sensor power pin mapping fix
+* [#2838](https://github.com/meshcore-dev/MeshCore/pull/2838) GPS: poll up to 5s for cold-start detection
+* [#3568](https://github.com/meshcore-dev/MeshCore/pull/3568) tranport-code 0 now treated same as un-scoped
+* [#3573](https://github.com/meshcore-dev/MeshCore/pull/3572) ACK direct-mode forwarding now applies retransmit delay config (was 0)
+
+## Companion CLI
+
+to-do
