@@ -24,7 +24,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 * [#3298](https://github.com/meshcore-dev/MeshCore/pull/3298) Companion CLI (incl. new TXT_TYPE_CLI_COMMAND (3))
 * [#3279](https://github.com/meshcore-dev/MeshCore/pull/3279) Companion: Node Discover UI
 * [#3329](https://github.com/meshcore-dev/MeshCore/pull/3329) Companion CLI: new 'get/set tz.offset' command
-* [#3359](https://github.com/meshcore-dev/MeshCore/pull/3359) WiFi companion CLI work. (new wifi.enabled/wifi.status CLI commands, etc)
+* [#3357](https://github.com/meshcore-dev/MeshCore/pull/3357) WiFi companion CLI work. (new wifi.enabled/wifi.status CLI commands, etc)
 * [#3442](https://github.com/meshcore-dev/MeshCore/pull/3442) Companion CLI: reboot, poweroff and shutdown commands added
 * [#3458](https://github.com/meshcore-dev/MeshCore/pull/3458) Companion CLI: 'get wifi.pwd' added
 * [#3402](https://github.com/meshcore-dev/MeshCore/pull/3402) Sensor node, telemetry push (subscribe/unsubscribe)
@@ -120,3 +120,42 @@ You will only receive a response from the remote companion node if they have giv
 <img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/contact_command_line_button.jpg" />
 
 We hope the new Companion CLI feature improves your experience in developing awesome things on top of MeshCore!
+
+## Multi Interface Companion Firmwares (BLE+WIFI)
+
+Since the beginning, we have strived to keep our firmware sizes as minimal as possible, to allow MeshCore to run on the most constrained hardware available.
+To allow for this, companion firmwares have always been separated into individual BLE, USB and WiFi builds.
+
+This helped to keep RAM and flash usage low, however it came with the downside of needing to reflash your companion node with a different firmware every time you wanted to change the connection method.
+
+As of MeshCore firmware v1.17.0 in [PR #3049](https://github.com/meshcore-dev/MeshCore/pull/3049), we introduced a new `MultiSerialInterface` class, that allows the MeshCore companion firmware to accept connections from multiple modes, such as BLE and WiFi at the same time.
+
+This increases RAM and flash usage, however it allows users to connect to a MeshCore companion node via either connection option as needed, without requiring the user to change the firmware on their node each time.
+
+When this was introduced, the only hardware board that it was enabled for was the Elecrow ThinkNode M7, which allows connecting via BLE, WiFi and Ethernet all from the one firmware.
+
+With MeshCore companion firmware v1.18.0, we have expanded this to a couple of extra devices. Namely the Heltec v3 and the Heltec v4. Users with these boards will now be able to connect via BLE and configure their WiFi credentials via the MeshCore App.
+
+Some hardware doesn't have enough RAM to allow for the coexistence of BLE and WiFi, and so these devices will still require you to choose from the specific connection mode firmware builds.
+
+We are looking at alternative options, such as switching from Bluedroid to NimBLE for our Bluetooth stack, which drops RAM usage significantly, and can allow for BLE and WiFi on some of the more resource constrained devices.
+
+For those of you who want to build your own custom firmware with BLE and WiFi support, for an ESP32 device that we haven't enabled it for yet, all you need to do is add `-D ENABLE_WIFI_INTERFACE` to the `build_flags` and `+<helpers/wifi/*.cpp>` to the `build_src_filter` in an existing BLE variant. Please see [PR #3591](https://github.com/meshcore-dev/MeshCore/pull/3591) for an example of how to do this.
+
+The USB connection method is not included with the BLE+WIFI builds at this time, as it is used for serial logging. We will look to revise this in a future firmware update.
+
+## WiFi Settings in the MeshCore App
+
+Now that we are starting to support BLE and WiFi at the same time, it makes sense to be able to configure it through the app.
+
+As of MeshCore App v1.50.0 there is a new WiFi Settings section.
+
+This will allow you to connect to your companion node via BLE, configure your WiFi credentials and when your node reboots it will automatically connect to WiFi.
+
+<img alt class="mx-auto" style="width:200px" src="/assets/images/2026/10/13/wifi_settings.jpg" />
+
+For those using other companion apps, the WiFi credentials can be configured via the new `set wifi.ssid` and `set wifi.pwd` CLI commands.
+
+Please see [PR #3357](https://github.com/meshcore-dev/MeshCore/pull/3357) and [PR #3458](https://github.com/meshcore-dev/MeshCore/pull/3458) for more info on these changes.
+
+We hope these changes lead to a more enjoyable user experience, and we hope to roll these out to more boards in the future!
