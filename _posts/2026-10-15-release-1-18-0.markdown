@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-10-13 12:00:00 +1200
+date: 2026-10-15 12:00:00 +1200
 title: "Release v1.18.0"
 description: "What's new in release v1.18.0"
 image: "assets/images/firmware_release.jpg"
@@ -50,6 +50,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 * [#3248](https://github.com/meshcore-dev/MeshCore/pull/3248) WIO Tracker L1 1W support
 * [#3108](https://github.com/meshcore-dev/MeshCore/pull/3108) Add Muzi Base board support (Duo + Uno + SuperIO)
 * [#3463](https://github.com/meshcore-dev/MeshCore/pull/3463) Thinknode M4
+* [#3574](https://github.com/meshcore-dev/MeshCore/pull/3574) Waveshare ESP32-S3 LR1121
 
 ### Bug fixes and Other
 
@@ -83,6 +84,7 @@ Latest firmwares are in the [flasher.meshcore.io](https://flasher.meshcore.io/)
 * [#2838](https://github.com/meshcore-dev/MeshCore/pull/2838) GPS: poll up to 5s for cold-start detection
 * [#3568](https://github.com/meshcore-dev/MeshCore/pull/3568) tranport-code 0 now treated same as un-scoped
 * [#3573](https://github.com/meshcore-dev/MeshCore/pull/3572) ACK direct-mode forwarding now applies retransmit delay config (was 0)
+* [#2377](https://github.com/meshcore-dev/MeshCore/pull/2377) Low voltage boot lockout now disabled on most nRF52 boards
 
 ## Companion CLI
 
@@ -134,7 +136,16 @@ This increases RAM and flash usage, however it allows users to connect to a Mesh
 
 When this was introduced, the only hardware board that it was enabled for was the Elecrow ThinkNode M7, which allows connecting via BLE, WiFi and Ethernet all from the one firmware.
 
-With MeshCore companion firmware v1.18.0, we have expanded this to a couple of extra devices. Namely the Heltec v3 and the Heltec v4. Users with these boards will now be able to connect via BLE and configure their WiFi credentials via the MeshCore App.
+With MeshCore companion firmware v1.18.0, we have expanded this to a few extra devices:
+* Heltec v3
+* Heltec v4
+* Heltec v4 r8
+* Heltec Wireless Paper
+* RAK3112
+* Xiao S3
+* Xiao S3 WIO
+
+Users with these boards will now be able to connect via BLE and configure their WiFi credentials via the MeshCore App.
 
 Some hardware doesn't have enough RAM to allow for the coexistence of BLE and WiFi, and so these devices will still require you to choose from the specific connection mode firmware builds.
 
