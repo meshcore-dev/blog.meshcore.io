@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-10-15T03:32:57+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Sensor Node Intro</title><link href="https://blog.meshcore.io/2026/09/14/sensor-intro" rel="alternate" type="text/html" title="Sensor Node Intro" /><published>2026-09-14T00:00:00+00:00</published><updated>2026-09-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/09/14/sensor-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/09/14/sensor-intro">&lt;p&gt;The MeshCore sensor node type is much harder to get going with as we don’t
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-10-15T09:55:04+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.18.0</title><link href="https://blog.meshcore.io/2026/10/15/release-1-18-0" rel="alternate" type="text/html" title="Release v1.18.0" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/15/release-1-18-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/15/release-1-18-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;Latest firmwares are in the &lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;flasher.meshcore.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;change-log&quot;&gt;Change Log&lt;/h2&gt;
+
+&lt;h3 id=&quot;new-features&quot;&gt;New Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3298&quot;&gt;#3298&lt;/a&gt; Companion CLI (incl. new TXT_TYPE_CLI_COMMAND (3))&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3279&quot;&gt;#3279&lt;/a&gt; Companion: Node Discover UI&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3329&quot;&gt;#3329&lt;/a&gt; Companion CLI: new ‘get/set tz.offset’ command&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3357&quot;&gt;#3357&lt;/a&gt; WiFi companion CLI work. (new wifi.enabled/wifi.status CLI commands, etc)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3442&quot;&gt;#3442&lt;/a&gt; Companion CLI: reboot, poweroff and shutdown commands added&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3458&quot;&gt;#3458&lt;/a&gt; Companion CLI: ‘get wifi.pwd’ added&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3402&quot;&gt;#3402&lt;/a&gt; Sensor node, telemetry push (subscribe/unsubscribe)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3497&quot;&gt;#3497&lt;/a&gt; Companion: support for telemetry push&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enhancements&quot;&gt;Enhancements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3268&quot;&gt;#3268&lt;/a&gt; Add support for RAK12500 and RAK12501 GPS on RAK3401&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3249&quot;&gt;#3249&lt;/a&gt; Companion channel sync now faster&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3250&quot;&gt;#3250&lt;/a&gt; T114: Companion UI charging indicator&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3239&quot;&gt;#3239&lt;/a&gt; Repeater, loop-detect minimal now default&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3371&quot;&gt;#3371&lt;/a&gt; T-Beam-1W thermal fan control&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3459&quot;&gt;#3459&lt;/a&gt; Thinkode m7: BLE variant now has WiFi support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3200&quot;&gt;#3200&lt;/a&gt; New ‘gps diag’ command&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3201&quot;&gt;#3201&lt;/a&gt; L76K GPS enhancements&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3202&quot;&gt;#3202&lt;/a&gt; Thinknode M6: xpose external-power and charger state (via ‘power’ command)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3525&quot;&gt;#3525&lt;/a&gt; Meshtracker X1 &amp;amp; t100: GPS wake/sleep now faster&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3538&quot;&gt;#3538&lt;/a&gt; ‘hidden repeater’, now not discoverable if adverts turned off&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;new-device-support&quot;&gt;New device support&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3180&quot;&gt;#3180&lt;/a&gt; Thinknode M8 support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3248&quot;&gt;#3248&lt;/a&gt; WIO Tracker L1 1W support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3108&quot;&gt;#3108&lt;/a&gt; Add Muzi Base board support (Duo + Uno + SuperIO)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3463&quot;&gt;#3463&lt;/a&gt; Thinknode M4&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3574&quot;&gt;#3574&lt;/a&gt; Waveshare ESP32-S3 LR1121&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bug-fixes-and-other&quot;&gt;Bug fixes and Other&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3275&quot;&gt;#3275&lt;/a&gt; Fix PA on RAK3401 when GPS missing&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3290&quot;&gt;#3290&lt;/a&gt; WIO tracker L1: Hibernate menu removed&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3234&quot;&gt;#3234&lt;/a&gt; Bosch sensor alt I2C address support (BME680, BME280)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3236&quot;&gt;#3236&lt;/a&gt; Xiao C3 BLE companion fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3235&quot;&gt;#3235&lt;/a&gt; Companion CMD_SEND_RAW_DATA multi-byte path fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3218&quot;&gt;#3218&lt;/a&gt; LR2021 driver setTxPower fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3319&quot;&gt;#3319&lt;/a&gt; Fix Meshnology W12 TX power&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3379&quot;&gt;#3379&lt;/a&gt; LR2021 startReceive() fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3386&quot;&gt;#3386&lt;/a&gt; group channel data bounds check fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3395&quot;&gt;#3395&lt;/a&gt; Command buffer bounds checking fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3389&quot;&gt;#3389&lt;/a&gt; ‘set af’ range check validation&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3002&quot;&gt;#3002&lt;/a&gt; nRF52 power management config fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3393&quot;&gt;#3393&lt;/a&gt; extra null and range checks in packet pool manager&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3430&quot;&gt;#3430&lt;/a&gt; Thinknode M7 companion ethernet variant&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3449&quot;&gt;#3449&lt;/a&gt; Keep LED off before poweroff&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3431&quot;&gt;#3431&lt;/a&gt; Companion AbstractUITask overhaul&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3436&quot;&gt;#3436&lt;/a&gt; WIO E5 fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3468&quot;&gt;#3468&lt;/a&gt; Thinknode m4: don’t touch crystal and OTA name&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3469&quot;&gt;#3469&lt;/a&gt; ‘set agc.reset.interval’ validation fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3464&quot;&gt;#3464&lt;/a&gt; LR1121 DC-DC &amp;amp; Misc Updates&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3490&quot;&gt;#3490&lt;/a&gt; Heltec CT62 fixes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1809&quot;&gt;#1809&lt;/a&gt; MACThenDecrypt, reject if not block aligned&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/1896&quot;&gt;#1896&lt;/a&gt; preserve system time across reboots&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2472&quot;&gt;#2472&lt;/a&gt; T-Echo Lite: KISS USB variant&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3155&quot;&gt;#3155&lt;/a&gt; Promicro, added INA226 support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3301&quot;&gt;#3301&lt;/a&gt; Fix clock on Heltec T1&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2065&quot;&gt;#2065&lt;/a&gt; T1000-E sensor power pin mapping fix&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2838&quot;&gt;#2838&lt;/a&gt; GPS: poll up to 5s for cold-start detection&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3568&quot;&gt;#3568&lt;/a&gt; tranport-code 0 now treated same as un-scoped&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3572&quot;&gt;#3573&lt;/a&gt; ACK direct-mode forwarding now applies retransmit delay config (was 0)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/2377&quot;&gt;#2377&lt;/a&gt; Low voltage boot lockout now disabled on most nRF52 boards&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;companion-cli&quot;&gt;Companion CLI&lt;/h2&gt;
+
+&lt;p&gt;With v1.18.0 of the MeshCore companion firmware, we have introduced a new Companion CLI.&lt;/p&gt;
+
+&lt;p&gt;This is similar to the existing Remote Management CLI that you may be used to using with repeaters.&lt;/p&gt;
+
+&lt;p&gt;Prior to v1.18.0 firmware, any custom commands that users wanted to add to companion firmware, would have to be allocated a new companion protocol command ID, and avoid conflict with other custom firmwares.&lt;/p&gt;
+
+&lt;p&gt;This was becoming cumbersome as new hardware variants released by manufacturers were starting to need custom commands to turn specific hardware features on and off.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately this also meant companion applications would need updating to support the new custom functionality.&lt;/p&gt;
+
+&lt;p&gt;To make things easier, the new Companion CLI allows for a simple, text based, extensible command line experience for your companion nodes.&lt;/p&gt;
+
+&lt;p&gt;The companion applications no longer need to be updated when a new CLI command is added to the firmware.&lt;/p&gt;
+
+&lt;p&gt;As of MeshCore App v1.50.0, you’ll see a new Command Line option in the settings screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; style=&quot;width:200px&quot; src=&quot;/assets/images/2026/10/13/settings_command_line_button.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From here, you can send CLI commands to your local companion device. Any custom commands you may decide to register in the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;handleCommand&lt;/code&gt; function of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainBoard&lt;/code&gt; class in custom firmware will also be available.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; style=&quot;width:200px&quot; src=&quot;/assets/images/2026/10/13/companion_cli.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Along with this, we have also introduced Remote Management of Companion nodes. A new Remote CLI permission has been added to the contacts database, and when this is switched on, it will allow that contact to send CLI commands to your companion node.&lt;/p&gt;
+
+&lt;p&gt;This is a very sensitive permission to grant, as it allows for managing radio settings, updating node names and also rebooting the device via the mesh.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; style=&quot;width:200px&quot; src=&quot;/assets/images/2026/10/13/remote_cli_permissions.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A new Command Line button has also been added to the Contact Details screen in the Extra Tools section. This allows you to send CLI commands to other companions nodes via the mesh.
+You will only receive a response from the remote companion node if they have given your node permission to send Remote CLI commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; style=&quot;width:200px&quot; src=&quot;/assets/images/2026/10/13/contact_command_line_button.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We hope the new Companion CLI feature improves your experience in developing awesome things on top of MeshCore!&lt;/p&gt;
+
+&lt;h2 id=&quot;multi-interface-companion-firmwares-blewifi&quot;&gt;Multi Interface Companion Firmwares (BLE+WIFI)&lt;/h2&gt;
+
+&lt;p&gt;Since the beginning, we have strived to keep our firmware sizes as minimal as possible, to allow MeshCore to run on the most constrained hardware available.
+To allow for this, companion firmwares have always been separated into individual BLE, USB and WiFi builds.&lt;/p&gt;
+
+&lt;p&gt;This helped to keep RAM and flash usage low, however it came with the downside of needing to reflash your companion node with a different firmware every time you wanted to change the connection method.&lt;/p&gt;
+
+&lt;p&gt;As of MeshCore firmware v1.17.0 in &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3049&quot;&gt;PR #3049&lt;/a&gt;, we introduced a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MultiSerialInterface&lt;/code&gt; class, that allows the MeshCore companion firmware to accept connections from multiple modes, such as BLE and WiFi at the same time.&lt;/p&gt;
+
+&lt;p&gt;This increases RAM and flash usage, however it allows users to connect to a MeshCore companion node via either connection option as needed, without requiring the user to change the firmware on their node each time.&lt;/p&gt;
+
+&lt;p&gt;When this was introduced, the only hardware board that it was enabled for was the Elecrow ThinkNode M7, which allows connecting via BLE, WiFi and Ethernet all from the one firmware.&lt;/p&gt;
+
+&lt;p&gt;With MeshCore companion firmware v1.18.0, we have expanded this to a few extra devices:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Heltec v3&lt;/li&gt;
+  &lt;li&gt;Heltec v4&lt;/li&gt;
+  &lt;li&gt;Heltec v4 r8&lt;/li&gt;
+  &lt;li&gt;Heltec Wireless Paper&lt;/li&gt;
+  &lt;li&gt;RAK3112&lt;/li&gt;
+  &lt;li&gt;Xiao S3&lt;/li&gt;
+  &lt;li&gt;Xiao S3 WIO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Users with these boards will now be able to connect via BLE and configure their WiFi credentials via the MeshCore App.&lt;/p&gt;
+
+&lt;p&gt;Some hardware doesn’t have enough RAM to allow for the coexistence of BLE and WiFi, and so these devices will still require you to choose from the specific connection mode firmware builds.&lt;/p&gt;
+
+&lt;p&gt;We are looking at alternative options, such as switching from Bluedroid to NimBLE for our Bluetooth stack, which drops RAM usage significantly, and can allow for BLE and WiFi on some of the more resource constrained devices.&lt;/p&gt;
+
+&lt;p&gt;For those of you who want to build your own custom firmware with BLE and WiFi support, for an ESP32 device that we haven’t enabled it for yet, all you need to do is add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-D ENABLE_WIFI_INTERFACE&lt;/code&gt; to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build_flags&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&amp;lt;helpers/wifi/*.cpp&amp;gt;&lt;/code&gt; to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build_src_filter&lt;/code&gt; in an existing BLE variant. Please see &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3591&quot;&gt;PR #3591&lt;/a&gt; for an example of how to do this.&lt;/p&gt;
+
+&lt;p&gt;The USB connection method is not included with the BLE+WIFI builds at this time, as it is used for serial logging. We will look to revise this in a future firmware update.&lt;/p&gt;
+
+&lt;h2 id=&quot;wifi-settings-in-the-meshcore-app&quot;&gt;WiFi Settings in the MeshCore App&lt;/h2&gt;
+
+&lt;p&gt;Now that we are starting to support BLE and WiFi at the same time, it makes sense to be able to configure it through the app.&lt;/p&gt;
+
+&lt;p&gt;As of MeshCore App v1.50.0 there is a new WiFi Settings section.&lt;/p&gt;
+
+&lt;p&gt;This will allow you to connect to your companion node via BLE, configure your WiFi credentials and when your node reboots it will automatically connect to WiFi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; style=&quot;width:200px&quot; src=&quot;/assets/images/2026/10/13/wifi_settings.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For those using other companion apps, the WiFi credentials can be configured via the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set wifi.ssid&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set wifi.pwd&lt;/code&gt; CLI commands.&lt;/p&gt;
+
+&lt;p&gt;Please see &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3357&quot;&gt;PR #3357&lt;/a&gt; and &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/pull/3458&quot;&gt;PR #3458&lt;/a&gt; for more info on these changes.&lt;/p&gt;
+
+&lt;p&gt;We hope these changes lead to a more enjoyable user experience, and we hope to roll these out to more boards in the future!&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html">Download Latest firmwares are in the flasher.meshcore.io Change Log New Features #3298 Companion CLI (incl. new TXT_TYPE_CLI_COMMAND (3)) #3279 Companion: Node Discover UI #3329 Companion CLI: new ‘get/set tz.offset’ command #3357 WiFi companion CLI work. (new wifi.enabled/wifi.status CLI commands, etc) #3442 Companion CLI: reboot, poweroff and shutdown commands added #3458 Companion CLI: ‘get wifi.pwd’ added #3402 Sensor node, telemetry push (subscribe/unsubscribe) #3497 Companion: support for telemetry push Enhancements #3268 Add support for RAK12500 and RAK12501 GPS on RAK3401 #3249 Companion channel sync now faster #3250 T114: Companion UI charging indicator #3239 Repeater, loop-detect minimal now default #3371 T-Beam-1W thermal fan control #3459 Thinkode m7: BLE variant now has WiFi support #3200 New ‘gps diag’ command #3201 L76K GPS enhancements #3202 Thinknode M6: xpose external-power and charger state (via ‘power’ command) #3525 Meshtracker X1 &amp;amp; t100: GPS wake/sleep now faster #3538 ‘hidden repeater’, now not discoverable if adverts turned off New device support #3180 Thinknode M8 support #3248 WIO Tracker L1 1W support #3108 Add Muzi Base board support (Duo + Uno + SuperIO) #3463 Thinknode M4 #3574 Waveshare ESP32-S3 LR1121 Bug fixes and Other #3275 Fix PA on RAK3401 when GPS missing #3290 WIO tracker L1: Hibernate menu removed #3234 Bosch sensor alt I2C address support (BME680, BME280) #3236 Xiao C3 BLE companion fix #3235 Companion CMD_SEND_RAW_DATA multi-byte path fix #3218 LR2021 driver setTxPower fix #3319 Fix Meshnology W12 TX power #3379 LR2021 startReceive() fix #3386 group channel data bounds check fix #3395 Command buffer bounds checking fixes #3389 ‘set af’ range check validation #3002 nRF52 power management config fixes #3393 extra null and range checks in packet pool manager #3430 Thinknode M7 companion ethernet variant #3449 Keep LED off before poweroff #3431 Companion AbstractUITask overhaul #3436 WIO E5 fixes #3468 Thinknode m4: don’t touch crystal and OTA name #3469 ‘set agc.reset.interval’ validation fixes #3464 LR1121 DC-DC &amp;amp; Misc Updates #3490 Heltec CT62 fixes #1809 MACThenDecrypt, reject if not block aligned #1896 preserve system time across reboots #2472 T-Echo Lite: KISS USB variant #3155 Promicro, added INA226 support #3301 Fix clock on Heltec T1 #2065 T1000-E sensor power pin mapping fix #2838 GPS: poll up to 5s for cold-start detection #3568 tranport-code 0 now treated same as un-scoped #3573 ACK direct-mode forwarding now applies retransmit delay config (was 0) #2377 Low voltage boot lockout now disabled on most nRF52 boards Companion CLI With v1.18.0 of the MeshCore companion firmware, we have introduced a new Companion CLI. This is similar to the existing Remote Management CLI that you may be used to using with repeaters. Prior to v1.18.0 firmware, any custom commands that users wanted to add to companion firmware, would have to be allocated a new companion protocol command ID, and avoid conflict with other custom firmwares. This was becoming cumbersome as new hardware variants released by manufacturers were starting to need custom commands to turn specific hardware features on and off. Unfortunately this also meant companion applications would need updating to support the new custom functionality. To make things easier, the new Companion CLI allows for a simple, text based, extensible command line experience for your companion nodes. The companion applications no longer need to be updated when a new CLI command is added to the firmware. As of MeshCore App v1.50.0, you’ll see a new Command Line option in the settings screen. From here, you can send CLI commands to your local companion device. Any custom commands you may decide to register in the new handleCommand function of the MainBoard class in custom firmware will also be available. Along with this, we have also introduced Remote Management of Companion nodes. A new Remote CLI permission has been added to the contacts database, and when this is switched on, it will allow that contact to send CLI commands to your companion node. This is a very sensitive permission to grant, as it allows for managing radio settings, updating node names and also rebooting the device via the mesh. A new Command Line button has also been added to the Contact Details screen in the Extra Tools section. This allows you to send CLI commands to other companions nodes via the mesh. You will only receive a response from the remote companion node if they have given your node permission to send Remote CLI commands. We hope the new Companion CLI feature improves your experience in developing awesome things on top of MeshCore! Multi Interface Companion Firmwares (BLE+WIFI) Since the beginning, we have strived to keep our firmware sizes as minimal as possible, to allow MeshCore to run on the most constrained hardware available. To allow for this, companion firmwares have always been separated into individual BLE, USB and WiFi builds. This helped to keep RAM and flash usage low, however it came with the downside of needing to reflash your companion node with a different firmware every time you wanted to change the connection method. As of MeshCore firmware v1.17.0 in PR #3049, we introduced a new MultiSerialInterface class, that allows the MeshCore companion firmware to accept connections from multiple modes, such as BLE and WiFi at the same time. This increases RAM and flash usage, however it allows users to connect to a MeshCore companion node via either connection option as needed, without requiring the user to change the firmware on their node each time. When this was introduced, the only hardware board that it was enabled for was the Elecrow ThinkNode M7, which allows connecting via BLE, WiFi and Ethernet all from the one firmware. With MeshCore companion firmware v1.18.0, we have expanded this to a few extra devices: Heltec v3 Heltec v4 Heltec v4 r8 Heltec Wireless Paper RAK3112 Xiao S3 Xiao S3 WIO Users with these boards will now be able to connect via BLE and configure their WiFi credentials via the MeshCore App. Some hardware doesn’t have enough RAM to allow for the coexistence of BLE and WiFi, and so these devices will still require you to choose from the specific connection mode firmware builds. We are looking at alternative options, such as switching from Bluedroid to NimBLE for our Bluetooth stack, which drops RAM usage significantly, and can allow for BLE and WiFi on some of the more resource constrained devices. For those of you who want to build your own custom firmware with BLE and WiFi support, for an ESP32 device that we haven’t enabled it for yet, all you need to do is add -D ENABLE_WIFI_INTERFACE to the build_flags and +&amp;lt;helpers/wifi/*.cpp&amp;gt; to the build_src_filter in an existing BLE variant. Please see PR #3591 for an example of how to do this. The USB connection method is not included with the BLE+WIFI builds at this time, as it is used for serial logging. We will look to revise this in a future firmware update. WiFi Settings in the MeshCore App Now that we are starting to support BLE and WiFi at the same time, it makes sense to be able to configure it through the app. As of MeshCore App v1.50.0 there is a new WiFi Settings section. This will allow you to connect to your companion node via BLE, configure your WiFi credentials and when your node reboots it will automatically connect to WiFi. For those using other companion apps, the WiFi credentials can be configured via the new set wifi.ssid and set wifi.pwd CLI commands. Please see PR #3357 and PR #3458 for more info on these changes. We hope these changes lead to a more enjoyable user experience, and we hope to roll these out to more boards in the future!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sensor Node Intro</title><link href="https://blog.meshcore.io/2026/09/14/sensor-intro" rel="alternate" type="text/html" title="Sensor Node Intro" /><published>2026-09-14T00:00:00+00:00</published><updated>2026-09-14T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/09/14/sensor-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/09/14/sensor-intro">&lt;p&gt;The MeshCore sensor node type is much harder to get going with as we don’t
 pre-build variants with each release, like we do with repeater, companion and room server,
 so it requires some developer knowledge.&lt;/p&gt;
 
@@ -850,30 +1018,4 @@ can do its own raw send and receive of packets.&lt;/p&gt;</content><author><name
   &lt;li&gt;UltraPeater — &lt;a href=&quot;https://zindello.com.au/ultrapeater/&quot;&gt;https://zindello.com.au/ultrapeater/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/pymc-gear.jpeg&quot; /&gt;&lt;/p&gt;</content><author><name>rightup</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ripple UI v9.7</title><link href="https://blog.meshcore.io/2026/04/30/ripple-9.7" rel="alternate" type="text/html" title="Ripple UI v9.7" /><published>2026-04-30T00:00:00+00:00</published><updated>2026-04-30T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/04/30/ripple-9.7</id><content type="html" xml:base="https://blog.meshcore.io/2026/04/30/ripple-9.7">&lt;p&gt;The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/2026/04/30/t-pager-9.7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;display-preferences&quot;&gt;Display Preferences&lt;/h2&gt;
-
-&lt;p&gt;The Display menu now shows these preferences:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/display-prefs-9.7.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;UI Theme&lt;/strong&gt; preferences is one of: Light, Dark or Auto. The Auto option automatically switches the UI theme depending on the &lt;strong&gt;Brightness&lt;/strong&gt; setting (day or night).&lt;/p&gt;
-
-&lt;p&gt;PAID FEATURE: The &lt;strong&gt;Accent color&lt;/strong&gt; lets you customise the accent colour used throughout the firmware. There are 10 fun colour swatches to select from:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/color-select.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;map-theme&quot;&gt;Map Theme&lt;/h2&gt;
-
-&lt;p&gt;Note that the &lt;strong&gt;UI Theme&lt;/strong&gt; preference also determines the light/dark theming for the maps:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/04/30/map-dark-light.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
-
-&lt;p&gt;The v9.7 is now available for &lt;a href=&quot;https://www.lilygo.cc/products/t-deck-plus-1?variant=51618501951669&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;LilyGo T-Deck&lt;/a&gt;, &lt;a href=&quot;https://www.lilygo.cc/products/t-lora-pager?bg_ref=cq3pUU7cD3&quot;&gt;T-Pager&lt;/a&gt; and the &lt;a href=&quot;https://www.lilygo.cc/products/t-watch-s3-plus?variant=52457652224181&amp;amp;bg_ref=cq3pUU7cD3&quot;&gt;T-Watch S3 Plus&lt;/a&gt;. It will be rolling out soon for the other colour devices, like Heltec V4 Expansion kit, etc.&lt;/p&gt;
-
-&lt;p&gt;These are now available in the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore.io Flasher&lt;/a&gt;, for easy installation.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The latest release of the Ripple UI firmwares has had quite a big overhaul (under the hood) and the UI now sports a Light and Dark mode theming, plus you can now customise the accent colour used throughout the firmware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/04/30/t-pager-9.7.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/pymc-gear.jpeg&quot; /&gt;&lt;/p&gt;</content><author><name>rightup</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
