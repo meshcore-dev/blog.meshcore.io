@@ -13,7 +13,7 @@ tags:
 
 <img alt class="mx-auto" src="/assets/images/2026/10/20/image.png" />
 
-The [Solar Node P1-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshcore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io) is a powerful off-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage. You can also swap in antennas with the corresponding gain to further boost its performance.
+The [Solar Node P1-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io) is a powerful off-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage. You can also swap in antennas with the corresponding gain to further boost its performance.
 
 This guide will walk you through, step by step on how to improve antenna performance and how to verify that your Solar Node P1-Pro is working properly.
 
@@ -23,7 +23,7 @@ The antenna that comes with the Solar Node P1-Pro is already specifically matche
 
 Before replacing the antenna, there are several simpler ways to improve the actual communication range.
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%208.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-8.png" />
 
 **Choose a more open location**
 
@@ -31,7 +31,7 @@ LoRa performs best when there are fewer obstacles between nodes. Buildings, hill
 
 If possible, install the P1-Pro in an open area and avoid placing it behind walls, inside metal enclosures, or very close to large metal objects.
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%201.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-1.png" />
 
 **Install the node higher**
 
@@ -69,45 +69,41 @@ A fiberglass antenna with suitable gain can provide better performance for fixed
 
 - [RP-SMA to N-type adapter](https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io), used for connecting high-performance antennas.
 
-- 868-915 MHz fiberglass antenna
+- [868-915 MHz fiberglass antenna](https://s.click.aliexpress.com/e/_c3GtNzkN)
 
 Hardware upgrade
 
 **Install as shown in the picture**
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%202.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-2.png" />
 
 The included bracket also has corresponding mounting positions for the fiberglass antenna.
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%204.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-4.png" />
 
 When disassembling or handling SMA connectors, make sure to turn off the node power first. Also, check the connector orientation before applying force. When tightening the adapter, ensure the connector fits snugly. A loose RF connector can reduce performance.
 
 # The internal structure of the Solar Node P1-Pro
 
-<img alt class="mx-auto" width="75%" src="/assets/images/2026/10/20/image%203.png" />
+<img alt class="mx-auto" width="75%" src="/assets/images/2026/10/20/image-3.png" />
 
 # Update the Solar Node P1-Pro firmware
 
-You can easily update the firmware using [MeshCore Flasher](https://flasher.meshcore.io/seeed-studio-sensecap-solar-node-p1/repeater/), and you can just follow the steps to do it.
+You can easily update the firmware using the [MeshCore Flasher](https://flasher.meshcore.io/seeed-studio-sensecap-solar-node-p1/repeater/), and following the steps below:
 
 1. Connect the SenseCAP to your PC using the USB-C port.
-
-2. Open the Meshcore Flasher website and select the SenseCAP Solar SenseCAP device entry.
-
+2. Open the [MeshCore Flasher](https://flasher.meshcore.io) website and select the SenseCAP Solar SenseCAP device entry.
 3. Enter DFU mode and mount the device as a removable drive.
+4. Choose the latest MeshCore firmware version and flash it.
+5. After the firmware update is done, connect to the device via USB and use [config.meshcore.io](https://config.meshcore.io) to set up the location, radio region, admin/guest passwords, and power settings.
 
-4. Choose the Meshcore firmware version like 1.17.1) and flash it.
+> NOTE: Flashing the repeater firmware will disable the Bluetooth function on the node. MeshCore repeaters can be configured via a USB connection on [config.meshcore.io](https://config.meshcore.io) or via the remote management tool in the MeshCore App. Please select the correct radio region (e.g., US/Canada 915 MHz) and set the transmit power and coding rate according to local regulations.
 
-5. After the firmware update is done, connect to the device via USB and set up the location, radio region, admin/guest passwords, and power settings.
+# Pairing and managing with the MeshCore mobile app
 
-Important notice: Refreshing the repeater firmware will disable the Bluetooth function on the node. Meshcore repeaters can be configured via a USB connection or remote management tool after startup). Please select the correct radio region (e.g., US/Canada 915 MHz) and set the transmit power and coding rate according to local regulations.
+After the repeater completes firmware updates and configuration, and the companion device has Bluetooth enabled, the companion device can discover the repeater through short-range broadcasting. This broadcast is sent when the repeater node powers on or when you press the user button.
 
-# Pairing and managing with the Meshcore mobile app
-
-After the repeater completes firmware updates and configuration, and the companion device has Bluetooth enabled, the companion device can discover the repeater through short-range broadcasting. This broadcast is sent when the node powers on or when you press the user button.
-
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%206.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-6.png" />
 
 You can log in to the app as a guest or an admin (if you set an admin password during USB setup). Guest access gives you telemetry data and basic tools. Admin access unlocks the command line and all settings.
 
@@ -133,7 +129,7 @@ get tx
 get repeat
 ```
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%207.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-7.png" />
 
 Key point to check:
 
@@ -172,7 +168,7 @@ stats-radio
 stats-packets
 ```
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%209.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-9.png" />
 
 Then have the nearby Companion send 3–5 Channel messages in a row. 
 Take another look:
@@ -182,7 +178,7 @@ stats-radio
 stats-packets
 ```
 
-<img alt class="mx-auto" src="/assets/images/2026/10/20/image%205.png" />
+<img alt class="mx-auto" src="/assets/images/2026/10/20/image-5.png" />
 
 Focus on:
 
@@ -361,13 +357,13 @@ The 9 km result was measured in an open environment with good line of sight. It 
 
 Buildings, hills, trees, installation height, antenna position, interference, and even the location of the node can all affect the actual range.
 
-If the range is much shorter than expected, I recommend testing again in an open area first before replacing any hardware.
+If the range is much shorter than expected, we recommend testing again in an open area first before replacing any hardware.
 
 ## Does installing the P1-Pro higher improve the range?
 
 Usually, yes.
 
-For long-distance LoRa communication, reducing obstacles is very important. Installing the node on a rooftop, pole, hill, or other elevated location can often improve coverage significantly.
+For long distance LoRa communication, reducing obstacles is very important. Installing the node on a rooftop, pole, hill, or other elevated location can often improve coverage significantly.
 
 In many cases, changing the installation position can make a bigger difference than simply replacing the antenna.
 
@@ -437,5 +433,6 @@ If an external antenna is used, place the antenna outside the enclosure.
 
 ## Purchase Links
 
-- [Solar Node P1-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshcore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io)
+- [Solar Node P1-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io)
 - [RP-SMA to N-type adapter](https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io)
+- [868-915 MHz fiberglass antenna](https://s.click.aliexpress.com/e/_c3GtNzkN)
