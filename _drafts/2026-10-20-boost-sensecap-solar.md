@@ -435,3 +435,7 @@ If you do use an additional enclosure, avoid metal enclosures around the LoRa an
 
 If an external antenna is used, place the antenna outside the enclosure.
 
+## Purchase Links
+
+- [Solar Node P1-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshcore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io)
+- [RP-SMA to N-type adapter](https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io)
