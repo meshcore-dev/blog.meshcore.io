@@ -44,10 +44,10 @@ authors:
     name: "Michael Overhorst (ViezeVingertjes)"
     title: "Developer"
     avatar: "assets/images/default-avatar.png"
-  seeed:
+  seeedstudio:
     name: "Seeed Studio"
     title: "Manufacturer"
-    avatar: "assets/images/authors/seeed.png"
+    avatar: "assets/images/authors/seeedstudio.png"
 
 # social links
 discord_url: "https://discord.gg/APQSQZNV7t"

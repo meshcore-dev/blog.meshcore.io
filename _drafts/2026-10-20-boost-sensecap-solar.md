@@ -4,7 +4,7 @@ date: 2026-10-20 12:00:00 +1200
 title: "Boost Your SenseCAP Solar P1 Signal"
 description: "How to improve results with your SenseCAP Solar P1-Pro"
 image: "assets/images/2026/10/20/image.png"
-author: seeed
+author: seeedstudio
 categories:
   - Guides
 tags:
