@@ -13,7 +13,7 @@ tags:
 
 <img alt class="mx-auto" src="/assets/images/2026/10/20/image.png" />
 
-The [Solar Node P1\-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshcore-p-6741.html) is a powerful off\-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage\. You can also swap in antennas with the corresponding gain to further boost its performance\. This guide will walk you step by step on how to improve antenna performance and how to verify that your Solar Node P1\-Pro is working properly\.
+The [Solar Node P1\-Pro](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshcore-p-6741.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io) is a powerful off\-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage\. You can also swap in antennas with the corresponding gain to further boost its performance\. This guide will walk you step by step on how to improve antenna performance and how to verify that your Solar Node P1\-Pro is working properly\.
 
 # How to improve results
 
@@ -65,7 +65,7 @@ A fiberglass antenna with suitable gain can provide better performance for fixed
 
 - Cable harness sheath or UV protective tubing, used to protect external SMA cables\.
 
-- [RP\-SMA to N\-type adapter](https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html), used for connecting high\-performance antennas\.
+- [RP\-SMA to N\-type adapter](https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&referring_service=blog.meshcore.io), used for connecting high\-performance antennas\.
 
 - 868\-915 MHz fiberglass antenna
 
