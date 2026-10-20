@@ -8,7 +8,7 @@ author: seeedstudio
 categories:
   - Guides
 tags:
-  - SenseCAP, P1
+  - SenseCAP
 ---
 
 <img alt class="mx-auto" src="/assets/images/2026/10/20/image.png" />
