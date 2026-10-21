@@ -1,4 +1,440 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-10-20T09:13:21+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Release v1.18.0</title><link href="https://blog.meshcore.io/2026/10/15/release-1-18-0" rel="alternate" type="text/html" title="Release v1.18.0" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/15/release-1-18-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/15/release-1-18-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-10-21T05:08:51+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Boost Your SenseCAP Solar P1 Signal</title><link href="https://blog.meshcore.io/2026/10/20/boost-sensecap-solar" rel="alternate" type="text/html" title="Boost Your SenseCAP Solar P1 Signal" /><published>2026-10-20T00:00:00+00:00</published><updated>2026-10-20T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/20/boost-sensecap-solar</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/20/boost-sensecap-solar">&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;Solar Node P1-Pro&lt;/a&gt; is a powerful off-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage. You can also swap in antennas with the corresponding gain to further boost its performance.&lt;/p&gt;
+
+&lt;p&gt;This guide will walk you through, step by step on how to improve antenna performance and how to verify that your Solar Node P1-Pro is working properly.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-improve-results&quot;&gt;How to improve results&lt;/h1&gt;
+
+&lt;p&gt;The antenna that comes with the Solar Node P1-Pro is already specifically matched for the device. In our tests, it can reach around 9 km in an open environment with a clear line of sight.&lt;/p&gt;
+
+&lt;p&gt;Before replacing the antenna, there are several simpler ways to improve the actual communication range.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-8.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Choose a more open location&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;LoRa performs best when there are fewer obstacles between nodes. Buildings, hills, dense trees, and metal structures can all weaken the signal.&lt;/p&gt;
+
+&lt;p&gt;If possible, install the P1-Pro in an open area and avoid placing it behind walls, inside metal enclosures, or very close to large metal objects.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install the node higher&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Installation height also has a large impact on coverage.&lt;/p&gt;
+
+&lt;p&gt;Mounting the P1-Pro on a rooftop, pole, balcony, or another elevated position can reduce obstruction from nearby buildings and terrain and give the antenna a clearer path to other nodes.&lt;/p&gt;
+
+&lt;p&gt;In some environments, simply moving the node a few meters higher can noticeably improve the link.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Keep a clear line of sight&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For longer-distance links, try to keep the path between nodes as clear as possible.&lt;/p&gt;
+
+&lt;p&gt;A location may look close on the map, but hills, buildings, or dense vegetation between two nodes can still significantly reduce the usable distance.&lt;/p&gt;
+
+&lt;p&gt;When testing the maximum range, it is better to start with two locations that have good line of sight.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pay attention to antenna placement&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Keep the antenna vertical during normal deployment, especially when the antennas on the other nodes are also vertically polarized.&lt;/p&gt;
+
+&lt;p&gt;Avoid placing the antenna directly against metal surfaces or very close to large metal structures.&lt;/p&gt;
+
+&lt;p&gt;Sometimes even a small change in mounting position can improve the signal.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Upgrade the antenna for additional coverage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If the deployment position has already been optimized and you still want to improve coverage further, then upgrading the antenna is the next option.&lt;/p&gt;
+
+&lt;p&gt;A fiberglass antenna with suitable gain can provide better performance for fixed outdoor repeater deployments. In this case, you will also need to change the antenna connection to N-type and protect the exposed RF cable for long-term outdoor use.&lt;/p&gt;
+
+&lt;h1 id=&quot;prepare-in-advance&quot;&gt;Prepare in advance&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cable harness sheath or UV protective tubing, used to protect external SMA cables.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;RP-SMA to N-type adapter&lt;/a&gt;, used for connecting high-performance antennas.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://s.click.aliexpress.com/e/_c3GtNzkN&quot;&gt;868-915 MHz fiberglass antenna&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hardware upgrade&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install as shown in the picture&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The included bracket also has corresponding mounting positions for the fiberglass antenna.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When disassembling or handling SMA connectors, make sure to turn off the node power first. Also, check the connector orientation before applying force. When tightening the adapter, ensure the connector fits snugly. A loose RF connector can reduce performance.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-internal-structure-of-the-solar-node-p1-pro&quot;&gt;The internal structure of the Solar Node P1-Pro&lt;/h1&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; width=&quot;75%&quot; src=&quot;/assets/images/2026/10/20/image-3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;update-the-solar-node-p1-pro-firmware&quot;&gt;Update the Solar Node P1-Pro firmware&lt;/h1&gt;
+
+&lt;p&gt;You can easily update the firmware using the &lt;a href=&quot;https://flasher.meshcore.io/seeed-studio-sensecap-solar-node-p1/repeater/&quot;&gt;MeshCore Flasher&lt;/a&gt;, and following the steps below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Connect the SenseCAP to your PC using the USB-C port.&lt;/li&gt;
+  &lt;li&gt;Open the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore Flasher&lt;/a&gt; website and select the SenseCAP Solar SenseCAP device entry.&lt;/li&gt;
+  &lt;li&gt;Enter DFU mode and mount the device as a removable drive.&lt;/li&gt;
+  &lt;li&gt;Choose the latest MeshCore firmware version and flash it.&lt;/li&gt;
+  &lt;li&gt;After the firmware update is done, connect to the device via USB and use &lt;a href=&quot;https://config.meshcore.io&quot;&gt;config.meshcore.io&lt;/a&gt; to set up the location, radio region, admin/guest passwords, and power settings.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NOTE: Flashing the repeater firmware will disable the Bluetooth function on the node. MeshCore repeaters can be configured via a USB connection on &lt;a href=&quot;https://config.meshcore.io&quot;&gt;config.meshcore.io&lt;/a&gt; or via the remote management tool in the MeshCore App. Please select the correct radio region (e.g., US/Canada 915 MHz) and set the transmit power and coding rate according to local regulations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;pairing-and-managing-with-the-meshcore-mobile-app&quot;&gt;Pairing and managing with the MeshCore mobile app&lt;/h1&gt;
+
+&lt;p&gt;After the repeater completes firmware updates and configuration, and the companion device has Bluetooth enabled, the companion device can discover the repeater through short-range broadcasting. This broadcast is sent when the repeater node powers on or when you press the user button.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can log in to the app as a guest or an admin (if you set an admin password during USB setup). Guest access gives you telemetry data and basic tools. Admin access unlocks the command line and all settings.&lt;/p&gt;
+
+&lt;h1 id=&quot;meshcore-repeater-transmission-and-forwarding-verification&quot;&gt;MeshCore Repeater Transmission and Forwarding Verification&lt;/h1&gt;
+
+&lt;p&gt;This method mainly checks three things:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Can the repeater receive packets?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Can the repeater send packets normally?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Does the repeater actually forward data?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;check-the-basic-settings&quot;&gt;Check the basic settings&lt;/h2&gt;
+
+&lt;p&gt;Connect the Repeater via USB serial port and execute:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ver
+board
+get radio
+get tx
+get repeat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Key point to check:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;get repeat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Return:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;on
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At the same time, make sure the Frequency, Bandwidth, SF, and CR of the Repeater and Companion are completely the same. 
+If the device supports it, you can also check:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;get radio.rxgain
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It is usually:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;on
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;test-the-repeater-rx&quot;&gt;Test the Repeater RX&lt;/h2&gt;
+
+&lt;p&gt;First, clear the stats:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clear stats
+stats-radio
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then have the nearby Companion send 3–5 Channel messages in a row. 
+Take another look:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;stats-radio
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/10/20/image-5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Focus on:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;recv
+flood_rx
+rx_air_secs
+last_rssi
+last_snr
+recv_errors
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;recv ↑
+flood_rx ↑
+rx_air_secs ↑
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Indicates that the repeater has been properly receiving LoRa data.
+If these values don’t change at all after sending many packets, check the following first:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Radio parameters&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Antenna&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RX Gain&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SX1262 / RF front end&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;verify-repeater-tx&quot;&gt;Verify Repeater TX&lt;/h2&gt;
+
+&lt;p&gt;Execute:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clear stats
+advert.zerohop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then check:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;stats-radio
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Normally, you should see:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sent ↑
+tx_air_secs ↑
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At the same time, nearby companions should be able to receive the repeater’s advertisement. 
+If the stats show it’s been sent but nearby devices aren’t getting it at all, then focus on checking:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;PA / FEM&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RF Switch&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Antenna&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Transmission Frequency&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;TX Power&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;check-if-the-repeater-is-actually-forwarding&quot;&gt;Check if the Repeater is actually forwarding&lt;/h2&gt;
+
+&lt;p&gt;Enable Packet Log:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clear stats
+log erase
+log start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then have Companion A send a few messages.&lt;/p&gt;
+
+&lt;p&gt;Execute after the test is completed:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;log stop
+log
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Focus on whether the logs have:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RX ...
+TX ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If both RX and subsequent TX appear at the same time during the same test, it means the Repeater forwarded the data after receiving it. 
+If you see:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RX ...
+TX FAIL!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The reception is fine, but it fails during the sending stage.&lt;/p&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RX quantity ≠ TX quantity
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is normal. MeshCore won’t resend every packet it receives; duplicate packets, hop limits, loop detection, and other conditions can prevent forwarding.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;recommended-test-commands&quot;&gt;Recommended Test Commands&lt;/h2&gt;
+
+&lt;p&gt;When actually checking, you can just run this set below:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ver
+board
+get radio
+get tx
+get repeat
+
+clear stats
+log erase
+log start
+
+stats-radio
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Have the Companion send 3–5 packets, then:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;stats-radio
+stats-packets
+
+log stop
+log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Final test of active TX:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;advert.zerohop
+stats-radio
+stats-packets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;final-judgment-criteria&quot;&gt;Final judgment criteria&lt;/h2&gt;
+
+&lt;p&gt;The most important things to look at are these four points:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. flood_rx / recv increases
+2. RX appears in the log
+3. TX appears in the log, and flood_tx / sent increases
+4. The second Companion actually receives the message
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If all four items are met, you can consider the repeater’s RX, TX, and forwarding functions to be working fine.&lt;/p&gt;
+
+&lt;h1 id=&quot;faq&quot;&gt;FAQ&lt;/h1&gt;
+
+&lt;h2 id=&quot;why-cant-my-p1-pro-reach-9-km&quot;&gt;Why can’t my P1-Pro reach 9 km?&lt;/h2&gt;
+
+&lt;p&gt;The 9 km result was measured in an open environment with good line of sight. It should not be treated as a guaranteed communication distance.&lt;/p&gt;
+
+&lt;p&gt;Buildings, hills, trees, installation height, antenna position, interference, and even the location of the node can all affect the actual range.&lt;/p&gt;
+
+&lt;p&gt;If the range is much shorter than expected, we recommend testing again in an open area first before replacing any hardware.&lt;/p&gt;
+
+&lt;h2 id=&quot;does-installing-the-p1-pro-higher-improve-the-range&quot;&gt;Does installing the P1-Pro higher improve the range?&lt;/h2&gt;
+
+&lt;p&gt;Usually, yes.&lt;/p&gt;
+
+&lt;p&gt;For long distance LoRa communication, reducing obstacles is very important. Installing the node on a rooftop, pole, hill, or other elevated location can often improve coverage significantly.&lt;/p&gt;
+
+&lt;p&gt;In many cases, changing the installation position can make a bigger difference than simply replacing the antenna.&lt;/p&gt;
+
+&lt;h2 id=&quot;can-i-use-a-higher-gain-antenna&quot;&gt;Can I use a higher-gain antenna?&lt;/h2&gt;
+
+&lt;p&gt;Yes, as long as the antenna supports the correct LoRa frequency band and uses the correct connector.&lt;/p&gt;
+
+&lt;p&gt;However, a higher antenna gain does not automatically mean a longer communication distance. Installation height, line of sight, cable loss, and the surrounding environment still matter.&lt;/p&gt;
+
+&lt;p&gt;Also make sure your final RF configuration complies with the transmit power and antenna regulations in your region.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-did-the-signal-become-worse-after-replacing-the-antenna&quot;&gt;Why did the signal become worse after replacing the antenna?&lt;/h2&gt;
+
+&lt;p&gt;First check the antenna frequency, connector type, adapter, and RF cable.&lt;/p&gt;
+
+&lt;p&gt;A long or poor-quality coaxial cable can introduce additional loss. Loose connectors can also reduce RF performance.&lt;/p&gt;
+
+&lt;p&gt;If possible, compare the original antenna and the new antenna at exactly the same location and orientation.&lt;/p&gt;
+
+&lt;h2 id=&quot;should-the-antenna-be-installed-vertically&quot;&gt;Should the antenna be installed vertically?&lt;/h2&gt;
+
+&lt;p&gt;For most normal deployments, yes.&lt;/p&gt;
+
+&lt;p&gt;If the other nodes also use vertically mounted antennas, keeping the P1-Pro antenna vertical usually gives more consistent results.&lt;/p&gt;
+
+&lt;p&gt;Avoid placing the antenna directly against metal surfaces or very close to large metal structures.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-can-i-quickly-check-whether-the-repeater-is-transmitting&quot;&gt;How can I quickly check whether the repeater is transmitting?&lt;/h2&gt;
+
+&lt;p&gt;In MeshCore, you can manually use &lt;strong&gt;Send Advert&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This forces the Solar Node to transmit a LoRa packet. You should then see the corresponding TX LED flash briefly and other nearby MeshCore devices should be able to receive the advert.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-tx-led-does-not-flash-when-another-node-sends-a-message-is-the-repeater-broken&quot;&gt;The TX LED does not flash when another node sends a message. Is the repeater broken?&lt;/h2&gt;
+
+&lt;p&gt;Not necessarily.&lt;/p&gt;
+
+&lt;p&gt;The TX LED only indicates that the Solar Node itself is transmitting LoRa data. It is not an RX indicator.&lt;/p&gt;
+
+&lt;p&gt;A MeshCore repeater also does not retransmit every packet it receives. If the Solar Node receives a packet but does not need to forward or reply to it, there will be no TX and therefore no TX LED flash.&lt;/p&gt;
+
+&lt;p&gt;So you should not use the TX LED alone to determine whether the repeater is working properly.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-can-the-p1-pro-receive-distant-nodes-but-other-nodes-cannot-hear-it&quot;&gt;Why can the P1-Pro receive distant nodes but other nodes cannot hear it?&lt;/h2&gt;
+
+&lt;p&gt;This usually means the uplink and downlink conditions are not the same.&lt;/p&gt;
+
+&lt;p&gt;First check the antenna and RF connector, then test with the original antenna in an open location. Also check whether the correct LoRa region is configured and whether the device is actually transmitting.&lt;/p&gt;
+
+&lt;p&gt;Testing two devices at a known distance and then gradually increasing the distance is usually easier than troubleshooting directly in a large mesh network.&lt;/p&gt;
+
+&lt;h2 id=&quot;does-adding-another-repeater-always-improve-coverage&quot;&gt;Does adding another repeater always improve coverage?&lt;/h2&gt;
+
+&lt;p&gt;Not always.&lt;/p&gt;
+
+&lt;p&gt;A repeater is most useful when it is placed somewhere that can communicate well with both sides of the network.&lt;/p&gt;
+
+&lt;p&gt;Adding another repeater in a poor location may not improve the link very much. In most cases, one well-positioned repeater on a high and open location is more useful than several repeaters placed behind buildings or terrain.&lt;/p&gt;
+
+&lt;h2 id=&quot;can-i-install-the-p1-pro-inside-a-box&quot;&gt;Can I install the P1-Pro inside a box?&lt;/h2&gt;
+
+&lt;p&gt;The P1-Pro itself is designed for outdoor deployment, so normally there is no need to place the whole unit inside another enclosure.&lt;/p&gt;
+
+&lt;p&gt;If you do use an additional enclosure, avoid metal enclosures around the LoRa antenna. Metal can significantly affect RF performance.&lt;/p&gt;
+
+&lt;p&gt;If an external antenna is used, place the antenna outside the enclosure.&lt;/p&gt;
+
+&lt;h2 id=&quot;purchase-links&quot;&gt;Purchase Links&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;Solar Node P1-Pro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;RP-SMA to N-type adapter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://s.click.aliexpress.com/e/_c3GtNzkN&quot;&gt;868-915 MHz fiberglass antenna&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>seeedstudio</name></author><category term="Guides" /><category term="SenseCAP" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/10/20/image.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/10/20/image.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Release v1.18.0</title><link href="https://blog.meshcore.io/2026/10/15/release-1-18-0" rel="alternate" type="text/html" title="Release v1.18.0" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/15/release-1-18-0</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/15/release-1-18-0">&lt;p&gt;&lt;img src=&quot;/assets/images/firmware_release.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
 
@@ -947,75 +1383,4 @@ direct messages. For now, repeaters will have to be updated first.&lt;/p&gt;
 
 &lt;p&gt;The latest companion firmwares now enable apps to compose the &lt;em&gt;full&lt;/em&gt; packet, ie.
 headers, path and payload. This can correspond with the existing RxLog ability, so app
-can do its own raw send and receive of packets.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">pyMC Introduction</title><link href="https://blog.meshcore.io/2026/05/12/pymc-intro" rel="alternate" type="text/html" title="pyMC Introduction" /><published>2026-05-12T00:00:00+00:00</published><updated>2026-05-12T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/05/12/pymc-intro</id><content type="html" xml:base="https://blog.meshcore.io/2026/05/12/pymc-intro">&lt;p&gt;&lt;img src=&quot;/assets/images/2026/05/12/control-room.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;What is pyMC? At its core, pyMC is a Python implementation of a MeshCore-compatible stack. It is designed to run on Linux-based systems and connect embedded LoRa radios to higher-level software services. It started as a way to better understand the MeshCore protocol. But pretty quickly, it became something more useful: a reusable core library for building flexible, Linux-powered mesh infrastructure. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc core&lt;/code&gt; handles the protocol-level work:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Parsing and generating MeshCore packets&lt;/li&gt;
-  &lt;li&gt;Managing identities and addressing&lt;/li&gt;
-  &lt;li&gt;Maintaining compatibility as the protocol evolves&lt;/li&gt;
-  &lt;li&gt;Handling radio interfaces (SPI, KISS, USB-CH341)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;with over 15 boards currently supported and many new ones in development, the system has grown from a simple experiment into a practical toolkit for building and running distributed mesh infrastructure.&lt;/p&gt;
-
-&lt;p&gt;On top of pyMC core sits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc repeater&lt;/code&gt;, which handles the operational side:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Processing packets&lt;/li&gt;
-  &lt;li&gt;Applying routing and filtering logic&lt;/li&gt;
-  &lt;li&gt;Forwarding traffic&lt;/li&gt;
-  &lt;li&gt;Supporting services like roomservers, companions and observer data output&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Embedded firmware is efficient and well suited to dedicated devices, but it operates under tight resource constraints. Running pyMC on Linux expands the design space: more compute, better tooling, easier debugging, and deeper real-time visibility into mesh behaviour.&lt;/p&gt;
-
-&lt;p&gt;A key design choice is how identities are handled. Instead of assuming one physical node equals one logical presence, pyMC lets multiple identities exist on the same radio.&lt;/p&gt;
-
-&lt;p&gt;In practice, a single device can take on multiple roles. It might act as a repeater, represent different logical endpoints, or host additional services–each with its own context.&lt;/p&gt;
-
-&lt;p&gt;This flexibility allows a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc repeater&lt;/code&gt; to evolve into a multi-companion base station. At that point, it behaves less like a simple packet repeater and more like a lightweight message hub for the mesh.&lt;/p&gt;
-
-&lt;p&gt;Put another way: pyMC gives MeshCore a Linux-native surface area. It can run repeaters, host services, power analytics, or support entirely new mesh applications–without losing compatibility with the underlying radio layer.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-map.webp&quot; /&gt;
-&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-stats.webp&quot; /&gt;
-&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image.pymc-system-stats.webp&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;where-pymc_console-fits&quot;&gt;Where pymc_console fits&lt;/h2&gt;
-
-&lt;p&gt;One example of that larger design space is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt;: a browser-based dashboard built on top of pyMC repeater.&lt;/p&gt;
-
-&lt;p&gt;Where pyMC handles the protocol and repeater layer, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt; turns that activity into something you can actually see and reason about. Packet flow, radio status, connected identities, observer output, airtime utilization, and network behavior can all be surfaced in a more approachable interface.&lt;/p&gt;
-
-&lt;p&gt;That matters because a mesh network is difficult to improve if it is invisible. Once packets, routes, signal quality, and utilization patterns become observable, the repeater becomes more than a forwarding node. It becomes a local window into the health and behavior of the mesh.&lt;/p&gt;
-
-&lt;p&gt;In that sense, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pymc_console&lt;/code&gt; is less a separate idea than a natural extension of the pyMC architecture. The same Linux-native foundation that lets pyMC talk to radios also makes it possible to build analytics, dashboards, companion experiences, and new tools around the mesh.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console.webp&quot; /&gt;
-&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console-map.webp&quot; /&gt;
-&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/image-console-compan.webp&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The interesting part isn’t just what pyMC does today, but what it enables in practice.&lt;/p&gt;
-
-&lt;p&gt;If you’d like to explore it, run it yourself, or follow along as it evolves, everything you need to get started is available.&lt;/p&gt;
-
-&lt;h2 id=&quot;where-to-start&quot;&gt;Where to start&lt;/h2&gt;
-
-&lt;p&gt;Source and setup instructions are on &lt;a href=&quot;https://github.com/pyMC-dev/pyMC_Repeater#pymc_repeater&quot;&gt;https://github.com/pyMC-dev&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Or join us in the pyMC Discord &lt;a href=&quot;https://discord.gg/hRjW9ha6m&quot;&gt;https://discord.gg/hRjW9ha6m&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;recommended-gear&quot;&gt;Recommended Gear&lt;/h2&gt;
-
-&lt;p&gt;For a no-fuss pyMC setup, I recommend the following tested and compatible hardware platforms. The MeshToad and MeshTadpole are ideal for lightweight installs, home labs, and desktop usage, while PiMesh provides an excellent Raspberry Pi-based solution for infrastructure and gateway deployments. For repeater-focused installations, the UltraPeater Luckfox Pico Ultra HAT offers a compact and efficient dedicated repeater platform.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MeshToad V3 — &lt;a href=&quot;https://muzi.works/products/nullhop-meshtoad-v3&quot;&gt;https://muzi.works/products/nullhop-meshtoad-v3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;MeshTadpole SX1262 USB Stick — &lt;a href=&quot;https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html&quot;&gt;https://www.elecrow.com/meshtadpole-sx1262-usb-stick.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;PiMesh — &lt;a href=&quot;https://meshsmith.net/&quot;&gt;https://meshsmith.net/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;UltraPeater — &lt;a href=&quot;https://zindello.com.au/ultrapeater/&quot;&gt;https://zindello.com.au/ultrapeater/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/05/12/pymc-gear.jpeg&quot; /&gt;&lt;/p&gt;</content><author><name>rightup</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/05/12/control-room.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+can do its own raw send and receive of packets.&lt;/p&gt;</content><author><name>admin</name></author><category term="Announcements" /><category term="Firmware" /><category term="Release" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/firmware_release.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

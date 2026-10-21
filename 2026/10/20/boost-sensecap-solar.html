@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head prefix="og:http://ogp.me/ns#">
+  
+  
+  
+  
+
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="alternate" type="application/atom+xml" title="MeshCore Blog" href="https://blog.meshcore.io/feed.xml"/>
+
+  <!-- styles -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css?v=1792559331">
+  <link rel="stylesheet" href="/assets/css/syntax.css?v=1792559331">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Boost Your SenseCAP Solar P1 Signal - MeshCore Blog</title>
+  <meta name="title" content="Boost Your SenseCAP Solar P1 Signal - MeshCore Blog">
+  <meta name="description" content="How to improve results with your SenseCAP Solar P1-Pro">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.meshcore.io/2026/10/20/boost-sensecap-solar">
+  <meta property="og:title" content="Boost Your SenseCAP Solar P1 Signal - MeshCore Blog">
+  <meta property="og:description" content="How to improve results with your SenseCAP Solar P1-Pro">
+  <meta property="og:image" content="https://blog.meshcore.io/assets/images/2026/10/20/image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://blog.meshcore.io/2026/10/20/boost-sensecap-solar">
+  <meta property="twitter:title" content="Boost Your SenseCAP Solar P1 Signal - MeshCore Blog">
+  <meta property="twitter:description" content="How to improve results with your SenseCAP Solar P1-Pro">
+  <meta property="twitter:image" content="https://blog.meshcore.io/assets/images/2026/10/20/image.png">
+
+  <!-- social accounts -->
+  <link rel="me" href="https://mastodon.social/@meshcore"/>
+
+  <!-- theme -->
+  <script>
+
+    function prefersDarkTheme() {
+      return localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // set preferred theme (before page loads to avoid flicker)
+    if(prefersDarkTheme()){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+
+</head>
+
+<body class="bg-theme">
+<div class="flex">
+  <div class="mx-auto w-full flex">
+    <div class="w-full">
+      <!-- navigation -->
+<nav class="print:hidden sticky top-0 z-50 bg-nav px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- logo -->
+        <a href="/">
+            <img src="/assets/images/meshcore.svg" alt="MeshCore" class="w-auto h-5">
+        </a>
+
+        <!-- links -->
+        <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-gray-400">
+            <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+            <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+            <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+            <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+            <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+        </div>
+
+        <!-- blog theme -->
+        <div class="flex space-x-2 print:hidden">
+
+            <button id="theme-toggle" type="button" class="text-gray-400 hover:text-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <a href="/feed.xml" class="text-orange-600 hover:text-orange-500 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                <span class="hidden sm:block ml-2">Atom Feed</span>
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+      <div class="max-w-3xl mx-auto p-6">
+    
+    <div class="flex items-center mb-4 font-medium">
+        <div class="mr-2">
+            <img class="w-11 h-11 rounded-full shadow border dark:border-gray-700" src="/assets/images/authors/seeedstudio.png"/>
+        </div>
+        <div>
+            <h2 class="text-md font-semibold">Seeed Studio</h2>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Manufacturer</div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl font-bold mb-1">Boost Your SenseCAP Solar P1 Signal</h2>
+    <div class="flex mb-4 items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <div class="ml-1">October 20, 2026</div>
+        </div>
+
+        
+        <div class="mx-2">•</div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="ml-1">13 minute read</div>
+        </div>
+        
+
+    </div>
+
+    <div class="post mt-4">
+        <p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image.png" /></p>
+
+<p>The <a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&amp;referring_service=blog.meshcore.io">Solar Node P1-Pro</a> is a powerful off-grid repeater solution that can usually meet all your needs for reliable LoRa mesh network coverage. You can also swap in antennas with the corresponding gain to further boost its performance.</p>
+
+<p>This guide will walk you through, step by step on how to improve antenna performance and how to verify that your Solar Node P1-Pro is working properly.</p>
+
+<h1 id="how-to-improve-results">How to improve results</h1>
+
+<p>The antenna that comes with the Solar Node P1-Pro is already specifically matched for the device. In our tests, it can reach around 9 km in an open environment with a clear line of sight.</p>
+
+<p>Before replacing the antenna, there are several simpler ways to improve the actual communication range.</p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-8.png" /></p>
+
+<p><strong>Choose a more open location</strong></p>
+
+<p>LoRa performs best when there are fewer obstacles between nodes. Buildings, hills, dense trees, and metal structures can all weaken the signal.</p>
+
+<p>If possible, install the P1-Pro in an open area and avoid placing it behind walls, inside metal enclosures, or very close to large metal objects.</p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-1.png" /></p>
+
+<p><strong>Install the node higher</strong></p>
+
+<p>Installation height also has a large impact on coverage.</p>
+
+<p>Mounting the P1-Pro on a rooftop, pole, balcony, or another elevated position can reduce obstruction from nearby buildings and terrain and give the antenna a clearer path to other nodes.</p>
+
+<p>In some environments, simply moving the node a few meters higher can noticeably improve the link.</p>
+
+<p><strong>Keep a clear line of sight</strong></p>
+
+<p>For longer-distance links, try to keep the path between nodes as clear as possible.</p>
+
+<p>A location may look close on the map, but hills, buildings, or dense vegetation between two nodes can still significantly reduce the usable distance.</p>
+
+<p>When testing the maximum range, it is better to start with two locations that have good line of sight.</p>
+
+<p><strong>Pay attention to antenna placement</strong></p>
+
+<p>Keep the antenna vertical during normal deployment, especially when the antennas on the other nodes are also vertically polarized.</p>
+
+<p>Avoid placing the antenna directly against metal surfaces or very close to large metal structures.</p>
+
+<p>Sometimes even a small change in mounting position can improve the signal.</p>
+
+<p><strong>Upgrade the antenna for additional coverage</strong></p>
+
+<p>If the deployment position has already been optimized and you still want to improve coverage further, then upgrading the antenna is the next option.</p>
+
+<p>A fiberglass antenna with suitable gain can provide better performance for fixed outdoor repeater deployments. In this case, you will also need to change the antenna connection to N-type and protect the exposed RF cable for long-term outdoor use.</p>
+
+<h1 id="prepare-in-advance">Prepare in advance</h1>
+
+<ul>
+  <li>
+    <p>Cable harness sheath or UV protective tubing, used to protect external SMA cables.</p>
+  </li>
+  <li>
+    <p><a href="https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&amp;referring_service=blog.meshcore.io">RP-SMA to N-type adapter</a>, used for connecting high-performance antennas.</p>
+  </li>
+  <li>
+    <p><a href="https://s.click.aliexpress.com/e/_c3GtNzkN">868-915 MHz fiberglass antenna</a></p>
+  </li>
+</ul>
+
+<p>Hardware upgrade</p>
+
+<p><strong>Install as shown in the picture</strong></p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-2.png" /></p>
+
+<p>The included bracket also has corresponding mounting positions for the fiberglass antenna.</p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-4.png" /></p>
+
+<p>When disassembling or handling SMA connectors, make sure to turn off the node power first. Also, check the connector orientation before applying force. When tightening the adapter, ensure the connector fits snugly. A loose RF connector can reduce performance.</p>
+
+<h1 id="the-internal-structure-of-the-solar-node-p1-pro">The internal structure of the Solar Node P1-Pro</h1>
+
+<p><img alt="" class="mx-auto" width="75%" src="/assets/images/2026/10/20/image-3.png" /></p>
+
+<h1 id="update-the-solar-node-p1-pro-firmware">Update the Solar Node P1-Pro firmware</h1>
+
+<p>You can easily update the firmware using the <a href="https://flasher.meshcore.io/seeed-studio-sensecap-solar-node-p1/repeater/">MeshCore Flasher</a>, and following the steps below:</p>
+
+<ol>
+  <li>Connect the SenseCAP to your PC using the USB-C port.</li>
+  <li>Open the <a href="https://flasher.meshcore.io">MeshCore Flasher</a> website and select the SenseCAP Solar SenseCAP device entry.</li>
+  <li>Enter DFU mode and mount the device as a removable drive.</li>
+  <li>Choose the latest MeshCore firmware version and flash it.</li>
+  <li>After the firmware update is done, connect to the device via USB and use <a href="https://config.meshcore.io">config.meshcore.io</a> to set up the location, radio region, admin/guest passwords, and power settings.</li>
+</ol>
+
+<blockquote>
+  <p>NOTE: Flashing the repeater firmware will disable the Bluetooth function on the node. MeshCore repeaters can be configured via a USB connection on <a href="https://config.meshcore.io">config.meshcore.io</a> or via the remote management tool in the MeshCore App. Please select the correct radio region (e.g., US/Canada 915 MHz) and set the transmit power and coding rate according to local regulations.</p>
+</blockquote>
+
+<h1 id="pairing-and-managing-with-the-meshcore-mobile-app">Pairing and managing with the MeshCore mobile app</h1>
+
+<p>After the repeater completes firmware updates and configuration, and the companion device has Bluetooth enabled, the companion device can discover the repeater through short-range broadcasting. This broadcast is sent when the repeater node powers on or when you press the user button.</p>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-6.png" /></p>
+
+<p>You can log in to the app as a guest or an admin (if you set an admin password during USB setup). Guest access gives you telemetry data and basic tools. Admin access unlocks the command line and all settings.</p>
+
+<h1 id="meshcore-repeater-transmission-and-forwarding-verification">MeshCore Repeater Transmission and Forwarding Verification</h1>
+
+<p>This method mainly checks three things:</p>
+
+<ol>
+  <li>
+    <p>Can the repeater receive packets?</p>
+  </li>
+  <li>
+    <p>Can the repeater send packets normally?</p>
+  </li>
+  <li>
+    <p>Does the repeater actually forward data?</p>
+  </li>
+</ol>
+
+<h2 id="check-the-basic-settings">Check the basic settings</h2>
+
+<p>Connect the Repeater via USB serial port and execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ver
+board
+get radio
+get tx
+get repeat
+</code></pre></div></div>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-7.png" /></p>
+
+<p>Key point to check:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get repeat
+</code></pre></div></div>
+
+<p>Return:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>on
+</code></pre></div></div>
+
+<p>At the same time, make sure the Frequency, Bandwidth, SF, and CR of the Repeater and Companion are completely the same. 
+If the device supports it, you can also check:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get radio.rxgain
+</code></pre></div></div>
+
+<p>It is usually:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>on
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="test-the-repeater-rx">Test the Repeater RX</h2>
+
+<p>First, clear the stats:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear stats
+stats-radio
+stats-packets
+</code></pre></div></div>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-9.png" /></p>
+
+<p>Then have the nearby Companion send 3–5 Channel messages in a row. 
+Take another look:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stats-radio
+stats-packets
+</code></pre></div></div>
+
+<p><img alt="" class="mx-auto" src="/assets/images/2026/10/20/image-5.png" /></p>
+
+<p>Focus on:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>recv
+flood_rx
+rx_air_secs
+last_rssi
+last_snr
+recv_errors
+</code></pre></div></div>
+
+<p>If:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>recv ↑
+flood_rx ↑
+rx_air_secs ↑
+</code></pre></div></div>
+
+<p>Indicates that the repeater has been properly receiving LoRa data.
+If these values don’t change at all after sending many packets, check the following first:</p>
+
+<ul>
+  <li>
+    <p>Radio parameters</p>
+  </li>
+  <li>
+    <p>Antenna</p>
+  </li>
+  <li>
+    <p>RX Gain</p>
+  </li>
+  <li>
+    <p>SX1262 / RF front end</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="verify-repeater-tx">Verify Repeater TX</h2>
+
+<p>Execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear stats
+advert.zerohop
+</code></pre></div></div>
+
+<p>Then check:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stats-radio
+stats-packets
+</code></pre></div></div>
+
+<p>Normally, you should see:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sent ↑
+tx_air_secs ↑
+</code></pre></div></div>
+
+<p>At the same time, nearby companions should be able to receive the repeater’s advertisement. 
+If the stats show it’s been sent but nearby devices aren’t getting it at all, then focus on checking:</p>
+
+<ul>
+  <li>
+    <p>PA / FEM</p>
+  </li>
+  <li>
+    <p>RF Switch</p>
+  </li>
+  <li>
+    <p>Antenna</p>
+  </li>
+  <li>
+    <p>Transmission Frequency</p>
+  </li>
+  <li>
+    <p>TX Power</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="check-if-the-repeater-is-actually-forwarding">Check if the Repeater is actually forwarding</h2>
+
+<p>Enable Packet Log:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear stats
+log erase
+log start
+</code></pre></div></div>
+
+<p>Then have Companion A send a few messages.</p>
+
+<p>Execute after the test is completed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>log stop
+log
+stats-packets
+</code></pre></div></div>
+
+<p>Focus on whether the logs have:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RX ...
+TX ...
+</code></pre></div></div>
+
+<p>If both RX and subsequent TX appear at the same time during the same test, it means the Repeater forwarded the data after receiving it. 
+If you see:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RX ...
+TX FAIL!
+</code></pre></div></div>
+
+<p>The reception is fine, but it fails during the sending stage.</p>
+
+<p>Note:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RX quantity ≠ TX quantity
+</code></pre></div></div>
+
+<p>This is normal. MeshCore won’t resend every packet it receives; duplicate packets, hop limits, loop detection, and other conditions can prevent forwarding.</p>
+
+<hr />
+
+<h2 id="recommended-test-commands">Recommended Test Commands</h2>
+
+<p>When actually checking, you can just run this set below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ver
+board
+get radio
+get tx
+get repeat
+
+clear stats
+log erase
+log start
+
+stats-radio
+stats-packets
+</code></pre></div></div>
+
+<p>Have the Companion send 3–5 packets, then:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stats-radio
+stats-packets
+
+log stop
+log
+</code></pre></div></div>
+
+<p>Final test of active TX:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>advert.zerohop
+stats-radio
+stats-packets
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="final-judgment-criteria">Final judgment criteria</h2>
+
+<p>The most important things to look at are these four points:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. flood_rx / recv increases
+2. RX appears in the log
+3. TX appears in the log, and flood_tx / sent increases
+4. The second Companion actually receives the message
+</code></pre></div></div>
+
+<p>If all four items are met, you can consider the repeater’s RX, TX, and forwarding functions to be working fine.</p>
+
+<h1 id="faq">FAQ</h1>
+
+<h2 id="why-cant-my-p1-pro-reach-9-km">Why can’t my P1-Pro reach 9 km?</h2>
+
+<p>The 9 km result was measured in an open environment with good line of sight. It should not be treated as a guaranteed communication distance.</p>
+
+<p>Buildings, hills, trees, installation height, antenna position, interference, and even the location of the node can all affect the actual range.</p>
+
+<p>If the range is much shorter than expected, we recommend testing again in an open area first before replacing any hardware.</p>
+
+<h2 id="does-installing-the-p1-pro-higher-improve-the-range">Does installing the P1-Pro higher improve the range?</h2>
+
+<p>Usually, yes.</p>
+
+<p>For long distance LoRa communication, reducing obstacles is very important. Installing the node on a rooftop, pole, hill, or other elevated location can often improve coverage significantly.</p>
+
+<p>In many cases, changing the installation position can make a bigger difference than simply replacing the antenna.</p>
+
+<h2 id="can-i-use-a-higher-gain-antenna">Can I use a higher-gain antenna?</h2>
+
+<p>Yes, as long as the antenna supports the correct LoRa frequency band and uses the correct connector.</p>
+
+<p>However, a higher antenna gain does not automatically mean a longer communication distance. Installation height, line of sight, cable loss, and the surrounding environment still matter.</p>
+
+<p>Also make sure your final RF configuration complies with the transmit power and antenna regulations in your region.</p>
+
+<h2 id="why-did-the-signal-become-worse-after-replacing-the-antenna">Why did the signal become worse after replacing the antenna?</h2>
+
+<p>First check the antenna frequency, connector type, adapter, and RF cable.</p>
+
+<p>A long or poor-quality coaxial cable can introduce additional loss. Loose connectors can also reduce RF performance.</p>
+
+<p>If possible, compare the original antenna and the new antenna at exactly the same location and orientation.</p>
+
+<h2 id="should-the-antenna-be-installed-vertically">Should the antenna be installed vertically?</h2>
+
+<p>For most normal deployments, yes.</p>
+
+<p>If the other nodes also use vertically mounted antennas, keeping the P1-Pro antenna vertical usually gives more consistent results.</p>
+
+<p>Avoid placing the antenna directly against metal surfaces or very close to large metal structures.</p>
+
+<h2 id="how-can-i-quickly-check-whether-the-repeater-is-transmitting">How can I quickly check whether the repeater is transmitting?</h2>
+
+<p>In MeshCore, you can manually use <strong>Send Advert</strong>.</p>
+
+<p>This forces the Solar Node to transmit a LoRa packet. You should then see the corresponding TX LED flash briefly and other nearby MeshCore devices should be able to receive the advert.</p>
+
+<h2 id="the-tx-led-does-not-flash-when-another-node-sends-a-message-is-the-repeater-broken">The TX LED does not flash when another node sends a message. Is the repeater broken?</h2>
+
+<p>Not necessarily.</p>
+
+<p>The TX LED only indicates that the Solar Node itself is transmitting LoRa data. It is not an RX indicator.</p>
+
+<p>A MeshCore repeater also does not retransmit every packet it receives. If the Solar Node receives a packet but does not need to forward or reply to it, there will be no TX and therefore no TX LED flash.</p>
+
+<p>So you should not use the TX LED alone to determine whether the repeater is working properly.</p>
+
+<h2 id="why-can-the-p1-pro-receive-distant-nodes-but-other-nodes-cannot-hear-it">Why can the P1-Pro receive distant nodes but other nodes cannot hear it?</h2>
+
+<p>This usually means the uplink and downlink conditions are not the same.</p>
+
+<p>First check the antenna and RF connector, then test with the original antenna in an open location. Also check whether the correct LoRa region is configured and whether the device is actually transmitting.</p>
+
+<p>Testing two devices at a known distance and then gradually increasing the distance is usually easier than troubleshooting directly in a large mesh network.</p>
+
+<h2 id="does-adding-another-repeater-always-improve-coverage">Does adding another repeater always improve coverage?</h2>
+
+<p>Not always.</p>
+
+<p>A repeater is most useful when it is placed somewhere that can communicate well with both sides of the network.</p>
+
+<p>Adding another repeater in a poor location may not improve the link very much. In most cases, one well-positioned repeater on a high and open location is more useful than several repeaters placed behind buildings or terrain.</p>
+
+<h2 id="can-i-install-the-p1-pro-inside-a-box">Can I install the P1-Pro inside a box?</h2>
+
+<p>The P1-Pro itself is designed for outdoor deployment, so normally there is no need to place the whole unit inside another enclosure.</p>
+
+<p>If you do use an additional enclosure, avoid metal enclosures around the LoRa antenna. Metal can significantly affect RF performance.</p>
+
+<p>If an external antenna is used, place the antenna outside the enclosure.</p>
+
+<h2 id="purchase-links">Purchase Links</h2>
+
+<ul>
+  <li><a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-MeshCore-p-6741.html?sensecap_affiliate=lLZqP0c&amp;referring_service=blog.meshcore.io">Solar Node P1-Pro</a></li>
+  <li><a href="https://www.seeedstudio.com/RF-Cable-RP-SMA-Male-to-N-Type-SMA-Female-300mm.html?sensecap_affiliate=lLZqP0c&amp;referring_service=blog.meshcore.io">RP-SMA to N-type adapter</a></li>
+  <li><a href="https://s.click.aliexpress.com/e/_c3GtNzkN">868-915 MHz fiberglass antenna</a></li>
+</ul>
+
+    </div>
+
+    
+
+<div class="print:hidden">
+
+    
+    
+
+    
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    
+
+
+<div class="flex space-x-1 mb-2 print:hidden">
+
+    <!-- share to twitter -->
+    <a target="_blank" href="https://twitter.com/intent/tweet?text=Boost Your SenseCAP Solar P1 Signal https://blog.meshcore.io/2026/10/20/boost-sensecap-solar" title="Share on Twitter" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-twitter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-twitter">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+        <span>Tweet</span>
+    </a>
+
+    <!-- share to facebook -->
+    <a target="_blank" href="https://www.facebook.com/sharer.php?title=Boost Your SenseCAP Solar P1 Signal&u=https://blog.meshcore.io/2026/10/20/boost-sensecap-solar" title="Share on Facebook" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-facebook focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-facebook">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+    <!-- share to reddit -->
+    <a target="_blank" href="https://reddit.com/submit?title=Boost Your SenseCAP Solar P1 Signal&url=https://blog.meshcore.io/2026/10/20/boost-sensecap-solar" title="Share on Reddit" class="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-reddit focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-reddit">
+        <svg role="img" class="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+        <span>Share</span>
+    </a>
+
+</div>
+
+
+    
+    <div class="flex space-x-1 mb-2">
+        <span>Posted in:</span>
+        
+        <a href="/categories/#Guides" class="underline underline-offset-2 text-gray-700 decoration-gray-300 hover:decoration-gray-500">Guides</a>
+        
+        
+    </div>
+    
+
+    
+    <div class="flex flex-wrap">
+        
+        <div class="mb-2 mr-1">
+            <a href="/tags/#SenseCAP" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                </svg>
+                SenseCAP
+            </a>
+        </div>
+        
+    </div>
+    
+
+</div>
+
+    <div class="print:hidden">
+
+    <div class="border-b border-gray-200 dark:border-gray-600 my-4"></div>
+
+    <!-- giscus comments -->
+    <script src="https://giscus.app/client.js"
+            data-repo="meshcore-dev/blog.meshcore.io"
+            data-repo-id="R_kgDORxkdng"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORxkdns4C5Xt4"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+</div>
+
+</div>
+
+      <footer class="print:hidden bg-[#030712] py-8 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <a href="https://meshcore.io">
+                <img src="/assets/images/meshcore.svg" alt="MeshCore" class="h-5 mb-4 mx-auto md:mx-0 opacity-75">
+            </a>
+            <div class="text-[11px] text-gray-500 font-extrabold uppercase tracking-widest leading-loose">
+                <div>🇳🇿 App made in New Zealand</div>
+                <div>🇦🇺 Firmware made in Australia</div>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex gap-8 text-gray-500 text-sm font-semibold uppercase tracking-tighter">
+                <a href="https://meshcore.io" class="hover:text-white transition">Home</a>
+                <a href="https://blog.meshcore.io" class="hover:text-white transition">Blog</a>
+                <a href="https://docs.meshcore.io" target="_blank" class="hover:text-white transition">Docs</a>
+                <a href="https://flasher.meshcore.io" target="_blank" class="hover:text-white transition">Flasher</a>
+                <a href="https://map.meshcore.io" target="_blank" class="hover:text-white transition">Map</a>
+                <a href="https://merch.meshcore.io" target="_blank" class="hover:text-white transition">Merch</a>
+            </div>
+            <div class="mt-4 mx-auto flex gap-4 text-gray-500 text-2xl">
+                <a href="https://facebook.com/groups/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="https://reddit.com/r/meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-reddit text-2xl"></i>
+                </a>
+                <a href="https://meshcore.gg" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-discord text-2xl"></i>
+                </a>
+                <a href="https://mastodon.social/@meshcore" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-mastodon text-2xl"></i>
+                </a>
+                <a href="https://x.com/mesh_core" target="_blank" class="hover:text-white transition">
+                    <i class="fab fa-x-twitter text-2xl"></i>
+                </a>
+            </div>
+        </div>
+        <p class="text-[11px] text-gray-500 font-extrabold">&copy; 2026 Liam Cottle & Scott Powell</p>
+    </div>
+</footer>
+
+    </div>
+  </div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRW3QH54CP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JRW3QH54CP');
+</script>
+
+<!-- tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="text/javascript">
+    tippy('[data-toggle="tooltip"]', {
+        content(element) {
+            return element.getAttribute('data-title');
+        },
+    });
+</script>
+
+<!-- theme -->
+<script type="text/javascript">
+
+    var themeToggleButton = document.getElementById('theme-toggle');
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function useLightTheme() {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+        themeToggleLightIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    function useDarkTheme() {
+        document.documentElement.classList.add('dark');
+        themeToggleDarkIcon.classList.add('hidden');
+        themeToggleLightIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function toggleTheme() {
+        if(prefersDarkTheme()){
+            useLightTheme();
+        } else {
+            useDarkTheme();
+        }
+    }
+
+    // toggle theme on click
+    themeToggleButton.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // set preferred theme (after page loads to update button state)
+    if(prefersDarkTheme()){
+        useDarkTheme();
+    } else {
+        useLightTheme();
+    }
+
+    /* we want to force light theme when printing */
+
+    var didChangeThemeForPrint = false;
+
+    window.onbeforeprint = function() {
+        if(prefersDarkTheme()){
+            didChangeThemeForPrint = true;
+            useLightTheme();
+        }
+    };
+
+    window.onafterprint = function() {
+        if(didChangeThemeForPrint){
+            useDarkTheme();
+            didChangeThemeForPrint = false;
+        }
+    };
+
+</script>
+
+</body>
+</html>
