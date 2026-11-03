@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-10-23T23:02:40+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Companion Repeat Mode with the Wio Tracker L1 Pro</title><link href="https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro" rel="alternate" type="text/html" title="Companion Repeat Mode with the Wio Tracker L1 Pro" /><published>2026-10-23T00:00:00+00:00</published><updated>2026-10-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro">&lt;p&gt;When a hiking group spreads beyond direct radio range, a device between the two ends may be able to help relay messages. This guide shows how to enable Companion Repeat Mode on a &lt;a href=&quot;https://www.seeedstudio.com/Wio-Tracker-L1-Pro-for-Meshcore-p-6717.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;Wio Tracker L1 Pro&lt;/a&gt;, check that forwarding works, and use the results from a three-device field test to plan a temporary deployment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-11-03T02:52:07+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple UI v12.3</title><link href="https://blog.meshcore.io/2026/11/03/ripple-12.3" rel="alternate" type="text/html" title="Ripple UI v12.3" /><published>2026-11-03T00:00:00+00:00</published><updated>2026-11-03T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/11/03/ripple-12.3</id><content type="html" xml:base="https://blog.meshcore.io/2026/11/03/ripple-12.3">&lt;p&gt;The latest release of the Ripple UI firmwares has a number of fixes and improvements:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;epaper devices (Pro/Max/T5) now support dithering of colour map tilesets&lt;/li&gt;
+  &lt;li&gt;some crash bugs now fixed&lt;/li&gt;
+  &lt;li&gt;Map tile downloads over WiFi&lt;/li&gt;
+  &lt;li&gt;New devices (MeshPager X2, WIO Tracker L2 Pro)&lt;/li&gt;
+  &lt;li&gt;GPS compass arrow&lt;/li&gt;
+  &lt;li&gt;Some multi-byte path fixes (eg. adverts)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;epaper-maps&quot;&gt;ePaper Maps&lt;/h2&gt;
+
+&lt;p&gt;The T-Deck Max/Pro and the T5 Pro firmwares now support switching map tile sets, between
+dedicated black &amp;amp; white (whatever is in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/tiles-bw&lt;/code&gt; fodler) and standard
+colour OSM tiles (in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/tiles&lt;/code&gt; folder)&lt;/p&gt;
+
+&lt;p&gt;The colour tiles are now dithered and work surprisingly well. The translation of the colours
+is not always ideal, so you can manually adjust a contrast threshold value used by
+the algorithm, by pressing ALT+1..9. Below is the same map view, but with contast: ALT+5, ALT+4, ALT+3&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/11/03/epaper-maps.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The new &lt;strong&gt;Display&lt;/strong&gt; preferences screen has the option for switching the map tile set:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; width=&quot;50%&quot; src=&quot;/assets/images/2026/11/03/new-prefs.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;crash-fixes&quot;&gt;Crash Fixes&lt;/h2&gt;
+
+&lt;p&gt;There were three separate bugs found, related to multi-byte paths, and rxlog (Diagnostics screen).
+The crashes were only very intermittent, but so far the v12.3 seems to be super solid.&lt;/p&gt;
+
+&lt;h2 id=&quot;map-tile-download&quot;&gt;Map Tile Download&lt;/h2&gt;
+
+&lt;p&gt;There is now a dedicated &lt;strong&gt;WiFi&lt;/strong&gt; config screen (from home Extra menu):&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/11/03/wifi-config.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then press ENTER to save changes. You will then be prompted to reboot the device to apply the changes.
+This is a little cumbersome, but it really pays off in terms of battery drain if the WiFi is off from the boot state.&lt;/p&gt;
+
+&lt;p&gt;After enabling the WiFi downloads, you should see the orange dot from the menu which
+indicates the connection is successful:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/11/03/wifi-menu.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; For the epaper devices, the map tile download is only for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;color&lt;/code&gt; tile set option!&lt;/p&gt;
+
+&lt;p&gt;With the tile download enabled, the map tiles are downloaded (and saved to SD card) &lt;em&gt;on demand&lt;/em&gt; as you zoom/pan. Note, there
+is no bulk tile downloading supported at this time.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-devices&quot;&gt;New devices&lt;/h2&gt;
+
+&lt;p&gt;Two new devices are now supported:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Seeed MeshPager X2&lt;/li&gt;
+  &lt;li&gt;Seeed WIO Tracker L2 Pro&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gps-compass&quot;&gt;GPS Compass&lt;/h2&gt;
+
+&lt;p&gt;When the device is moving, there is now a blue direction arrow rendered. For the new devices (X2, L2, and M9)
+which have a digital compass, the arrow is rendered even when device is not moving,
+and updates as you rotate the device (device must be horizontal).&lt;/p&gt;
+
+&lt;p&gt;The digital compass also requires calibration, and there is a new home Extra menu: &lt;strong&gt;Calibrate Compass&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;The new firmwares are all available via the &lt;a href=&quot;https://flasher.meshcore.io&quot;&gt;MeshCore Flasher&lt;/a&gt;.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">The latest release of the Ripple UI firmwares has a number of fixes and improvements: epaper devices (Pro/Max/T5) now support dithering of colour map tilesets some crash bugs now fixed Map tile downloads over WiFi New devices (MeshPager X2, WIO Tracker L2 Pro) GPS compass arrow Some multi-byte path fixes (eg. adverts)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/11/03/hero.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/11/03/hero.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Companion Repeat Mode with the Wio Tracker L1 Pro</title><link href="https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro" rel="alternate" type="text/html" title="Companion Repeat Mode with the Wio Tracker L1 Pro" /><published>2026-10-23T00:00:00+00:00</published><updated>2026-10-23T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro</id><content type="html" xml:base="https://blog.meshcore.io/2026/10/23/repeat-mode-tracker-l1-pro">&lt;p&gt;When a hiking group spreads beyond direct radio range, a device between the two ends may be able to help relay messages. This guide shows how to enable Companion Repeat Mode on a &lt;a href=&quot;https://www.seeedstudio.com/Wio-Tracker-L1-Pro-for-Meshcore-p-6717.html?sensecap_affiliate=lLZqP0c&amp;amp;referring_service=blog.meshcore.io&quot;&gt;Wio Tracker L1 Pro&lt;/a&gt;, check that forwarding works, and use the results from a three-device field test to plan a temporary deployment.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-companion-repeat-mode-helps&quot;&gt;How Companion Repeat Mode Helps&lt;/h2&gt;
 
@@ -1288,58 +1356,4 @@ If you do that, we will drop our legal challenges, and we can all move on, allow
 
 &lt;p&gt;We appreciate all the support we can get.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OTA Updates by Drone</title><link href="https://blog.meshcore.io/2026/06/22/drone-ota" rel="alternate" type="text/html" title="OTA Updates by Drone" /><published>2026-06-22T00:00:00+00:00</published><updated>2026-06-22T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/06/22/drone-ota</id><content type="html" xml:base="https://blog.meshcore.io/2026/06/22/drone-ota">&lt;p&gt;&lt;em&gt;OTA Updating hard to reach nRF52 based repeaters with a drone&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;As we added more and more repeaters to our local mesh in Slovakia, we found out it’s not always possible to physically reach some repeater sites often enough. We incrementally got better in addressing this issue by experimenting with different approaches.
-I built a &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py&quot;&gt;custom nrf dfu app that works on desktop OSes&lt;/a&gt;, so you can use &lt;a href=&quot;https://github.com/recrof/nrf_dfu_py/tree/main/adapter-antenna-buying-tips&quot;&gt;external bluetooth adapters with rp-sma ports and directional antennas&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/nrf_dfu_py.jpg&quot; /&gt;
-&lt;sup class=&quot;mx-auto&quot;&gt;Updating local repeater with uConsole, high-power BLE adapter and directional antenna&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;My buddy lucidnx started to experiment with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf_dfu_py&lt;/code&gt; and created a &lt;a href=&quot;https://github.com/lucidnx/meshcore-drone-updater&quot;&gt;whole framework for drone updating&lt;/a&gt;. This solution works well, but the rpi zero approach is not trivial to setup, requires additional DIY and it’s hard to use and debug. That’s why I decided to build more user-friendly version, so the drone doesn’t need to carry whole linux board on its back.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/rpi_drone.jpg&quot; /&gt;
-&lt;sup class=&quot;mx-auto&quot;&gt;Older version of Drone updater - with Raspberry Pi Zero 2W and hefty battery pack. 70g total payload&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;the-star-of-the-show&quot;&gt;The Star of the Show&lt;/h2&gt;
-
-&lt;p&gt;Xiao nRF52840 packs a perfect combination of things you want for very small low-power repeater updater: nRF MCU is power efficient, it has 2MB of onboard flash and it has full blown USB controller. Inspired with Arduino bootloader that has UF2 mode, I decided to use the external 2MB flash as Mass Storage with real FAT12 filesystem, so you can even use a phone to copy over the firmware file, configure the updater and review the update log - very handy in the field.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/06/22/xiao_drone.jpg&quot; /&gt;
-&lt;sup class=&quot;mx-auto&quot;&gt;DJI Neo2 with Xiao nRF52840 updater and 250mAh Li-Ion battery. 7.5g total payload&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-setup-and-use-the-updater&quot;&gt;How to setup and use the updater&lt;/h2&gt;
-
-&lt;p&gt;Be sure the repeater you want to update uses &lt;a href=&quot;https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/&quot;&gt;oltaco’s OTAFIX bootloader&lt;/a&gt; with version at least 2.1 or higher&lt;/p&gt;
-
-&lt;p&gt;Get the firmware on &lt;a href=&quot;https://github.com/recrof/xiao_nrf52_updater/releases&quot;&gt;Project releases page&lt;/a&gt;. There are 2 boards supported: Xiao nRF52840 and RAK3401/RAK4631 with RAK15001 external flash module. We’ll focus on Xiao, as that’s easier to pick up for most of the readers.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updater-xiao_nrf52840-vX.X.uf2&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Connect Xiao to your computer over USB&lt;/li&gt;
-  &lt;li&gt;Double click the small reset button near the USB port - you might need to use your fingernail to do it&lt;/li&gt;
-  &lt;li&gt;Copy the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updater-xiao_nrf52840-vX.X.uf2&lt;/code&gt; to newly opened usb drive&lt;/li&gt;
-  &lt;li&gt;Xiao will restart(you might get error about unsuccessful transfer, disregard)&lt;/li&gt;
-  &lt;li&gt;You will be presented with new empty USB drive labeled &lt;strong&gt;“XIAO DFU”&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Copy &lt;a href=&quot;https://raw.githubusercontent.com/recrof/xiao_nrf52_updater/refs/heads/main/config.txt&quot;&gt;config.txt&lt;/a&gt; over to the USB disk&lt;/li&gt;
-  &lt;li&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.txt&lt;/code&gt; with text editor&lt;/li&gt;
-  &lt;li&gt;Set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_name&lt;/code&gt; to OTA name your repeater uses, here are few examples:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4631 | 3401&lt;/code&gt; for RAK based boars - covers both RAK4631 and RAK3401 1W&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SENSECAP | SCAP&lt;/code&gt; for Seeed SenseCap Solar P1&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XIAO&lt;/code&gt; for XIAO NRF52 based repeater(yeah, you can update Xiao with your Xiao!)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T114&lt;/code&gt; for Heltec T114&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProMicro | PROM&lt;/code&gt; for FakeTec / Promicro based boards&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;(optional) Set any config parameters you like, but the defaults are well balanced already&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://flasher.meshcore.io/&quot;&gt;Download&lt;/a&gt; and copy firmware &lt;strong&gt;zip&lt;/strong&gt; that you want to flash to your repeater&lt;/li&gt;
-  &lt;li&gt;Decide how you want to power your Xiao board.. I would recommend to solder battery leads to &lt;a href=&quot;https://files.seeedstudio.com/wiki/XIAO-BLE/XIAO_nRF52840_back_pinout.png&quot;&gt;battery pads&lt;/a&gt;, but you can wing it with USB power if want.&lt;/li&gt;
-  &lt;li&gt;Attach the Xiao to your drone, send &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; to your repeater and make sure Xiao is blinking blue - that means it’s ready to flash your repeater&lt;/li&gt;
-  &lt;li&gt;Fly near the target as close as you can - transfer will start as soon as Updater detects ble_name with min_rssi or better.&lt;/li&gt;
-  &lt;li&gt;Keep Pinging your repeater via LoRa - it will tell you if the process started and later after few minutes, starts to be reachable again.&lt;/li&gt;
-  &lt;li&gt;Get your drone back and look at the Xiao LED color - if it’s GREEN, the update was successful, if it’s RED, it failed. if it still blinks blue, that means the update did not even start - ble_name was not set right, the rssi was too weak or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start ota&lt;/code&gt; failed&lt;/li&gt;
-  &lt;li&gt;(optional) you can look into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log.txt&lt;/code&gt; in Xiao’s USB drive - it should hold update process with timestamps relative to boot. You can look at how &lt;a href=&quot;/assets/images/2026/06/22/success.log&quot;&gt;successful update log&lt;/a&gt; looks like&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Let us know if this guide helped you flash your distant repeaters! Don’t hesitate to ask any questions either in the comments or on our &lt;a href=&quot;https://discord.com/channels/1495203904898728149/1509594396482601121&quot;&gt;Discord&lt;/a&gt;.&lt;/p&gt;</content><author><name>recrof</name></author><category term="Firmware" /><category term="Guide, Drone" /><summary type="html">OTA Updating hard to reach nRF52 based repeaters with a drone</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/06/22/xiao_drone.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
