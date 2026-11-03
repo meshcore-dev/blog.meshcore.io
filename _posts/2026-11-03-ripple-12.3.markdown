@@ -13,6 +13,7 @@ The latest release of the Ripple UI firmwares has a number of fixes and improvem
 * New devices (MeshPager X2, WIO Tracker L2 Pro)
 * GPS compass arrow
 * Some multi-byte path fixes (eg. adverts)
+* Ripple Network: End of life
 
 ## ePaper Maps
 
@@ -67,6 +68,13 @@ which have a digital compass, the arrow is rendered even when device is not movi
 and updates as you rotate the device (device must be horizontal).
 
 The digital compass also requires calibration, and there is a new home Extra menu: **Calibrate Compass**
+
+## Ripple Network Type
+
+Ver 12.3 marks the beginning of deprecating the Ripple network profile type. 
+It has long since been eclipsed by the MeshCore network, and this version now
+does _not_ allow creating Ripple network profiles. In future releases, the profile type
+support will be removed completely, but for now it will still load existing Ripple profiles.
 
 ## Download
 
