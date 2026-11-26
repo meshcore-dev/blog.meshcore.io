@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-11-03T10:33:46+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Ripple UI v12.3</title><link href="https://blog.meshcore.io/2026/11/03/ripple-12.3" rel="alternate" type="text/html" title="Ripple UI v12.3" /><published>2026-11-03T00:00:00+00:00</published><updated>2026-11-03T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/11/03/ripple-12.3</id><content type="html" xml:base="https://blog.meshcore.io/2026/11/03/ripple-12.3">&lt;p&gt;The latest release of the Ripple UI firmwares has a number of fixes and improvements:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://blog.meshcore.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.meshcore.io/" rel="alternate" type="text/html" /><updated>2026-11-26T04:34:19+00:00</updated><id>https://blog.meshcore.io/feed.xml</id><title type="html">MeshCore Blog</title><subtitle>Posts from the MeshCore Developers</subtitle><entry><title type="html">Motion Sensor Magic</title><link href="https://blog.meshcore.io/2026/11/26/motions-sensors" rel="alternate" type="text/html" title="Motion Sensor Magic" /><published>2026-11-26T00:00:00+00:00</published><updated>2026-11-26T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/11/26/motions-sensors</id><content type="html" xml:base="https://blog.meshcore.io/2026/11/26/motions-sensors">&lt;p&gt;I recently did some experiments with 24GHz human presence sensors and MeshCore. You can buy these sensors cheaply from AliExpress (just search for ‘LD2410S’).&lt;/p&gt;
+
+&lt;h2 id=&quot;the-wiring&quot;&gt;The Wiring&lt;/h2&gt;
+
+&lt;p&gt;I am using the (now old) Heltec StickLite for these experiments as I have &lt;em&gt;heaps&lt;/em&gt; lying around, and they’re more than adequate for the job, but you could use any board for this. (the code is easily adaptable to any of the boards supported by the MeshCore project, which is over 100 at present).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/11/26/sensor-wiring.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an old pager project from the Ripple days, so ignore the wiring for the buzzer and the push button (these are not needed for this experiment). You only need 4 wires from the LD2410S to the main board:&lt;/p&gt;
+
+&lt;p&gt;Sensor   -&amp;gt;   Main board&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3V3  -&amp;gt;  any of the 3.3V power pins (see red wire)&lt;/li&gt;
+  &lt;li&gt;GND  -&amp;gt;  any of the GND pins (see black wire)&lt;/li&gt;
+  &lt;li&gt;OT1  -&amp;gt;  Serial RX (see yellow wire)&lt;/li&gt;
+  &lt;li&gt;RX  -&amp;gt;  Serial TX  (see green wire)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can optionally wire the OT2 pin of the sensor to a digital input pin on the main board, and this can be used as a ‘wake up’ interrupt, if you want to try a firmware that sleeps to save power.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The Code&lt;/h2&gt;
+
+&lt;p&gt;For sensors, you have to get &lt;em&gt;down and dirty&lt;/em&gt; with the dev tools. There are way too many different sensors and behaviours/features to cater for in one generic, all-purpose firmware, so you have to program the specifics yourself.&lt;/p&gt;
+
+&lt;p&gt;To make life easier, I wrote a ‘simple_sensor’ sketch for the MeshCore project many months ago, to serve as a template for such firmwares. To make your life even easier, I have published a fork of the MeshCore repo with this specific motion sensor all done for you. (how amazingly generous of me!)&lt;/p&gt;
+
+&lt;p&gt;Just clone this repo: &lt;a href=&quot;https://github.com/ripplebiz/MeshCore-sensor-playground&quot;&gt;https://github.com/ripplebiz/MeshCore-sensor-playground&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Checkout the &lt;strong&gt;‘dev’&lt;/strong&gt; branch, then open it up in Visual Studio Code with the PlatformIO extension installed.&lt;/p&gt;
+
+&lt;p&gt;The specific target environment is: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Heltec_StickLite_Sensor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to see the specific diffs/commits for this motion sensor code, just see this comparison: &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore/compare/dev...ripplebiz:MeshCore-sensor-playground:dev&quot;&gt;https://github.com/meshcore-dev/MeshCore/compare/dev…ripplebiz:MeshCore-sensor-playground:dev&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, this variant creates a custom &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MotionSensorManager&lt;/code&gt; class, which encapsulates all of the management of the LD2410S sensor. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;querySensors()&lt;/code&gt; method shows that 3 telemetry values are collected:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MotionSensorManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;querySensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requester_permissions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CayenneLPP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;telemetry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;telemetry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addSwitch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_armed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;telemetry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addPresence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ld2410s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isMotionDetected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;telemetry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ld2410s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// convert to meters&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So, when you query the telemetry from this node, there will be these plus the board’s battery voltage:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/11/26/sensor-telemetry.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;alerts&quot;&gt;Alerts!&lt;/h2&gt;
+
+&lt;p&gt;The example firmware also creates alerts when the sensor is ‘armed’ and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;isMotionDetected()&lt;/code&gt; is true. This is in the &lt;strong&gt;/examples/simple_sensor/main.cpp&lt;/strong&gt; module:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Trigger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;presence_alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;critical_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;TimeSeriesData&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onSensorDataRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getVoltage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TELEM_CHANNEL_SELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;battery_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recordData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRTCClock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// record battery&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;alertIf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batt_voltage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.4&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;critical_batt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH_PRI_ALERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Battery is critical!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;alertIf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isArmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isMotionDetected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;presence_alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW_PRI_ALERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Motion detected!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The alerts are managed by the underlying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SensorMesh&lt;/code&gt; class, and it handles dispatching a MeshCore text DM message to all users who are in the ACL, and are registered for alerts (if you login with the admin password, you get this ACL permission automatically).&lt;/p&gt;
+
+&lt;p&gt;So, you will see the unread message counter (and alert sound, if configured):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026/11/26/app-sensors.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As an extra touch, the Ripple firmware renders the Home grid cell with an orange border when the sensor is in the ‘armed’ state, so you can quickly see whether your sensors are currently armed. It also renders the last telemetry value in the cell (in this case, the distance value).&lt;/p&gt;
+
+&lt;h2 id=&quot;arming-and-disarming&quot;&gt;Arming and Disarming&lt;/h2&gt;
+
+&lt;p&gt;The example firmware supports some additional CLI commands, namely &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arm&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;disarm&lt;/code&gt;. This is handled by the code in the main.cpp module here:&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;handleCustomCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender_timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strcmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;disarm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// example 'custom' command handling&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setArmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;strcpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OK - now disarmed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// handled&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strcmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;arm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// example 'custom' command handling&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sensors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setArmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;strcpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OK - now armed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// handled&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// not handled&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This is quite a handy node type to have. I plan to put a bunch of these around my house, inside of weatherproof housings, with solar panels, so that I can get intruder alerts. There are many more customisations you can make, and with the open code, you can change it however you like.&lt;/p&gt;</content><author><name>scottpowell</name></author><summary type="html">I recently did some experiments with 24GHz human presence sensors and MeshCore. You can buy these sensors cheaply from AliExpress (just search for ‘LD2410S’).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/11/26/hero.jpg" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/11/26/hero.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ripple UI v12.3</title><link href="https://blog.meshcore.io/2026/11/03/ripple-12.3" rel="alternate" type="text/html" title="Ripple UI v12.3" /><published>2026-11-03T00:00:00+00:00</published><updated>2026-11-03T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/11/03/ripple-12.3</id><content type="html" xml:base="https://blog.meshcore.io/2026/11/03/ripple-12.3">&lt;p&gt;The latest release of the Ripple UI firmwares has a number of fixes and improvements:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;epaper devices (Pro/Max/T5) now support dithering of colour map tilesets&lt;/li&gt;
   &lt;li&gt;some crash bugs now fixed&lt;/li&gt;
@@ -1177,191 +1271,4 @@ goes on regardless.&lt;/p&gt;
 &lt;p&gt;Once again, thank you all for your generosity and your ongoing commitment to
 the project.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html">The GiveALittle fundraiser is now closed, and the results, even after the first 12 hours, were overwhelming!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/07/28/thankyou-icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/07/28/thankyou-icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Help Us Save MeshCore</title><link href="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore" rel="alternate" type="text/html" title="Help Us Save MeshCore" /><published>2026-07-04T00:00:00+00:00</published><updated>2026-07-04T00:00:00+00:00</updated><id>https://blog.meshcore.io/2026/07/04/help-us-save-meshcore</id><content type="html" xml:base="https://blog.meshcore.io/2026/07/04/help-us-save-meshcore">&lt;p&gt;&lt;img alt=&quot;&quot; class=&quot;mx-auto&quot; src=&quot;/assets/images/2026/07/04/meshcore-banner-short.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;foreword-by-scott-powell&quot;&gt;Foreword, by Scott Powell&lt;/h2&gt;
-
-&lt;p&gt;Many of you got into MeshCore because it answered an as-yet unknown call. 
-The project had its beginnings &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/the-future-3211940&quot;&gt;here&lt;/a&gt; in late 2024, when I was
-frustrated that there was no sufficiently open and permissive mesh protocol which could
-form the centre of a vibrant ecosystem. From the start, I made my intentions clear, that I wanted
-an open protocol, an open source core engine, but also permissive of 3rd party products that could build on top of it.
-I then spent the next two months designing and writing what became the &lt;a href=&quot;https://github.com/meshcore-dev/MeshCore&quot;&gt;C++ MeshCore engine&lt;/a&gt;, and the 3 main firmware roles.&lt;/p&gt;
-
-&lt;p&gt;What I also made clear were the &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/meshcore-philosophy&quot;&gt;principles&lt;/a&gt; that project was founded on.
-What has been great to see is how MeshCore has attracted the &lt;em&gt;right&lt;/em&gt; people, as many have
-noted and found the general &lt;em&gt;spirit&lt;/em&gt; of conversations to be very positive and cooperative.&lt;/p&gt;
-
-&lt;p&gt;I believe its success has rested on two main pillars:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;technical pragmatism (eg. keep it simple)&lt;/li&gt;
-  &lt;li&gt;a positive and appropriate ethic for the times we’re in (eg. heavy gov/corp tracking and censorship)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As many of you know, a &lt;a href=&quot;/2026/04/23/the-split&quot;&gt;team split&lt;/a&gt; occurred earlier this year due to a steady erosion of trust, which culminated
-in a trademark filing that completely went behind the core team’s back. We are now on a &lt;em&gt;war footing&lt;/em&gt; as
-&lt;strong&gt;every&lt;/strong&gt; attempt from us to come to an understanding has been met with contempt by the former member.&lt;/p&gt;
-
-&lt;p&gt;All of this could have been avoided with one simple email from him: to state his intentions upon winning
-the legal mark. That’s it. I’ve made my intentions for MeshCore widely known, but the former
-member prefers to hide his intentions (and his methods). Part of the huge backlash against him and his derived
-products is precisely because of his lack of openness. He has plenty of time
-to rebrand even the latest MeshCore releases, modify them, promote them as his own, but he doesn’t
-even have time to send us, the core team, a single email?&lt;/p&gt;
-
-&lt;p&gt;And the irony is he primarily wants to steer people &lt;em&gt;from&lt;/em&gt; the MeshCore brand &lt;em&gt;to&lt;/em&gt; his own brand! MeshCore
-is simply a stepping stone, yet he still has shown no intention of dropping the trademark filing. It begs the question, why?&lt;/p&gt;
-
-&lt;p&gt;As a result, we have burned countless days and dollars mounting a legal challenge. This has
-been very draining, and has been &lt;em&gt;hurting&lt;/em&gt; the project. PR’s pile up, and features we’d hoped to have done 
-by now still haven’t been touched. So, we &lt;em&gt;need&lt;/em&gt; to get this behind us and get the project back on track.&lt;/p&gt;
-
-&lt;p&gt;But, for the next phase, we need your help.&lt;/p&gt;
-
-&lt;p&gt;We are approaching the &lt;em&gt;pointy&lt;/em&gt; end of the legals, with a deadline looming, and
-crossing the next threshold is going to cost a lot, so we’re asking for help.
-The details will be explained further in this post, by Liam and the rest of the team.&lt;/p&gt;
-
-&lt;p&gt;I just want to get back to where we keep pushing where MeshCore is going, innovating and seeing
-just what is &lt;em&gt;possible&lt;/em&gt; with a community-run mesh. We have SO much still to do! And hopefully we’ll
-be back on track again soon.&lt;/p&gt;
-
-&lt;p&gt;warm regards,&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Scott&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;timeline-summary&quot;&gt;Timeline Summary&lt;/h2&gt;
-
-&lt;p&gt;We’ve included some key information from the timeline of events relating to this dispute below.
-For the purposes of the timeline, we refer to the former team member as &lt;em&gt;AK&lt;/em&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;16/Nov/2024&lt;/strong&gt; Scott shares &lt;a href=&quot;https://buymeacoffee.com/ripplebiz/the-future-3211940&quot;&gt;blog post&lt;/a&gt; announcing his plans to work on MeshCore.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;20/Jan/2025&lt;/strong&gt; Scott publishes his open source MeshCore project on GitHub.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(things are going well for more than 1 year, with a thriving community)&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(trust with AK was starting to erode)&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(some internal disagreements came up)&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;29/Mar/2026&lt;/strong&gt; AK secretly files for UK trademark.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;03/Apr/2026&lt;/strong&gt; We confronted AK on the filings. Conversation broke down with no resolution.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;10/Apr/2026&lt;/strong&gt; Liam and Scott start New Zealand company “MeshCore Technologies Limited”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;11/Apr/2026&lt;/strong&gt; We file for MeshCore logo trademark in New Zealand.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;20/Apr/2026&lt;/strong&gt; AK secretly files for EU trademark.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;23/Apr/2026&lt;/strong&gt; We announce &lt;a href=&quot;/2026/04/23/the-split&quot;&gt;team split&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;25/Apr/2026&lt;/strong&gt; We start engagements with legal counsel.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;06/May/2026&lt;/strong&gt; We file for logo trademark in Australia.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;06/May/2026&lt;/strong&gt; We file for word trademark in Australia, New Zealand, United States and China.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;07/May/2026&lt;/strong&gt; We ask AK (again) to withdraw the UK/EU trademarks.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;07/May/2026&lt;/strong&gt; AK responds saying he won’t withdraw the UK/EU trademark applications.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;08/May/2026&lt;/strong&gt; AK says we will need to form some sort of commercial agreement with him.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;09/May/2026&lt;/strong&gt; We ask AK for a proposal around trademark rights. He says he’ll have a think about it and get back to us.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;19/May/2026&lt;/strong&gt; We follow up via email and discord asking again, about a proposal around the trademarks.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;04/Jun/2026&lt;/strong&gt; We file for subsequent international designations for word trademark in Canada, Switzerland, European Union and United Kingdom.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;12/Jun/2026&lt;/strong&gt; Our lawyers send notice of threatened opposition and extend UK trademark opposition period from 17/June/2026 to 17/July/2026.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;18/Jun/2026&lt;/strong&gt; Our lawyers send demand letter to AK. (alleges copyright infringement, stolen assets, and tool cloning, which can be seen in file names and api responses of .uk site)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;24/Jun/2026&lt;/strong&gt; AK responds to our demand letter. (denies any wrong doing or bad faith, refusing &lt;em&gt;all&lt;/em&gt; desist orders)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;25/Jun/2026&lt;/strong&gt; We reach out to AK one more time via email and discord, giving him another opportunity to provide us with a proposal around the trademarks, however received no reply.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;why-not-just-rename&quot;&gt;Why Not Just Rename?&lt;/h2&gt;
-
-&lt;p&gt;We know some of you might be thinking, &lt;em&gt;“Why not just rename the project and move on?”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The short answer is, we shouldn’t have to. We came up with the name, hand crafted the firmware and are still the original core maintainers of the project.&lt;/p&gt;
-
-&lt;p&gt;It also sets a dangerous precedent, that if an open source project simply folds and rebrands every time a bad faith actor tries to claim a trademark, it signals that open source developers can always be bullied out of their own hard work.&lt;/p&gt;
-
-&lt;p&gt;So instead, we are choosing to stand our ground and fight for the name we earned, and for the future of the project and our community.&lt;/p&gt;
-
-&lt;p&gt;If AK becomes successful in registering the trademark, all it will do is fracture an already well established, global ecosystem.
-It doesn’t make sense why he’s still pursuing this, especially after the massive backlash from the community.&lt;/p&gt;
-
-&lt;h2 id=&quot;keeping-the-core-human--open-source&quot;&gt;Keeping the Core &lt;em&gt;Human&lt;/em&gt; &amp;amp; Open Source&lt;/h2&gt;
-
-&lt;p&gt;This fight also highlights exactly where things are headed if AK gets control of the name.&lt;/p&gt;
-
-&lt;p&gt;While some of the apps/clients in our ecosystem may be closed source, our core firmware and libraries have &lt;em&gt;always&lt;/em&gt; been strictly open source, and written by humans.&lt;/p&gt;
-
-&lt;p&gt;AK’s version proves his trajectory, taking open source community code, feeding it to an AI, locking it down, and making it closed source, for profit.&lt;/p&gt;
-
-&lt;p&gt;Supporting us in this fight is a vote to keep the core firmware free, open, and community driven.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-next-step&quot;&gt;The Next Step&lt;/h2&gt;
-
-&lt;p&gt;So, now we’re facing the expensive part of all this…&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, AK is forcing this with his refusal to provide any workable resolution to this conflict.&lt;/p&gt;
-
-&lt;p&gt;As we are getting closer to the deadline, we now need to push ahead with legal opposition of the trademarks.
-At this stage, we’ve only extended the deadline for submitting our opposition arguments.
-Should AK try to defend the opposition, we plan to proceed with prosecution through the courts.&lt;/p&gt;
-
-&lt;p&gt;We have been given some estimated costs by our lawyers, totalling around $18,000 USD.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;~$3,000 USD - Legal fees to oppose the UK trademark application.&lt;/li&gt;
-  &lt;li&gt;~$9,000 USD - Legal fees to proceed to prosecution if the UK trademark opposition is defended.&lt;/li&gt;
-  &lt;li&gt;~$6,000 USD - Legal fees to file an invalidation action for the EU trademark.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In addition to this, we have already personally covered more than $15,000 towards counter-trademark filings (in other jurisdictions), legal fees and extension of opposition deadlines.&lt;/p&gt;
-
-&lt;p&gt;Nearly all five of the core team members do MeshCore work part time.
-And up until recently, the project has had no central revenue earning capability (unlike similar projects like Meshtastic).&lt;/p&gt;
-
-&lt;p&gt;Because of this, the project is very underfunded. However, none of us have really minded. We do the work because we want to see it succeed.&lt;/p&gt;
-
-&lt;p&gt;Very recently, we started a &lt;a href=&quot;https://github.com/sponsors/meshcore-dev/&quot;&gt;GitHub Sponsors page&lt;/a&gt;, and it’s been great to see so many of you donate to us.&lt;/p&gt;
-
-&lt;p&gt;As this hasn’t been running for very long, unfortunately we haven’t accrued anywhere near enough to cover the legal costs.
-So we’ve now started a &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;crowd funding campaign&lt;/a&gt;, in an attempt to raise the required funds to continue the legal challenge.&lt;/p&gt;
-
-&lt;p&gt;We are now asking the MeshCore community for any support you may be able to provide us in our fight to protect the MeshCore project’s name and future.
-Any contribution you are able to provide will be greatly appreciated.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-happens-if-we-win&quot;&gt;What Happens If We Win&lt;/h2&gt;
-
-&lt;p&gt;If we win the legal opposition, we will need to start a process to get consensus on what the trademark (and logo) ‘fair use’ policy should be.
-We would be looking for suggestions from the community, and would reach out for comments when we get to that stage.&lt;/p&gt;
-
-&lt;p&gt;We’ve always had a pretty &lt;em&gt;liberal&lt;/em&gt; attitude to the use of the name and logo, but we will have to have some formal rules
-around it, and a means to prohibit any ‘bad faith’ or abusive uses.&lt;/p&gt;
-
-&lt;p&gt;Other than that, the project would continue as normal. Instead of dealing with this legal dispute, we’d have more time to put toward working through our growing pile of feature requests!&lt;/p&gt;
-
-&lt;h2 id=&quot;what-happens-if-challenge-is-not-viable&quot;&gt;What Happens If Challenge Is Not Viable&lt;/h2&gt;
-
-&lt;p&gt;In the event that the trademark opposition is unsuccessful and a prosecution through the courts is not viable, say due to insufficient
-funding, we would pool any raised funds into the GitHub Sponsors fund, with plans for it to benefit the MeshCore community directly.&lt;/p&gt;
-
-&lt;p&gt;We’ve wanted to establish things like bug bounties, and some way of rewarding the top contributors after each release.
-These funds could end up at least helping the future of the project in more practical ways, by helping the
-efforts be more sustainable.&lt;/p&gt;
-
-&lt;p&gt;So far, from our generous sponsors, we have accrued around ~$1,800.&lt;/p&gt;
-
-&lt;h2 id=&quot;our-final-request-to-andy&quot;&gt;Our Final Request to Andy&lt;/h2&gt;
-
-&lt;p&gt;Andy, if you’re reading this, we urge you to withdraw your trademark applications.
-Please consider the long term health and future of the MeshCore project, and bring this dispute to a close.&lt;/p&gt;
-
-&lt;p&gt;All it takes is a quick email to the trademark offices requesting the withdrawal of your filings.
-If you do that, we will drop our legal challenges, and we can all move on, allowing us more time and energy for the project.&lt;/p&gt;
-
-&lt;p&gt;Otherwise, we have compiled all necessary evidence, and are fully prepared to push forward with defending our open source project.&lt;/p&gt;
-
-&lt;h2 id=&quot;help-support-the-meshcore-team&quot;&gt;Help Support the MeshCore Team&lt;/h2&gt;
-
-&lt;p&gt;If you’d like to help support the MeshCore project, please consider donating through our links below.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Crowd Funding Campaign: &lt;a href=&quot;https://givealittle.co.nz/cause/help-us-save-meshcore&quot;&gt;https://givealittle.co.nz/cause/help-us-save-meshcore&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;GitHub Sponsors: &lt;a href=&quot;https://github.com/sponsors/meshcore-dev/&quot;&gt;https://github.com/sponsors/meshcore-dev/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Even if you’re unable to contribute financially, sharing this post will help us tremendously.&lt;/p&gt;
-
-&lt;p&gt;We appreciate all the support we can get.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;em&gt;The MeshCore Team&lt;/em&gt;&lt;/p&gt;</content><author><name>admin</name></author><summary type="html">The GiveALittle fundraiser is now closed, and the results, even after the first 12 hours, were overwhelming!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.meshcore.io/assets/images/2026/07/28/thankyou-icon.png" /><media:content medium="image" url="https://blog.meshcore.io/assets/images/2026/07/28/thankyou-icon.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
